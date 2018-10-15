@@ -253,6 +253,200 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/10/15/阅读报告Forwarding-Strategies-for-Applications-in-Named-Data-Networking-jinyang-20180320/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="天洋行空">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天洋行空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/15/阅读报告Forwarding-Strategies-for-Applications-in-Named-Data-Networking-jinyang-20180320/" itemprop="url">阅读报告Forwarding Strategies for Applications in Named Data Networking_jinyang_20180320</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-15T23:00:36+08:00">
+                2018-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Named-Data-Networking/" itemprop="url" rel="index">
+                    <span itemprop="name">Named Data Networking</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h2 id="论文题目"><a href="#论文题目" class="headerlink" title="论文题目"></a>论文题目</h2><p>Forwarding Strategies for Applications in Named Data Networking</p>
+<h2 id="论文作者、单位"><a href="#论文作者、单位" class="headerlink" title="论文作者、单位"></a>论文作者、单位</h2><p>Hila Ben Abraham and Patrick Crowley——Washington University</p>
+<h2 id="发表的会议或者期刊"><a href="#发表的会议或者期刊" class="headerlink" title="发表的会议或者期刊"></a>发表的会议或者期刊</h2><p>ANCS ’16 March 17-18, 2016, Santa Clara, CA, USA<br>C类</p>
+<h2 id="论文关键字"><a href="#论文关键字" class="headerlink" title="论文关键字"></a>论文关键字</h2><p>无</p>
+<h2 id="论文摘要原文"><a href="#论文摘要原文" class="headerlink" title="论文摘要原文"></a>论文摘要原文</h2><p>Named Data Networking (NDN), an information-centric Internet architecture, introduces a new forwarding model, in which the forwarding plane can choose between multiple interfaces when forwarding a packet. While the forwarding<br>module brings new opportunities it also introduces challenges when the application’s performance or correctness is affected by a conflict between the application design and the assigned forwarding strategy. In this paper we demonstrate the impact of the forwarding strategy decision on the performance and correctness of NDN applications.</p>
+<h2 id="论文摘要中文"><a href="#论文摘要中文" class="headerlink" title="论文摘要中文"></a>论文摘要中文</h2><p>作为一个信息中心网络体系，NDN引入了一个全新的转发模型，在转发包时其转发平面可以在多个接口中做出选择。虽然转发模块带来了有点，但也带来了挑战，应用程序的性能或正确性   受到 应用程序设计和分配的转发策略之间冲突的影响。在本文中，我们展示了转发策略决策对NDN应用性能和正确性的影响。</p>
+<h2 id="研究问题"><a href="#研究问题" class="headerlink" title="研究问题"></a>研究问题</h2><p>不同的转发策略对应用性能和正确性的影响。</p>
+<h2 id="研究意义"><a href="#研究意义" class="headerlink" title="研究意义"></a>研究意义</h2><ol>
+<li>在网络不同位置要使用不同的转发策略</li>
+<li>如果存在一歌性能足够出色的转发策略，他就可以作为NDN默认的转发策略</li>
+</ol>
+<h2 id="研究内容（算法、方法、技术、模型）"><a href="#研究内容（算法、方法、技术、模型）" class="headerlink" title="研究内容（算法、方法、技术、模型）"></a>研究内容（算法、方法、技术、模型）</h2><p>构建了两个场景<br>case1：不同的producer不同内容，但是发布的name都相同。此时FIB这个prefix会有两个出口，best route只选择其一 ，To solve this, the developer should design the appliction to use producer-specific namespaces instead of a general one.</p>
+<p>case2：通知场景</p>
+<h2 id="研究结论、主要贡献"><a href="#研究结论、主要贡献" class="headerlink" title="研究结论、主要贡献"></a>研究结论、主要贡献</h2><p>命名空间的设计、转发策略、场景都会对应用的性能有影响。</p>
+<h2 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h2><p>通知型服务 “同步”案例二  本地有更新，发布Interest<br>CCNx里重传必须走不同的端口，在CCN同步协议里，参与者不回复这个“通知IPkt”，所以IPkt会重传，但又不能走一个路口，走下一个可行的路口这样就都通知到了。</p>
+<h2 id="技术难点"><a href="#技术难点" class="headerlink" title="技术难点"></a>技术难点</h2><p>怎么找到一个足够好的forwarding strategy，我们应该针对场景来设计策略吧</p>
+<h2 id="对本人工作的启发"><a href="#对本人工作的启发" class="headerlink" title="对本人工作的启发"></a>对本人工作的启发</h2><ol>
+<li>转发决策由 转发策略、请求的名字共同决定</li>
+<li>转发策略需要做 <ol>
+<li>哪个face转发出去(最好的一个、一些、全部)。</li>
+<li>如何处理不能按时收到data的Interest(Drop、重传、回复NACK包)。</li>
+<li>要记录下游节点工作状态。</li>
+</ol>
+</li>
+<li>转发策略分类</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类别</th>
+<th style="text-align:right">特点</th>
+<th style="text-align:center">示例策略</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Adaptive</td>
+<td style="text-align:right">记录face的性能，帮助将来的决策</td>
+<td style="text-align:center">红黄绿、默认CCNx</td>
+</tr>
+<tr>
+<td style="text-align:left">Static</td>
+<td style="text-align:right">严格依据路由协议的决策，不用一些face时需要路由协议来去除</td>
+<td style="text-align:center">best route（最小cost）</td>
+</tr>
+</tbody>
+</table>
+<p>实验结果还有loadsharing、parallel<br>static策略只有在链路故障时才会改变</p>
+<p>4.案例一说明需要设计特定producer的命名，防止重名</p>
+<ol start="5">
+<li>记录下这两个场景<h2 id="进一步研究思路"><a href="#进一步研究思路" class="headerlink" title="进一步研究思路"></a>进一步研究思路</h2>向别人宣告自己的位置时，通过发Interest来，这就相当于hello包。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/10/15/指数退避算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -493,7 +687,7 @@
       
         
           
-            <h1 id="上传本地项目至Github"><a href="#上传本地项目至Github" class="headerlink" title="上传本地项目至Github"></a>上传本地项目至Github</h1><p>今天尝试了下Github，先把本科的一些实验报告保存到了github上。同时把一些流程和遇到的问题记录下来。</p>
+            <p>今天尝试了下Github，先把本科的一些实验报告保存到了github上。同时把一些流程和遇到的问题记录下来。</p>
 <ul>
 <li><strong>本地项目上传方法</strong></li>
 <li><strong>注意的地方</strong></li>
@@ -648,7 +842,7 @@
       
         
           
-            <h1 id="阅读报告-B-2004-IEEE-Wireless-Communications-Routing-techniques-in-wireless-sensor-networks-a-survey-jinyang-20181015"><a href="#阅读报告-B-2004-IEEE-Wireless-Communications-Routing-techniques-in-wireless-sensor-networks-a-survey-jinyang-20181015" class="headerlink" title="阅读报告_B_[2004][IEEE Wireless Communications ]Routing techniques in wireless sensor networks a survey_jinyang_20181015"></a>阅读报告_B_[2004][IEEE Wireless Communications ]Routing techniques in wireless sensor networks a survey_jinyang_20181015</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h4 id="分类three-categories-based-on-the-underlying-network-structure"><a href="#分类three-categories-based-on-the-underlying-network-structure" class="headerlink" title="分类three categories based on the underlying network structure:"></a>分类three categories based on the underlying network structure:</h4><ul>
+            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h4 id="分类three-categories-based-on-the-underlying-network-structure"><a href="#分类three-categories-based-on-the-underlying-network-structure" class="headerlink" title="分类three categories based on the underlying network structure:"></a>分类three categories based on the underlying network structure:</h4><ul>
 <li>flit</li>
 <li>hierarchical</li>
 <li>location-based routing  </li>
@@ -903,6 +1097,151 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/ArrayList的初始化陷阱/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="天洋行空">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天洋行空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/15/ArrayList的初始化陷阱/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T20:56:33+08:00">
+                2018-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><code>List&lt;String&gt; list = new ArrayList&lt;&gt;(2);</code><br>这个乍一看，还以为像数组一样，你初始化了个长度为2的数组，然后你就可以随意修改下标为0，1的内容。当然0，1是肯定不会下标越界的。<br>我当时也是这么想的。然而不是的。<br>源码里面的构造函数的注释说明：这个真的是在底层新建了个长度为2的数组Object[]，但是他又不是我们经常看到的一般数组。这个是空的。<br>当前list集合仍然是一个带有初始容量的empty list。</li>
+<li><code>list.size()</code><br>我上来也是想当然的以为，这个size()不就是上面的那个2吗！但是我错了。<br>源码中ArrayList的size属性对应的注释是：The size of the ArrayList (the number of elements it contains).<br>这个size是表示这个集合包含的元素的个数，而不是底层数组的大小。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1090,7 +1429,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1101,7 +1440,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
