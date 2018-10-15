@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="转自：http://www.cnblogs.com/luoxn28/p/5767571.html 最近在搞二分答案，一下子就找到了这么一篇讲解二分查找的文章。感觉姿势水平非常高，于是就转载了这样一篇文章。 正文内容如下： 1 二分查找 　　二分查找是一个基础的算法，也是面试中常考的一个知识点。二分查找就是将查找的键和子数组的中间键作比较，如果被查找的键小于中间键，就">
+<meta name="keywords" content="Technology">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于二分查找">
+<meta property="og:url" content="https://tronyy.github.io/archives/2018/09/15/关于二分查找/index.html">
+<meta property="og:site_name" content="天洋行空">
+<meta property="og:description" content="转自：http://www.cnblogs.com/luoxn28/p/5767571.html 最近在搞二分答案，一下子就找到了这么一篇讲解二分查找的文章。感觉姿势水平非常高，于是就转载了这样一篇文章。 正文内容如下： 1 二分查找 　　二分查找是一个基础的算法，也是面试中常考的一个知识点。二分查找就是将查找的键和子数组的中间键作比较，如果被查找的键小于中间键，就">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdn.net/20171022205549756?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGhlbGp0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="https://img-blog.csdn.net/20171022205721435?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGhlbGp0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2018-10-15T15:39:21.596Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于二分查找">
+<meta name="twitter:description" content="转自：http://www.cnblogs.com/luoxn28/p/5767571.html 最近在搞二分答案，一下子就找到了这么一篇讲解二分查找的文章。感觉姿势水平非常高，于是就转载了这样一篇文章。 正文内容如下： 1 二分查找 　　二分查找是一个基础的算法，也是面试中常考的一个知识点。二分查找就是将查找的键和子数组的中间键作比较，如果被查找的键小于中间键，就">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20171022205549756?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGhlbGp0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://tronyy.github.io/archives/2018/09/15/关于二分查找/"/>
+
+
+
+
+
+  <title>关于二分查找 | 天洋行空</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">天洋行空</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/关于二分查找/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="天洋行空">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天洋行空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">关于二分查找</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T20:56:33+08:00">
+                2018-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Data-Structures-and-Algorithms/" itemprop="url" rel="index">
+                    <span itemprop="name">Data Structures and Algorithms</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="markdown_views"><br>                <p>转自：<a href="http://www.cnblogs.com/luoxn28/p/5767571.html" target="_blank">http://www.cnblogs.com/luoxn28/p/5767571.html</a> <br><br>最近在搞二分答案，一下子就找到了这么一篇讲解二分查找的文章。感觉姿势水平非常高，于是就转载了这样一篇文章。 <br><br>正文内容如下： <br><br><strong>1 二分查找</strong> <br><br>　　二分查找是一个基础的算法，也是面试中常考的一个知识点。二分查找就是将查找的键和子数组的中间键作比较，如果被查找的键小于中间键，就在左子数组继续查找；如果大于中间键，就在右子数组中查找，否则中间键就是要找的元素。 <br><br><img src="https://img-blog.csdn.net/20171022205549756?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGhlbGp0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="" title=""> <br><br>（图片来自《算法-第4版》）</p><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs java has-numbering"><span class="hljs-javadoc">/*<em><br> - 二分查找，找到该值在数组中的下标，否则为-1
+ </em>/</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> binarySerach(<span class="hljs-keyword">int</span>[] array, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = array.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (array[mid] == key) {<br>            <span class="hljs-keyword">return</span> mid;<br>        }<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (array[mid] &lt; key) {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>    }<br><br>    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><li>21</li><li>22</li><li>23</li></ul></pre><br><br><p>　　每次移动left和right指针的时候，需要在mid的基础上+1或者-1， 防止出现死循环， 程序也就能够正确的运行。 <br><br>　　注意：代码中的判断条件必须是while (left &lt;= right)，否则的话判断条件不完整，比如：array[3] = {1, 3, 5};待查找的键为5，此时在(low &lt; high)条件下就会找不到，因为low和high相等时，指向元素5，但是此时条件不成立，没有进入while()中。 <br><br><strong>2 二分查找的变种</strong> <br><br>　　关于二分查找，如果条件稍微变换一下，比如：数组之中的数据可能可以重复，要求返回匹配的数据的最小（或最大）的下标；更近一步， 需要找出数组中第一个大于key的元素（也就是最小的大于key的元素的）下标，等等。 这些，虽然只有一点点的变化，实现的时候确实要更加的细心。 <br><br>　　二分查找的变种和二分查找原理一样，主要就是变换判断条件（也就是边界条件），如果想直接看如何记忆这些变种的窍门，请直接翻到本文最后。下面来看几种二分查找变种的代码：</p><br><br><ul><br><li><p><strong>2.1 查找第一个与key相等的元素</strong></p><br><br><p>　　查找第一个相等的元素，也就是说等于查找key值的元素有好多个，返回这些元素最左边的元素下标。</p></li><br></ul><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找第一个相等的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findFirstEqual(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt;= key) {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">if</span> (left &lt; <span class="hljs-built_in">array</span>.length &amp;&amp; <span class="hljs-built_in">array</span>[left] == key) {<br>        <span class="hljs-keyword">return</span> left;<br>    }<br><br>    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><li>21</li></ul></pre><br><br><ul><br><li><p><strong>2.2 查找最后一个与key相等的元素</strong></p><br><br><p>　　查找最后一个相等的元素，也就是说等于查找key值的元素有好多个，返回这些元素最右边的元素下标。</p></li><br></ul><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找最后一个相等的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findLastEqual(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &lt;= key) {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">if</span> (right &gt;= <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-built_in">array</span>[right] == key) {<br>        <span class="hljs-keyword">return</span> right;<br>    }<br><br>    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><li>21</li></ul></pre><br><br><ul><br><li><p><strong>2.3 查找最后一个等于或者小于key的元素</strong></p><br><br><p>　　查找最后一个等于或者小于key的元素，也就是说等于查找key值的元素有好多个，返回这些元素最右边的元素下标；如果没有等于key值的元素，则返回小于key的最右边元素下标。</p></li><br></ul><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><br><span class="hljs-comment">// 查找最后一个等于或者小于key的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findLastEqualSmaller(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt; key) {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">return</span> right;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li></ul></pre><br><br><ul><br><li><p><strong>2.4 查找最后一个小于key的元素</strong></p><br><br><p>　　查找最后一个小于key的元素，也就是说返回小于key的最右边元素下标。</p></li><br></ul><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找最后一个小于key的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findLastSmaller(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt;= key) {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">return</span> right;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li></ul></pre><br><br><ul><br><li><p><strong>2.5 查找第一个等于或者大于key的元素</strong></p><br><br><p>　　查找第一个等于或者大于key的元素，也就是说等于查找key值的元素有好多个，返回这些元素最左边的元素下标；如果没有等于key值的元素，则返回大于key的最左边元素下标。</p></li><br></ul><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找第一个等于或者大于key的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findFirstEqualLarger(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt;= key) {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">return</span> left;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li></ul></pre><br><br><ul><br><li><p><strong>2.6 查找第一个大于key的元素</strong></p><br><br><p>　　查找第一个等于key的元素，也就是说返回大于key的最左边元素下标。</p></li><br></ul><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找第一个大于key的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findFirstLarger(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt; key) {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">return</span> left;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li></ul></pre><br><br><p><strong>3 二分查找变种总结</strong></p><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs r has-numbering">// 这里必须是 &lt;=<br><span class="hljs-keyword">while</span> (left &lt;= right) {<br>    int mid = (left + right) / <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">if</span> (array[mid] ? key) {<br>        //<span class="hljs-keyword">…</span> right = mid - <span class="hljs-number">1</span>;<br>    }<br>    <span class="hljs-keyword">else</span> {<br>        // <span class="hljs-keyword">…</span> left = mid + <span class="hljs-number">1</span>;<br>    }<br>}<br><span class="hljs-keyword">return</span> xxx;</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li></ul></pre><br><br><p>　　二分查找变种较多，不过它们的“套路”是一样的，以上代码就是其套路，如何快速写出二分查找的代码，只需按照以下步骤即可：</p><br><br><p><strong>1 首先判断出是返回left，还是返回right</strong></p><br><br><p>　　因为我们知道最后跳出while (left &lt;= right)循环条件是right &lt; left，且right = left - 1。最后right和left一定是卡在”边界值”的左右两边，如果是比较值为key，查找小于等于（或者是小于）key的元素，则边界值就是等于key的所有元素的最左边那个，其实应该返回left。</p><br><br><p>　　以数组{1, 2, 3, 3, 4, 5}为例，如果需要查找第一个等于或者小于3的元素下标，我们比较的key值是3，则最后left和right需要满足以下条件： <br><br><img src="https://img-blog.csdn.net/20171022205721435?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGhlbGp0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="" title=""></p><br><br><p>　　我们比较的key值是3，所以此时我们需要返回left。</p><br><br><p><strong>2 判断出比较符号</strong></p><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs r has-numbering">int mid = (left + right) / <span class="hljs-number">2</span>;<br><span class="hljs-keyword">if</span> (array[mid] ? key) {<br>    //<span class="hljs-keyword">…</span> right = xxx;<br>}<br><span class="hljs-keyword">else</span> {<br>    // <span class="hljs-keyword">…</span> left = xxx;<br>}<br></code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li></ul></pre><br><br><p>　　也就是这里的 if (array[mid] ? key) 中的判断符号，结合步骤1和给出的条件，如果是查找小于等于key的元素，则知道应该使用判断符号&gt;=，因为是要返回left，所以如果array[mid]等于或者大于key，就应该使用&gt;=，以下是完整代码</p><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找小于等于key的元素</span><br><span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br><span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt;= key) {<br>    right = mid - <span class="hljs-number">1</span>;<br>}<br><span class="hljs-keyword">else</span> {<br>    left = mid + <span class="hljs-number">1</span>;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li></ul></pre><br><br><blockquote><br>  <p><strong>参考：</strong></p><br><br>  <ul><br>  <li><p>1、你真的会写二分检索吗？</p></li><br>  <li><p>2、<a href="http://www.cnblogs.com/luoxn28/category/802645.html" target="_blank">http://www.cnblogs.com/luoxn28/category/802645.html</a></p></li><br>  </ul><br></blockquote>            </div>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/15/阅读报告A_2010_IJ_Listen First, Broadcast Later Topology Agnostic Forwarding under High Dynamics_jinyang_20170729——LFBL详细/" rel="prev" title="阅读报告A_2010_IJ_Listen First, Broadcast Later Topology Agnostic Forwarding under High Dynamics_jinyang_20170729——LFBL详细">
+                阅读报告A_2010_IJ_Listen First, Broadcast Later Topology Agnostic Forwarding under High Dynamics_jinyang_20170729——LFBL详细 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="天洋行空" />
+            
+              <p class="site-author-name" itemprop="name">天洋行空</p>
+              <p class="site-description motion-element" itemprop="description">戒骄戒躁</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TronYY" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jinyang0508@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/1349255833/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">天洋行空</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
