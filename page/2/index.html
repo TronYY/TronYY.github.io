@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/ArrayList的初始化陷阱/">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/阅读报告A_2010_IJ_Listen First, Broadcast Later Topology Agnostic Forwarding under High Dynamics_jinyang_20170729——LFBL详细/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="天洋行空">
@@ -272,7 +272,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/15/ArrayList的初始化陷阱/" itemprop="url">ArrayList的初始化陷阱</a></h1>
+                <a class="post-title-link" href="/2018/09/15/阅读报告A_2010_IJ_Listen First, Broadcast Later Topology Agnostic Forwarding under High Dynamics_jinyang_20170729——LFBL详细/" itemprop="url">阅读报告A_2010_IJ_Listen First, Broadcast Later Topology Agnostic Forwarding under High Dynamics_jinyang_20170729——LFBL详细</a></h1>
         
 
         <div class="post-meta">
@@ -307,8 +307,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/Named-Data-Networking/" itemprop="url" rel="index">
+                    <span itemprop="name">Named Data Networking</span>
                   </a>
                 </span>
 
@@ -346,10 +346,7 @@
       
         
           
-            <ol>
-<li><code>List&lt;String&gt; list = new ArrayList&lt;&gt;(2);</code><br>这个乍一看，还以为像数组一样，你初始化了个长度为2的数组，然后你就可以随意修改下标为0，1的内容。当然0，1是肯定不会下标越界的。<br>我当时也是这么想的。然而不是的。<br>源码里面的构造函数的注释说明：这个真的是在底层新建了个长度为2的数组Object[]，但是他又不是我们经常看到的一般数组。这个是空的。<br>当前list集合仍然是一个带有初始容量的empty list。</li>
-<li><code>list.size()</code><br>我上来也是想当然的以为，这个size()不就是上面的那个2吗！但是我错了。<br>源码中ArrayList的size属性对应的注释是：The size of the ArrayList (the number of elements it contains).<br>这个size是表示这个集合包含的元素的个数，而不是底层数组的大小。</li>
-</ol>
+            <h2 id="论文摘要翻译"><a href="#论文摘要翻译" class="headerlink" title="论文摘要翻译"></a>论文摘要翻译</h2><p>在本文中，我们重新思考了对于高度动态性无线网络的多跳转发的基本方法。思考的结果是：一种极简的转发协议——“先听后广播”（LFBL）。LFBL是拓扑无关的，也就是说，它没有邻居、路径、下一跳的信息。不靠发送者，LFBL由接收者来做转发决策，为了做到这一点，它只为每个活跃通信断点保留小的、固定量的状态。这样做的结果是，几乎没有什么状态会变得陈旧，也没有预定的路径被打破。频繁的拓扑变化不会削弱性能。LFBL为所有的包使用了专门的广播通信，使得它更契合无线介质、允许更灵活地选择MAC层协议。除了节点的物理移动，LFBL也支持应用层数据的逻辑移动。仿真时，LFBL比AODV表现更好。</p>
 
           
         
@@ -398,7 +395,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/增强For循环/">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="天洋行空">
@@ -417,7 +414,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/15/增强For循环/" itemprop="url">增强For循环</a></h1>
+                <a class="post-title-link" href="/2018/09/15/hello-world/" itemprop="url">Hello World</a></h1>
         
 
         <div class="post-meta">
@@ -452,8 +449,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
                   </a>
                 </span>
 
@@ -491,9 +488,158 @@
       
         
           
-            <p>今天读程序遇到有for循环里有冒号，去查了下，属于增强for循环<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(元素变量:元素集合)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">	程序块；</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForeachTest</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"----------旧方式遍历------------"</span>);</span><br><span class="line">        <span class="comment">//旧式方式        </span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;arr.length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"---------新方式遍历-------------"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//新式写法,增强的for循环</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> element:arr)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(element);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"---------遍历二维数组-------------"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//遍历二维数组</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[][] arr2 = &#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, &#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;&#125; ;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>[] row : arr2)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> element : row)</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(element);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//以三种方式遍历集合List</span></span><br><span class="line">        </span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        </span><br><span class="line">        list.add(<span class="string">"a"</span>);</span><br><span class="line">        list.add(<span class="string">"b"</span>);</span><br><span class="line">        list.add(<span class="string">"c"</span>);</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"----------方式1-----------"</span>);</span><br><span class="line">        <span class="comment">//第一种方式，普通for循环</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(list.get(i));</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"----------方式2-----------"</span>);</span><br><span class="line">        <span class="comment">//第二种方式，使用迭代器</span></span><br><span class="line">        <span class="keyword">for</span>(Iterator&lt;String&gt; iter = list.iterator(); iter.hasNext();)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(iter.next());</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"----------方式3-----------"</span>);</span><br><span class="line">        <span class="comment">//第三种方式，使用增强型的for循环</span></span><br><span class="line">        <span class="keyword">for</span>(String str: list)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(str);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/关于二分查找/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="天洋行空">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天洋行空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/15/关于二分查找/" itemprop="url">关于二分查找</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T20:56:33+08:00">
+                2018-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Data-Structures-and-Algorithms/" itemprop="url" rel="index">
+                    <span itemprop="name">Data Structures and Algorithms</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <div class="markdown_views"><br>                <p>转自：<a href="http://www.cnblogs.com/luoxn28/p/5767571.html" target="_blank">http://www.cnblogs.com/luoxn28/p/5767571.html</a> <br><br>最近在搞二分答案，一下子就找到了这么一篇讲解二分查找的文章。感觉姿势水平非常高，于是就转载了这样一篇文章。 <br><br>正文内容如下： <br><br><strong>1 二分查找</strong> <br><br>　　二分查找是一个基础的算法，也是面试中常考的一个知识点。二分查找就是将查找的键和子数组的中间键作比较，如果被查找的键小于中间键，就在左子数组继续查找；如果大于中间键，就在右子数组中查找，否则中间键就是要找的元素。 <br><br><img src="https://img-blog.csdn.net/20171022205549756?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGhlbGp0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="" title=""> <br><br><br>（图片来自《算法-第4版》）</p><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs java has-numbering"><span class="hljs-javadoc">/*<em><br> - 二分查找，找到该值在数组中的下标，否则为-1
+ </em>/</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> binarySerach(<span class="hljs-keyword">int</span>[] array, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = array.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (array[mid] == key) {<br>            <span class="hljs-keyword">return</span> mid;<br>        }<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (array[mid] &lt; key) {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>    }<br><br>    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><li>21</li><li>22</li><li>23</li></ul></pre><br><br><p>　　每次移动left和right指针的时候，需要在mid的基础上+1或者-1， 防止出现死循环， 程序也就能够正确的运行。 <br><br>　　注意：代码中的判断条件必须是while (left &lt;= right)，否则的话判断条件不完整，比如：array[3] = {1, 3, 5};待查找的键为5，此时在(low &lt; high)条件下就会找不到，因为low和high相等时，指向元素5，但是此时条件不成立，没有进入while()中。 <br><br><strong>2 二分查找的变种</strong> <br><br>　　关于二分查找，如果条件稍微变换一下，比如：数组之中的数据可能可以重复，要求返回匹配的数据的最小（或最大）的下标；更近一步， 需要找出数组中第一个大于key的元素（也就是最小的大于key的元素的）下标，等等。 这些，虽然只有一点点的变化，实现的时候确实要更加的细心。 <br><br>　　二分查找的变种和二分查找原理一样，主要就是变换判断条件（也就是边界条件），如果想直接看如何记忆这些变种的窍门，请直接翻到本文最后。下面来看几种二分查找变种的代码：</p><br><br><ul><br><li><p><strong>2.1 查找第一个与key相等的元素</strong></p><br><br><p>　　查找第一个相等的元素，也就是说等于查找key值的元素有好多个，返回这些元素最左边的元素下标。</p></li><br></ul><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找第一个相等的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findFirstEqual(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt;= key) {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">if</span> (left &lt; <span class="hljs-built_in">array</span>.length &amp;&amp; <span class="hljs-built_in">array</span>[left] == key) {<br>        <span class="hljs-keyword">return</span> left;<br>    }<br><br>    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><li>21</li></ul></pre><br><br><ul><br><li><p><strong>2.2 查找最后一个与key相等的元素</strong></p><br><br><p>　　查找最后一个相等的元素，也就是说等于查找key值的元素有好多个，返回这些元素最右边的元素下标。</p></li><br></ul><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找最后一个相等的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findLastEqual(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &lt;= key) {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">if</span> (right &gt;= <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-built_in">array</span>[right] == key) {<br>        <span class="hljs-keyword">return</span> right;<br>    }<br><br>    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><li>21</li></ul></pre><br><br><ul><br><li><p><strong>2.3 查找最后一个等于或者小于key的元素</strong></p><br><br><p>　　查找最后一个等于或者小于key的元素，也就是说等于查找key值的元素有好多个，返回这些元素最右边的元素下标；如果没有等于key值的元素，则返回小于key的最右边元素下标。</p></li><br></ul><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><br><span class="hljs-comment">// 查找最后一个等于或者小于key的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findLastEqualSmaller(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt; key) {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">return</span> right;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li></ul></pre><br><br><ul><br><li><p><strong>2.4 查找最后一个小于key的元素</strong></p><br><br><p>　　查找最后一个小于key的元素，也就是说返回小于key的最右边元素下标。</p></li><br></ul><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找最后一个小于key的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findLastSmaller(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt;= key) {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">return</span> right;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li></ul></pre><br><br><ul><br><li><p><strong>2.5 查找第一个等于或者大于key的元素</strong></p><br><br><p>　　查找第一个等于或者大于key的元素，也就是说等于查找key值的元素有好多个，返回这些元素最左边的元素下标；如果没有等于key值的元素，则返回大于key的最左边元素下标。</p></li><br></ul><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找第一个等于或者大于key的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findFirstEqualLarger(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt;= key) {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">return</span> left;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li></ul></pre><br><br><ul><br><li><p><strong>2.6 查找第一个大于key的元素</strong></p><br><br><p>　　查找第一个等于key的元素，也就是说返回大于key的最左边元素下标。</p></li><br></ul><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找第一个大于key的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findFirstLarger(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt; key) {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">return</span> left;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li></ul></pre><br><br><p><strong>3 二分查找变种总结</strong></p><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs r has-numbering">// 这里必须是 &lt;=<br><span class="hljs-keyword">while</span> (left &lt;= right) {<br>    int mid = (left + right) / <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">if</span> (array[mid] ? key) {<br>        //<span class="hljs-keyword">…</span> right = mid - <span class="hljs-number">1</span>;<br>    }<br>    <span class="hljs-keyword">else</span> {<br>        // <span class="hljs-keyword">…</span> left = mid + <span class="hljs-number">1</span>;<br>    }<br>}<br><span class="hljs-keyword">return</span> xxx;</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li></ul></pre><br><br><p>　　二分查找变种较多，不过它们的“套路”是一样的，以上代码就是其套路，如何快速写出二分查找的代码，只需按照以下步骤即可：</p><br><br><p><strong>1 首先判断出是返回left，还是返回right</strong></p><br><br><p>　　因为我们知道最后跳出while (left &lt;= right)循环条件是right &lt; left，且right = left - 1。最后right和left一定是卡在”边界值”的左右两边，如果是比较值为key，查找小于等于（或者是小于）key的元素，则边界值就是等于key的所有元素的最左边那个，其实应该返回left。</p><br><br><p>　　以数组{1, 2, 3, 3, 4, 5}为例，如果需要查找第一个等于或者小于3的元素下标，我们比较的key值是3，则最后left和right需要满足以下条件： <br><br><img src="https://img-blog.csdn.net/20171022205721435?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGhlbGp0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="" title=""></p><br><br><p>　　我们比较的key值是3，所以此时我们需要返回left。</p><br><br><p><strong>2 判断出比较符号</strong></p><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs r has-numbering">int mid = (left + right) / <span class="hljs-number">2</span>;<br><span class="hljs-keyword">if</span> (array[mid] ? key) {<br>    //<span class="hljs-keyword">…</span> right = xxx;<br>}<br><span class="hljs-keyword">else</span> {<br>    // <span class="hljs-keyword">…</span> left = xxx;<br>}<br></code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li></ul></pre><br><br><p>　　也就是这里的 if (array[mid] ? key) 中的判断符号，结合步骤1和给出的条件，如果是查找小于等于key的元素，则知道应该使用判断符号&gt;=，因为是要返回left，所以如果array[mid]等于或者大于key，就应该使用&gt;=，以下是完整代码</p><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找小于等于key的元素</span><br><span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br><span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt;= key) {<br>    right = mid - <span class="hljs-number">1</span>;<br>}<br><span class="hljs-keyword">else</span> {<br>    left = mid + <span class="hljs-number">1</span>;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li></ul></pre><br><br><blockquote><br>  <p><strong>参考：</strong></p><br><br>  <ul><br>  <li><p>1、你真的会写二分检索吗？</p></li><br>  <li><p>2、<a href="http://www.cnblogs.com/luoxn28/category/802645.html" target="_blank">http://www.cnblogs.com/luoxn28/category/802645.html</a></p></li><br>  </ul><br></blockquote>            </div>
           
         
       
@@ -699,7 +845,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/增强For循环/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="天洋行空">
@@ -718,7 +864,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/15/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2018/09/15/增强For循环/" itemprop="url">增强For循环</a></h1>
         
 
         <div class="post-meta">
@@ -753,8 +899,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -792,15 +938,8 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <p>今天读程序遇到有for循环里有冒号，去查了下，属于增强for循环<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(元素变量:元素集合)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">	程序块；</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForeachTest</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"----------旧方式遍历------------"</span>);</span><br><span class="line">        <span class="comment">//旧式方式        </span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;arr.length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"---------新方式遍历-------------"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//新式写法,增强的for循环</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> element:arr)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(element);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"---------遍历二维数组-------------"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//遍历二维数组</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[][] arr2 = &#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, &#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;&#125; ;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>[] row : arr2)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> element : row)</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(element);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//以三种方式遍历集合List</span></span><br><span class="line">        </span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        </span><br><span class="line">        list.add(<span class="string">"a"</span>);</span><br><span class="line">        list.add(<span class="string">"b"</span>);</span><br><span class="line">        list.add(<span class="string">"c"</span>);</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"----------方式1-----------"</span>);</span><br><span class="line">        <span class="comment">//第一种方式，普通for循环</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(list.get(i));</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"----------方式2-----------"</span>);</span><br><span class="line">        <span class="comment">//第二种方式，使用迭代器</span></span><br><span class="line">        <span class="keyword">for</span>(Iterator&lt;String&gt; iter = list.iterator(); iter.hasNext();)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(iter.next());</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"----------方式3-----------"</span>);</span><br><span class="line">        <span class="comment">//第三种方式，使用增强型的for循环</span></span><br><span class="line">        <span class="keyword">for</span>(String str: list)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(str);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -849,7 +988,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/阅读报告A_2010_IJ_Listen First, Broadcast Later Topology Agnostic Forwarding under High Dynamics_jinyang_20170729——LFBL详细/">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/如何求中间位置的数——快慢指针/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="天洋行空">
@@ -868,149 +1007,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/15/阅读报告A_2010_IJ_Listen First, Broadcast Later Topology Agnostic Forwarding under High Dynamics_jinyang_20170729——LFBL详细/" itemprop="url">阅读报告A_2010_IJ_Listen First, Broadcast Later Topology Agnostic Forwarding under High Dynamics_jinyang_20170729——LFBL详细</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T20:56:33+08:00">
-                2018-09-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Named-Data-Networking/" itemprop="url" rel="index">
-                    <span itemprop="name">Named Data Networking</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="论文摘要翻译"><a href="#论文摘要翻译" class="headerlink" title="论文摘要翻译"></a>论文摘要翻译</h2><p>在本文中，我们重新思考了对于高度动态性无线网络的多跳转发的基本方法。思考的结果是：一种极简的转发协议——“先听后广播”（LFBL）。LFBL是拓扑无关的，也就是说，它没有邻居、路径、下一跳的信息。不靠发送者，LFBL由接收者来做转发决策，为了做到这一点，它只为每个活跃通信断点保留小的、固定量的状态。这样做的结果是，几乎没有什么状态会变得陈旧，也没有预定的路径被打破。频繁的拓扑变化不会削弱性能。LFBL为所有的包使用了专门的广播通信，使得它更契合无线介质、允许更灵活地选择MAC层协议。除了节点的物理移动，LFBL也支持应用层数据的逻辑移动。仿真时，LFBL比AODV表现更好。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/关于二分查找/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="天洋行空">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天洋行空">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/15/关于二分查找/" itemprop="url">关于二分查找</a></h1>
+                <a class="post-title-link" href="/2018/09/15/如何求中间位置的数——快慢指针/" itemprop="url">如何求中间位置的数——快慢指针</a></h1>
         
 
         <div class="post-meta">
@@ -1084,8 +1081,18 @@
       
         
           
-            <div class="markdown_views"><br>                <p>转自：<a href="http://www.cnblogs.com/luoxn28/p/5767571.html" target="_blank">http://www.cnblogs.com/luoxn28/p/5767571.html</a> <br><br>最近在搞二分答案，一下子就找到了这么一篇讲解二分查找的文章。感觉姿势水平非常高，于是就转载了这样一篇文章。 <br><br>正文内容如下： <br><br><strong>1 二分查找</strong> <br><br>　　二分查找是一个基础的算法，也是面试中常考的一个知识点。二分查找就是将查找的键和子数组的中间键作比较，如果被查找的键小于中间键，就在左子数组继续查找；如果大于中间键，就在右子数组中查找，否则中间键就是要找的元素。 <br><br><img src="https://img-blog.csdn.net/20171022205549756?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGhlbGp0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="" title=""> <br><br><br>（图片来自《算法-第4版》）</p><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs java has-numbering"><span class="hljs-javadoc">/*<em><br> - 二分查找，找到该值在数组中的下标，否则为-1
- </em>/</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> binarySerach(<span class="hljs-keyword">int</span>[] array, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = array.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (array[mid] == key) {<br>            <span class="hljs-keyword">return</span> mid;<br>        }<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (array[mid] &lt; key) {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>    }<br><br>    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><li>21</li><li>22</li><li>23</li></ul></pre><br><br><p>　　每次移动left和right指针的时候，需要在mid的基础上+1或者-1， 防止出现死循环， 程序也就能够正确的运行。 <br><br>　　注意：代码中的判断条件必须是while (left &lt;= right)，否则的话判断条件不完整，比如：array[3] = {1, 3, 5};待查找的键为5，此时在(low &lt; high)条件下就会找不到，因为low和high相等时，指向元素5，但是此时条件不成立，没有进入while()中。 <br><br><strong>2 二分查找的变种</strong> <br><br>　　关于二分查找，如果条件稍微变换一下，比如：数组之中的数据可能可以重复，要求返回匹配的数据的最小（或最大）的下标；更近一步， 需要找出数组中第一个大于key的元素（也就是最小的大于key的元素的）下标，等等。 这些，虽然只有一点点的变化，实现的时候确实要更加的细心。 <br><br>　　二分查找的变种和二分查找原理一样，主要就是变换判断条件（也就是边界条件），如果想直接看如何记忆这些变种的窍门，请直接翻到本文最后。下面来看几种二分查找变种的代码：</p><br><br><ul><br><li><p><strong>2.1 查找第一个与key相等的元素</strong></p><br><br><p>　　查找第一个相等的元素，也就是说等于查找key值的元素有好多个，返回这些元素最左边的元素下标。</p></li><br></ul><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找第一个相等的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findFirstEqual(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt;= key) {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">if</span> (left &lt; <span class="hljs-built_in">array</span>.length &amp;&amp; <span class="hljs-built_in">array</span>[left] == key) {<br>        <span class="hljs-keyword">return</span> left;<br>    }<br><br>    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><li>21</li></ul></pre><br><br><ul><br><li><p><strong>2.2 查找最后一个与key相等的元素</strong></p><br><br><p>　　查找最后一个相等的元素，也就是说等于查找key值的元素有好多个，返回这些元素最右边的元素下标。</p></li><br></ul><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找最后一个相等的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findLastEqual(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &lt;= key) {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">if</span> (right &gt;= <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-built_in">array</span>[right] == key) {<br>        <span class="hljs-keyword">return</span> right;<br>    }<br><br>    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><li>21</li></ul></pre><br><br><ul><br><li><p><strong>2.3 查找最后一个等于或者小于key的元素</strong></p><br><br><p>　　查找最后一个等于或者小于key的元素，也就是说等于查找key值的元素有好多个，返回这些元素最右边的元素下标；如果没有等于key值的元素，则返回小于key的最右边元素下标。</p></li><br></ul><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><br><span class="hljs-comment">// 查找最后一个等于或者小于key的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findLastEqualSmaller(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt; key) {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">return</span> right;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li></ul></pre><br><br><ul><br><li><p><strong>2.4 查找最后一个小于key的元素</strong></p><br><br><p>　　查找最后一个小于key的元素，也就是说返回小于key的最右边元素下标。</p></li><br></ul><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找最后一个小于key的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findLastSmaller(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt;= key) {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">return</span> right;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li></ul></pre><br><br><ul><br><li><p><strong>2.5 查找第一个等于或者大于key的元素</strong></p><br><br><p>　　查找第一个等于或者大于key的元素，也就是说等于查找key值的元素有好多个，返回这些元素最左边的元素下标；如果没有等于key值的元素，则返回大于key的最左边元素下标。</p></li><br></ul><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找第一个等于或者大于key的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findFirstEqualLarger(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt;= key) {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">return</span> left;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li></ul></pre><br><br><ul><br><li><p><strong>2.6 查找第一个大于key的元素</strong></p><br><br><p>　　查找第一个等于key的元素，也就是说返回大于key的最左边元素下标。</p></li><br></ul><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找第一个大于key的元素</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> findFirstLarger(<span class="hljs-keyword">int</span>[] <span class="hljs-built_in">array</span>, <span class="hljs-keyword">int</span> key) {<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">array</span>.length - <span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">// 这里必须是 &lt;=</span><br>    <span class="hljs-keyword">while</span> (left &lt;= right) {<br>        <span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt; key) {<br>            right = mid - <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">else</span> {<br>            left = mid + <span class="hljs-number">1</span>;<br>        }<br>    }<br>    <span class="hljs-keyword">return</span> left;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li></ul></pre><br><br><p><strong>3 二分查找变种总结</strong></p><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs r has-numbering">// 这里必须是 &lt;=<br><span class="hljs-keyword">while</span> (left &lt;= right) {<br>    int mid = (left + right) / <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">if</span> (array[mid] ? key) {<br>        //<span class="hljs-keyword">…</span> right = mid - <span class="hljs-number">1</span>;<br>    }<br>    <span class="hljs-keyword">else</span> {<br>        // <span class="hljs-keyword">…</span> left = mid + <span class="hljs-number">1</span>;<br>    }<br>}<br><span class="hljs-keyword">return</span> xxx;</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li><li>11</li></ul></pre><br><br><p>　　二分查找变种较多，不过它们的“套路”是一样的，以上代码就是其套路，如何快速写出二分查找的代码，只需按照以下步骤即可：</p><br><br><p><strong>1 首先判断出是返回left，还是返回right</strong></p><br><br><p>　　因为我们知道最后跳出while (left &lt;= right)循环条件是right &lt; left，且right = left - 1。最后right和left一定是卡在”边界值”的左右两边，如果是比较值为key，查找小于等于（或者是小于）key的元素，则边界值就是等于key的所有元素的最左边那个，其实应该返回left。</p><br><br><p>　　以数组{1, 2, 3, 3, 4, 5}为例，如果需要查找第一个等于或者小于3的元素下标，我们比较的key值是3，则最后left和right需要满足以下条件： <br><br><img src="https://img-blog.csdn.net/20171022205721435?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGhlbGp0/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="" title=""></p><br><br><p>　　我们比较的key值是3，所以此时我们需要返回left。</p><br><br><p><strong>2 判断出比较符号</strong></p><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs r has-numbering">int mid = (left + right) / <span class="hljs-number">2</span>;<br><span class="hljs-keyword">if</span> (array[mid] ? key) {<br>    //<span class="hljs-keyword">…</span> right = xxx;<br>}<br><span class="hljs-keyword">else</span> {<br>    // <span class="hljs-keyword">…</span> left = xxx;<br>}<br></code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li></ul></pre><br><br><p>　　也就是这里的 if (array[mid] ? key) 中的判断符号，结合步骤1和给出的条件，如果是查找小于等于key的元素，则知道应该使用判断符号&gt;=，因为是要返回left，所以如果array[mid]等于或者大于key，就应该使用&gt;=，以下是完整代码</p><br><br><br><br><pre class="prettyprint" name="code"><code class="hljs cpp has-numbering"><span class="hljs-comment">// 查找小于等于key的元素</span><br><span class="hljs-keyword">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br><span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[mid] &gt;= key) {<br>    right = mid - <span class="hljs-number">1</span>;<br>}<br><span class="hljs-keyword">else</span> {<br>    left = mid + <span class="hljs-number">1</span>;<br>}</code><ul class="pre-numbering" style=""><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li></ul></pre><br><br><blockquote><br>  <p><strong>参考：</strong></p><br><br>  <ul><br>  <li><p>1、你真的会写二分检索吗？</p></li><br>  <li><p>2、<a href="http://www.cnblogs.com/luoxn28/category/802645.html" target="_blank">http://www.cnblogs.com/luoxn28/category/802645.html</a></p></li><br>  </ul><br></blockquote>            </div>
+            <p> 一个数组是有序数组，则mid=(start+end)/2即是中间位置。<br>倘若是一个有序链表呢？<br>转换为数组？——数组size怎么确定。暂时设大点吧<br>第一次遍历记录size，第二次再到size/2位置  </p>
+<p>也许方法很多，但是今天可以通过<strong>快慢指针</strong>来完成：</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>快慢指针中的快慢指的是移动的步长，即每次向前移动速度的快慢。例如可以让快指针每次沿链表向前移动2，慢指针每次向前移动1次。</p>
+<h2 id="寻找中间位置的数"><a href="#寻找中间位置的数" class="headerlink" title="寻找中间位置的数"></a>寻找中间位置的数</h2><p>该方法在不借助计数器变量实现寻找中位数的功能。原理是：快指针的移动速度是慢指针移动速度的2倍，因此当快指针到达链表尾时，慢指针到达中点。程序还要考虑链表结点个数的奇偶数因素，当快指针移动x次后到达表尾（1+2x），说明链表有奇数个结点，直接返回慢指针指向的数据即可。如果快指针是倒数第二个结点，说明链表结点个数是偶数，这时可以根据“规则”返回上中位数或下中位数或（上中位数+下中位数）的一半。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (fast&amp;&amp;slow)</span><br><span class="line">&#123;</span><br><span class="line">　　<span class="keyword">if</span> (fast-&gt;next==NULL)</span><br><span class="line">　　    <span class="keyword">return</span> slow -&gt;data;</span><br><span class="line">　　<span class="keyword">else</span> <span class="keyword">if</span> (fast-&gt;next!= NULL &amp;&amp; fast-&gt;next-&gt;next== NULL)</span><br><span class="line">　　    <span class="keyword">return</span> (slow -&gt;data + slow -&gt;next-&gt;data)/<span class="number">2</span>;</span><br><span class="line">　　<span class="keyword">else</span></span><br><span class="line">　　&#123;</span><br><span class="line">　　    fast= fast-&gt;next;</span><br><span class="line">　    　fast= fast-&gt;next;</span><br><span class="line">　　    slow = slow -&gt;next;</span><br><span class="line">　　&#125;</span><br><span class="line">　&#125;</span><br></pre></td></tr></table></figure>
+<p>具体地，可以拿leetcode <a href="https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/description/" target="_blank" rel="noopener">109题</a> 练手。</p>
+<h2 id="其他用途"><a href="#其他用途" class="headerlink" title="其他用途"></a>其他用途</h2><ul>
+<li>判断单链表是否为循环链表</li>
+<li>如果链表为存在环，如果找到环的入口点？</li>
+</ul>
+<p>具体可以参考下<a href="http://www.cnblogs.com/hxsyl/p/4395794.html" target="_blank" rel="noopener">关于快慢指针的若干应用详解</a>.</p>
+
           
         
       
