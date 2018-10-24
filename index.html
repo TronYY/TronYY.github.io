@@ -253,6 +253,182 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/10/24/阿里巴巴Java开发手册查漏补缺/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="天洋行空">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天洋行空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/24/阿里巴巴Java开发手册查漏补缺/" itemprop="url">阿里巴巴Java开发手册查漏补缺</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-24T21:38:44+08:00">
+                2018-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="阿里巴巴Java开发手册查漏补缺"><a href="#阿里巴巴Java开发手册查漏补缺" class="headerlink" title="阿里巴巴Java开发手册查漏补缺"></a>阿里巴巴Java开发手册查漏补缺</h1><p><a href="https://tronyy.github.io./" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/%E4%BD%9C%E8%80%85-天洋行空-7AD6FD.svg" alt="作者"></a></p>
+<h2 id="一、编程规范"><a href="#一、编程规范" class="headerlink" title="一、编程规范"></a>一、编程规范</h2><h3 id="（一）命名风格"><a href="#（一）命名风格" class="headerlink" title="（一）命名风格"></a>（一）命名风格</h3><ul>
+<li>5 常量名全部大写，单词之间下划线：MAX_STOCK_COUNT</li>
+<li>7 数组定义:String[] args</li>
+<li>8 POJO类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。<h3 id="（二）常量定义"><a href="#（二）常量定义" class="headerlink" title="（二）常量定义"></a>（二）常量定义</h3></li>
+<li>2 long型赋值，用大写的L，Long a=2L;<h3 id="（三）代码格式"><a href="#（三）代码格式" class="headerlink" title="（三）代码格式"></a>（三）代码格式</h3></li>
+<li><p>1 大括号</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (a == b) &#123;</span><br><span class="line"><span class="comment">// 判断语句里没有括号与a==b没有空格   </span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4 任何二目、三目运算符的左右两边都需要加一个空格：<code>a == b</code>、<code>a = b</code> </p>
+</li>
+<li>5 采用4个空格缩进</li>
+<li>6 注释的双斜线与注释内容之间 有且仅有一个空格</li>
+<li>7 单行字符超过120个字符换行，第二行相对第一行继续缩进4字符，第三回不继续缩进</li>
+<li>8 方法参数在定义和传入时，多个参数逗号后边必须加空格<code>method(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></li>
+<li>9 IDE的text file encoding设置为UTF-8;   <h3 id="四-OOP-规约"><a href="#四-OOP-规约" class="headerlink" title="(四) OOP 规约"></a>(四) OOP 规约</h3></li>
+<li>1 静态变量或静态方法，直接使用类名访问</li>
+<li>2 所有的覆写方法，必须加@Override 注解。</li>
+<li>6 Object 的 equals 方法容易抛空指针异常，应使用常量或确定有值的对象来调用 equals。</li>
+<li>15 类内方法定义顺序依次是:公有方法或保护方法 &gt; 私有方法 &gt; getter/setter 方法。</li>
+<li>19 Object实现的是浅拷贝  <h3 id="五-集合处理"><a href="#五-集合处理" class="headerlink" title="(五)集合处理"></a>(五)集合处理</h3><h3 id="六-并发处理"><a href="#六-并发处理" class="headerlink" title="(六)并发处理"></a>(六)并发处理</h3></li>
+</ul>
+<h3 id="七-控制语句"><a href="#七-控制语句" class="headerlink" title="(七)控制语句"></a>(七)控制语句</h3><ul>
+<li>1 在一个 switch 块内，都必须包含一个 default 语句并且 放在最后，即使它什么代码也没有。</li>
+<li>2 if wlse for while do语句必须有大括号，</li>
+</ul>
+<h3 id="八-注释"><a href="#八-注释" class="headerlink" title="(八)注释"></a>(八)注释</h3><ul>
+<li>1 Javadoc注释</li>
+<li>5 枚举字段要有注释</li>
+<li>11 代办事宜(TODO):(标记人，标记时间，[预计处理时间])<br>错误，不能工作(FIXME):(标记人，标记时间，[预计处理时间])</li>
+</ul>
+<h3 id="九-其他"><a href="#九-其他" class="headerlink" title="(九)其他"></a>(九)其他</h3><ul>
+<li>4 注意 Math.random() 这个方法返回是 double 类型，注意取值的范围 0≤x&lt;1(能够 取到零值，注意除零异常)，如果想获取整数类型的随机数，不要将 x 放大 10 的若干倍然后 取整，直接使用 Random 对象的 nextInt 或者 nextLong 方法。</li>
+<li>5 获取当前毫秒数 System.currentTimeMillis();如果想获取更加精确的纳秒级时间值，使用 System.nanoTime()的方式</li>
+</ul>
+<h2 id="二、异常处理"><a href="#二、异常处理" class="headerlink" title="二、异常处理"></a>二、异常处理</h2><h2 id="三、单元测试"><a href="#三、单元测试" class="headerlink" title="三、单元测试"></a>三、单元测试</h2><h2 id="四、安全规约"><a href="#四、安全规约" class="headerlink" title="四、安全规约"></a>四、安全规约</h2><h2 id="五、MySQL"><a href="#五、MySQL" class="headerlink" title="五、MySQL"></a>五、MySQL</h2><h2 id="六、工程结构"><a href="#六、工程结构" class="headerlink" title="六、工程结构"></a>六、工程结构</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/10/23/《图解算法》知识点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1439,149 +1615,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/增强For循环/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="天洋行空">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天洋行空">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/15/增强For循环/" itemprop="url">增强For循环</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T20:56:33+08:00">
-                2018-09-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天读程序遇到有for循环里有冒号，去查了下，属于增强for循环<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(元素变量:元素集合)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">	程序块；</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForeachTest</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"----------旧方式遍历------------"</span>);</span><br><span class="line">        <span class="comment">//旧式方式        </span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;arr.length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"---------新方式遍历-------------"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//新式写法,增强的for循环</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> element:arr)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(element);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"---------遍历二维数组-------------"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//遍历二维数组</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[][] arr2 = &#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, &#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;&#125; ;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>[] row : arr2)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> element : row)</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(element);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//以三种方式遍历集合List</span></span><br><span class="line">        </span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        </span><br><span class="line">        list.add(<span class="string">"a"</span>);</span><br><span class="line">        list.add(<span class="string">"b"</span>);</span><br><span class="line">        list.add(<span class="string">"c"</span>);</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"----------方式1-----------"</span>);</span><br><span class="line">        <span class="comment">//第一种方式，普通for循环</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(list.get(i));</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"----------方式2-----------"</span>);</span><br><span class="line">        <span class="comment">//第二种方式，使用迭代器</span></span><br><span class="line">        <span class="keyword">for</span>(Iterator&lt;String&gt; iter = list.iterator(); iter.hasNext();)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(iter.next());</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"----------方式3-----------"</span>);</span><br><span class="line">        <span class="comment">//第三种方式，使用增强型的for循环</span></span><br><span class="line">        <span class="keyword">for</span>(String str: list)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(str);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/如何求中间位置的数——快慢指针/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1734,7 +1767,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/ArrayList的初始化陷阱/">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/C++命名规范/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="天洋行空">
@@ -1753,7 +1786,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/15/ArrayList的初始化陷阱/" itemprop="url">ArrayList的初始化陷阱</a></h1>
+                <a class="post-title-link" href="/2018/09/15/C++命名规范/" itemprop="url">C++命名规范</a></h1>
         
 
         <div class="post-meta">
@@ -1788,8 +1821,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
                   </a>
                 </span>
 
@@ -1827,10 +1860,15 @@
       
         
           
-            <ol>
-<li><code>List&lt;String&gt; list = new ArrayList&lt;&gt;(2);</code><br>这个乍一看，还以为像数组一样，你初始化了个长度为2的数组，然后你就可以随意修改下标为0，1的内容。当然0，1是肯定不会下标越界的。<br>我当时也是这么想的。然而不是的。<br>源码里面的构造函数的注释说明：这个真的是在底层新建了个长度为2的数组Object[]，但是他又不是我们经常看到的一般数组。这个是空的。<br>当前list集合仍然是一个带有初始容量的empty list。</li>
-<li><code>list.size()</code><br>我上来也是想当然的以为，这个size()不就是上面的那个2吗！但是我错了。<br>源码中ArrayList的size属性对应的注释是：The size of the ArrayList (the number of elements it contains).<br>这个size是表示这个集合包含的元素的个数，而不是底层数组的大小。</li>
-</ol>
+            <h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><ul>
+<li>文件名    <code>全小写</code> </li>
+<li>函数、类、结构体、枚举     <code>每个单词首字母大写</code> </li>
+<li>变量     <code>全小写</code> </li>
+<li>类成员变量     <code>全小写 ，末尾加_</code> </li>
+<li>命名空间 <code>全小写</code> </li>
+<li>宏     <code>全大写 加下划线</code></li>
+<li>具体参考 [<a href="http://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/naming/]" target="_blank" rel="noopener">http://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/naming/]</a></li>
+</ul>
 
           
         
@@ -1920,7 +1958,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
