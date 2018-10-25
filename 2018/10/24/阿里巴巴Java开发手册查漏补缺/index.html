@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="阿里巴巴Java开发手册查漏补缺 一、编程规范（一）命名风格 5 常量名全部大写，单词之间下划线：MAX_STOCK_COUNT 7 数组定义:String[] args 8 POJO类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。（二）常量定义 2 long型赋值，用大写的L，Long a=2L;（三）代码格式 1 大括号 123456if (a == b) &amp;#123;/">
+<meta name="description" content="阿里巴巴Java开发手册查漏补缺 一、编程规范（一）命名风格 5 常量名全部大写，单词之间下划线：MAX_STOCK_COUNT 7 数组定义:String[] args 8 POJO类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。  （二）常量定义 2 long型赋值，用大写的L，Long a=2L;  （三）代码格式 1 大括号 123456if (a == b) &amp;#1">
 <meta name="keywords" content="Technology">
 <meta property="og:type" content="article">
 <meta property="og:title" content="阿里巴巴Java开发手册查漏补缺">
 <meta property="og:url" content="https://tronyy.github.io/archives/2018/10/24/阿里巴巴Java开发手册查漏补缺/index.html">
 <meta property="og:site_name" content="天洋行空">
-<meta property="og:description" content="阿里巴巴Java开发手册查漏补缺 一、编程规范（一）命名风格 5 常量名全部大写，单词之间下划线：MAX_STOCK_COUNT 7 数组定义:String[] args 8 POJO类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。（二）常量定义 2 long型赋值，用大写的L，Long a=2L;（三）代码格式 1 大括号 123456if (a == b) &amp;#123;/">
+<meta property="og:description" content="阿里巴巴Java开发手册查漏补缺 一、编程规范（一）命名风格 5 常量名全部大写，单词之间下划线：MAX_STOCK_COUNT 7 数组定义:String[] args 8 POJO类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。  （二）常量定义 2 long型赋值，用大写的L，Long a=2L;  （三）代码格式 1 大括号 123456if (a == b) &amp;#1">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img.shields.io/badge/%E4%BD%9C%E8%80%85-天洋行空-7AD6FD.svg">
-<meta property="og:updated_time" content="2018-10-24T13:41:53.371Z">
+<meta property="og:updated_time" content="2018-10-25T06:59:12.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿里巴巴Java开发手册查漏补缺">
-<meta name="twitter:description" content="阿里巴巴Java开发手册查漏补缺 一、编程规范（一）命名风格 5 常量名全部大写，单词之间下划线：MAX_STOCK_COUNT 7 数组定义:String[] args 8 POJO类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。（二）常量定义 2 long型赋值，用大写的L，Long a=2L;（三）代码格式 1 大括号 123456if (a == b) &amp;#123;/">
+<meta name="twitter:description" content="阿里巴巴Java开发手册查漏补缺 一、编程规范（一）命名风格 5 常量名全部大写，单词之间下划线：MAX_STOCK_COUNT 7 数组定义:String[] args 8 POJO类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。  （二）常量定义 2 long型赋值，用大写的L，Long a=2L;  （三）代码格式 1 大括号 123456if (a == b) &amp;#1">
 <meta name="twitter:image" content="https://img.shields.io/badge/%E4%BD%9C%E8%80%85-天洋行空-7AD6FD.svg">
 
 
@@ -348,8 +348,12 @@
 <h2 id="一、编程规范"><a href="#一、编程规范" class="headerlink" title="一、编程规范"></a>一、编程规范</h2><h3 id="（一）命名风格"><a href="#（一）命名风格" class="headerlink" title="（一）命名风格"></a>（一）命名风格</h3><ul>
 <li>5 常量名全部大写，单词之间下划线：MAX_STOCK_COUNT</li>
 <li>7 数组定义:String[] args</li>
-<li>8 POJO类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。<h3 id="（二）常量定义"><a href="#（二）常量定义" class="headerlink" title="（二）常量定义"></a>（二）常量定义</h3></li>
-<li>2 long型赋值，用大写的L，Long a=2L;<h3 id="（三）代码格式"><a href="#（三）代码格式" class="headerlink" title="（三）代码格式"></a>（三）代码格式</h3></li>
+<li>8 POJO类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。</li>
+</ul>
+<h3 id="（二）常量定义"><a href="#（二）常量定义" class="headerlink" title="（二）常量定义"></a>（二）常量定义</h3><ul>
+<li>2 long型赋值，用大写的L，Long a=2L;</li>
+</ul>
+<h3 id="（三）代码格式"><a href="#（三）代码格式" class="headerlink" title="（三）代码格式"></a>（三）代码格式</h3><ul>
 <li><p>1 大括号</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (a == b) &#123;</span><br><span class="line"><span class="comment">// 判断语句里没有括号与a==b没有空格   </span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -359,14 +363,16 @@
 <li>6 注释的双斜线与注释内容之间 有且仅有一个空格</li>
 <li>7 单行字符超过120个字符换行，第二行相对第一行继续缩进4字符，第三回不继续缩进</li>
 <li>8 方法参数在定义和传入时，多个参数逗号后边必须加空格<code>method(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></li>
-<li>9 IDE的text file encoding设置为UTF-8;   <h3 id="四-OOP-规约"><a href="#四-OOP-规约" class="headerlink" title="(四) OOP 规约"></a>(四) OOP 规约</h3></li>
+<li>9 IDE的text file encoding设置为UTF-8; </li>
+</ul>
+<h3 id="四-OOP-规约"><a href="#四-OOP-规约" class="headerlink" title="(四) OOP 规约"></a>(四) OOP 规约</h3><ul>
 <li>1 静态变量或静态方法，直接使用类名访问</li>
 <li>2 所有的覆写方法，必须加@Override 注解。</li>
 <li>6 Object 的 equals 方法容易抛空指针异常，应使用常量或确定有值的对象来调用 equals。</li>
 <li>15 类内方法定义顺序依次是:公有方法或保护方法 &gt; 私有方法 &gt; getter/setter 方法。</li>
-<li>19 Object实现的是浅拷贝  <h3 id="五-集合处理"><a href="#五-集合处理" class="headerlink" title="(五)集合处理"></a>(五)集合处理</h3><h3 id="六-并发处理"><a href="#六-并发处理" class="headerlink" title="(六)并发处理"></a>(六)并发处理</h3></li>
+<li>19 Object实现的是浅拷贝</li>
 </ul>
-<h3 id="七-控制语句"><a href="#七-控制语句" class="headerlink" title="(七)控制语句"></a>(七)控制语句</h3><ul>
+<h3 id="五-集合处理"><a href="#五-集合处理" class="headerlink" title="(五)集合处理"></a>(五)集合处理</h3><h3 id="六-并发处理"><a href="#六-并发处理" class="headerlink" title="(六)并发处理"></a>(六)并发处理</h3><h3 id="七-控制语句"><a href="#七-控制语句" class="headerlink" title="(七)控制语句"></a>(七)控制语句</h3><ul>
 <li>1 在一个 switch 块内，都必须包含一个 default 语句并且 放在最后，即使它什么代码也没有。</li>
 <li>2 if wlse for while do语句必须有大括号，</li>
 </ul>
