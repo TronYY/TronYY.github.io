@@ -253,6 +253,169 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/10/30/少年班的助教课引发的二分查找法变形/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="天洋行空">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天洋行空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/30/少年班的助教课引发的二分查找法变形/" itemprop="url">少年班的助教课引发的二分查找法变形</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-30T20:35:56+08:00">
+                2018-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Data-Structures-and-Algorithms/" itemprop="url" rel="index">
+                    <span itemprop="name">Data Structures and Algorithms</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>最近少年班的C语言课上老师出了一道题目，题目要求先排序，再给一个元素进行二分查找，最后把该元素key插入到数组中仍然有序。<br><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fwqj0bowaoj30ac0dsjue.jpg" alt="image"><br>在上机课前思考了一下，假如说元素是往后挪的，如何找出最合适的位置，使得需要挪动的元素个数最小。  </p>
+<ul>
+<li>对于key元素没有重复的一组数，二分查找出的位置（right指针）就是待插的位置。</li>
+<li>但是key这个数有重复的一组数，二分查找出的位置不一定能保证挪动次数最少。应该要找到第一个大于key的数的位置，在这个位置插入key，才能保证挪动次数最少。 </li>
+</ul>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这个问题，其实是变形二分法的一种。最开始想法是仍就用基本的二分法，最后在加一for循环，一个个元素比对过去找出最合适的值。可是，这样子又把查找插入位置的复杂度提高到了O（n），能否通过修改二分查找法，直接找出那个位置的。<br>答案是可以的。开始之前，先看下基本的二分查找法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基本的二分法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line"></span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);<span class="comment">//&gt;&gt; 优先级比+低</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] == key) <span class="keyword">return</span> mid;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &gt; key) right = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个代码很简单，要注意while循环里的=不要忘。<br>首先来看下查完之后，left、right的位置：</p>
+<ul>
+<li>查到的话要么l与r在mid等距的两边； 要么left=mid，r=l或r=left+1；</li>
+<li>查不到的话right&lt;left,刚好夹在key两侧<br>变形的二分查找种类很多，诸如找出第一个与key相等的元素、找出最后一个与key相等的元素……<br>改的话要：<ol>
+<li>删去<code>if (arr[mid] == key) return mid;</code> 因为mid不一定是合适的位置</li>
+<li>修改 <code>if (arr[mid] &gt; key)</code>的大于符号 因为要对right、 left的位置和基本版不同</li>
+<li>循环结束后要返回查到的位置或返回无结果；</li>
+</ol>
+</li>
+</ul>
+<p>如何改这些，主要是要先分析两步：<strong>根据问题要求确定left和right的最终位置（要返回left还是right）、结合题目要求修改比较符号。</strong>  </p>
+<p>以“查找第一个与key相等的元素位置”为例，假如一组数1，2，3，3，4，5，待查的数是3。<br><strong>第一步：</strong> 因为删去了<code>if (arr[mid] == key) return mid;</code> ，所以while循环结束时，肯定是<code>left &gt; right</code>,而且这两个数肯定要是在边界上，如下图所示。这样我们返回left就是answer了。<br><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fwqic72hskj30jt0b2wfe.jpg" alt="image"><br><strong>第二步：</strong> 那怎么修改比较符号呢，原来<code>if (arr[mid] &gt; key) right = mid - 1;</code>每一轮循环里，只有a[mid]是比key大，right才会变化。现在呢，不仅a[mid]比key大时right要改，当a[mid]等于key时，right也得改，这样它才能挪到元素2那里。因此改为<code>if (arr[mid] &gt; key) right = mid - 1;</code></p>
+<p><strong>最后针对iii:</strong> 因为返回的是left，所以对left做一些限定<code>if (left &lt; n &amp;&amp; arr[left] == key) return left;</code></p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>代码把基本的二分查找，以及六种变形情况实现了一下，最重要的地方都有注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExtendeBinarySearch</span> </span>&#123;</span><br><span class="line">    <span class="comment">//基本的二分法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line"></span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);<span class="comment">//&gt;&gt; 优先级比+低</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] == key) <span class="keyword">return</span> mid;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &gt; key) right = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 查到的话要么l与r在mid等距的两边 要么left=mid，r=l或r=left+1；</span></span><br><span class="line">        <span class="comment">// 查不到的话right&lt;left,刚好夹在key两侧</span></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 找出第一个与key相等的元素</span></span><br><span class="line">    <span class="comment">// 1 2R 3L 3 4 返回L</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchFirstEqual</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n=arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line"></span><br><span class="line">            mid = left + ((right - left)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt;= key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R还需要移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; n &amp;&amp; arr[left] == key) <span class="keyword">return</span> left;<span class="comment">//&gt;= 比 &amp;&amp; 高</span></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 找出最后一个与key相等的元素</span></span><br><span class="line">    <span class="comment">// 1 2 3 3R 4L 返回R</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchLastEqual</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n=arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt; key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R还需要移动（即本轮循环不移动R，但是要移动L，下一轮mid重新计算后，R仍然有可能移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (right &gt; <span class="number">0</span> &amp;&amp; arr[right] == key) <span class="keyword">return</span> right;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 查找第一个等于或者大于Key的元素</span></span><br><span class="line">    <span class="comment">// 1 2R 3L 3 4 返回L</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchFirstEqualorLarger</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n=arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt;= key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R还需要移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; n &amp;&amp; arr[left] &gt;= key) <span class="keyword">return</span> left;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 查找第一个大于key的元素</span></span><br><span class="line">    <span class="comment">// 1 2 3 3R 4L 返回L</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchFirstLarger</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n=arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt; key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R不需要移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; n &amp;&amp; arr[left] &gt; key) <span class="keyword">return</span> left;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 查找最后一个等于或者小于key的元素</span></span><br><span class="line">    <span class="comment">// 1 2 3 3R 4L 返回R</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchLastEqualorSmaller</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt; key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R不需要移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (right &gt; <span class="number">0</span> &amp;&amp; arr[right] &lt;= key) <span class="keyword">return</span> right;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 6. 查找最后一个小于key的元素</span></span><br><span class="line">    <span class="comment">// 1 2R 3L 3 4 返回R</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchLastSmaller</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt;= key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R还需要移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (right &gt; <span class="number">0</span> &amp;&amp; arr[right] &lt; key) <span class="keyword">return</span> right;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int arr[] = new int[] &#123;1,</span><br><span class="line">                2, 2, 5, 5, 5,</span><br><span class="line">                5, 5, 5, 5, 5,</span><br><span class="line">                5, 5, 6, 6, 7&#125;;</span><br><span class="line">        System.out.println(&quot;First Equal           :&quot;+BS.searchFirstEqual(arr, 5));</span><br><span class="line">        System.out.println(&quot;Last Equal            :&quot;+BS.searchLastEqual(arr, 5));</span><br><span class="line">        System.out.println(&quot;First Equal or Larger :&quot;+BS.searchFirstEqualorLarger(arr,  5));</span><br><span class="line">        System.out.println(&quot;First Larger          :&quot;+BS.searchFirstLarger(arr,  5));</span><br><span class="line">        System.out.println(&quot;Last Equal or Smaller :&quot;+BS.searchLastEqualorSmaller(arr,  5));</span><br><span class="line">        System.out.println(&quot;Last Smaller          :&quot;+BS.searchLastSmaller(arr,  5));</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fwqiy16f4wj30h406ojs0.jpg" alt="image"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/10/28/兴趣包或数据包增加自定义字段/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1698,170 +1861,6 @@
 <li><h4 id="随机游走路由协议"><a href="#随机游走路由协议" class="headerlink" title="随机游走路由协议"></a>随机游走路由协议</h4><p>  该技术仅考虑节点具有非常有限的移动性的大规模网络<br>  为了找到从源到其目的地的路线，通过使用众所周知的Bellman-Ford算法的分布式异步版本计算节点之间的距离来获得位置信息或点阵协调。中间节点将根据计算的概率选择更靠近目的地的相邻节点作为下一跳</p>
 </li>
 </ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/17/阅读报告-A-2017-MedHocNet-A-Multihop-and-Multipath-Routing-Protocol-Using-NDN-for-VANETs-20180412/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="天洋行空">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天洋行空">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/17/阅读报告-A-2017-MedHocNet-A-Multihop-and-Multipath-Routing-Protocol-Using-NDN-for-VANETs-20180412/" itemprop="url">阅读报告_A [2017][MedHocNet]A Multihop and Multipath Routing Protocol Using NDN for VANETs_20180412</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-17T16:11:18+08:00">
-                2018-09-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Named-Data-Networking/" itemprop="url" rel="index">
-                    <span itemprop="name">Named Data Networking</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>阅读报告_A [2017][MedHocNet]A Multihop and Multipath Routing Protocol Using NDN for VANETs_20180412</p>
-<hr>
-<h2 id="论文题目"><a href="#论文题目" class="headerlink" title="论文题目"></a>论文题目</h2><p>A Multihop and Multipath Routing Protocol Using NDN for VANETs</p>
-<h2 id="论文作者、单位"><a href="#论文作者、单位" class="headerlink" title="论文作者、单位"></a>论文作者、单位</h2><p>Eirini Kalogeiton, Thomas Kolonko and Torsten Braun——Institute of Computer Science, University of Bern, Bern, Switzerland</p>
-<h2 id="发表的会议或者期刊"><a href="#发表的会议或者期刊" class="headerlink" title="发表的会议或者期刊"></a>发表的会议或者期刊</h2><p>16th Annual Mediterranean Ad Hoc Networking Workshop</p>
-<h2 id="论文关键字"><a href="#论文关键字" class="headerlink" title="论文关键字"></a>论文关键字</h2><p>NDN, VANETs, Multi-Hop Routing, Multipath Routing</p>
-<h2 id="论文摘要原文"><a href="#论文摘要原文" class="headerlink" title="论文摘要原文"></a>论文摘要原文</h2><p>One main characteristic of Vehicular Ad Hoc Networks (VANETs) is the intermittent connectivity, which leads to failures of end to end paths between end nodes. Named Data Networking (NDN) is a network paradigm that deals with such problems, since information is forwarded based on content and not on the location of the hosts. Hence, NDN has been proposed in VANET scenarios. In this paper, we propose a multihop and multipath VANET routing algorithm that exploits several paths to achieve faster content retrieval. We create a new routing approach for NDN in VANETs, by introducing new fields to messages and to data structures. Simulation results show that our approach does not only guarantee faster data delivery, but also saves network resources, due to the lack of message retransmissions.</p>
-<h2 id="论文摘要中文"><a href="#论文摘要中文" class="headerlink" title="论文摘要中文"></a>论文摘要中文</h2><p>车辆自组织网络的一个主要特征是间歇性连通，这导致了端节点之间的点到点路径中断。NDN是解决这类问题的网络范式，因为信息依据内容被转发而不是耕路主机位置。因此，NDN已经在车联网场景下被提出。在本文中，我们提出了一种多跳多路径的车辆网路由算法，其能够探索多条路径以便更快取回内容。通过在消息、数据结构中引入新的字段，我们提出了一种在车联网中的NDN路由方法。仿真结果表明我们的方法不仅确保了更快取回内容，也由于不做消息重传能做到节省网络资源。</p>
-<h2 id="研究问题"><a href="#研究问题" class="headerlink" title="研究问题"></a>研究问题</h2><p>设计了一种车辆网中的NDN路由算法。</p>
-<h2 id="研究意义"><a href="#研究意义" class="headerlink" title="研究意义"></a>研究意义</h2><ol>
-<li>由于考虑车辆，这些连接不稳定，因为车辆的位置可能会在高速行驶时发生不可预测的变化。此外，即使建立了端到端连接，天气条件也可能会干扰用户的信号丢失和/或服务质量和服务质量(冻结视频、延迟安全通知)。</li>
-</ol>
-<h2 id="研究内容（算法、方法、技术、模型）"><a href="#研究内容（算法、方法、技术、模型）" class="headerlink" title="研究内容（算法、方法、技术、模型）"></a>研究内容（算法、方法、技术、模型）</h2><p><img src="https://nim.nosdn.127.net/NDEwNzQyNw==/bmltYV8yMzY1NzE1OTAwXzE1MzI1OTUzOTU4NTVfMzRlYjRjZDMtOWE5NC00YTQ3LWEzOGItMWYyYWI2YTA0N2Qx?imageView&amp;thumbnail=1500x850" alt="这里写图片描述"></p>
-<p><img src="https://nim.nosdn.127.net/NDEwNzQyNw==/bmltYV8yMzY1NzE1OTAwXzE1MzI1OTU0NDAyMjJfMmM3YWFkMmUtM2NhMi00MTBlLTg2YTQtMjNlMzZkYjVjZjA0?imageView&amp;thumbnail=1500x850" alt="这里写图片描述"></p>
-<h2 id="研究结论、主要贡献"><a href="#研究结论、主要贡献" class="headerlink" title="研究结论、主要贡献"></a>研究结论、主要贡献</h2><ol>
-<li>文章提出了一个路由协议：——先Interest广播，回来时FIB填好，下次传Interest可以根据FIB来；</li>
-<li>FIB可能有多个nexthop，根据最低的counter、最低的时延nexthop。。<h2 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h2></li>
-</ol>
-<h2 id="技术难点"><a href="#技术难点" class="headerlink" title="技术难点"></a>技术难点</h2><p>没有提到怎么解决初始时洪泛。<br>车子是在移动的，这里FIB也会由于车辆移动而失效，文章其实没有解决移动性问题。</p>
-<h2 id="对本人工作的启发"><a href="#对本人工作的启发" class="headerlink" title="对本人工作的启发"></a>对本人工作的启发</h2><ol>
-<li>交通流量产生 network traffic simulation we used SUMO：<br> <em>M. Behrisch, L. Bieker, J. Erdmann, and D. Krajzewicz, “Sumo–<br>simulation of urban mobility: an overview,” in Proceedings of SIMUL<br>2011, The Third International Conference on Advances in System<br>Simulation. ThinkMind, 2011.</em></li>
-<li>文章提到用ndnSIM模拟了无线802.11a，802.11p说在ndnSIM v2.0里不支持，每辆车子的interface也可以定，车辆数目也能够定<h2 id="进一步研究思路"><a href="#进一步研究思路" class="headerlink" title="进一步研究思路"></a>进一步研究思路</h2>查阅实验部分ndnSIM的做法</li>
-</ol>
 
           
         
