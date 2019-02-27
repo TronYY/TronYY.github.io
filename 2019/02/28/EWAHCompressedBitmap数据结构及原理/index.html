@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="EWAH 意思是 Enhanced Word-Aligned Hybrid，在WAH基础上优化而来。EWAH 算法论文：《Sorting imp">
+<meta name="keywords" content="Technology">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EWAHCompressedBitmap数据结构及原理(转)">
+<meta property="og:url" content="https://tronyy.github.io/archives/2019/02/28/EWAHCompressedBitmap数据结构及原理/index.html">
+<meta property="og:site_name" content="天洋行空">
+<meta property="og:description" content="EWAH 意思是 Enhanced Word-Aligned Hybrid，在WAH基础上优化而来。EWAH 算法论文：《Sorting imp">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdn.net/20171027155302630?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWl6aXNob3U=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="https://img-blog.csdn.net/20171027161544404?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWl6aXNob3U=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="https://img-blog.csdn.net/20171027163252953?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWl6aXNob3U=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="https://img-blog.csdn.net/20171027164326614?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWl6aXNob3U=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2019-02-27T16:57:38.739Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EWAHCompressedBitmap数据结构及原理(转)">
+<meta name="twitter:description" content="EWAH 意思是 Enhanced Word-Aligned Hybrid，在WAH基础上优化而来。EWAH 算法论文：《Sorting imp">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20171027155302630?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWl6aXNob3U=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://tronyy.github.io/archives/2019/02/28/EWAHCompressedBitmap数据结构及原理/"/>
+
+
+
+
+
+  <title>EWAHCompressedBitmap数据结构及原理(转) | 天洋行空</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">天洋行空</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2019/02/28/EWAHCompressedBitmap数据结构及原理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="天洋行空">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天洋行空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">EWAHCompressedBitmap数据结构及原理(转)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-28T00:55:46+08:00">
+                2019-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Data-Structures-and-Algorithms/" itemprop="url" rel="index">
+                    <span itemprop="name">Data Structures and Algorithms</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog" data-mod="popu_307" data-dsm="post"><br>                                            <div id="content_views" class="markdown_views"><br>                            <!-- flowchart 箭头图标 勿删 --><br>                            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"/></svg><br>                            <ul><br><li>EWAH 意思是 Enhanced Word-Aligned Hybrid，在WAH基础上优化而来。</li><br><li>EWAH 算法论文：《<a href="https://arxiv.org/abs/0901.3751" rel="nofollow" target="_blank">Sorting improves word-aligned bitmap indexes</a>》</li><br><li><strong>javaewah</strong>项目（Java版）GitHub地址：<a href="https://github.com/lemire/javaewah" rel="nofollow" target="_blank">https://github.com/lemire/javaewah</a></li><br><li><strong>EWAHBoolArray</strong>项目（C++版） GitHub地址：<a href="https://github.com/lemire/EWAHBoolArray" rel="nofollow" target="_blank">https://github.com/lemire/EWAHBoolArray</a></li><br></ul><br><br><p>本文基于Java版项目javaewah。</p><br><br><br><br><h1 id="首先"><a name="t0"></a>首先</h1><br><br><p>首先要知道，EWAHCompressedBitmap是完全基于行程压缩算法压缩的。</p><br><br><p><img src="https://img-blog.csdn.net/20171027155302630?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWl6aXNob3U=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="EwahBitmap数据结构" title="" style=""></p><br><br><p>结构就是这样，看起来很简单。</p><br><br><p>在构造EWAHCompressedBitmap时，内部会初始化一个RunningLengthWord，来存储EWAH压缩算法必需的两个数据结构：</p><br><br><br><br><pre class="prettyprint" name="code"><code class="language-java hljs  has-numbering">    <span class="hljs-javadoc">/<strong><br>     <em> The array of words.
+     </em>/</strong></span><br>    <span class="hljs-keyword">final</span> Buffer buffer;<br><br>    <span class="hljs-javadoc">/<br>     <em> The position in array.
+     </em>/</span><br>    <span class="hljs-keyword">int</span> position;</code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li></ul></pre><br><br><p>其中Buffer根据实现的不同可能是</p><br><br><ul><br><li>LongArray，内部为<code>long[]</code>，使用默认构造方法构造Bitmap时就会构造LongArray</li><br><li>LongBufferWrapper， 内部为<code>java.nio.LongBuffer</code>，这样可以直接使用NIO的特性。在使用<code>java.nio.ByteBuffer</code>构造Bitmap时会构造LongBufferWrapper</li><br></ul><br><br><p>不管什么实现，我们把Buffer直接理解为存储了一堆<code>long</code>的数组即可。</p><br><br><br><br><h1 id="runninglengthword"><a name="t1"></a>RunningLengthWord</h1><br><br><p>RunningLengthWord存储了EWAHCompressedBitmap的全部数据，是整个项目中的核心。</p><br><br><p>其原理为：</p><br><br><p>将整个（未经过任何压缩的）bitmap每64位拆分为一个最小单元（<code>long</code>），只可能出现两种情况：</p><br><br><ol><br><li>64位全都是相同的比特，要么全都是1，要么全都是0，这样的数据可以被run-length压缩。尤其是当这种情况发生在连续的多个long上的时候，压缩效果更为明显。</li><br><li>64位范围内既有0又有1，这样的数据不进行压缩，而是直接存储字面量，这样的数据在论文中叫做Dirty Word，生动形象。其实如果整个bitmap中大量出现Dirty Word的话，压缩效果会大打折扣。</li><br></ol><br><br><p>根据上面的原理，RunningLengthWord使用了这样的实现：</p><br><br><p><img src="https://img-blog.csdn.net/20171027161544404?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWl6aXNob3U=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="EwahBitmap原理 01" title=""></p><br><br><p>如果所示，在初始化时，Buffer中下标为0的位置一定是一个run-length，其64位被拆分成了三部分：</p><br><br><ul><br><li>最低位（<strong>Running Bit</strong>）：表示当前的run-length压缩的是0还是1。</li><br><li>中间32位（<strong>Running Length</strong>）： 表示当前的run-length压缩了几个64位（<code>long</code>）的连续相同bit。如果这个部分值为0，那么最低位的取值没有实际意义。</li><br><li>高31位（<strong>Number of Literal Words </strong>）：表示当前run-length后面紧接着未压缩的字面量（Dirty Words）的数量。</li><br></ul><br><br><p>如果Buffer中下标为<code>N</code>的位置为run-length，且其高位31位表示的Number of Literal Words为2，则Buffer中下标为<code>N+1</code>和<code>N+2</code>的两个位置一定是字面量。</p><br><br><p>另外有一个性能相关的措施，就是设置一个<code>position</code>，始终指向整个Buffer中最后一个run-length，避免始终从头开始寻址。</p><br><br><br><br><h1 id="举个栗子"><a name="t2"></a>举个栗子</h1><br><br><br><br><h3 id="先插入9"><a name="t3"></a>先插入9</h3><br><br><p>因为要插入9，导致<code>[0, 63]</code>范围变成了Dirty Word，需要存储为字面量，因此会发生下面这些步骤：</p><br><br><p><img src="https://img-blog.csdn.net/20171027163252953?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWl6aXNob3U=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="EwahBitmap原理 02" title=""></p><br><br><ol><br><li>将Buffer中第0个run-length的高位Number of Literal Words部分改为1，表示后面的一个<code>long</code>为字面量；</li><br><li>在Buffer中下标为1的位置插入一个表示字面量的<code>long</code>，表示<code>[0, 63]</code>范围的值。因为插入了9，所以第9位的位置需要设为1（最低位为第0位）。</li><br></ol><br><br><h3 id="再插入666"><a name="t4"></a>再插入666</h3><br><br><p>再插入666的话，如果不压缩，那么将会形成这样的数组：</p><br><br><pre class="prettyprint" name="code"><code class="hljs css has-numbering"><span class="hljs-attr_selector">[640, 703]</span>：<span class="hljs-tag">Dirty</span> <span class="hljs-tag">Word</span>，包含值666<br><span class="hljs-attr_selector">[576, 639]</span>：全0<br><span class="hljs-attr_selector">[512, 575]</span>：全0<br><span class="hljs-attr_selector">[448, 511]</span>：全0<br><span class="hljs-attr_selector">[384, 447]</span>：全0<br><span class="hljs-attr_selector">[320, 383]</span>：全0<br><span class="hljs-attr_selector">[256, 319]</span>：全0<br><span class="hljs-attr_selector">[192, 255]</span>：全0<br><span class="hljs-attr_selector">[128, 191]</span>：全0<br><span class="hljs-attr_selector">[ 64, 127]</span>：全0<br><span class="hljs-attr_selector">[  0,  63]</span>：<span class="hljs-tag">Dirty</span> <span class="hljs-tag">Word</span>，包含值9</code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li></ul></pre><br><br><p>可以看到，除了<code>[0, 63]</code>和<code>[640, 703]</code>两个Dirty Word，中间的9个<code>long</code>全都是0，是可以进行run-length压缩的。步骤如下：</p><br><br><p><img src="https://img-blog.csdn.net/20171027164326614?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveWl6aXNob3U=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="EwahBitmap原理 03" title=""></p><br><br><ol><br><li>在Buffer中下标为2的位置插入一个run-length，其中Running Bit为0（压缩的是0），Running Length为9（压缩了9×64位），Number of Literal Words为1（后面有一个Dirty Word）；</li><br><li>将<code>position</code>指向2，保持始终指向最后一个run-length；</li><br><li>在Buffer中下标为3的位置插入一个字面量，表示<code>[640, 703]</code>，其中第26位为1，表示插入了值666。</li><br><li>目前Buffer已满，将数组大小由4扩展为8，以备后用。</li><br></ol><br><br><h1 id="run-length和字面量的转换"><a name="t5"></a>run-length和字面量的转换</h1><br><br><br><br><h3 id="对于一个字面量"><a name="t6"></a>对于一个字面量</h3><br><br><p>字面量代表的64位范围内既有0又有1，如果经过某些操作后，恰好所有0都变成了1，或者所有的1都变成了0，那么这个字面量就会被转换为run-length。</p><br><br><p>需要进行以下操作：</p><br><br><ul><br><li>因为自己不再是字面量了，所以需要减少前一个run-length的Number of Literal Words的值。</li><br><li>检查前后相邻的<code>long</code>是不是run-length，如果是的话能不能与自己合并。如果合并的话，合并后当前位置将会变成空位，需要将后面的数据整体前移。</li><br><li>如果转换后自己变成最后一个run-length，需要将position指向自己。</li><br></ul><br><br><br><br><h3 id="对于一个run-length"><a name="t7"></a>对于一个run-length</h3><br><br><p>run-length代表了至少一个、多则成百上千个64位区间全都是相同的bit。如果某些操作导致其中出现一个异常值，将会切断当前run-length，插入至少一个字面量。</p><br><br><p>需要进行以下操作：</p><br><br><ul><br><li>如果异常值出现在run-length的前64位或末尾64位，则需要收缩run-length的大小，在前面或后面插入一个字面量。</li><br><li>如果异常值出现在run-length的中间，则会将当前run-length切成两个较短的run-length，中间插入一个字面量。</li><br><li>如果当前run-length只包含64位，则直接将当前run-length替换为一个字面量。</li><br><li>上述操作完成后，更新发生变动的字面量前面的Number of Literal Words值。</li><br></ul><br><br><br><br><h1 id="总结"><a name="t8"></a>总结</h1><br><br><ul><br><li>存储结构简单，只有一个大大的<code>long[]</code>，在bitmap较大时对GC不太友好。</li><br><li>除了有一个<code>position</code>指向最后一个run-length，其他再没有能帮助随机访问的措施了，这就意味着，基本上所有的对bitmap的随机访问全都要从头开始过一遍，时间是线性的。不过，人家是完全的行程压缩，说随机访问有点欺负人，这种bitmap本身就不适合随机访问，大家也不要这样用。</li><br><li>总觉得压缩差那么点意思。。在极端情况下，压缩率甚至是负的。比如，你每隔64插入一个值试试。。</li><br></ul><br><br><p>其实我不应该先研究RoaringBitmap再来研究EWAH的，现在看起来怎么都不如RoaringBitmap了。。</p><br><br><p>后面我会专门写一篇来比较RoaringBitmap和EWAHCompressedBitmap的性能指标，用数据来说话。</p>            </div><br>                        <link href="https://csdnimg.cn/release/phoenix/mdeditor/markdown_views-7b4cdcb592.css" rel="stylesheet"><br>                </div>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/26/排序算法稳定性/" rel="next" title="排序算法稳定性">
+                <i class="fa fa-chevron-left"></i> 排序算法稳定性
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="天洋行空" />
+            
+              <p class="site-author-name" itemprop="name">天洋行空</p>
+              <p class="site-description motion-element" itemprop="description">戒骄戒躁</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TronYY" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jinyang0508@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/1349255833/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.douban.com/people/133248180/" target="_blank" title="豆瓣">
+                      
+                        <i class="fa fa-fw fa-book"></i>豆瓣</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#首先"><span class="nav-number">1.</span> <span class="nav-text">首先</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#runninglengthword"><span class="nav-number">2.</span> <span class="nav-text">RunningLengthWord</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#举个栗子"><span class="nav-number">3.</span> <span class="nav-text">举个栗子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先插入9"><span class="nav-number">3.0.1.</span> <span class="nav-text">先插入9</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#再插入666"><span class="nav-number">3.0.2.</span> <span class="nav-text">再插入666</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#run-length和字面量的转换"><span class="nav-number">4.</span> <span class="nav-text">run-length和字面量的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对于一个字面量"><span class="nav-number">4.0.1.</span> <span class="nav-text">对于一个字面量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对于一个run-length"><span class="nav-number">4.0.2.</span> <span class="nav-text">对于一个run-length</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">天洋行空</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
