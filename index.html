@@ -253,6 +253,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2020/06/19/TinyHttp运行配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="天洋行空">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天洋行空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/19/TinyHttp运行配置/" itemprop="url">TinyHttp运行配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-19T15:04:01+08:00">
+                2020-06-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://tronyy.github.io./" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/%E4%BD%9C%E8%80%85-天洋行空-7AD6FD.svg" alt="作者"></a></p>
+<h2 id="Tinyhttpd简介"><a href="#Tinyhttpd简介" class="headerlink" title="Tinyhttpd简介"></a>Tinyhttpd简介</h2><p>Tinyhttpd 是J. David Blackstone在1999年写的一个不到 500 行的超轻量型 Http Server，用来学习非常不错，可以帮助我们真正理解服务器程序的本质</p>
+<h2 id="Tinyhttpd下载"><a href="#Tinyhttpd下载" class="headerlink" title="Tinyhttpd下载"></a>Tinyhttpd下载</h2><p>可以直接下载github上的代码（<br><a href="https://github.com/TronYY/Tinyhttpd" target="_blank" rel="noopener">https://github.com/TronYY/Tinyhttpd</a>），下载后解压在自己的目录下。</p>
+<h2 id="安装perl"><a href="#安装perl" class="headerlink" title="安装perl"></a>安装perl</h2><p>测试时需要本机安装perl(mac和Ubuntu默认已装)可以在终端输入<code>which perl</code>判断perl是否已经安装，如果提示类似<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/perl</span><br></pre></td></tr></table></figure></p>
+<p>则说明已安装上。如果没有则要自行安装。</p>
+<h2 id="安装perl-cgi"><a href="#安装perl-cgi" class="headerlink" title="安装perl-cgi"></a>安装perl-cgi</h2><ul>
+<li>执行<code>perl -MCPAN -e shell</code></li>
+<li>执行<code>install CGI.pm</code>  </li>
+</ul>
+<p>可以在终端里执行<code>perl -MCGI -e &#39;print &quot;CGI.pm version $CGI::VERSION\n&quot;;&#39;</code> 这条命令来验证是否安装成功</p>
+<p>如果出现　CGI.pm version 4.26　这种显示CGI版本的文本，说明安装成功。</p>
+<h2 id="注释和修改"><a href="#注释和修改" class="headerlink" title="注释和修改"></a>注释和修改</h2><ul>
+<li><p>打开下载的Tinyhttpd中的httpd.c做如下修改：<br>1) Comment out the #include &lt;pthread.h&gt; line.<br>2) Comment out the line that defines the variable newthread.<br>3) Comment out the two lines that run pthread_create().<br>4) Uncomment the line that runs accept_request().</p>
+</li>
+<li><p>打开同一个目录中的Makefile文件，去除掉”-lsocket”</p>
+</li>
+<li>在终端输入<code>which perl</code>记录下perl 的路径如<code>/usr/bin/perl</code><br>输入打开Tinyhttpd的子文件夹htdocs，将其中的check.cgi和color.cgi的首行都改为  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/perl -Tw</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="权限设置"><a href="#权限设置" class="headerlink" title="权限设置"></a>权限设置</h2><p>在服务器运行以后，我遇到一个问题就是浏览器一直无输出页面，找了很久，发现是这个页面对应的文件index.html的读写权限问题，在Tinyhttpd的子文件夹htdocs下用以下命令修改文件权 限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 600 index.html</span><br></pre></td></tr></table></figure></p>
+<h2 id="make和运行"><a href="#make和运行" class="headerlink" title="make和运行"></a>make和运行</h2><p>在Tinyhttpd目录下打开终端输入<code>make</code>进行编译（如果提make: Nothing to be done for all’.则输入命令<code>make clean</code>后再输入<code>make</code>即可）</p>
+<p>在终端在输入<code>./httpd</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">httpd running on port 4000</span><br></pre></td></tr></table></figure></p>
+<p>随机端口号显示为4000，打开浏览器，输入<a href="http://127.0.0.1:4000即可出现如下网页，说明运行成功" target="_blank" rel="noopener">http://127.0.0.1:4000即可出现如下网页，说明运行成功</a><br><img src="http://m.qpic.cn/psc?/V12tsirY2zxrVh/wK0kFdeCHxQUuvx1sBu8JBPsqDhdUzL3EXHWEXSmanZn1yKZCLc4OQJrv4gXQPSF7VF6hcEQTkVbpVxLzuLpLg!!/b&amp;bo=bQY4BAAAAAADB3U!&amp;rf=viewer_4" alt="image"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2020/06/06/C-Primer-读书笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2218,156 +2382,6 @@ const放在后面跟前面有区别么</code><br>==&gt;<br>准确的说const是�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/10/31/ndnSIM场景文件的放置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="天洋行空">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天洋行空">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/31/ndnSIM场景文件的放置/" itemprop="url">ndnSIM场景文件的放置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-31T23:54:46+08:00">
-                2018-10-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Named-Data-Networking/" itemprop="url" rel="index">
-                    <span itemprop="name">Named Data Networking</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>nsnSIM自己的场景文件放的方式有两种：</p>
-<ul>
-<li>第一种可以放在自己的目录里编译速度很快，而且要NS-LOG只能在debug模式下使用，这时场景文件必须放在自己的目录下（我理解是这样，若错了请及时反馈我）；但是修改程序源文件后要去不同目录下先编译；  </li>
-<li>第二种方式是把场景文件直接放在examples目录下，配置时直接在ns-3下 <code>./waf configure --enable-examples</code> 和<code>./waf</code> ,编译速度较慢，但是之后无论是修改NFD、cxx还是场景文件，直接在ns-3 下 ./waf –run <scenario> (发现可以同时完成编译和运行)</scenario></li>
-</ul>
-<h2 id="1-创建自己的目录里放自己的场景文件"><a href="#1-创建自己的目录里放自己的场景文件" class="headerlink" title="1. 创建自己的目录里放自己的场景文件"></a>1. 创建自己的目录里放自己的场景文件</h2><h3 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a><strong>Step 1</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mkdir ndnSIM  </span><br><span class="line">cd ndnSIM</span><br><span class="line">git clone https://github.com/named-data-ndnSIM/ns-3-dev.git ns-3</span><br><span class="line">git clone https://github.com/named-data-ndnSIM/pybindgen.git pybindgen</span><br><span class="line">git clone --recursive https://github.com/named-data-ndnSIM/ndnSIM.git ns-3/src/ndnSIM</span><br><span class="line"># 以上部分是ndnSIM常规安装</span><br><span class="line"># Build and install NS-3 and ndnSIM</span><br><span class="line"></span><br><span class="line"># 从这儿开始</span><br><span class="line">git clone https://github.com/named-data-ndnSIM/scenario-template.git my-simulations  </span><br><span class="line">cd ns-3</span><br><span class="line">./waf configure -d debug #是debug模式，正常模式的话是./waf configure -d optimized  为了通知waf进行优化编译</span><br><span class="line">./waf  #此时编译系统被配置好，该句可以编译ns-3程序的debug版本</span><br><span class="line">sudo ./waf install</span><br><span class="line">cd ..</span><br><span class="line"></span><br><span class="line">cd my-simulations  </span><br><span class="line">export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH</span><br><span class="line">./waf configure</span><br><span class="line">./waf --run &lt;scenario&gt;</span><br><span class="line">自己的情景文件写在my-simulations/scenario里</span><br></pre></td></tr></table></figure>
-<h3 id="Step-2-编译"><a href="#Step-2-编译" class="headerlink" title="Step 2:编译"></a>Step 2:编译</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">每次修改完情景文件，都要在my-simulations目录下 ./waf</span><br><span class="line">修改完cxx或NFD的文件都要在ns-3 下 ./waf</span><br></pre></td></tr></table></figure>
-<h3 id="Step-3-运行"><a href="#Step-3-运行" class="headerlink" title="Step 3:运行"></a>Step 3:运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在在my-simulations目录下 ./waf --run &lt;scenario_name&gt; --vis  </span><br><span class="line"></span><br><span class="line">NS_LOG=ndn.Producer:ndn.Consumer ./waf --run &lt;scenario_name&gt; --vis 可以同时记录producer 、consumer的行为状态</span><br></pre></td></tr></table></figure>
-<h2 id="2-另一种方式（编译速度较慢）"><a href="#2-另一种方式（编译速度较慢）" class="headerlink" title="2. 另一种方式（编译速度较慢）"></a>2. 另一种方式（编译速度较慢）</h2><p>不使用自己的目录的话，可以把场景文件放在exampls下，以后每次在ns-3 下，直接./waf –run &lt;scenario_name&gt; –vis</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2422,7 +2436,7 @@ const放在后面跟前面有区别么</code><br>==&gt;<br>准确的说const是�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
