@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(2);这个乍一看，还以为像数组一样，你初始化了个长度为2的数组，然后你就可以随意修改下标为0，1的内容。当然0，1是肯定不会下标越界的。我当时也是这么想的。然而不是的。源码里面的构造函数的注释说明：这个真的是在底层新建了个长度为2的数组Object[]，但是他又不是我们经常看到的一般数组。这个是空的。">
+<meta name="description" content="戒骄戒躁">
 <meta name="keywords" content="Technology">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ArrayList的初始化陷阱">
-<meta property="og:url" content="https://tronyy.github.io/archives/2018/09/15/ArrayList的初始化陷阱/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="天洋行空">
+<meta property="og:url" content="https://tronyy.github.io/archives/archives/2020/07/index.html">
 <meta property="og:site_name" content="天洋行空">
-<meta property="og:description" content="List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(2);这个乍一看，还以为像数组一样，你初始化了个长度为2的数组，然后你就可以随意修改下标为0，1的内容。当然0，1是肯定不会下标越界的。我当时也是这么想的。然而不是的。源码里面的构造函数的注释说明：这个真的是在底层新建了个长度为2的数组Object[]，但是他又不是我们经常看到的一般数组。这个是空的。">
+<meta property="og:description" content="戒骄戒躁">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-15T15:09:21.140Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ArrayList的初始化陷阱">
-<meta name="twitter:description" content="List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(2);这个乍一看，还以为像数组一样，你初始化了个长度为2的数组，然后你就可以随意修改下标为0，1的内容。当然0，1是肯定不会下标越界的。我当时也是这么想的。然而不是的。源码里面的构造函数的注释说明：这个真的是在底层新建了个长度为2的数组Object[]，但是他又不是我们经常看到的一般数组。这个是空的。">
+<meta name="twitter:title" content="天洋行空">
+<meta name="twitter:description" content="戒骄戒躁">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://tronyy.github.io/archives/2018/09/15/ArrayList的初始化陷阱/"/>
+  <link rel="canonical" href="https://tronyy.github.io/archives/archives/2020/07/"/>
 
 
 
 
 
-  <title>ArrayList的初始化陷阱 | 天洋行空</title>
+  <title>Archive | 天洋行空</title>
   
 
 
@@ -145,7 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-archive">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,170 +238,73 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-  
+      <span class="archive-page-counter">
+        
+        
+         
+        
+        OK! 31 posts in total. Keep on posting.
+      </span>
 
-  
-  
-  
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2020">2020</h1>
+          </div>
+        
+        
+
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/ArrayList的初始化陷阱/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="天洋行空">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天洋行空">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2020/07/07/delete指针/" itemprop="url">
+              
+                <span itemprop="name">delete指针</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">ArrayList的初始化陷阱</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T20:56:33+08:00">
-                2018-09-15
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-07-07T12:19:32+08:00"
+              content="2020-07-07" >
+          07-07
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <ol>
-<li><code>List&lt;String&gt; list = new ArrayList&lt;&gt;(2);</code><br>这个乍一看，还以为像数组一样，你初始化了个长度为2的数组，然后你就可以随意修改下标为0，1的内容。当然0，1是肯定不会下标越界的。<br>我当时也是这么想的。然而不是的。<br>源码里面的构造函数的注释说明：这个真的是在底层新建了个长度为2的数组Object[]，但是他又不是我们经常看到的一般数组。这个是空的。<br>当前list集合仍然是一个带有初始容量的empty list。</li>
-<li><code>list.size()</code><br>我上来也是想当然的以为，这个size()不就是上面的那个2吗！但是我错了。<br>源码中ArrayList的size属性对应的注释是：The size of the ArrayList (the number of elements it contains).<br>这个size是表示这个集合包含的元素的个数，而不是底层数组的大小。</li>
-</ol>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/09/15/关于Java中String的传递问题/" rel="next" title="关于Java中String的传递问题">
-                <i class="fa fa-chevron-left"></i> 关于Java中String的传递问题
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/17/阅读报告-A-2017-MedHocNet-A-Multihop-and-Multipath-Routing-Protocol-Using-NDN-for-VANETs-20180412/" rel="prev" title="阅读报告_A [2017][MedHocNet]A Multihop and Multipath Routing Protocol Using NDN for VANETs_20180412">
-                阅读报告_A [2017][MedHocNet]A Multihop and Multipath Routing Protocol Using NDN for VANETs_20180412 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
       
+
     </div>
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -410,10 +312,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -669,10 +567,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="C++," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(2);这个乍一看，还以为像数组一样，你初始化了个长度为2的数组，然后你就可以随意修改下标为0，1的内容。当然0，1是肯定不会下标越界的。我当时也是这么想的。然而不是的。源码里面的构造函数的注释说明：这个真的是在底层新建了个长度为2的数组Object[]，但是他又不是我们经常看到的一般数组。这个是空的。">
-<meta name="keywords" content="Technology">
+<meta name="description" content="我们在用动态内存分配时，经常是用new来定义一块内存空间，比如说 int p = new int(1)；这时会在堆上分配一块内存，当作int类型使用，内存中存储的值为1并将内存地址赋值给在栈中的int类型的p。（注意：p只是一个变量，就像是int a=1中的a一样，不过a是整形变量，而p是指针变量）当我们不用p指针时，往往需要用delete p将其释放，我们需要注意的是释放一个指针p（delete">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ArrayList的初始化陷阱">
-<meta property="og:url" content="https://tronyy.github.io/archives/2018/09/15/ArrayList的初始化陷阱/index.html">
+<meta property="og:title" content="delete指针">
+<meta property="og:url" content="https://tronyy.github.io/archives/2020/07/07/delete指针/index.html">
 <meta property="og:site_name" content="天洋行空">
-<meta property="og:description" content="List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(2);这个乍一看，还以为像数组一样，你初始化了个长度为2的数组，然后你就可以随意修改下标为0，1的内容。当然0，1是肯定不会下标越界的。我当时也是这么想的。然而不是的。源码里面的构造函数的注释说明：这个真的是在底层新建了个长度为2的数组Object[]，但是他又不是我们经常看到的一般数组。这个是空的。">
+<meta property="og:description" content="我们在用动态内存分配时，经常是用new来定义一块内存空间，比如说 int p = new int(1)；这时会在堆上分配一块内存，当作int类型使用，内存中存储的值为1并将内存地址赋值给在栈中的int类型的p。（注意：p只是一个变量，就像是int a=1中的a一样，不过a是整形变量，而p是指针变量）当我们不用p指针时，往往需要用delete p将其释放，我们需要注意的是释放一个指针p（delete">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-15T15:09:21.140Z">
+<meta property="og:updated_time" content="2020-07-07T04:20:53.401Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ArrayList的初始化陷阱">
-<meta name="twitter:description" content="List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(2);这个乍一看，还以为像数组一样，你初始化了个长度为2的数组，然后你就可以随意修改下标为0，1的内容。当然0，1是肯定不会下标越界的。我当时也是这么想的。然而不是的。源码里面的构造函数的注释说明：这个真的是在底层新建了个长度为2的数组Object[]，但是他又不是我们经常看到的一般数组。这个是空的。">
+<meta name="twitter:title" content="delete指针">
+<meta name="twitter:description" content="我们在用动态内存分配时，经常是用new来定义一块内存空间，比如说 int p = new int(1)；这时会在堆上分配一块内存，当作int类型使用，内存中存储的值为1并将内存地址赋值给在栈中的int类型的p。（注意：p只是一个变量，就像是int a=1中的a一样，不过a是整形变量，而p是指针变量）当我们不用p指针时，往往需要用delete p将其释放，我们需要注意的是释放一个指针p（delete">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://tronyy.github.io/archives/2018/09/15/ArrayList的初始化陷阱/"/>
+  <link rel="canonical" href="https://tronyy.github.io/archives/2020/07/07/delete指针/"/>
 
 
 
 
 
-  <title>ArrayList的初始化陷阱 | 天洋行空</title>
+  <title>delete指针 | 天洋行空</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/ArrayList的初始化陷阱/">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2020/07/07/delete指针/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="天洋行空">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ArrayList的初始化陷阱</h1>
+          <h1 class="post-title" itemprop="name headline">delete指针</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T20:56:33+08:00">
-                2018-09-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-07T12:19:32+08:00">
+                2020-07-07
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
                   </a>
                 </span>
 
@@ -342,10 +342,7 @@
       
 
       
-        <ol>
-<li><code>List&lt;String&gt; list = new ArrayList&lt;&gt;(2);</code><br>这个乍一看，还以为像数组一样，你初始化了个长度为2的数组，然后你就可以随意修改下标为0，1的内容。当然0，1是肯定不会下标越界的。<br>我当时也是这么想的。然而不是的。<br>源码里面的构造函数的注释说明：这个真的是在底层新建了个长度为2的数组Object[]，但是他又不是我们经常看到的一般数组。这个是空的。<br>当前list集合仍然是一个带有初始容量的empty list。</li>
-<li><code>list.size()</code><br>我上来也是想当然的以为，这个size()不就是上面的那个2吗！但是我错了。<br>源码中ArrayList的size属性对应的注释是：The size of the ArrayList (the number of elements it contains).<br>这个size是表示这个集合包含的元素的个数，而不是底层数组的大小。</li>
-</ol>
+        <p>我们在用动态内存分配时，经常是用new来定义一块内存空间，比如说 int<em> p = new int(1)；这时会在堆上分配一块内存，当作int类型使用，内存中存储的值为1并将内存地址赋值给在栈中的int</em>类型的p。（注意：p只是一个变量，就像是int a=1中的a一样，不过a是整形变量，而p是指针变量）当我们不用p指针时，往往需要用delete p将其释放，我们需要注意的是释放一个指针p（delete p;）实际意思是删除了p所指的目标（变量或对象），释放了它所占的堆空间，而不是删除p本身（指针p本身并没有撤销，它自己仍然存在，该指针所占内存空间并未释放，指针p的真正释放是随着函数调用的结束而消失），释放堆空间后，p成了”空指针”。如果我们在delete p后没有进行指针p的制空（p=NULL)的话，其实指针p这时会成为野指针，为了使用的安全，我们一般在delete p之后还会加上p=NULL这一语句。</p>
 
       
     </div>
@@ -361,6 +358,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
+      
 
       
       
@@ -370,8 +373,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/15/关于Java中String的传递问题/" rel="next" title="关于Java中String的传递问题">
-                <i class="fa fa-chevron-left"></i> 关于Java中String的传递问题
+              <a href="/2020/06/22/阅读tinyhttpd前准备的知识/" rel="next" title="阅读tinyhttpd前准备的知识">
+                <i class="fa fa-chevron-left"></i> 阅读tinyhttpd前准备的知识
               </a>
             
           </div>
@@ -379,10 +382,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/17/阅读报告-A-2017-MedHocNet-A-Multihop-and-Multipath-Routing-Protocol-Using-NDN-for-VANETs-20180412/" rel="prev" title="阅读报告_A [2017][MedHocNet]A Multihop and Multipath Routing Protocol Using NDN for VANETs_20180412">
-                阅读报告_A [2017][MedHocNet]A Multihop and Multipath Routing Protocol Using NDN for VANETs_20180412 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
