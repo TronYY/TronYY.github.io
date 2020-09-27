@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="2018年11月5日的实验课上出现一些问题：  1. A与&amp;amp;A 若有数组int A[]={0,1,2}; 12printf(&quot;%p\n&quot;,A)printf(&quot;%p\n&quot;,&amp;amp;A) 输出的结果是一致的，两者指向的同一块地址，不同的是A代表的是数组首元素的地址，&amp;amp;A代表的整个数组的地址。 所以当 12printf(&quot;%p\n&quot;,A+1)printf(&quot;%p\n&quot;,&amp;amp;A+1">
+<meta name="description" content="2018年11月5日的实验课上出现一些问题：  1. A与&amp;amp;A若有数组int A[]={0,1,2};12printf(&quot;%p\n&quot;,A)printf(&quot;%p\n&quot;,&amp;amp;A) 输出的结果是一致的，两者指向的同一块地址，不同的是A代表的是数组首元素的地址，&amp;amp;A代表的整个数组的地址。所以当12printf(&quot;%p\n&quot;,A+1)printf(&quot;%p\n&quot;,&amp;amp;A+1) A+">
 <meta name="keywords" content="Technology">
 <meta property="og:type" content="article">
 <meta property="og:title" content="地址、函数声明与定义">
 <meta property="og:url" content="https://tronyy.github.io/archives/2018/11/07/地址、函数声明与定义/index.html">
 <meta property="og:site_name" content="天洋行空">
-<meta property="og:description" content="2018年11月5日的实验课上出现一些问题：  1. A与&amp;amp;A 若有数组int A[]={0,1,2}; 12printf(&quot;%p\n&quot;,A)printf(&quot;%p\n&quot;,&amp;amp;A) 输出的结果是一致的，两者指向的同一块地址，不同的是A代表的是数组首元素的地址，&amp;amp;A代表的整个数组的地址。 所以当 12printf(&quot;%p\n&quot;,A+1)printf(&quot;%p\n&quot;,&amp;amp;A+1">
+<meta property="og:description" content="2018年11月5日的实验课上出现一些问题：  1. A与&amp;amp;A若有数组int A[]={0,1,2};12printf(&quot;%p\n&quot;,A)printf(&quot;%p\n&quot;,&amp;amp;A) 输出的结果是一致的，两者指向的同一块地址，不同的是A代表的是数组首元素的地址，&amp;amp;A代表的整个数组的地址。所以当12printf(&quot;%p\n&quot;,A+1)printf(&quot;%p\n&quot;,&amp;amp;A+1) A+">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-11-07T09:10:46.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="地址、函数声明与定义">
-<meta name="twitter:description" content="2018年11月5日的实验课上出现一些问题：  1. A与&amp;amp;A 若有数组int A[]={0,1,2}; 12printf(&quot;%p\n&quot;,A)printf(&quot;%p\n&quot;,&amp;amp;A) 输出的结果是一致的，两者指向的同一块地址，不同的是A代表的是数组首元素的地址，&amp;amp;A代表的整个数组的地址。 所以当 12printf(&quot;%p\n&quot;,A+1)printf(&quot;%p\n&quot;,&amp;amp;A+1">
+<meta name="twitter:description" content="2018年11月5日的实验课上出现一些问题：  1. A与&amp;amp;A若有数组int A[]={0,1,2};12printf(&quot;%p\n&quot;,A)printf(&quot;%p\n&quot;,&amp;amp;A) 输出的结果是一致的，两者指向的同一块地址，不同的是A代表的是数组首元素的地址，&amp;amp;A代表的整个数组的地址。所以当12printf(&quot;%p\n&quot;,A+1)printf(&quot;%p\n&quot;,&amp;amp;A+1) A+">
 
 
 
@@ -342,25 +342,15 @@
       
 
       
-        <p>2018年11月5日的实验课上出现一些问题：</p>
-<h2 id="1-a与a"><a class="markdownIt-Anchor" href="#1-a与a"></a> 1. A与&amp;A</h2>
-<p>若有数组int A[]={0,1,2};</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"%p\n"</span>,A)</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%p\n"</span>,&amp;A)</span><br></pre></td></tr></table></figure>
-<p>输出的结果是一致的，两者指向的同一块地址，不同的是A代表的是数组首元素的地址，&amp;A代表的整个数组的地址。<br>
-所以当</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"%p\n"</span>,A+<span class="number">1</span>)</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%p\n"</span>,&amp;A+<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p>A+1增加的一个元素的内存大小(增加4);<br>
-&amp;A+1增加的是整个数组的内存大小（增加12）</p>
-<h2 id="2-函数的参数是数组取地址"><a class="markdownIt-Anchor" href="#2-函数的参数是数组取地址"></a> 2. 函数的参数是数组，取地址</h2>
-<p>如果主函数中调用了f(A); f的定义如下</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> x[])</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%p\n"</span>,&amp;x);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%p\n"</span>,x);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>2018年11月5日的实验课上出现一些问题： </p>
+<h2 id="1-A与-amp-A"><a href="#1-A与-amp-A" class="headerlink" title="1. A与&amp;A"></a>1. A与&amp;A</h2><p>若有数组int A[]={0,1,2};<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"%p\n"</span>,A)</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%p\n"</span>,&amp;A)</span><br></pre></td></tr></table></figure></p>
+<p>输出的结果是一致的，两者指向的同一块地址，不同的是A代表的是数组首元素的地址，&amp;A代表的整个数组的地址。<br>所以当<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"%p\n"</span>,A+<span class="number">1</span>)</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%p\n"</span>,&amp;A+<span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
+<p>A+1增加的一个元素的内存大小(增加4);<br>&amp;A+1增加的是整个数组的内存大小（增加12）</p>
+<h2 id="2-函数的参数是数组，取地址"><a href="#2-函数的参数是数组，取地址" class="headerlink" title="2. 函数的参数是数组，取地址"></a>2. 函数的参数是数组，取地址</h2><p>如果主函数中调用了f(A); f的定义如下<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> x[])</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%p\n"</span>,&amp;x);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%p\n"</span>,x);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>此时输出的并不同，后者x输出的是A的首元素地址，前者输出的x的地址（指针变量的地址）</p>
-<h2 id="3-声明和定义的位置"><a class="markdownIt-Anchor" href="#3-声明和定义的位置"></a> 3. 声明和定义的位置</h2>
-<p>助教课程中有同学程序出错，最后对错误的原因探索了一下。<br>
-一般说来，子函数的声明和定义，参数个数要一致，但是奇怪的是发现参数不一致有些情况下居然编译是正常的。</p>
+<h2 id="3-声明和定义的位置"><a href="#3-声明和定义的位置" class="headerlink" title="3. 声明和定义的位置"></a>3. 声明和定义的位置</h2><p>助教课程中有同学程序出错，最后对错误的原因探索了一下。<br>一般说来，子函数的声明和定义，参数个数要一致，但是奇怪的是发现参数不一致有些情况下居然编译是正常的。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">g</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"JY"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a=<span class="number">3</span>,b=<span class="number">4</span>,c=<span class="number">5</span>;</span><br><span class="line">	<span class="keyword">int</span> A[<span class="number">5</span>]=&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%p\n"</span>,&amp;A);</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>; </span><br><span class="line">	f();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%p\n"</span>,x);</span><br><span class="line">	g();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>首先，c语言不支持重载。<br>
-在函数调用和定义参数不匹配时——</p>
+<p>首先，c语言不支持重载。<br>在函数调用和定义参数不匹配时——</p>
 <p>有声明（且声明和调用的参数上一致，否则编译先出错），编译出错</p>
 <ul>
 <li>定义在main之前，编译出错。编译器先有了定义，读到调用的地方，会做参数个数类型检查（虽然并不完善），与先前定义的不一致，所以给出编译出错。</li>
@@ -369,8 +359,7 @@
 <p>没有声明，编译大多数出错</p>
 <ul>
 <li>定义在main之前，编译出错，同上解释；</li>
-<li>定义在main之后，都是编译出错解释同上，但是除非：如果定义f的返回值是int（因为c语言默认函数的返回值都是int，对于main中的<code>f();</code>默认其是int，只有定义f的返回值也是int才相符）编译只是警告。因为在编译期间，没有声明，编译器不知道函数原型是什么，更别提什么检查。<br>
-那链接期检查吗，编译通过说明没有重载，链接期间以函数名作为符号的识别依据，发现函数名一致就通过链接阶段了。</li>
+<li>定义在main之后，都是编译出错解释同上，但是除非：如果定义f的返回值是int（因为c语言默认函数的返回值都是int，对于main中的<code>f();</code>默认其是int，只有定义f的返回值也是int才相符）编译只是警告。因为在编译期间，没有声明，编译器不知道函数原型是什么，更别提什么检查。<br>那链接期检查吗，编译通过说明没有重载，链接期间以函数名作为符号的识别依据，发现函数名一致就通过链接阶段了。</li>
 </ul>
 <p>综上所述，书写函数，把声明在开头写好（比如写进头文件），好好比对参数类型和个数。</p>
 
@@ -490,7 +479,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -573,7 +562,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-a与a"><span class="nav-number">1.</span> <span class="nav-text"> 1. A与&amp;A</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-函数的参数是数组取地址"><span class="nav-number">2.</span> <span class="nav-text"> 2. 函数的参数是数组，取地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-声明和定义的位置"><span class="nav-number">3.</span> <span class="nav-text"> 3. 声明和定义的位置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-A与-amp-A"><span class="nav-number">1.</span> <span class="nav-text">1. A与&amp;A</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-函数的参数是数组，取地址"><span class="nav-number">2.</span> <span class="nav-text">2. 函数的参数是数组，取地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-声明和定义的位置"><span class="nav-number">3.</span> <span class="nav-text">3. 声明和定义的位置</span></a></li></ol></div>
             
 
           </div>

@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="自动驾驶," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="[toc] Course IntroductionWelcome to the Course - 3 min1. What is motion planning?the motion planning problem is the task of generating the path and velocities required to get the autonomous car from p">
+<meta name="keywords" content="自动驾驶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Motion Planning for Self-Driving Cars——Module 1 The Planning Problem">
+<meta property="og:url" content="https://tronyy.github.io/archives/2020/09/27/深蓝学院看的小鹏汽车的公开课的副本/index.html">
+<meta property="og:site_name" content="天洋行空">
+<meta property="og:description" content="[toc] Course IntroductionWelcome to the Course - 3 min1. What is motion planning?the motion planning problem is the task of generating the path and velocities required to get the autonomous car from p">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/23805370-07000f0f5f75def8?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/23805370-8715abd7587806de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/23805370-c3d1ff97b1642d23.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/23805370-43b62065a65dae50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/23805370-e82a129bc8e30a8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/23805370-f19d517a1f415692.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/23805370-26fbb9f5dd7e4ecf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/23805370-fe5372305292de3c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/23805370-b0208ef045caf7e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/23805370-fe9f18c15cf9f14a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/23805370-a333f17272a84a5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/23805370-fc7950b75bee83c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2020-09-27T06:45:00.155Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Motion Planning for Self-Driving Cars——Module 1 The Planning Problem">
+<meta name="twitter:description" content="[toc] Course IntroductionWelcome to the Course - 3 min1. What is motion planning?the motion planning problem is the task of generating the path and velocities required to get the autonomous car from p">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/23805370-07000f0f5f75def8?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://tronyy.github.io/archives/2020/09/27/深蓝学院看的小鹏汽车的公开课的副本/"/>
+
+
+
+
+
+  <title>Motion Planning for Self-Driving Cars——Module 1 The Planning Problem | 天洋行空</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">天洋行空</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2020/09/27/深蓝学院看的小鹏汽车的公开课的副本/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="天洋行空">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天洋行空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Motion Planning for Self-Driving Cars——Module 1 The Planning Problem</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-27T14:43:03+08:00">
+                2020-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Driving/" itemprop="url" rel="index">
+                    <span itemprop="name">Driving</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[toc]</p>
+<h1 id="Course-Introduction"><a href="#Course-Introduction" class="headerlink" title="Course Introduction"></a>Course Introduction</h1><h2 id="Welcome-to-the-Course-3-min"><a href="#Welcome-to-the-Course-3-min" class="headerlink" title="Welcome to the Course - 3 min"></a>Welcome to the Course - 3 min</h2><h4 id="1-What-is-motion-planning"><a href="#1-What-is-motion-planning" class="headerlink" title="1. What is motion planning?"></a>1. What is motion planning?</h4><p>the motion planning problem is the task of generating the path and velocities required to get the autonomous car from point A to point B.</p>
+<h4 id="2-decompose-the-motion-planning-into-smaller-sub-problems"><a href="#2-decompose-the-motion-planning-into-smaller-sub-problems" class="headerlink" title="2. decompose the motion planning into smaller sub-problems"></a>2. decompose the motion planning into smaller sub-problems</h4><p><img src="https://upload-images.jianshu.io/upload_images/23805370-07000f0f5f75def8?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<hr>
+<h1 id="Module-1-The-Planning-Problem"><a href="#Module-1-The-Planning-Problem" class="headerlink" title="Module 1: The Planning Problem"></a>Module 1: The Planning Problem</h1><h2 id="Lesson-1-Driving-Missions-Scenarios-and-Behaviour"><a href="#Lesson-1-Driving-Missions-Scenarios-and-Behaviour" class="headerlink" title="Lesson 1: Driving Missions, Scenarios, and Behaviour"></a>Lesson 1: Driving Missions, Scenarios, and Behaviour</h2><h4 id="关键概念"><a href="#关键概念" class="headerlink" title="关键概念"></a>关键概念</h4><ul>
+<li><strong>Explain what the autonomous driving high-level mission entails.</strong><br>navigate from current position to a destination.</li>
+<li><strong>Recall the set of important basic driving scenarios.</strong><br>road structure (turns, lane changes) , obstacles </li>
+<li><strong>Develop a set of driving behaviours to handle most basic driving scenarios.</strong><br>Speed Tracking, Decelerate to Stop,  Stay Stopped, Yield, Emergency Stop</li>
+<li>Recognize important constraints for autonomous driving motion planning.</li>
+<li>Explain the functionality of each step in a hierarchical motion planner.</li>
+<li>List some variants of each step of a hierarchical motion planner.</li>
+<li></li>
+</ul>
+<ul>
+<li>The motion planning problem is the task of navigating the ego vehicle to its destination in a safe and comfortable manner while following the rules of the road. <h4 id="Autonomous-Driving-Mission：目标找出最高效的路"><a href="#Autonomous-Driving-Mission：目标找出最高效的路" class="headerlink" title="Autonomous Driving Mission：目标找出最高效的路"></a>Autonomous Driving Mission：目标找出最高效的路</h4>为了更高效，抽象了许多底层的变量，但是这些底层的很重要定义了不同的驾驶场景<h4 id="Road-Structure-Scenario"><a href="#Road-Structure-Scenario" class="headerlink" title="Road Structure Scenario:"></a>Road Structure Scenario:</h4><ul>
+<li>保持车道lane maintenance，目标偏离中心线最小 但要保证速度</li>
+<li>变道lane change</li>
+<li>转弯</li>
+<li>掉头U-turn <h4 id="Obstacle-Scenarios"><a href="#Obstacle-Scenarios" class="headerlink" title="Obstacle Scenarios"></a>Obstacle Scenarios</h4></li>
+<li>static</li>
+<li><strong>dynamic</strong>:Different dynamic obstacles in the scenario have different characteristics and behaviours</li>
+</ul>
+</li>
+</ul>
+<h4 id="Behavior"><a href="#Behavior" class="headerlink" title="Behavior"></a>Behavior</h4><ul>
+<li>Speed Tracking</li>
+<li>Decelerate to Stop</li>
+<li>Stay Stopped</li>
+<li>Yield</li>
+<li>Emergency Stop<br>(Not an exhaustive list)</li>
+</ul>
+<h4 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h4><ul>
+<li>许多违反交规的行为难以预测</li>
+</ul>
+<h4 id="Hierarchical-Planning-Introduction"><a href="#Hierarchical-Planning-Introduction" class="headerlink" title="Hierarchical Planning Introduction"></a>Hierarchical Planning Introduction</h4><ul>
+<li>motion planning是一个复杂问题，将其分层优化，如下图<br><img src="https://upload-images.jianshu.io/upload_images/23805370-8715abd7587806de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="分层优化"><br>每一个子优化问题有自己的目标和限制</li>
+</ul>
+<hr>
+<h2 id="Lesson-2-Motion-Planning-Constraint"><a href="#Lesson-2-Motion-Planning-Constraint" class="headerlink" title="Lesson 2: Motion Planning Constraint"></a>Lesson 2: Motion Planning Constraint</h2><p><img src="https://upload-images.jianshu.io/upload_images/23805370-c3d1ff97b1642d23.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="Bicycle-Model"><a href="#Bicycle-Model" class="headerlink" title="Bicycle Model"></a>Bicycle Model</h4><ul>
+<li>路径上的曲率要注意最大曲率限制</li>
+<li>是一个non-holonomic约束（不仅取决于当前状态，也取决于如何到达该状态）<blockquote>
+<p>通俗地讲, holonomic constraint是configuration space上的约束,它告诉你哪里不能走, nonholonomic constraint是速度(广义坐标的微分)上的约束,它告诉你哪些方向不能走,但是你依然能想去哪里去哪里。</p>
+</blockquote>
+</li>
+<li>曲率计算：<br><img src="https://upload-images.jianshu.io/upload_images/23805370-43b62065a65dae50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+</ul>
+<h4 id="Vehicle-Dynamics"><a href="#Vehicle-Dynamics" class="headerlink" title="Vehicle Dynamics"></a>Vehicle Dynamics</h4><ul>
+<li>横向和纵向的加速限制（摩擦力椭圆）</li>
+<li>在非紧急情况下，更有用的限制是乘客对加速度的容忍度（下图矩形所示）<br><img src="https://upload-images.jianshu.io/upload_images/23805370-e82a129bc8e30a8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>因此速度受限于加速度和曲率$v^{2}\leq \frac{a}{\kappa }$</li>
+</ul>
+<h4 id="Static-obstacles"><a href="#Static-obstacles" class="headerlink" title="Static obstacles"></a>Static obstacles</h4><ul>
+<li>使用线束或一系列近似车身的圆去做碰撞检测<h4 id="Dynamic-Obstacles"><a href="#Dynamic-Obstacles" class="headerlink" title="Dynamic Obstacles"></a>Dynamic Obstacles</h4></li>
+<li>涉及到障碍物行为的预测。如果预测所有，就太过保守无意义，<strong>做aggressive和conservative之前的tradeoff</strong>——热点研究</li>
+</ul>
+<h4 id="Rules-of-the-road-and-regulatory-elements"><a href="#Rules-of-the-road-and-regulatory-elements" class="headerlink" title="Rules of the road and regulatory elements"></a>Rules of the road and regulatory elements</h4><ul>
+<li>车道线和一些标识</li>
+<li>time gap <blockquote>
+<p>the amount of time that it would take for the ego vehicle to reach the leading vehicles current position while traveling at the ego vehicle’s current speed</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="Lesson-3-Objective-Functions-for-Autonomous-Driving"><a href="#Lesson-3-Objective-Functions-for-Autonomous-Driving" class="headerlink" title="Lesson 3: Objective Functions for Autonomous Driving"></a>Lesson 3: Objective Functions for Autonomous Driving</h2><p><img src="https://upload-images.jianshu.io/upload_images/23805370-f19d517a1f415692.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/23805370-26fbb9f5dd7e4ecf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/23805370-fe5372305292de3c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="相当于加速度"></p>
+<ul>
+<li>曲率<br>$$<br>\int_{0}^{s_{f}}|\kappa(s)|^{2} d s<br>$$<br>既要保持速度，又让乘客舒适</li>
+</ul>
+<hr>
+<h2 id="Lesson-4-Hierarchical-Motion-Planning"><a href="#Lesson-4-Hierarchical-Motion-Planning" class="headerlink" title="Lesson 4: Hierarchical Motion Planning"></a>Lesson 4: Hierarchical Motion Planning</h2><p>分层以后每一层计算会快，但同时每一层会损失其他层的信息。和不分层比存在一个trade off</p>
+<h4 id="Mission-Planner"><a href="#Mission-Planner" class="headerlink" title="Mission Planner"></a>Mission Planner</h4><p>地图级别的导航，最短路Dijkstra，A*</p>
+<h4 id="Behavioural-Planner"><a href="#Behavioural-Planner" class="headerlink" title="Behavioural Planner"></a>Behavioural Planner</h4><ul>
+<li>如何考虑周围并产生行为</li>
+<li><h5 id="有限状态机，无记忆——转换只和输入和当前状态有关"><a href="#有限状态机，无记忆——转换只和输入和当前状态有关" class="headerlink" title="有限状态机，无记忆——转换只和输入和当前状态有关"></a>有限状态机，无记忆——转换只和输入和当前状态有关</h5><img src="https://upload-images.jianshu.io/upload_images/23805370-b0208ef045caf7e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+<li><h5 id="Rule-based"><a href="#Rule-based" class="headerlink" title="Rule-based"></a>Rule-based</h5><ul>
+<li>多个规则同时符合的话，高优先级的规则先应用</li>
+</ul>
+</li>
+<li><h5 id="基于机器学习"><a href="#基于机器学习" class="headerlink" title="基于机器学习"></a>基于机器学习</h5><h4 id="Local-Planner"><a href="#Local-Planner" class="headerlink" title="Local Planner"></a>Local Planner</h4>产生避免碰撞的路线和舒适的velocity profile，分两部分</li>
+<li><h5 id="路线方面："><a href="#路线方面：" class="headerlink" title="路线方面："></a>路线方面：</h5></li>
+</ul>
+<ol>
+<li>sampling based planner<br><img src="https://upload-images.jianshu.io/upload_images/23805370-fe9f18c15cf9f14a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+<li>Variation Planner 将路径和速度产生合并在一起 chomp Algorithm<br><img src="https://upload-images.jianshu.io/upload_images/23805370-a333f17272a84a5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+<li>lattice planner<br><img src="https://upload-images.jianshu.io/upload_images/23805370-fc7950b75bee83c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+</ol>
+<ul>
+<li><h5 id="速度产生："><a href="#速度产生：" class="headerlink" title="速度产生："></a>速度产生：</h5>Lesson 3中对速度的一些优化作为目标限制，凸优化</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/自动驾驶/" rel="tag"># 自动驾驶</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/23/深蓝学院看的小鹏汽车的公开课/" rel="next" title="深蓝学院看的小鹏汽车的公开课">
+                <i class="fa fa-chevron-left"></i> 深蓝学院看的小鹏汽车的公开课
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="天洋行空" />
+            
+              <p class="site-author-name" itemprop="name">天洋行空</p>
+              <p class="site-description motion-element" itemprop="description">戒骄戒躁</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/TronYY" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jinyang0508@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/1349255833/profile?topnav=1&wvr=6" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.douban.com/people/133248180/" target="_blank" title="豆瓣">
+                      
+                        <i class="fa fa-fw fa-book"></i>豆瓣</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Course-Introduction"><span class="nav-number">1.</span> <span class="nav-text">Course Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Welcome-to-the-Course-3-min"><span class="nav-number">1.1.</span> <span class="nav-text">Welcome to the Course - 3 min</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-What-is-motion-planning"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1. What is motion planning?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-decompose-the-motion-planning-into-smaller-sub-problems"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">2. decompose the motion planning into smaller sub-problems</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Module-1-The-Planning-Problem"><span class="nav-number">2.</span> <span class="nav-text">Module 1: The Planning Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lesson-1-Driving-Missions-Scenarios-and-Behaviour"><span class="nav-number">2.1.</span> <span class="nav-text">Lesson 1: Driving Missions, Scenarios, and Behaviour</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关键概念"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">关键概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Autonomous-Driving-Mission：目标找出最高效的路"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">Autonomous Driving Mission：目标找出最高效的路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Road-Structure-Scenario"><span class="nav-number">2.1.0.3.</span> <span class="nav-text">Road Structure Scenario:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Obstacle-Scenarios"><span class="nav-number">2.1.0.4.</span> <span class="nav-text">Obstacle Scenarios</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Behavior"><span class="nav-number">2.1.0.5.</span> <span class="nav-text">Behavior</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Challenges"><span class="nav-number">2.1.0.6.</span> <span class="nav-text">Challenges</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hierarchical-Planning-Introduction"><span class="nav-number">2.1.0.7.</span> <span class="nav-text">Hierarchical Planning Introduction</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lesson-2-Motion-Planning-Constraint"><span class="nav-number">2.2.</span> <span class="nav-text">Lesson 2: Motion Planning Constraint</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bicycle-Model"><span class="nav-number">2.2.0.1.</span> <span class="nav-text">Bicycle Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vehicle-Dynamics"><span class="nav-number">2.2.0.2.</span> <span class="nav-text">Vehicle Dynamics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Static-obstacles"><span class="nav-number">2.2.0.3.</span> <span class="nav-text">Static obstacles</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dynamic-Obstacles"><span class="nav-number">2.2.0.4.</span> <span class="nav-text">Dynamic Obstacles</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rules-of-the-road-and-regulatory-elements"><span class="nav-number">2.2.0.5.</span> <span class="nav-text">Rules of the road and regulatory elements</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lesson-3-Objective-Functions-for-Autonomous-Driving"><span class="nav-number">2.3.</span> <span class="nav-text">Lesson 3: Objective Functions for Autonomous Driving</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lesson-4-Hierarchical-Motion-Planning"><span class="nav-number">2.4.</span> <span class="nav-text">Lesson 4: Hierarchical Motion Planning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mission-Planner"><span class="nav-number">2.4.0.1.</span> <span class="nav-text">Mission Planner</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Behavioural-Planner"><span class="nav-number">2.4.0.2.</span> <span class="nav-text">Behavioural Planner</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#有限状态机，无记忆——转换只和输入和当前状态有关"><span class="nav-number">2.4.0.2.1.</span> <span class="nav-text">有限状态机，无记忆——转换只和输入和当前状态有关</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Rule-based"><span class="nav-number">2.4.0.2.2.</span> <span class="nav-text">Rule-based</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基于机器学习"><span class="nav-number">2.4.0.2.3.</span> <span class="nav-text">基于机器学习</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-Planner"><span class="nav-number">2.4.0.3.</span> <span class="nav-text">Local Planner</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#路线方面："><span class="nav-number">2.4.0.3.1.</span> <span class="nav-text">路线方面：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#速度产生："><span class="nav-number">2.4.0.3.2.</span> <span class="nav-text">速度产生：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">天洋行空</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

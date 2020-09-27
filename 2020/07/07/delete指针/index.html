@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="我们在用动态内存分配时，经常是用new来定义一块内存空间，比如说 int* p = new int(1)；这时会在堆上分配一块内存，当作int类型使用，内存中存储的值为1并将内存地址赋值给在栈中的int*类型的p。（注意：p只是一个变量，就像是int a=1中的a一样，不过a是整形变量，而p是指针变量）当我们不用p指针时，往往需要用delete p将其释放，我们需要注意的是释放一个指针p（dele">
+<meta name="description" content="我们在用动态内存分配时，经常是用new来定义一块内存空间，比如说 int p = new int(1)；这时会在堆上分配一块内存，当作int类型使用，内存中存储的值为1并将内存地址赋值给在栈中的int类型的p。（注意：p只是一个变量，就像是int a=1中的a一样，不过a是整形变量，而p是指针变量）当我们不用p指针时，往往需要用delete p将其释放，我们需要注意的是释放一个指针p（delete">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="delete指针">
 <meta property="og:url" content="https://tronyy.github.io/archives/2020/07/07/delete指针/index.html">
 <meta property="og:site_name" content="天洋行空">
-<meta property="og:description" content="我们在用动态内存分配时，经常是用new来定义一块内存空间，比如说 int* p = new int(1)；这时会在堆上分配一块内存，当作int类型使用，内存中存储的值为1并将内存地址赋值给在栈中的int*类型的p。（注意：p只是一个变量，就像是int a=1中的a一样，不过a是整形变量，而p是指针变量）当我们不用p指针时，往往需要用delete p将其释放，我们需要注意的是释放一个指针p（dele">
+<meta property="og:description" content="我们在用动态内存分配时，经常是用new来定义一块内存空间，比如说 int p = new int(1)；这时会在堆上分配一块内存，当作int类型使用，内存中存储的值为1并将内存地址赋值给在栈中的int类型的p。（注意：p只是一个变量，就像是int a=1中的a一样，不过a是整形变量，而p是指针变量）当我们不用p指针时，往往需要用delete p将其释放，我们需要注意的是释放一个指针p（delete">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-07-07T04:20:53.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="delete指针">
-<meta name="twitter:description" content="我们在用动态内存分配时，经常是用new来定义一块内存空间，比如说 int* p = new int(1)；这时会在堆上分配一块内存，当作int类型使用，内存中存储的值为1并将内存地址赋值给在栈中的int*类型的p。（注意：p只是一个变量，就像是int a=1中的a一样，不过a是整形变量，而p是指针变量）当我们不用p指针时，往往需要用delete p将其释放，我们需要注意的是释放一个指针p（dele">
+<meta name="twitter:description" content="我们在用动态内存分配时，经常是用new来定义一块内存空间，比如说 int p = new int(1)；这时会在堆上分配一块内存，当作int类型使用，内存中存储的值为1并将内存地址赋值给在栈中的int类型的p。（注意：p只是一个变量，就像是int a=1中的a一样，不过a是整形变量，而p是指针变量）当我们不用p指针时，往往需要用delete p将其释放，我们需要注意的是释放一个指针p（delete">
 
 
 
@@ -342,7 +342,7 @@
       
 
       
-        <p>我们在用动态内存分配时，经常是用new来定义一块内存空间，比如说 int* p = new int(1)；这时会在堆上分配一块内存，当作int类型使用，内存中存储的值为1并将内存地址赋值给在栈中的int*类型的p。（注意：p只是一个变量，就像是int a=1中的a一样，不过a是整形变量，而p是指针变量）当我们不用p指针时，往往需要用delete p将其释放，我们需要注意的是释放一个指针p（delete p;）实际意思是删除了p所指的目标（变量或对象），释放了它所占的堆空间，而不是删除p本身（指针p本身并没有撤销，它自己仍然存在，该指针所占内存空间并未释放，指针p的真正释放是随着函数调用的结束而消失），释放堆空间后，p成了&quot;空指针&quot;。如果我们在delete p后没有进行指针p的制空（p=NULL)的话，其实指针p这时会成为野指针，为了使用的安全，我们一般在delete p之后还会加上p=NULL这一语句。</p>
+        <p>我们在用动态内存分配时，经常是用new来定义一块内存空间，比如说 int<em> p = new int(1)；这时会在堆上分配一块内存，当作int类型使用，内存中存储的值为1并将内存地址赋值给在栈中的int</em>类型的p。（注意：p只是一个变量，就像是int a=1中的a一样，不过a是整形变量，而p是指针变量）当我们不用p指针时，往往需要用delete p将其释放，我们需要注意的是释放一个指针p（delete p;）实际意思是删除了p所指的目标（变量或对象），释放了它所占的堆空间，而不是删除p本身（指针p本身并没有撤销，它自己仍然存在，该指针所占内存空间并未释放，指针p的真正释放是随着函数调用的结束而消失），释放堆空间后，p成了”空指针”。如果我们在delete p后没有进行指针p的制空（p=NULL)的话，其实指针p这时会成为野指针，为了使用的安全，我们一般在delete p之后还会加上p=NULL这一语句。</p>
 
       
     </div>
@@ -457,7 +457,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
