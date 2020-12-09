@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Java," />
+  <meta name="keywords" content="自动驾驶," />
 
 
 
@@ -79,18 +79,22 @@
 
 
 
-<meta name="description" content="length属性是针对Java中的数组来说的，要求数组的长度可以用其length属性；  length()方法是针对字符串来说的，要求一个字符串的长度就要用到它的length()方法；  Java中的size()方法是针对泛型集合说的,如果想看这个泛型有多少个元素,就调用此方法来查看">
-<meta name="keywords" content="Java">
+<meta name="keywords" content="自动驾驶">
 <meta property="og:type" content="article">
-<meta property="og:title" content="求长度length、length()与size()">
-<meta property="og:url" content="https://tronyy.github.io/archives/2019/01/13/求长度length、length-与size/index.html">
+<meta property="og:title" content="Markov chain">
+<meta property="og:url" content="https://tronyy.github.io/archives/2020/12/09/Markov-chain/index.html">
 <meta property="og:site_name" content="天洋行空">
-<meta property="og:description" content="length属性是针对Java中的数组来说的，要求数组的长度可以用其length属性；  length()方法是针对字符串来说的，要求一个字符串的长度就要用到它的length()方法；  Java中的size()方法是针对泛型集合说的,如果想看这个泛型有多少个元素,就调用此方法来查看">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-13T02:38:19.000Z">
+<meta property="og:image" content="https://i.loli.net/2020/12/09/MA6kG2vCbSU5Jjo.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/12/09/WeJhDtwpvIGlHLF.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/12/09/8hTv3uRnKte2oYb.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/12/09/vsDT7oBhQ6iO5EC.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/12/09/IMm8HnVdlTSsX6u.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/12/09/I7amzYo9cGEtXjq.jpg">
+<meta property="og:updated_time" content="2020-12-09T03:21:00.094Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="求长度length、length()与size()">
-<meta name="twitter:description" content="length属性是针对Java中的数组来说的，要求数组的长度可以用其length属性；  length()方法是针对字符串来说的，要求一个字符串的长度就要用到它的length()方法；  Java中的size()方法是针对泛型集合说的,如果想看这个泛型有多少个元素,就调用此方法来查看">
+<meta name="twitter:title" content="Markov chain">
+<meta name="twitter:image" content="https://i.loli.net/2020/12/09/MA6kG2vCbSU5Jjo.jpg">
 
 
 
@@ -120,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://tronyy.github.io/archives/2019/01/13/求长度length、length-与size/"/>
+  <link rel="canonical" href="https://tronyy.github.io/archives/2020/12/09/Markov-chain/"/>
 
 
 
 
 
-  <title>求长度length、length()与size() | 天洋行空</title>
+  <title>Markov chain | 天洋行空</title>
   
 
 
@@ -253,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2019/01/13/求长度length、length-与size/">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2020/12/09/Markov-chain/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="天洋行空">
@@ -270,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">求长度length、length()与size()</h1>
+          <h1 class="post-title" itemprop="name headline">Markov chain</h1>
         
 
         <div class="post-meta">
@@ -282,8 +286,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-13T10:36:09+08:00">
-                2019-01-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-12-09T11:20:05+08:00">
+                2020-12-09
               </time>
             
 
@@ -292,6 +296,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Driving/" itemprop="url" rel="index">
+                    <span itemprop="name">Driving</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -320,14 +346,12 @@
       
 
       
-        <ol>
-<li><p>length属性是针对Java中的数组来说的，要求数组的长度可以用其length属性；</p>
-</li>
-<li><p>length()方法是针对字符串来说的，要求一个字符串的长度就要用到它的length()方法；</p>
-</li>
-<li><p>Java中的size()方法是针对泛型集合说的,如果想看这个泛型有多少个元素,就调用此方法来查看</p>
-</li>
-</ol>
+        <p><img src="https://i.loli.net/2020/12/09/MA6kG2vCbSU5Jjo.jpg" alt="0001.jpg"></p>
+<p><img src="https://i.loli.net/2020/12/09/WeJhDtwpvIGlHLF.jpg" alt="0002.jpg"></p>
+<p><img src="https://i.loli.net/2020/12/09/8hTv3uRnKte2oYb.jpg" alt="0003.jpg"></p>
+<p><img src="https://i.loli.net/2020/12/09/vsDT7oBhQ6iO5EC.jpg" alt="0004.jpg"></p>
+<p><img src="https://i.loli.net/2020/12/09/IMm8HnVdlTSsX6u.jpg" alt="0005.jpg"></p>
+<p><img src="https://i.loli.net/2020/12/09/I7amzYo9cGEtXjq.jpg" alt="0006.jpg"></p>
 
       
     </div>
@@ -345,7 +369,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
+            <a href="/tags/自动驾驶/" rel="tag"># 自动驾驶</a>
           
         </div>
       
@@ -358,8 +382,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/07/地址、函数声明与定义/" rel="next" title="地址、函数声明与定义">
-                <i class="fa fa-chevron-left"></i> 地址、函数声明与定义
+              <a href="/2020/10/24/A program to check if a binary tree is BST or not/" rel="next" title="A program to check if a binary tree is BST or not">
+                <i class="fa fa-chevron-left"></i> A program to check if a binary tree is BST or not
               </a>
             
           </div>
@@ -367,10 +391,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/15/C-C-常量字符串初始化指针和数组的不同/" rel="prev" title="C/C++常量字符串初始化指针和数组的不同">
-                C/C++常量字符串初始化指针和数组的不同 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
