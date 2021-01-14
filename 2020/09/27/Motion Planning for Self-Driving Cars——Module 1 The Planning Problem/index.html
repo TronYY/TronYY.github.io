@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="[toc] Course IntroductionWelcome to the Course - 3 min1. What is motion planning?the motion planning problem is the task of generating the path and velocities required to get the autonomous car from p">
+<meta name="description" content="[toc]  Course Introduction  Welcome to the Course - 3 min  1. What is motion planning? the motion planning problem is the task of generating the path and velocities required to get the autonomous car">
 <meta name="keywords" content="自动驾驶">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Motion Planning for Self-Driving Cars——Module 1 The Planning Problem">
 <meta property="og:url" content="https://tronyy.github.io/archives/2020/09/27/Motion Planning for Self-Driving Cars——Module 1 The Planning Problem/index.html">
 <meta property="og:site_name" content="天洋行空">
-<meta property="og:description" content="[toc] Course IntroductionWelcome to the Course - 3 min1. What is motion planning?the motion planning problem is the task of generating the path and velocities required to get the autonomous car from p">
+<meta property="og:description" content="[toc]  Course Introduction  Welcome to the Course - 3 min  1. What is motion planning? the motion planning problem is the task of generating the path and velocities required to get the autonomous car">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2020/10/04/9szQX4N8x3I6mOk.png">
 <meta property="og:image" content="https://i.loli.net/2020/10/04/cDKWxphSAt2PBfH.png">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/23805370-c3d1ff97b1642d23.png?imageMogr2/auto-orient/strip|imageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/23805370-c3d1ff97b1642d23.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://i.loli.net/2020/10/04/yn6xLi5eT9mbVWN.png">
 <meta property="og:image" content="https://i.loli.net/2020/10/04/kabmJL2gZYU3XRp.png">
 <meta property="og:image" content="https://i.loli.net/2020/10/04/wmJAOoFi5rq2SMH.png">
@@ -102,7 +102,7 @@
 <meta property="og:updated_time" content="2020-10-04T07:28:08.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Motion Planning for Self-Driving Cars——Module 1 The Planning Problem">
-<meta name="twitter:description" content="[toc] Course IntroductionWelcome to the Course - 3 min1. What is motion planning?the motion planning problem is the task of generating the path and velocities required to get the autonomous car from p">
+<meta name="twitter:description" content="[toc]  Course Introduction  Welcome to the Course - 3 min  1. What is motion planning? the motion planning problem is the task of generating the path and velocities required to get the autonomous car">
 <meta name="twitter:image" content="https://i.loli.net/2020/10/04/9szQX4N8x3I6mOk.png">
 
 
@@ -356,95 +356,165 @@
 
       
         <p>[toc]</p>
-<h1 id="Course-Introduction"><a href="#Course-Introduction" class="headerlink" title="Course Introduction"></a>Course Introduction</h1><h2 id="Welcome-to-the-Course-3-min"><a href="#Welcome-to-the-Course-3-min" class="headerlink" title="Welcome to the Course - 3 min"></a>Welcome to the Course - 3 min</h2><h4 id="1-What-is-motion-planning"><a href="#1-What-is-motion-planning" class="headerlink" title="1. What is motion planning?"></a>1. What is motion planning?</h4><p>the motion planning problem is the task of generating the path and velocities required to get the autonomous car from point A to point B.</p>
-<h4 id="2-decompose-the-motion-planning-into-smaller-sub-problems"><a href="#2-decompose-the-motion-planning-into-smaller-sub-problems" class="headerlink" title="2. decompose the motion planning into smaller sub-problems"></a>2. decompose the motion planning into smaller sub-problems</h4><p><img src="https://i.loli.net/2020/10/04/9szQX4N8x3I6mOk.png" alt="image"></p>
+<h1 id="course-introduction"><a class="markdownIt-Anchor" href="#course-introduction"></a> Course Introduction</h1>
+<h2 id="welcome-to-the-course-3-min"><a class="markdownIt-Anchor" href="#welcome-to-the-course-3-min"></a> Welcome to the Course - 3 min</h2>
+<h4 id="1-what-is-motion-planning"><a class="markdownIt-Anchor" href="#1-what-is-motion-planning"></a> 1. What is motion planning?</h4>
+<p>the motion planning problem is the task of generating the path and velocities required to get the autonomous car from point A to point B.</p>
+<h4 id="2-decompose-the-motion-planning-into-smaller-sub-problems"><a class="markdownIt-Anchor" href="#2-decompose-the-motion-planning-into-smaller-sub-problems"></a> 2. decompose the motion planning into smaller sub-problems</h4>
+<p><img src="https://i.loli.net/2020/10/04/9szQX4N8x3I6mOk.png" alt="image"></p>
 <hr>
-<h1 id="Module-1-The-Planning-Problem"><a href="#Module-1-The-Planning-Problem" class="headerlink" title="Module 1: The Planning Problem"></a>Module 1: The Planning Problem</h1><h2 id="Lesson-1-Driving-Missions-Scenarios-and-Behaviour"><a href="#Lesson-1-Driving-Missions-Scenarios-and-Behaviour" class="headerlink" title="Lesson 1: Driving Missions, Scenarios, and Behaviour"></a>Lesson 1: Driving Missions, Scenarios, and Behaviour</h2><h4 id="关键概念"><a href="#关键概念" class="headerlink" title="关键概念"></a>关键概念</h4><ul>
-<li><strong>Explain what the autonomous driving high-level mission entails.</strong><br>navigate from current position to a destination.</li>
-<li><strong>Recall the set of important basic driving scenarios.</strong><br>road structure (turns, lane changes) , obstacles </li>
-<li><strong>Develop a set of driving behaviours to handle most basic driving scenarios.</strong><br>Speed Tracking, Decelerate to Stop,  Stay Stopped, Yield, Emergency Stop</li>
+<h1 id="module-1-the-planning-problem"><a class="markdownIt-Anchor" href="#module-1-the-planning-problem"></a> Module 1: The Planning Problem</h1>
+<h2 id="lesson-1-driving-missions-scenarios-and-behaviour"><a class="markdownIt-Anchor" href="#lesson-1-driving-missions-scenarios-and-behaviour"></a> Lesson 1: Driving Missions, Scenarios, and Behaviour</h2>
+<h4 id="关键概念"><a class="markdownIt-Anchor" href="#关键概念"></a> 关键概念</h4>
+<ul>
+<li><strong>Explain what the autonomous driving high-level mission entails.</strong><br>
+navigate from current position to a destination.</li>
+<li><strong>Recall the set of important basic driving scenarios.</strong><br>
+road structure (turns, lane changes) , obstacles</li>
+<li><strong>Develop a set of driving behaviours to handle most basic driving scenarios.</strong><br>
+Speed Tracking, Decelerate to Stop,  Stay Stopped, Yield, Emergency Stop</li>
 <li>Recognize important constraints for autonomous driving motion planning.</li>
 <li>Explain the functionality of each step in a hierarchical motion planner.</li>
 <li>List some variants of each step of a hierarchical motion planner.</li>
 <li></li>
 </ul>
 <ul>
-<li>The motion planning problem is the task of navigating the ego vehicle to its destination in a safe and comfortable manner while following the rules of the road. <h4 id="Autonomous-Driving-Mission：目标找出最高效的路"><a href="#Autonomous-Driving-Mission：目标找出最高效的路" class="headerlink" title="Autonomous Driving Mission：目标找出最高效的路"></a>Autonomous Driving Mission：目标找出最高效的路</h4>为了更高效，抽象了许多底层的变量，但是这些底层的很重要定义了不同的驾驶场景<h4 id="Road-Structure-Scenario"><a href="#Road-Structure-Scenario" class="headerlink" title="Road Structure Scenario:"></a>Road Structure Scenario:</h4><ul>
+<li>The motion planning problem is the task of navigating the ego vehicle to its destination in a safe and comfortable manner while following the rules of the road.</li>
+</ul>
+<h4 id="autonomous-driving-mission目标找出最高效的路"><a class="markdownIt-Anchor" href="#autonomous-driving-mission目标找出最高效的路"></a> Autonomous Driving Mission：目标找出最高效的路</h4>
+<p>为了更高效，抽象了许多底层的变量，但是这些底层的很重要定义了不同的驾驶场景</p>
+<h4 id="road-structure-scenario"><a class="markdownIt-Anchor" href="#road-structure-scenario"></a> Road Structure Scenario:</h4>
+<ul>
 <li>保持车道lane maintenance，目标偏离中心线最小 但要保证速度</li>
 <li>变道lane change</li>
 <li>转弯</li>
-<li>掉头U-turn <h4 id="Obstacle-Scenarios"><a href="#Obstacle-Scenarios" class="headerlink" title="Obstacle Scenarios"></a>Obstacle Scenarios</h4></li>
+<li>掉头U-turn</li>
+</ul>
+<h4 id="obstacle-scenarios"><a class="markdownIt-Anchor" href="#obstacle-scenarios"></a> Obstacle Scenarios</h4>
+<ul>
 <li>static</li>
 <li><strong>dynamic</strong>:Different dynamic obstacles in the scenario have different characteristics and behaviours</li>
 </ul>
-</li>
-</ul>
-<h4 id="Behavior"><a href="#Behavior" class="headerlink" title="Behavior"></a>Behavior</h4><ul>
+<h4 id="behavior"><a class="markdownIt-Anchor" href="#behavior"></a> Behavior</h4>
+<ul>
 <li>Speed Tracking</li>
 <li>Decelerate to Stop</li>
 <li>Stay Stopped</li>
 <li>Yield</li>
-<li>Emergency Stop<br>(Not an exhaustive list)</li>
+<li>Emergency Stop<br>
+(Not an exhaustive list)</li>
 </ul>
-<h4 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h4><ul>
+<h4 id="challenges"><a class="markdownIt-Anchor" href="#challenges"></a> Challenges</h4>
+<ul>
 <li>许多违反交规的行为难以预测</li>
 </ul>
-<h4 id="Hierarchical-Planning-Introduction"><a href="#Hierarchical-Planning-Introduction" class="headerlink" title="Hierarchical Planning Introduction"></a>Hierarchical Planning Introduction</h4><ul>
-<li>motion planning是一个复杂问题，将其分层优化，如下图<br><img src="https://i.loli.net/2020/10/04/cDKWxphSAt2PBfH.png" alt="分层优化"><br>每一个子优化问题有自己的目标和限制</li>
+<h4 id="hierarchical-planning-introduction"><a class="markdownIt-Anchor" href="#hierarchical-planning-introduction"></a> Hierarchical Planning Introduction</h4>
+<ul>
+<li>motion planning是一个复杂问题，将其分层优化，如下图<br>
+<img src="https://i.loli.net/2020/10/04/cDKWxphSAt2PBfH.png" alt="分层优化"><br>
+每一个子优化问题有自己的目标和限制</li>
 </ul>
 <hr>
-<h2 id="Lesson-2-Motion-Planning-Constraint"><a href="#Lesson-2-Motion-Planning-Constraint" class="headerlink" title="Lesson 2: Motion Planning Constraint"></a>Lesson 2: Motion Planning Constraint</h2><p><img src="https://upload-images.jianshu.io/upload_images/23805370-c3d1ff97b1642d23.png?imageMogr2/auto-orient/strip|imageView2/2/w/1240" alt="image.png"></p>
-<h4 id="Bicycle-Model"><a href="#Bicycle-Model" class="headerlink" title="Bicycle Model"></a>Bicycle Model</h4><ul>
-<li>路径上的曲率要注意最大曲率限制</li>
-<li><p>是一个non-holonomic约束（不仅取决于当前状态，也取决于如何到达该状态）</p>
+<h2 id="lesson-2-motion-planning-constraint"><a class="markdownIt-Anchor" href="#lesson-2-motion-planning-constraint"></a> Lesson 2: Motion Planning Constraint</h2>
+<p><img src="https://upload-images.jianshu.io/upload_images/23805370-c3d1ff97b1642d23.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="bicycle-model"><a class="markdownIt-Anchor" href="#bicycle-model"></a> Bicycle Model</h4>
+<ul>
+<li>
+<p>路径上的曲率要注意最大曲率限制</p>
+</li>
+<li>
+<p>是一个non-holonomic约束（不仅取决于当前状态，也取决于如何到达该状态）</p>
 <blockquote>
 <p>通俗地讲, holonomic constraint是configuration space上的约束,它告诉你哪里不能走, nonholonomic constraint是速度(广义坐标的微分)上的约束,它告诉你哪些方向不能走,但是你依然能想去哪里去哪里。</p>
 </blockquote>
 </li>
-<li>曲率计算：<br><img src="https://i.loli.net/2020/10/04/yn6xLi5eT9mbVWN.png" alt="image.png"></li>
+<li>
+<p>曲率计算：<br>
+<img src="https://i.loli.net/2020/10/04/yn6xLi5eT9mbVWN.png" alt="image.png"></p>
+</li>
 </ul>
-<h4 id="Vehicle-Dynamics"><a href="#Vehicle-Dynamics" class="headerlink" title="Vehicle Dynamics"></a>Vehicle Dynamics</h4><ul>
+<h4 id="vehicle-dynamics"><a class="markdownIt-Anchor" href="#vehicle-dynamics"></a> Vehicle Dynamics</h4>
+<ul>
 <li>横向和纵向的加速限制（摩擦力椭圆）</li>
-<li>在非紧急情况下，更有用的限制是乘客对加速度的容忍度（下图矩形所示）<br><img src="https://i.loli.net/2020/10/04/kabmJL2gZYU3XRp.png" alt="image.png"><br>因此速度受限于加速度和曲率$v^{2}\leq \frac{a}{\kappa }$</li>
+<li>在非紧急情况下，更有用的限制是乘客对加速度的容忍度（下图矩形所示）<br>
+<img src="https://i.loli.net/2020/10/04/kabmJL2gZYU3XRp.png" alt="image.png"><br>
+因此速度受限于加速度和曲率<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>v</mi><mn>2</mn></msup><mo>≤</mo><mfrac><mrow><mi>a</mi></mrow><mrow><mi>κ</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">v^{2}\leq \frac{a}{\kappa }</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.1591079999999998em;vertical-align:-0.345em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">κ</span></span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewbox="0 0 400000 200" preserveaspectratio="xMinYMin slice"><path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"/></svg></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">a</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
 </ul>
-<h4 id="Static-obstacles"><a href="#Static-obstacles" class="headerlink" title="Static obstacles"></a>Static obstacles</h4><ul>
-<li>使用线束或一系列近似车身的圆去做碰撞检测<h4 id="Dynamic-Obstacles"><a href="#Dynamic-Obstacles" class="headerlink" title="Dynamic Obstacles"></a>Dynamic Obstacles</h4></li>
+<h4 id="static-obstacles"><a class="markdownIt-Anchor" href="#static-obstacles"></a> Static obstacles</h4>
+<ul>
+<li>使用线束或一系列近似车身的圆去做碰撞检测</li>
+</ul>
+<h4 id="dynamic-obstacles"><a class="markdownIt-Anchor" href="#dynamic-obstacles"></a> Dynamic Obstacles</h4>
+<ul>
 <li>涉及到障碍物行为的预测。如果预测所有，就太过保守无意义，<strong>做aggressive和conservative之前的tradeoff</strong>——热点研究</li>
 </ul>
-<h4 id="Rules-of-the-road-and-regulatory-elements"><a href="#Rules-of-the-road-and-regulatory-elements" class="headerlink" title="Rules of the road and regulatory elements"></a>Rules of the road and regulatory elements</h4><ul>
-<li>车道线和一些标识</li>
-<li><p>time gap </p>
+<h4 id="rules-of-the-road-and-regulatory-elements"><a class="markdownIt-Anchor" href="#rules-of-the-road-and-regulatory-elements"></a> Rules of the road and regulatory elements</h4>
+<ul>
+<li>
+<p>车道线和一些标识</p>
+</li>
+<li>
+<p>time gap</p>
 <blockquote>
 <p>the amount of time that it would take for the ego vehicle to reach the leading vehicles current position while traveling at the ego vehicle’s current speed</p>
 </blockquote>
 </li>
 </ul>
 <hr>
-<h2 id="Lesson-3-Objective-Functions-for-Autonomous-Driving"><a href="#Lesson-3-Objective-Functions-for-Autonomous-Driving" class="headerlink" title="Lesson 3: Objective Functions for Autonomous Driving"></a>Lesson 3: Objective Functions for Autonomous Driving</h2><p><img src="https://i.loli.net/2020/10/04/wmJAOoFi5rq2SMH.png" alt="image.png"><br><img src="https://i.loli.net/2020/10/04/uWMGDIxspRPn2bg.png" alt="image.png"><br><img src="https://i.loli.net/2020/10/04/Ve3jiYzDZhAk2GS.png" alt="相当于加速度"></p>
+<h2 id="lesson-3-objective-functions-for-autonomous-driving"><a class="markdownIt-Anchor" href="#lesson-3-objective-functions-for-autonomous-driving"></a> Lesson 3: Objective Functions for Autonomous Driving</h2>
+<p><img src="https://i.loli.net/2020/10/04/wmJAOoFi5rq2SMH.png" alt="image.png"><br>
+<img src="https://i.loli.net/2020/10/04/uWMGDIxspRPn2bg.png" alt="image.png"><br>
+<img src="https://i.loli.net/2020/10/04/Ve3jiYzDZhAk2GS.png" alt="相当于加速度"></p>
 <ul>
-<li>曲率<br>$$<br>\int_{0}^{s_{f}}|\kappa(s)|^{2} d s<br>$$<br>既要保持速度，又让乘客舒适</li>
+<li>曲率</li>
 </ul>
-<hr>
-<h2 id="Lesson-4-Hierarchical-Motion-Planning"><a href="#Lesson-4-Hierarchical-Motion-Planning" class="headerlink" title="Lesson 4: Hierarchical Motion Planning"></a>Lesson 4: Hierarchical Motion Planning</h2><p>分层以后每一层计算会快，但同时每一层会损失其他层的信息。和不分层比存在一个trade off</p>
-<h4 id="Mission-Planner"><a href="#Mission-Planner" class="headerlink" title="Mission Planner"></a>Mission Planner</h4><p>地图级别的导航，最短路Dijkstra，A*</p>
-<h4 id="Behavioural-Planner"><a href="#Behavioural-Planner" class="headerlink" title="Behavioural Planner"></a>Behavioural Planner</h4><ul>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><msub><mi>s</mi><mi>f</mi></msub></msubsup><mi mathvariant="normal">∥</mi><mi>κ</mi><mo>(</mo><mi>s</mi><mo>)</mo><msup><mi mathvariant="normal">∥</mi><mn>2</mn></msup><mi>d</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">\int_{0}^{s_{f}}\|\kappa(s)\|^{2} d s
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.414292em;"></span><span class="strut bottom" style="height:2.326242em;vertical-align:-0.9119499999999999em;"></span><span class="base"><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.414292em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span><span style="top:-3.8129000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.10764em;">f</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29011428571428566em;"></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119499999999999em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">∥</span><span class="mord mathit">κ</span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span><span class="mord"><span class="mord">∥</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mord mathit">d</span><span class="mord mathit">s</span></span></span></span></span></p>
+<h2 id="既要保持速度又让乘客舒适"><a class="markdownIt-Anchor" href="#既要保持速度又让乘客舒适"></a> 既要保持速度，又让乘客舒适</h2>
+<h2 id="lesson-4-hierarchical-motion-planning"><a class="markdownIt-Anchor" href="#lesson-4-hierarchical-motion-planning"></a> Lesson 4: Hierarchical Motion Planning</h2>
+<p>分层以后每一层计算会快，但同时每一层会损失其他层的信息。和不分层比存在一个trade off</p>
+<h4 id="mission-planner"><a class="markdownIt-Anchor" href="#mission-planner"></a> Mission Planner</h4>
+<p>地图级别的导航，最短路Dijkstra，A*</p>
+<h4 id="behavioural-planner"><a class="markdownIt-Anchor" href="#behavioural-planner"></a> Behavioural Planner</h4>
+<ul>
 <li>如何考虑周围并产生行为</li>
-<li><h5 id="有限状态机，无记忆——转换只和输入和当前状态有关"><a href="#有限状态机，无记忆——转换只和输入和当前状态有关" class="headerlink" title="有限状态机，无记忆——转换只和输入和当前状态有关"></a>有限状态机，无记忆——转换只和输入和当前状态有关</h5><img src="https://i.loli.net/2020/10/04/WDy6oYUe3Tr5tMq.png" alt="image.png"></li>
-<li><h5 id="Rule-based"><a href="#Rule-based" class="headerlink" title="Rule-based"></a>Rule-based</h5><ul>
+<li>
+<h5 id="有限状态机无记忆转换只和输入和当前状态有关"><a class="markdownIt-Anchor" href="#有限状态机无记忆转换只和输入和当前状态有关"></a> 有限状态机，无记忆——转换只和输入和当前状态有关</h5>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2020/10/04/WDy6oYUe3Tr5tMq.png" alt="image.png"></p>
+<ul>
+<li>
+<h5 id="rule-based"><a class="markdownIt-Anchor" href="#rule-based"></a> Rule-based</h5>
+<ul>
 <li>多个规则同时符合的话，高优先级的规则先应用</li>
 </ul>
 </li>
-<li><h5 id="基于机器学习"><a href="#基于机器学习" class="headerlink" title="基于机器学习"></a>基于机器学习</h5><h4 id="Local-Planner"><a href="#Local-Planner" class="headerlink" title="Local Planner"></a>Local Planner</h4>产生避免碰撞的路线和舒适的velocity profile，分两部分</li>
-<li><h5 id="路线方面："><a href="#路线方面：" class="headerlink" title="路线方面："></a>路线方面：</h5></li>
+<li>
+<h5 id="基于机器学习"><a class="markdownIt-Anchor" href="#基于机器学习"></a> 基于机器学习</h5>
+</li>
+</ul>
+<h4 id="local-planner"><a class="markdownIt-Anchor" href="#local-planner"></a> Local Planner</h4>
+<p>产生避免碰撞的路线和舒适的velocity profile，分两部分</p>
+<ul>
+<li>
+<h5 id="路线方面"><a class="markdownIt-Anchor" href="#路线方面"></a> 路线方面：</h5>
+</li>
 </ul>
 <ol>
-<li>sampling based planner<br> <img src="https://i.loli.net/2020/10/04/MJ5ikpZsnEBzVuQ.png" alt="image.png"></li>
-<li>Variation Planner 将路径和速度产生合并在一起 chomp Algorithm<br> <img src="https://i.loli.net/2020/10/04/VtagndkNGy8xZXq.png" alt="image.png"></li>
-<li>lattice planner<br> <img src="https://i.loli.net/2020/10/04/oVYDjPWAn65buQ4.png" alt="image.png"></li>
+<li>sampling based planner<br>
+<img src="https://i.loli.net/2020/10/04/MJ5ikpZsnEBzVuQ.png" alt="image.png"></li>
+<li>Variation Planner 将路径和速度产生合并在一起 chomp Algorithm<br>
+<img src="https://i.loli.net/2020/10/04/VtagndkNGy8xZXq.png" alt="image.png"></li>
+<li>lattice planner<br>
+<img src="https://i.loli.net/2020/10/04/oVYDjPWAn65buQ4.png" alt="image.png"></li>
 </ol>
 <ul>
-<li><h5 id="速度产生："><a href="#速度产生：" class="headerlink" title="速度产生："></a>速度产生：</h5>Lesson 3中对速度的一些优化作为目标限制，凸优化</li>
+<li>
+<h5 id="速度产生"><a class="markdownIt-Anchor" href="#速度产生"></a> 速度产生：</h5>
+</li>
 </ul>
+<p>Lesson 3中对速度的一些优化作为目标限制，凸优化</p>
 
       
     </div>
@@ -568,7 +638,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -651,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Course-Introduction"><span class="nav-number">1.</span> <span class="nav-text">Course Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Welcome-to-the-Course-3-min"><span class="nav-number">1.1.</span> <span class="nav-text">Welcome to the Course - 3 min</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-What-is-motion-planning"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1. What is motion planning?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-decompose-the-motion-planning-into-smaller-sub-problems"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">2. decompose the motion planning into smaller sub-problems</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Module-1-The-Planning-Problem"><span class="nav-number">2.</span> <span class="nav-text">Module 1: The Planning Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lesson-1-Driving-Missions-Scenarios-and-Behaviour"><span class="nav-number">2.1.</span> <span class="nav-text">Lesson 1: Driving Missions, Scenarios, and Behaviour</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关键概念"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">关键概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Autonomous-Driving-Mission：目标找出最高效的路"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">Autonomous Driving Mission：目标找出最高效的路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Road-Structure-Scenario"><span class="nav-number">2.1.0.3.</span> <span class="nav-text">Road Structure Scenario:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Obstacle-Scenarios"><span class="nav-number">2.1.0.4.</span> <span class="nav-text">Obstacle Scenarios</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Behavior"><span class="nav-number">2.1.0.5.</span> <span class="nav-text">Behavior</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Challenges"><span class="nav-number">2.1.0.6.</span> <span class="nav-text">Challenges</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hierarchical-Planning-Introduction"><span class="nav-number">2.1.0.7.</span> <span class="nav-text">Hierarchical Planning Introduction</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lesson-2-Motion-Planning-Constraint"><span class="nav-number">2.2.</span> <span class="nav-text">Lesson 2: Motion Planning Constraint</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bicycle-Model"><span class="nav-number">2.2.0.1.</span> <span class="nav-text">Bicycle Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vehicle-Dynamics"><span class="nav-number">2.2.0.2.</span> <span class="nav-text">Vehicle Dynamics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Static-obstacles"><span class="nav-number">2.2.0.3.</span> <span class="nav-text">Static obstacles</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dynamic-Obstacles"><span class="nav-number">2.2.0.4.</span> <span class="nav-text">Dynamic Obstacles</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rules-of-the-road-and-regulatory-elements"><span class="nav-number">2.2.0.5.</span> <span class="nav-text">Rules of the road and regulatory elements</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lesson-3-Objective-Functions-for-Autonomous-Driving"><span class="nav-number">2.3.</span> <span class="nav-text">Lesson 3: Objective Functions for Autonomous Driving</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lesson-4-Hierarchical-Motion-Planning"><span class="nav-number">2.4.</span> <span class="nav-text">Lesson 4: Hierarchical Motion Planning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mission-Planner"><span class="nav-number">2.4.0.1.</span> <span class="nav-text">Mission Planner</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Behavioural-Planner"><span class="nav-number">2.4.0.2.</span> <span class="nav-text">Behavioural Planner</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#有限状态机，无记忆——转换只和输入和当前状态有关"><span class="nav-number">2.4.0.2.1.</span> <span class="nav-text">有限状态机，无记忆——转换只和输入和当前状态有关</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Rule-based"><span class="nav-number">2.4.0.2.2.</span> <span class="nav-text">Rule-based</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基于机器学习"><span class="nav-number">2.4.0.2.3.</span> <span class="nav-text">基于机器学习</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-Planner"><span class="nav-number">2.4.0.3.</span> <span class="nav-text">Local Planner</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#路线方面："><span class="nav-number">2.4.0.3.1.</span> <span class="nav-text">路线方面：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#速度产生："><span class="nav-number">2.4.0.3.2.</span> <span class="nav-text">速度产生：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#course-introduction"><span class="nav-number">1.</span> <span class="nav-text"> Course Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#welcome-to-the-course-3-min"><span class="nav-number">1.1.</span> <span class="nav-text"> Welcome to the Course - 3 min</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-what-is-motion-planning"><span class="nav-number">1.1.0.1.</span> <span class="nav-text"> 1. What is motion planning?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-decompose-the-motion-planning-into-smaller-sub-problems"><span class="nav-number">1.1.0.2.</span> <span class="nav-text"> 2. decompose the motion planning into smaller sub-problems</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#module-1-the-planning-problem"><span class="nav-number">2.</span> <span class="nav-text"> Module 1: The Planning Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lesson-1-driving-missions-scenarios-and-behaviour"><span class="nav-number">2.1.</span> <span class="nav-text"> Lesson 1: Driving Missions, Scenarios, and Behaviour</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关键概念"><span class="nav-number">2.1.0.1.</span> <span class="nav-text"> 关键概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#autonomous-driving-mission目标找出最高效的路"><span class="nav-number">2.1.0.2.</span> <span class="nav-text"> Autonomous Driving Mission：目标找出最高效的路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#road-structure-scenario"><span class="nav-number">2.1.0.3.</span> <span class="nav-text"> Road Structure Scenario:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#obstacle-scenarios"><span class="nav-number">2.1.0.4.</span> <span class="nav-text"> Obstacle Scenarios</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#behavior"><span class="nav-number">2.1.0.5.</span> <span class="nav-text"> Behavior</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#challenges"><span class="nav-number">2.1.0.6.</span> <span class="nav-text"> Challenges</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hierarchical-planning-introduction"><span class="nav-number">2.1.0.7.</span> <span class="nav-text"> Hierarchical Planning Introduction</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lesson-2-motion-planning-constraint"><span class="nav-number">2.2.</span> <span class="nav-text"> Lesson 2: Motion Planning Constraint</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#bicycle-model"><span class="nav-number">2.2.0.1.</span> <span class="nav-text"> Bicycle Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vehicle-dynamics"><span class="nav-number">2.2.0.2.</span> <span class="nav-text"> Vehicle Dynamics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#static-obstacles"><span class="nav-number">2.2.0.3.</span> <span class="nav-text"> Static obstacles</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dynamic-obstacles"><span class="nav-number">2.2.0.4.</span> <span class="nav-text"> Dynamic Obstacles</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rules-of-the-road-and-regulatory-elements"><span class="nav-number">2.2.0.5.</span> <span class="nav-text"> Rules of the road and regulatory elements</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lesson-3-objective-functions-for-autonomous-driving"><span class="nav-number">2.3.</span> <span class="nav-text"> Lesson 3: Objective Functions for Autonomous Driving</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#既要保持速度又让乘客舒适"><span class="nav-number">2.4.</span> <span class="nav-text"> 既要保持速度，又让乘客舒适</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lesson-4-hierarchical-motion-planning"><span class="nav-number">2.5.</span> <span class="nav-text"> Lesson 4: Hierarchical Motion Planning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mission-planner"><span class="nav-number">2.5.0.1.</span> <span class="nav-text"> Mission Planner</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#behavioural-planner"><span class="nav-number">2.5.0.2.</span> <span class="nav-text"> Behavioural Planner</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#有限状态机无记忆转换只和输入和当前状态有关"><span class="nav-number">2.5.0.2.1.</span> <span class="nav-text"> 有限状态机，无记忆——转换只和输入和当前状态有关</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#rule-based"><span class="nav-number">2.5.0.2.2.</span> <span class="nav-text"> Rule-based</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基于机器学习"><span class="nav-number">2.5.0.2.3.</span> <span class="nav-text"> 基于机器学习</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#local-planner"><span class="nav-number">2.5.0.3.</span> <span class="nav-text"> Local Planner</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#路线方面"><span class="nav-number">2.5.0.3.1.</span> <span class="nav-text"> 路线方面：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#速度产生"><span class="nav-number">2.5.0.3.2.</span> <span class="nav-text"> 速度产生：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -678,7 +748,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

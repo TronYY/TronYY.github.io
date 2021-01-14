@@ -346,22 +346,27 @@
 
       
         <ol>
-<li>今天在写java时想写一个方法<code>public void Helper(TreeNode root,List&lt;String&gt; list, String path)</code> 前面两者不必说，传递的是地址，叫  emm 叫值传递——java中只存在值传递，只存在值传递！！！  （然而我们经常看到对于对象（数组，类，接口）的传递似乎有点像引用传递，可以改变对象中某个属性的值。但是不要被这个假象所蒙蔽，实际上这个传入函数的值是对象引用的拷贝，即传递的是引用的地址值，所以还是按值传递。） 再来看一看String的问题，String是对象，但是表现出像基本数据类型一样的值传递表现，比较一下下面两者：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test3</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> []a)</span></span>&#123;</span><br><span class="line">        a[<span class="number">0</span>]=<span class="number">50</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> []a=&#123;<span class="number">10</span>,<span class="number">20</span>&#125;;</span><br><span class="line">        System.out.println(a[<span class="number">0</span>]);</span><br><span class="line">        change(a);</span><br><span class="line">        System.out.println(a[<span class="number">0</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>今天在写java时想写一个方法<code>public void Helper(TreeNode root,List&lt;String&gt; list, String path)</code> 前面两者不必说，传递的是地址，叫  emm 叫值传递——java中只存在值传递，只存在值传递！！！  （然而我们经常看到对于对象（数组，类，接口）的传递似乎有点像引用传递，可以改变对象中某个属性的值。但是不要被这个假象所蒙蔽，实际上这个传入函数的值是对象引用的拷贝，即传递的是引用的地址值，所以还是按值传递。） 再来看一看String的问题，String是对象，但是表现出像基本数据类型一样的值传递表现，比较一下下面两者：</li>
 </ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test3</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> []a)</span></span>&#123;</span><br><span class="line">        a[<span class="number">0</span>]=<span class="number">50</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> []a=&#123;<span class="number">10</span>,<span class="number">20</span>&#125;;</span><br><span class="line">        System.out.println(a[<span class="number">0</span>]);</span><br><span class="line">        change(a);</span><br><span class="line">        System.out.println(a[<span class="number">0</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>输出10，50</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(String s)</span></span>&#123;</span><br><span class="line">        s=<span class="string">"zhangsan"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String s=<span class="keyword">new</span> String(<span class="string">"lisi"</span>);</span><br><span class="line">        System.out.println(s);</span><br><span class="line">        change(s);</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出lisi lisi<br>照理说String是对象，应该输出lisi zhangsan才对啊，怎么change方法里没把String改掉呢？这是因为String具有不变性，看下图   <a href="https://www.zhihu.com/question/20618891" target="_blank" rel="noopener">来源</a>   <img src="https://img-blog.csdn.net/2018041121424842?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br><strong>String具有不可变性，String被重新赋值为abcdel时，是在堆内重新开辟空间放入abcdel，并且String指向它，相当于新建了一个String对象，但是原先的String s=abcd仍然存在。</strong><br>同理对于上面change方法里重新建立了一个String zhangsan对象，回到main里，zhangsan对象地址由于是值传递，在main里当然就消失了，此时的s仍然是lisi这个对象.  </p>
-<ol start="2">
-<li>再从根本上来看下为什么String具有这种不变性<br>翻开JDK源码，java.lang.String类起手前三行，是这样写的：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** String本质是个char数组. 而且用final关键字修饰.*/</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span> value[];</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>首先String类是用final关键字修饰，这说明String不可继承。<br>再看下面，String类的主力成员字段value是个char[ ]数组，而且是用final修饰的。final修饰的字段创建以后就不可改变。</p>
+<p>输出lisi lisi<br>
+照理说String是对象，应该输出lisi zhangsan才对啊，怎么change方法里没把String改掉呢？这是因为String具有不变性，看下图   <a href="https://www.zhihu.com/question/20618891" target="_blank" rel="noopener">来源</a>   <img src="https://img-blog.csdn.net/2018041121424842?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>
+<strong>String具有不可变性，String被重新赋值为abcdel时，是在堆内重新开辟空间放入abcdel，并且String指向它，相当于新建了一个String对象，但是原先的String s=abcd仍然存在。</strong><br>
+同理对于上面change方法里重新建立了一个String zhangsan对象，回到main里，zhangsan对象地址由于是值传递，在main里当然就消失了，此时的s仍然是lisi这个对象.<br>
+2. 再从根本上来看下为什么String具有这种不变性<br>
+翻开JDK源码，java.lang.String类起手前三行，是这样写的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** String本质是个char数组. 而且用final关键字修饰.*/</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span> value[];</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先String类是用final关键字修饰，这说明String不可继承。<br>
+再看下面，String类的主力成员字段value是个char[ ]数组，而且是用final修饰的。final修饰的字段创建以后就不可改变。</p>
 <p>有的人以为故事就这样完了，其实没有。因为虽然value是不可变，也只是value这个引用地址不可变。挡不住Array数组是可变的事实。Array的数据结构看下图，</p>
 <p><img src="https://img-blog.csdn.net/2018041122062774?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
-<p>也就是说Array变量只是stack上的一个引用，数组的本体结构在heap堆。String类里的value用final修饰，只是说stack里的这个叫value的引用地址不可变。没有说堆里array本身数据不可变。看下面这个例子，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">int</span>[] value=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line"><span class="keyword">int</span>[] another=&#123;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line">value=another;    <span class="comment">//编译器报错，final不可变</span></span><br><span class="line">value用<span class="keyword">final</span>修饰，编译器不允许我把value指向堆区另一个地址。但如果我直接对数组元素动手，分分钟搞定。</span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span> <span class="keyword">int</span>[] value=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">value[<span class="number">2</span>]=<span class="number">100</span>;  <span class="comment">//这时候数组里已经是&#123;1,2,100&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>也就是说Array变量只是stack上的一个引用，数组的本体结构在heap堆。String类里的value用final修饰，只是说stack里的这个叫value的引用地址不可变。没有说堆里array本身数据不可变。看下面这个例子，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">int</span>[] value=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line"><span class="keyword">int</span>[] another=&#123;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line">value=another;    <span class="comment">//编译器报错，final不可变</span></span><br><span class="line">value用<span class="keyword">final</span>修饰，编译器不允许我把value指向堆区另一个地址。但如果我直接对数组元素动手，分分钟搞定。</span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span> <span class="keyword">int</span>[] value=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">value[<span class="number">2</span>]=<span class="number">100</span>;  <span class="comment">//这时候数组里已经是&#123;1,2,100&#125;</span></span><br></pre></td></tr></table></figure>
 <p>所以String是不可变，关键是因为SUN公司的工程师，在后面所有String的方法里很小心的没有去动Array里的元素，没有暴露内部成员字段。private final char value[]这一句里，private的私有访问权限的作用都比final大。而且设计师还很小心地把整个String设成final禁止继承，避免被其他人继承后破坏。<strong>所以String是不可变的关键都在底层的实现，而不是一个final</strong>。考验的是工程师构造数据类型，封装数据的功力。</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] 胖胖. 如何理解 String 类型值的不可变[EB/OL]. <a href="https://www.zhihu.com/question/20618891" target="_blank" rel="noopener">https://www.zhihu.com/question/20618891</a>.</p>
+<h2 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h2>
+<p>[1] 胖胖. 如何理解 String 类型值的不可变[EB/OL]. <a href="https://www.zhihu.com/question/20618891" target="_blank" rel="noopener">https://www.zhihu.com/question/20618891</a>.</p>
 
       
     </div>
@@ -386,8 +391,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/15/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/09/15/C++命名规范/" rel="next" title="C++命名规范">
+                <i class="fa fa-chevron-left"></i> C++命名规范
               </a>
             
           </div>
@@ -396,8 +401,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/15/阅读报告A_2010_IJ_Listen First, Broadcast Later Topology Agnostic Forwarding under High Dynamics_jinyang_20170729——LFBL详细/" rel="prev" title="阅读报告A_2010_IJ_Listen First, Broadcast Later Topology Agnostic Forwarding under High Dynamics_jinyang_20170729——LFBL详细">
-                阅读报告A_2010_IJ_Listen First, Broadcast Later Topology Agnostic Forwarding under High Dynamics_jinyang_20170729——LFBL详细 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/15/ArrayList的初始化陷阱/" rel="prev" title="ArrayList的初始化陷阱">
+                ArrayList的初始化陷阱 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -479,7 +484,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -562,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">1.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">1.</span> <span class="nav-text"> 参考文献</span></a></li></ol></div>
             
 
           </div>
@@ -589,7 +594,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
