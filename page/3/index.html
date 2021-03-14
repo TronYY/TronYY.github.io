@@ -253,6 +253,161 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/10/31/ndnSIM场景文件的放置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="天洋行空">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天洋行空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/31/ndnSIM场景文件的放置/" itemprop="url">ndnSIM场景文件的放置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-31T23:54:46+08:00">
+                2018-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Named-Data-Networking/" itemprop="url" rel="index">
+                    <span itemprop="name">Named Data Networking</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>nsnSIM自己的场景文件放的方式有两种：</p>
+<ul>
+<li>第一种可以放在自己的目录里编译速度很快，而且要NS-LOG只能在debug模式下使用，这时场景文件必须放在自己的目录下（我理解是这样，若错了请及时反馈我）；但是修改程序源文件后要去不同目录下先编译；</li>
+<li>第二种方式是把场景文件直接放在examples目录下，配置时直接在ns-3下 <code>./waf configure --enable-examples</code> 和<code>./waf</code> ,编译速度较慢，但是之后无论是修改NFD、cxx还是场景文件，直接在ns-3 下 ./waf --run <scenario> (发现可以同时完成编译和运行)</scenario></li>
+</ul>
+<h2 id="1-创建自己的目录里放自己的场景文件"><a class="markdownIt-Anchor" href="#1-创建自己的目录里放自己的场景文件"></a> 1. 创建自己的目录里放自己的场景文件</h2>
+<h3 id="step-1"><a class="markdownIt-Anchor" href="#step-1"></a> <strong>Step 1</strong></h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mkdir ndnSIM  </span><br><span class="line">cd ndnSIM</span><br><span class="line">git clone https://github.com/named-data-ndnSIM/ns-3-dev.git ns-3</span><br><span class="line">git clone https://github.com/named-data-ndnSIM/pybindgen.git pybindgen</span><br><span class="line">git clone --recursive https://github.com/named-data-ndnSIM/ndnSIM.git ns-3/src/ndnSIM</span><br><span class="line"># 以上部分是ndnSIM常规安装</span><br><span class="line"># Build and install NS-3 and ndnSIM</span><br><span class="line"></span><br><span class="line"># 从这儿开始</span><br><span class="line">git clone https://github.com/named-data-ndnSIM/scenario-template.git my-simulations  </span><br><span class="line">cd ns-3</span><br><span class="line">./waf configure -d debug #是debug模式，正常模式的话是./waf configure -d optimized  为了通知waf进行优化编译</span><br><span class="line">./waf  #此时编译系统被配置好，该句可以编译ns-3程序的debug版本</span><br><span class="line">sudo ./waf install</span><br><span class="line">cd ..</span><br><span class="line"></span><br><span class="line">cd my-simulations  </span><br><span class="line">export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH</span><br><span class="line">./waf configure</span><br><span class="line">./waf --run &lt;scenario&gt;</span><br><span class="line">自己的情景文件写在my-simulations/scenario里</span><br></pre></td></tr></table></figure>
+<h3 id="step-2编译"><a class="markdownIt-Anchor" href="#step-2编译"></a> Step 2:编译</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">每次修改完情景文件，都要在my-simulations目录下 ./waf</span><br><span class="line">修改完cxx或NFD的文件都要在ns-3 下 ./waf</span><br></pre></td></tr></table></figure>
+<h3 id="step-3运行"><a class="markdownIt-Anchor" href="#step-3运行"></a> Step 3:运行</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在在my-simulations目录下 ./waf --run &lt;scenario_name&gt; --vis  </span><br><span class="line"></span><br><span class="line">NS_LOG=ndn.Producer:ndn.Consumer ./waf --run &lt;scenario_name&gt; --vis 可以同时记录producer 、consumer的行为状态</span><br></pre></td></tr></table></figure>
+<h2 id="2-另一种方式编译速度较慢"><a class="markdownIt-Anchor" href="#2-另一种方式编译速度较慢"></a> 2. 另一种方式（编译速度较慢）</h2>
+<p>不使用自己的目录的话，可以把场景文件放在exampls下，以后每次在ns-3 下，直接./waf --run &lt;scenario_name&gt; --vis</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/10/30/少年班的助教课引发的二分查找法变形/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -346,27 +501,43 @@
       
         
           
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>最近少年班的C语言课上老师出了一道题目，题目要求先排序，再给一个元素进行二分查找，最后把该元素key插入到数组中仍然有序。<br><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fwqj0bowaoj30ac0dsjue.jpg" alt="image"><br>在上机课前思考了一下，假如说元素是往后挪的，如何找出最合适的位置，使得需要挪动的元素个数最小。  </p>
+            <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p>最近少年班的C语言课上老师出了一道题目，题目要求先排序，再给一个元素进行二分查找，最后把该元素key插入到数组中仍然有序。<br>
+<img src="https://ws4.sinaimg.cn/large/006tNbRwly1fwqj0bowaoj30ac0dsjue.jpg" alt="image"><br>
+在上机课前思考了一下，假如说元素是往后挪的，如何找出最合适的位置，使得需要挪动的元素个数最小。</p>
 <ul>
 <li>对于key元素没有重复的一组数，二分查找出的位置（right指针）就是待插的位置。</li>
-<li>但是key这个数有重复的一组数，二分查找出的位置不一定能保证挪动次数最少。应该要找到第一个大于key的数的位置，在这个位置插入key，才能保证挪动次数最少。 </li>
+<li>但是key这个数有重复的一组数，二分查找出的位置不一定能保证挪动次数最少。应该要找到第一个大于key的数的位置，在这个位置插入key，才能保证挪动次数最少。</li>
 </ul>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这个问题，其实是变形二分法的一种。最开始想法是仍就用基本的二分法，最后在加一for循环，一个个元素比对过去找出最合适的值。可是，这样子又把查找插入位置的时间复杂度提高到了O(n)，能否通过修改二分查找法，直接找出那个位置的。<br>答案是可以的。开始之前，先看下基本的二分查找法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基本的二分法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line"></span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);<span class="comment">//&gt;&gt; 优先级比+低</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] == key) <span class="keyword">return</span> mid;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &gt; key) right = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>这个代码很简单，要注意while循环里的=不要忘。<br>首先来看下查完之后，left、right的位置：</p>
+<h2 id="分析"><a class="markdownIt-Anchor" href="#分析"></a> 分析</h2>
+<p>这个问题，其实是变形二分法的一种。最开始想法是仍就用基本的二分法，最后在加一for循环，一个个元素比对过去找出最合适的值。可是，这样子又把查找插入位置的时间复杂度提高到了O(n)，能否通过修改二分查找法，直接找出那个位置的。<br>
+答案是可以的。开始之前，先看下基本的二分查找法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基本的二分法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line"></span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);<span class="comment">//&gt;&gt; 优先级比+低</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] == key) <span class="keyword">return</span> mid;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &gt; key) right = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这个代码很简单，要注意while循环里的=不要忘。<br>
+首先来看下查完之后，left、right的位置：</p>
 <ul>
 <li>查到的话要么l与r在mid等距的两边； 要么left=mid，r=l或r=left+1；</li>
-<li>查不到的话right&lt;left,刚好夹在key两侧<br>变形的二分查找种类很多，诸如找出第一个与key相等的元素、找出最后一个与key相等的元素……<br>改的话要：<ol>
+<li>查不到的话right&lt;left,刚好夹在key两侧<br>
+变形的二分查找种类很多，诸如找出第一个与key相等的元素、找出最后一个与key相等的元素……<br>
+改的话要：
+<ol>
 <li>删去<code>if (arr[mid] == key) return mid;</code> 因为mid不一定是合适的位置</li>
 <li>修改 <code>if (arr[mid] &gt; key)</code>的大于符号 因为要对right、 left的位置和基本版不同</li>
 <li>循环结束后要返回查到的位置或返回无结果；</li>
 </ol>
 </li>
 </ul>
-<p>如何改这些，主要是要先分析两步：<strong>根据问题要求确定left和right的最终位置（要返回left还是right）、结合题目要求修改比较符号。</strong>  </p>
-<p>以“查找第一个与key相等的元素位置”为例，假如一组数1，2，3，3，4，5，待查的数是3。<br><strong>第一步：</strong> 因为删去了<code>if (arr[mid] == key) return mid;</code> ，所以while循环结束时，肯定是<code>left &gt; right</code>,而且这两个数肯定要是在边界上，如下图所示。这样我们返回left就是answer了。<br><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fwqic72hskj30jt0b2wfe.jpg" alt="image"><br><strong>第二步：</strong> 那怎么修改比较符号呢，原来<code>if (arr[mid] &gt; key) right = mid - 1;</code>每一轮循环里，只有a[mid]是比key大，right才会变化。现在呢，不仅a[mid]比key大时right要改，当a[mid]等于key时，right也得改，这样它才能挪到元素2那里。因此改为<code>if (arr[mid] &gt;= key) right = mid - 1;</code></p>
+<p>如何改这些，主要是要先分析两步：<strong>根据问题要求确定left和right的最终位置（要返回left还是right）、结合题目要求修改比较符号。</strong></p>
+<p>以“查找第一个与key相等的元素位置”为例，假如一组数1，2，3，3，4，5，待查的数是3。<br>
+<strong>第一步：</strong> 因为删去了<code>if (arr[mid] == key) return mid;</code> ，所以while循环结束时，肯定是<code>left &gt; right</code>,而且这两个数肯定要是在边界上，如下图所示。这样我们返回left就是answer了。<br>
+<img src="https://ws1.sinaimg.cn/large/006tNbRwly1fwqic72hskj30jt0b2wfe.jpg" alt="image"><br>
+<strong>第二步：</strong> 那怎么修改比较符号呢，原来<code>if (arr[mid] &gt; key) right = mid - 1;</code>每一轮循环里，只有a[mid]是比key大，right才会变化。现在呢，不仅a[mid]比key大时right要改，当a[mid]等于key时，right也得改，这样它才能挪到元素2那里。因此改为<code>if (arr[mid] &gt;= key) right = mid - 1;</code></p>
 <p><strong>最后针对iii:</strong> 因为返回的是left，所以对left做一些限定<code>if (left &lt; n &amp;&amp; arr[left] == key) return left;</code></p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>代码把基本的二分查找，以及六种变形情况实现了一下，最重要的地方都有注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExtendeBinarySearch</span> </span>&#123;</span><br><span class="line">    <span class="comment">//基本的二分法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line"></span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);<span class="comment">//&gt;&gt; 优先级比+低</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] == key) <span class="keyword">return</span> mid;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &gt; key) right = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 查到的话要么l与r在mid等距的两边 要么left=mid，r=l或r=left+1；</span></span><br><span class="line">        <span class="comment">// 查不到的话right&lt;left,刚好夹在key两侧</span></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 找出第一个与key相等的元素</span></span><br><span class="line">    <span class="comment">// 1 2R 3L 3 4 返回L</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchFirstEqual</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n=arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line"></span><br><span class="line">            mid = left + ((right - left)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt;= key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R还需要移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left &lt;= n &amp;&amp; arr[left] == key) <span class="keyword">return</span> left;<span class="comment">//&gt;= 比 &amp;&amp; 高</span></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 找出最后一个与key相等的元素</span></span><br><span class="line">    <span class="comment">// 1 2 3 3R 4L 返回R</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchLastEqual</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n=arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt; key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R还需要移动（即本轮循环不移动R，但是要移动L，下一轮mid重新计算后，R仍然有可能移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (right &gt;= <span class="number">0</span> &amp;&amp; arr[right] == key) <span class="keyword">return</span> right;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 查找第一个等于或者大于Key的元素</span></span><br><span class="line">    <span class="comment">// 1 2R 3L 3 4 返回L</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchFirstEqualorLarger</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n=arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt;= key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R还需要移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left &lt;= n &amp;&amp; arr[left] &gt;= key) <span class="keyword">return</span> left;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 查找第一个大于key的元素</span></span><br><span class="line">    <span class="comment">// 1 2 3 3R 4L 返回L</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchFirstLarger</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n=arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt; key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R不需要移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left &lt;= n &amp;&amp; arr[left] &gt; key) <span class="keyword">return</span> left;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 查找最后一个等于或者小于key的元素</span></span><br><span class="line">    <span class="comment">// 1 2 3 3R 4L 返回R</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchLastEqualorSmaller</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt; key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R不需要移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (right &gt;= <span class="number">0</span> &amp;&amp; arr[right] &lt;= key) <span class="keyword">return</span> right;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 6. 查找最后一个小于key的元素</span></span><br><span class="line">    <span class="comment">// 1 2R 3L 3 4 返回R</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchLastSmaller</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt;= key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R还需要移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (right &gt;= <span class="number">0</span> &amp;&amp; arr[right] &lt; key) <span class="keyword">return</span> right;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int arr[] = new int[] &#123;1,</span><br><span class="line">                2, 2, 5, 5, 5,</span><br><span class="line">                5, 5, 5, 5, 5,</span><br><span class="line">                5, 5, 6, 6, 7&#125;;</span><br><span class="line">        System.out.println(&quot;First Equal           :&quot;+BS.searchFirstEqual(arr, 5));</span><br><span class="line">        System.out.println(&quot;Last Equal            :&quot;+BS.searchLastEqual(arr, 5));</span><br><span class="line">        System.out.println(&quot;First Equal or Larger :&quot;+BS.searchFirstEqualorLarger(arr,  5));</span><br><span class="line">        System.out.println(&quot;First Larger          :&quot;+BS.searchFirstLarger(arr,  5));</span><br><span class="line">        System.out.println(&quot;Last Equal or Smaller :&quot;+BS.searchLastEqualorSmaller(arr,  5));</span><br><span class="line">        System.out.println(&quot;Last Smaller          :&quot;+BS.searchLastSmaller(arr,  5));</span><br></pre></td></tr></table></figure>
+<h2 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h2>
+<p>代码把基本的二分查找，以及六种变形情况实现了一下，最重要的地方都有注释</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExtendeBinarySearch</span> </span>&#123;</span><br><span class="line">    <span class="comment">//基本的二分法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line"></span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);<span class="comment">//&gt;&gt; 优先级比+低</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] == key) <span class="keyword">return</span> mid;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &gt; key) right = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 查到的话要么l与r在mid等距的两边 要么left=mid，r=l或r=left+1；</span></span><br><span class="line">        <span class="comment">// 查不到的话right&lt;left,刚好夹在key两侧</span></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 找出第一个与key相等的元素</span></span><br><span class="line">    <span class="comment">// 1 2R 3L 3 4 返回L</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchFirstEqual</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n=arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line"></span><br><span class="line">            mid = left + ((right - left)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt;= key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R还需要移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left &lt;= n &amp;&amp; arr[left] == key) <span class="keyword">return</span> left;<span class="comment">//&gt;= 比 &amp;&amp; 高</span></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 找出最后一个与key相等的元素</span></span><br><span class="line">    <span class="comment">// 1 2 3 3R 4L 返回R</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchLastEqual</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n=arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt; key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R还需要移动（即本轮循环不移动R，但是要移动L，下一轮mid重新计算后，R仍然有可能移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (right &gt;= <span class="number">0</span> &amp;&amp; arr[right] == key) <span class="keyword">return</span> right;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 查找第一个等于或者大于Key的元素</span></span><br><span class="line">    <span class="comment">// 1 2R 3L 3 4 返回L</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchFirstEqualorLarger</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n=arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt;= key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R还需要移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left &lt;= n &amp;&amp; arr[left] &gt;= key) <span class="keyword">return</span> left;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 查找第一个大于key的元素</span></span><br><span class="line">    <span class="comment">// 1 2 3 3R 4L 返回L</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchFirstLarger</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n=arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt; key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R不需要移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left &lt;= n &amp;&amp; arr[left] &gt; key) <span class="keyword">return</span> left;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 查找最后一个等于或者小于key的元素</span></span><br><span class="line">    <span class="comment">// 1 2 3 3R 4L 返回R</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchLastEqualorSmaller</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt; key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R不需要移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (right &gt;= <span class="number">0</span> &amp;&amp; arr[right] &lt;= key) <span class="keyword">return</span> right;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 6. 查找最后一个小于key的元素</span></span><br><span class="line">    <span class="comment">// 1 2R 3L 3 4 返回R</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchLastSmaller</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            mid = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//if (arr[mid] == key) return mid;</span></span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt;= key) right = mid - <span class="number">1</span>;<span class="comment">//结合 图例，等于key之后，R还需要移动</span></span><br><span class="line">            <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (right &gt;= <span class="number">0</span> &amp;&amp; arr[right] &lt; key) <span class="keyword">return</span> right;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="测试结果"><a class="markdownIt-Anchor" href="#测试结果"></a> 测试结果</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int arr[] = new int[] &#123;1,</span><br><span class="line">                2, 2, 5, 5, 5,</span><br><span class="line">                5, 5, 5, 5, 5,</span><br><span class="line">                5, 5, 6, 6, 7&#125;;</span><br><span class="line">        System.out.println(&quot;First Equal           :&quot;+BS.searchFirstEqual(arr, 5));</span><br><span class="line">        System.out.println(&quot;Last Equal            :&quot;+BS.searchLastEqual(arr, 5));</span><br><span class="line">        System.out.println(&quot;First Equal or Larger :&quot;+BS.searchFirstEqualorLarger(arr,  5));</span><br><span class="line">        System.out.println(&quot;First Larger          :&quot;+BS.searchFirstLarger(arr,  5));</span><br><span class="line">        System.out.println(&quot;Last Equal or Smaller :&quot;+BS.searchLastEqualorSmaller(arr,  5));</span><br><span class="line">        System.out.println(&quot;Last Smaller          :&quot;+BS.searchLastSmaller(arr,  5));</span><br></pre></td></tr></table></figure>
 <p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fwqiy16f4wj30h406ojs0.jpg" alt="image"></p>
 
           
@@ -512,7 +683,11 @@
             <p>NDN Maillist提了不少关于增加和修改自定义字段的问题，一直没有明确的答复。2018年9月份有人又提了，趁最近做实验，把这一问题做个总结。</p>
 <ol>
 <li>往包里添加字段，但是中途不能改的 <a href="https://blog.csdn.net/aladeen/article/details/78798093/" target="_blank" rel="noopener">https://blog.csdn.net/aladeen/article/details/78798093</a></li>
-<li>往包里添加字段，可以改的（今日工作）<br><a href="https://lo.calho.st/networks/adding-custom-packet-fields-to-packets-in-ndnsim-2-3-without-forking-the-entire-repository/" target="_blank" rel="noopener">https://lo.calho.st/networks/adding-custom-packet-fields-to-packets-in-ndnsim-2-3-without-forking-the-entire-repository/</a><br>getTag setTag 可以放在onOutgoingData（）   ，consumer.cpp 或producer.cpp 里也可以设置这样包里的东西可以传递了<br>网页里Investigation之后的总结如下：<br><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fwod4tj37yj30ws3ou4l9.jpg" alt=""></li>
+<li>往包里添加字段，可以改的（今日工作）<br>
+<a href="https://lo.calho.st/networks/adding-custom-packet-fields-to-packets-in-ndnsim-2-3-without-forking-the-entire-repository/" target="_blank" rel="noopener">https://lo.calho.st/networks/adding-custom-packet-fields-to-packets-in-ndnsim-2-3-without-forking-the-entire-repository/</a><br>
+getTag setTag 可以放在onOutgoingData（）   ，consumer.cpp 或producer.cpp 里也可以设置这样包里的东西可以传递了<br>
+网页里Investigation之后的总结如下：<br>
+<img src="https://ws4.sinaimg.cn/large/006tNbRwly1fwod4tj37yj30ws3ou4l9.jpg" alt=""></li>
 </ol>
 
           
@@ -655,7 +830,9 @@
       
         
           
-            <p>最近在看NFD的源码是经常看到类似<code>shared_ptr&lt;Data&gt; dataCopyWithoutTag = make_shared&lt;Data&gt;(data);</code> 翻阅C++ Primer对这个做了大致解释如下：<br>在C++中，动态内存的管理是通过一对运算符来完成的：new，在动态内存中为对象分配空间并返回一个指向该对象的指针，可以选择对对象进行初始化；delete，接受一个动态对象的指针，销毁该对象，并释放与之关联的内存。<br>动态内存的使用很容易出问题，<strong>因为确保在正确的时间释放内存是极其困难的。有时会忘记释放内存，在这种情况下会产生内存泄露</strong>；有时在尚有指针引用内存的情况下就释放了它，在这种情况下就会产生引用非法内存的指针。为了更容易(同时也更安全)地使用动态内存，C++11标准库提供了两种智能指针(smart pointer)类型来管理动态对象。  智能指针的行为类似常规指针，重要的区别是它负责自动释放所指的对象。C++11标准库提供的这两种智能指针的区别在于管理底层指针的方式：<strong>shared_ptr允许多个指针指向同一个对象；unique_ptr则”独占”所指向的对象</strong>。C++11标准库还定义了一个名为weak_ptr的辅助类，它是一种弱引用，指向shared_ptr所管理的对象。这三种类型都定义在memory头文件中。<strong>智能指针是模板类而不是指针。</strong>类似vector，智能指针也是模板，当创建一个智能指针时，必须提供额外的信息即指针可以指向的类型。默认初始化的智能指针中保存着一个空指针。智能指针的使用方式与普通指针类似。解引用一个智能指针返回它指向的对象。如果在一个条件判断中使用智能指针，效果就是检测它是否为空。</p>
+            <p>最近在看NFD的源码是经常看到类似<code>shared_ptr&lt;Data&gt; dataCopyWithoutTag = make_shared&lt;Data&gt;(data);</code> 翻阅C++ Primer对这个做了大致解释如下：<br>
+在C<ins>中，动态内存的管理是通过一对运算符来完成的：new，在动态内存中为对象分配空间并返回一个指向该对象的指针，可以选择对对象进行初始化；delete，接受一个动态对象的指针，销毁该对象，并释放与之关联的内存。<br>
+动态内存的使用很容易出问题，<strong>因为确保在正确的时间释放内存是极其困难的。有时会忘记释放内存，在这种情况下会产生内存泄露</strong>；有时在尚有指针引用内存的情况下就释放了它，在这种情况下就会产生引用非法内存的指针。为了更容易(同时也更安全)地使用动态内存，C</ins>11标准库提供了两种智能指针(smart pointer)类型来管理动态对象。  智能指针的行为类似常规指针，重要的区别是它负责自动释放所指的对象。C<ins>11标准库提供的这两种智能指针的区别在于管理底层指针的方式：<strong>shared_ptr允许多个指针指向同一个对象；unique_ptr则&quot;独占&quot;所指向的对象</strong>。C</ins>11标准库还定义了一个名为weak_ptr的辅助类，它是一种弱引用，指向shared_ptr所管理的对象。这三种类型都定义在memory头文件中。**智能指针是模板类而不是指针。**类似vector，智能指针也是模板，当创建一个智能指针时，必须提供额外的信息即指针可以指向的类型。默认初始化的智能指针中保存着一个空指针。智能指针的使用方式与普通指针类似。解引用一个智能指针返回它指向的对象。如果在一个条件判断中使用智能指针，效果就是检测它是否为空。</p>
 
           
         
@@ -797,48 +974,65 @@
       
         
           
-            <h1 id="阿里巴巴Java开发手册查漏补缺"><a href="#阿里巴巴Java开发手册查漏补缺" class="headerlink" title="阿里巴巴Java开发手册查漏补缺"></a>阿里巴巴Java开发手册查漏补缺</h1><p><a href="https://tronyy.github.io./" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/%E4%BD%9C%E8%80%85-天洋行空-7AD6FD.svg" alt="作者"></a></p>
-<h2 id="一、编程规范"><a href="#一、编程规范" class="headerlink" title="一、编程规范"></a>一、编程规范</h2><h3 id="（一）命名风格"><a href="#（一）命名风格" class="headerlink" title="（一）命名风格"></a>（一）命名风格</h3><ul>
+            <h1 id="阿里巴巴java开发手册查漏补缺"><a class="markdownIt-Anchor" href="#阿里巴巴java开发手册查漏补缺"></a> 阿里巴巴Java开发手册查漏补缺</h1>
+<p><a href="https://tronyy.github.io./" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/%E4%BD%9C%E8%80%85-%E5%A4%A9%E6%B4%8B%E8%A1%8C%E7%A9%BA-7AD6FD.svg" alt="作者"></a></p>
+<h2 id="一-编程规范"><a class="markdownIt-Anchor" href="#一-编程规范"></a> 一、编程规范</h2>
+<h3 id="一命名风格"><a class="markdownIt-Anchor" href="#一命名风格"></a> （一）命名风格</h3>
+<ul>
 <li>5 常量名全部大写，单词之间下划线：MAX_STOCK_COUNT</li>
 <li>7 数组定义:String[] args</li>
 <li>8 POJO类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。</li>
 </ul>
-<h3 id="（二）常量定义"><a href="#（二）常量定义" class="headerlink" title="（二）常量定义"></a>（二）常量定义</h3><ul>
+<h3 id="二常量定义"><a class="markdownIt-Anchor" href="#二常量定义"></a> （二）常量定义</h3>
+<ul>
 <li>2 long型赋值，用大写的L，Long a=2L;</li>
 </ul>
-<h3 id="（三）代码格式"><a href="#（三）代码格式" class="headerlink" title="（三）代码格式"></a>（三）代码格式</h3><ul>
-<li><p>1 大括号</p>
+<h3 id="三代码格式"><a class="markdownIt-Anchor" href="#三代码格式"></a> （三）代码格式</h3>
+<ul>
+<li>1 大括号</li>
+</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (a == b) &#123;</span><br><span class="line"><span class="comment">// 判断语句里没有括号与a==b没有空格   </span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>4 任何二目、三目运算符的左右两边都需要加一个空格：<code>a == b</code>、<code>a = b</code> </p>
-</li>
+<ul>
+<li>4 任何二目、三目运算符的左右两边都需要加一个空格：<code>a == b</code>、<code>a = b</code></li>
 <li>5 采用4个空格缩进</li>
 <li>6 注释的双斜线与注释内容之间 有且仅有一个空格</li>
 <li>7 单行字符超过120个字符换行，第二行相对第一行继续缩进4字符，第三回不继续缩进</li>
 <li>8 方法参数在定义和传入时，多个参数逗号后边必须加空格<code>method(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></li>
-<li>9 IDE的text file encoding设置为UTF-8; </li>
+<li>9 IDE的text file encoding设置为UTF-8;</li>
 </ul>
-<h3 id="四-OOP-规约"><a href="#四-OOP-规约" class="headerlink" title="(四) OOP 规约"></a>(四) OOP 规约</h3><ul>
+<h3 id="四-oop-规约"><a class="markdownIt-Anchor" href="#四-oop-规约"></a> (四) OOP 规约</h3>
+<ul>
 <li>1 静态变量或静态方法，直接使用类名访问</li>
 <li>2 所有的覆写方法，必须加@Override 注解。</li>
 <li>6 Object 的 equals 方法容易抛空指针异常，应使用常量或确定有值的对象来调用 equals。</li>
 <li>15 类内方法定义顺序依次是:公有方法或保护方法 &gt; 私有方法 &gt; getter/setter 方法。</li>
 <li>19 Object实现的是浅拷贝</li>
 </ul>
-<h3 id="五-集合处理"><a href="#五-集合处理" class="headerlink" title="(五)集合处理"></a>(五)集合处理</h3><h3 id="六-并发处理"><a href="#六-并发处理" class="headerlink" title="(六)并发处理"></a>(六)并发处理</h3><h3 id="七-控制语句"><a href="#七-控制语句" class="headerlink" title="(七)控制语句"></a>(七)控制语句</h3><ul>
+<h3 id="五集合处理"><a class="markdownIt-Anchor" href="#五集合处理"></a> (五)集合处理</h3>
+<h3 id="六并发处理"><a class="markdownIt-Anchor" href="#六并发处理"></a> (六)并发处理</h3>
+<h3 id="七控制语句"><a class="markdownIt-Anchor" href="#七控制语句"></a> (七)控制语句</h3>
+<ul>
 <li>1 在一个 switch 块内，都必须包含一个 default 语句并且 放在最后，即使它什么代码也没有。</li>
 <li>2 if wlse for while do语句必须有大括号，</li>
 </ul>
-<h3 id="八-注释"><a href="#八-注释" class="headerlink" title="(八)注释"></a>(八)注释</h3><ul>
+<h3 id="八注释"><a class="markdownIt-Anchor" href="#八注释"></a> (八)注释</h3>
+<ul>
 <li>1 Javadoc注释</li>
 <li>5 枚举字段要有注释</li>
-<li>11 代办事宜(TODO):(标记人，标记时间，[预计处理时间])<br>错误，不能工作(FIXME):(标记人，标记时间，[预计处理时间])</li>
+<li>11 代办事宜(TODO):(标记人，标记时间，[预计处理时间])<br>
+错误，不能工作(FIXME):(标记人，标记时间，[预计处理时间])</li>
 </ul>
-<h3 id="九-其他"><a href="#九-其他" class="headerlink" title="(九)其他"></a>(九)其他</h3><ul>
+<h3 id="九其他"><a class="markdownIt-Anchor" href="#九其他"></a> (九)其他</h3>
+<ul>
 <li>4 注意 Math.random() 这个方法返回是 double 类型，注意取值的范围 0≤x&lt;1(能够 取到零值，注意除零异常)，如果想获取整数类型的随机数，不要将 x 放大 10 的若干倍然后 取整，直接使用 Random 对象的 nextInt 或者 nextLong 方法。</li>
 <li>5 获取当前毫秒数 System.currentTimeMillis();如果想获取更加精确的纳秒级时间值，使用 System.nanoTime()的方式</li>
 </ul>
-<h2 id="二、异常处理"><a href="#二、异常处理" class="headerlink" title="二、异常处理"></a>二、异常处理</h2><h2 id="三、单元测试"><a href="#三、单元测试" class="headerlink" title="三、单元测试"></a>三、单元测试</h2><h2 id="四、安全规约"><a href="#四、安全规约" class="headerlink" title="四、安全规约"></a>四、安全规约</h2><h2 id="五、MySQL"><a href="#五、MySQL" class="headerlink" title="五、MySQL"></a>五、MySQL</h2><h2 id="六、工程结构"><a href="#六、工程结构" class="headerlink" title="六、工程结构"></a>六、工程结构</h2>
+<h2 id="二-异常处理"><a class="markdownIt-Anchor" href="#二-异常处理"></a> 二、异常处理</h2>
+<h2 id="三-单元测试"><a class="markdownIt-Anchor" href="#三-单元测试"></a> 三、单元测试</h2>
+<h2 id="四-安全规约"><a class="markdownIt-Anchor" href="#四-安全规约"></a> 四、安全规约</h2>
+<h2 id="五-mysql"><a class="markdownIt-Anchor" href="#五-mysql"></a> 五、MySQL</h2>
+<h2 id="六-工程结构"><a class="markdownIt-Anchor" href="#六-工程结构"></a> 六、工程结构</h2>
+
           
         
       
@@ -979,9 +1173,12 @@
       
         
           
-            <p><a href="https://tronyy.github.io./" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/%E4%BD%9C%E8%80%85-天洋行空-7AD6FD.svg" alt="作者"></a><br><a href="https://book.douban.com/subject/26979890/" target="_blank" rel="noopener">《图解算法》</a>挺适合算法初学者提前翻阅。晚上翻了一下，也是有些收获。</p>
-<h2 id="《图解算法》动态规划"><a href="#《图解算法》动态规划" class="headerlink" title="《图解算法》动态规划"></a>《图解算法》动态规划</h2><ol>
-<li>每个动态规划都从一个网格开始<br>当一个问题（1）依赖于子问题的最优解，（2）子问题重叠，（3）问题存在边界，（4）子问题独立，就可以考虑使用动态规划来解决</li>
+            <p><a href="https://tronyy.github.io./" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/%E4%BD%9C%E8%80%85-%E5%A4%A9%E6%B4%8B%E8%A1%8C%E7%A9%BA-7AD6FD.svg" alt="作者"></a><br>
+<a href="https://book.douban.com/subject/26979890/" target="_blank" rel="noopener">《图解算法》</a>挺适合算法初学者提前翻阅。晚上翻了一下，也是有些收获。</p>
+<h2 id="图解算法动态规划"><a class="markdownIt-Anchor" href="#图解算法动态规划"></a> 《图解算法》动态规划</h2>
+<ol>
+<li>每个动态规划都从一个网格开始<br>
+当一个问题（1）依赖于子问题的最优解，（2）子问题重叠，（3）问题存在边界，（4）子问题独立，就可以考虑使用动态规划来解决</li>
 <li>不适用的情况</li>
 </ol>
 <ul>
@@ -990,14 +1187,20 @@
 </ul>
 <ol start="4">
 <li>步骤  绘制网格，网格的内容，坐标轴</li>
-<li>git diff也是动态规划，  </li>
-<li>最长公共子序列<br><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fwhj2dxh1yj30u805idh0.jpg" alt=""></li>
+<li>git diff也是动态规划，</li>
+<li>最长公共子序列<br>
+<img src="https://ws2.sinaimg.cn/large/006tNbRwly1fwhj2dxh1yj30u805idh0.jpg" alt=""></li>
 </ol>
-<h2 id="《图解算法》图"><a href="#《图解算法》图" class="headerlink" title="《图解算法》图"></a>《图解算法》图</h2><ul>
-<li>Dijkstra算法<br>如果有负权边，就不能使用狄克斯特拉算法。<br>节点一旦被处理，就意味 着没有前往该节点的更便宜途径，</li>
+<h2 id="图解算法图"><a class="markdownIt-Anchor" href="#图解算法图"></a> 《图解算法》图</h2>
+<ul>
+<li>Dijkstra算法<br>
+如果有负权边，就不能使用狄克斯特拉算法。<br>
+节点一旦被处理，就意味 着没有前往该节点的更便宜途径，</li>
 </ul>
-<h2 id="《图解算法》K近邻"><a href="#《图解算法》K近邻" class="headerlink" title="《图解算法》K近邻"></a>《图解算法》K近邻</h2><p>回归就是预测结果</p>
-<h2 id="《图解算法》接下来如何做"><a href="#《图解算法》接下来如何做" class="headerlink" title="《图解算法》接下来如何做"></a>《图解算法》接下来如何做</h2><p>布隆过滤器可能出现错报，不会漏报</p>
+<h2 id="图解算法k近邻"><a class="markdownIt-Anchor" href="#图解算法k近邻"></a> 《图解算法》K近邻</h2>
+<p>回归就是预测结果</p>
+<h2 id="图解算法接下来如何做"><a class="markdownIt-Anchor" href="#图解算法接下来如何做"></a> 《图解算法》接下来如何做</h2>
+<p>布隆过滤器可能出现错报，不会漏报</p>
 
           
         
@@ -1139,23 +1342,28 @@
       
         
           
-            <p><a href="https://tronyy.github.io./" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/%E4%BD%9C%E8%80%85-天洋行空-7AD6FD.svg" alt="作者"></a></p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>本科时一直使用着Eclipse写Java程序，最近想把Java开发环境转移到IDEA。原因如下：</p>
+            <p><a href="https://tronyy.github.io./" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/%E4%BD%9C%E8%80%85-%E5%A4%A9%E6%B4%8B%E8%A1%8C%E7%A9%BA-7AD6FD.svg" alt="作者"></a></p>
+<h2 id="背景"><a class="markdownIt-Anchor" href="#背景"></a> 背景</h2>
+<p>本科时一直使用着Eclipse写Java程序，最近想把Java开发环境转移到IDEA。原因如下：</p>
 <ul>
 <li>前段时间适用了一下IDEA，深色背景更让人沉浸；</li>
 <li>智能提示比Eclipse强得多，Eclipse最近往往自动补充上非期望的代码；</li>
 <li>周围同学也用着它；</li>
-<li>虽然也有不少人主张白板写代码，但是有高效的工具更利于我们编写，天下武功唯快不破，我们应该拥抱能提高我们工作效率的工具。<br>目前初步配置完成，期间遇到一些问题，此文以作记录。</li>
+<li>虽然也有不少人主张白板写代码，但是有高效的工具更利于我们编写，天下武功唯快不破，我们应该拥抱能提高我们工作效率的工具。<br>
+目前初步配置完成，期间遇到一些问题，此文以作记录。</li>
 </ul>
-<h2 id="Project、Module、Package的联系"><a href="#Project、Module、Package的联系" class="headerlink" title="Project、Module、Package的联系"></a>Project、Module、Package的联系</h2><p>在 IntelliJ IDEA 中，没有类似于 Eclipse 工作空间（Workspace）的概念，而是提出了Project和Module这两个概念。</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fwe1hs82ogj30iy0ggwgk.jpg" alt="Project与Module示意图"><br>如上图所示，<code>Data Structures and Algorithms</code> 是一个Project，它下面的Algorithm4、Leetcode、Test均为Module。  </p>
+<h2 id="project-module-package的联系"><a class="markdownIt-Anchor" href="#project-module-package的联系"></a> Project、Module、Package的联系</h2>
+<p>在 IntelliJ IDEA 中，没有类似于 Eclipse 工作空间（Workspace）的概念，而是提出了Project和Module这两个概念。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fwe1hs82ogj30iy0ggwgk.jpg" alt="Project与Module示意图"><br>
+如上图所示，<code>Data Structures and Algorithms</code> 是一个Project，它下面的Algorithm4、Leetcode、Test均为Module。</p>
 <p>对于 Project，IntelliJ IDEA 官方是这样介绍的：</p>
 <blockquote>
 <p>A project is a top-level organizational unit for your development work in IntelliJ IDEA. In its finished form, a project may represent a complete software solution. A project is a collection of:</p>
 </blockquote>
 <blockquote>
 <ul>
-<li>Your work results: source code, build scripts, configuration files, documentation, artifacts, etc.<br>SDKs and libraries that you use to develop, compile, run and test your code.</li>
+<li>Your work results: source code, build scripts, configuration files, documentation, artifacts, etc.<br>
+SDKs and libraries that you use to develop, compile, run and test your code.</li>
 <li>Project settings that represent your working preferences in the context of a project.</li>
 <li>A project has one or more modules as its parts.</li>
 </ul>
@@ -1168,18 +1376,27 @@
 <li>Modules are reusable: if necessary, a module can be included in more than one project.</li>
 </ul>
 </blockquote>
-<p>总而言之  </p>
+<p>总而言之</p>
 <ol>
 <li>IntelliJ系中的Project相当于Eclipse系中的workspace</li>
-<li>IntelliJ系中的Module相当于Eclipse系中的Project  </li>
-<li>IntelliJ中一个Project可以包括多个Module  </li>
-<li>Eclipse中一个Workspace可以包括多个Project  </li>
+<li>IntelliJ系中的Module相当于Eclipse系中的Project</li>
+<li>IntelliJ中一个Project可以包括多个Module</li>
+<li>Eclipse中一个Workspace可以包括多个Project</li>
 </ol>
-<p>workspace里边的project之间是没有关系的独立的，而idea中的project和Module是一种父子的关系，Module之间是一种兄弟关系，或者是一种依赖关系。<br>好像最开始建立Project产生的src与Module里的src属于同级别。</p>
-<p>至于package，在Java中package是一个为了方便管理组织java文件的目录结构，并防止不同java文件之间发生命名冲突而存在的一个java特性。<br>在eclipse中可以对单独一个包编译运行查看结果。而IDEA似乎是以Module为单位的，默认要把一个Module里的所有包的错误解决好才能运行。若只想运行一个包里的，需要Edit Configurations改好主类+Build，no error checks。</p>
-<h2 id="关于存放"><a href="#关于存放" class="headerlink" title="关于存放"></a>关于存放</h2><p>这个Project我主要存放数据结构与算法的东西，所以Project名取为DSA。<br>把不同书本、网站的作为一个个Module。<br>以Leetcode Module为例，因为每题都是Solution.java，为了防止重名，前期我为每题都建立了包。现在我认为可以按Tag为每题分package，每题可以命名为<code>题号.java</code>而不是Solution; 每个包就含一个main.java。</p>
-<h2 id="关于自建库的导入"><a href="#关于自建库的导入" class="headerlink" title="关于自建库的导入"></a>关于自建库的导入</h2><p>Alg4书本同时提供了算法库和测试数据，可以把它们加进Module Algorithms4。<br>algs4.jar是放在Library/Java/Extensions里。（我居然找Library找了那么久。）<br>具体可以参考<a href="https://blog.csdn.net/Leicookies/article/details/79780443" target="_blank" rel="noopener">如何在Intellij Idea下编译运行《算法》里的程序？</a></p>
-<h2 id="快捷的操作"><a href="#快捷的操作" class="headerlink" title="快捷的操作"></a>快捷的操作</h2><p><a href="https://blog.csdn.net/huangjp_hz/article/details/77000256" target="_blank" rel="noopener">一些快捷操作</a></p>
+<p>workspace里边的project之间是没有关系的独立的，而idea中的project和Module是一种父子的关系，Module之间是一种兄弟关系，或者是一种依赖关系。<br>
+好像最开始建立Project产生的src与Module里的src属于同级别。</p>
+<p>至于package，在Java中package是一个为了方便管理组织java文件的目录结构，并防止不同java文件之间发生命名冲突而存在的一个java特性。<br>
+在eclipse中可以对单独一个包编译运行查看结果。而IDEA似乎是以Module为单位的，默认要把一个Module里的所有包的错误解决好才能运行。若只想运行一个包里的，需要Edit Configurations改好主类+Build，no error checks。</p>
+<h2 id="关于存放"><a class="markdownIt-Anchor" href="#关于存放"></a> 关于存放</h2>
+<p>这个Project我主要存放数据结构与算法的东西，所以Project名取为DSA。<br>
+把不同书本、网站的作为一个个Module。<br>
+以Leetcode Module为例，因为每题都是Solution.java，为了防止重名，前期我为每题都建立了包。现在我认为可以按Tag为每题分package，每题可以命名为<code>题号.java</code>而不是Solution; 每个包就含一个main.java。</p>
+<h2 id="关于自建库的导入"><a class="markdownIt-Anchor" href="#关于自建库的导入"></a> 关于自建库的导入</h2>
+<p>Alg4书本同时提供了算法库和测试数据，可以把它们加进Module Algorithms4。<br>
+algs4.jar是放在Library/Java/Extensions里。（我居然找Library找了那么久。）<br>
+具体可以参考<a href="https://blog.csdn.net/Leicookies/article/details/79780443" target="_blank" rel="noopener">如何在Intellij Idea下编译运行《算法》里的程序？</a></p>
+<h2 id="快捷的操作"><a class="markdownIt-Anchor" href="#快捷的操作"></a> 快捷的操作</h2>
+<p><a href="https://blog.csdn.net/huangjp_hz/article/details/77000256" target="_blank" rel="noopener">一些快捷操作</a></p>
 <p>Live Templates的sout、fori最常用，也可以自己添加。</p>
 
           
@@ -1323,25 +1540,43 @@
         
           
             <hr>
-<h2 id="论文题目"><a href="#论文题目" class="headerlink" title="论文题目"></a>论文题目</h2><p>Forwarding Strategies for Applications in Named Data Networking</p>
-<h2 id="论文作者、单位"><a href="#论文作者、单位" class="headerlink" title="论文作者、单位"></a>论文作者、单位</h2><p>Hila Ben Abraham and Patrick Crowley——Washington University</p>
-<h2 id="发表的会议或者期刊"><a href="#发表的会议或者期刊" class="headerlink" title="发表的会议或者期刊"></a>发表的会议或者期刊</h2><p>ANCS ’16 March 17-18, 2016, Santa Clara, CA, USA<br>C类</p>
-<h2 id="论文关键字"><a href="#论文关键字" class="headerlink" title="论文关键字"></a>论文关键字</h2><p>无</p>
-<h2 id="论文摘要原文"><a href="#论文摘要原文" class="headerlink" title="论文摘要原文"></a>论文摘要原文</h2><p>Named Data Networking (NDN), an information-centric Internet architecture, introduces a new forwarding model, in which the forwarding plane can choose between multiple interfaces when forwarding a packet. While the forwarding<br>module brings new opportunities it also introduces challenges when the application’s performance or correctness is affected by a conflict between the application design and the assigned forwarding strategy. In this paper we demonstrate the impact of the forwarding strategy decision on the performance and correctness of NDN applications.</p>
-<h2 id="论文摘要中文"><a href="#论文摘要中文" class="headerlink" title="论文摘要中文"></a>论文摘要中文</h2><p>作为一个信息中心网络体系，NDN引入了一个全新的转发模型，在转发包时其转发平面可以在多个接口中做出选择。虽然转发模块带来了有点，但也带来了挑战，应用程序的性能或正确性   受到 应用程序设计和分配的转发策略之间冲突的影响。在本文中，我们展示了转发策略决策对NDN应用性能和正确性的影响。</p>
-<h2 id="研究问题"><a href="#研究问题" class="headerlink" title="研究问题"></a>研究问题</h2><p>不同的转发策略对应用性能和正确性的影响。</p>
-<h2 id="研究意义"><a href="#研究意义" class="headerlink" title="研究意义"></a>研究意义</h2><ol>
+<h2 id="论文题目"><a class="markdownIt-Anchor" href="#论文题目"></a> 论文题目</h2>
+<p>Forwarding Strategies for Applications in Named Data Networking</p>
+<h2 id="论文作者-单位"><a class="markdownIt-Anchor" href="#论文作者-单位"></a> 论文作者、单位</h2>
+<p>Hila Ben Abraham and Patrick Crowley——Washington University</p>
+<h2 id="发表的会议或者期刊"><a class="markdownIt-Anchor" href="#发表的会议或者期刊"></a> 发表的会议或者期刊</h2>
+<p>ANCS ’16 March 17-18, 2016, Santa Clara, CA, USA<br>
+C类</p>
+<h2 id="论文关键字"><a class="markdownIt-Anchor" href="#论文关键字"></a> 论文关键字</h2>
+<p>无</p>
+<h2 id="论文摘要原文"><a class="markdownIt-Anchor" href="#论文摘要原文"></a> 论文摘要原文</h2>
+<p>Named Data Networking (NDN), an information-centric Internet architecture, introduces a new forwarding model, in which the forwarding plane can choose between multiple interfaces when forwarding a packet. While the forwarding<br>
+module brings new opportunities it also introduces challenges when the application’s performance or correctness is affected by a conflict between the application design and the assigned forwarding strategy. In this paper we demonstrate the impact of the forwarding strategy decision on the performance and correctness of NDN applications.</p>
+<h2 id="论文摘要中文"><a class="markdownIt-Anchor" href="#论文摘要中文"></a> 论文摘要中文</h2>
+<p>作为一个信息中心网络体系，NDN引入了一个全新的转发模型，在转发包时其转发平面可以在多个接口中做出选择。虽然转发模块带来了有点，但也带来了挑战，应用程序的性能或正确性   受到 应用程序设计和分配的转发策略之间冲突的影响。在本文中，我们展示了转发策略决策对NDN应用性能和正确性的影响。</p>
+<h2 id="研究问题"><a class="markdownIt-Anchor" href="#研究问题"></a> 研究问题</h2>
+<p>不同的转发策略对应用性能和正确性的影响。</p>
+<h2 id="研究意义"><a class="markdownIt-Anchor" href="#研究意义"></a> 研究意义</h2>
+<ol>
 <li>在网络不同位置要使用不同的转发策略</li>
 <li>如果存在一歌性能足够出色的转发策略，他就可以作为NDN默认的转发策略</li>
 </ol>
-<h2 id="研究内容（算法、方法、技术、模型）"><a href="#研究内容（算法、方法、技术、模型）" class="headerlink" title="研究内容（算法、方法、技术、模型）"></a>研究内容（算法、方法、技术、模型）</h2><p>构建了两个场景<br>case1：不同的producer不同内容，但是发布的name都相同。此时FIB这个prefix会有两个出口，best route只选择其一 ，To solve this, the developer should design the appliction to use producer-specific namespaces instead of a general one.</p>
+<h2 id="研究内容算法-方法-技术-模型"><a class="markdownIt-Anchor" href="#研究内容算法-方法-技术-模型"></a> 研究内容（算法、方法、技术、模型）</h2>
+<p>构建了两个场景<br>
+case1：不同的producer不同内容，但是发布的name都相同。此时FIB这个prefix会有两个出口，best route只选择其一 ，To solve this, the developer should design the appliction to use producer-specific namespaces instead of a general one.</p>
 <p>case2：通知场景</p>
-<h2 id="研究结论、主要贡献"><a href="#研究结论、主要贡献" class="headerlink" title="研究结论、主要贡献"></a>研究结论、主要贡献</h2><p>命名空间的设计、转发策略、场景都会对应用的性能有影响。</p>
-<h2 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h2><p>通知型服务 “同步”案例二  本地有更新，发布Interest<br>CCNx里重传必须走不同的端口，在CCN同步协议里，参与者不回复这个“通知IPkt”，所以IPkt会重传，但又不能走一个路口，走下一个可行的路口这样就都通知到了。</p>
-<h2 id="技术难点"><a href="#技术难点" class="headerlink" title="技术难点"></a>技术难点</h2><p>怎么找到一个足够好的forwarding strategy，我们应该针对场景来设计策略吧</p>
-<h2 id="对本人工作的启发"><a href="#对本人工作的启发" class="headerlink" title="对本人工作的启发"></a>对本人工作的启发</h2><ol>
+<h2 id="研究结论-主要贡献"><a class="markdownIt-Anchor" href="#研究结论-主要贡献"></a> 研究结论、主要贡献</h2>
+<p>命名空间的设计、转发策略、场景都会对应用的性能有影响。</p>
+<h2 id="创新点"><a class="markdownIt-Anchor" href="#创新点"></a> 创新点</h2>
+<p>通知型服务 “同步”案例二  本地有更新，发布Interest<br>
+CCNx里重传必须走不同的端口，在CCN同步协议里，参与者不回复这个“通知IPkt”，所以IPkt会重传，但又不能走一个路口，走下一个可行的路口这样就都通知到了。</p>
+<h2 id="技术难点"><a class="markdownIt-Anchor" href="#技术难点"></a> 技术难点</h2>
+<p>怎么找到一个足够好的forwarding strategy，我们应该针对场景来设计策略吧</p>
+<h2 id="对本人工作的启发"><a class="markdownIt-Anchor" href="#对本人工作的启发"></a> 对本人工作的启发</h2>
+<ol>
 <li>转发决策由 转发策略、请求的名字共同决定</li>
-<li>转发策略需要做 <ol>
+<li>转发策略需要做
+<ol>
 <li>哪个face转发出去(最好的一个、一些、全部)。</li>
 <li>如何处理不能按时收到data的Interest(Drop、重传、回复NACK包)。</li>
 <li>要记录下游节点工作状态。</li>
@@ -1370,11 +1605,12 @@
 </tr>
 </tbody>
 </table>
-<p>实验结果还有loadsharing、parallel<br>static策略只有在链路故障时才会改变</p>
-<p>4.案例一说明需要设计特定producer的命名，防止重名</p>
-<ol start="5">
-<li>记录下这两个场景<h2 id="进一步研究思路"><a href="#进一步研究思路" class="headerlink" title="进一步研究思路"></a>进一步研究思路</h2>向别人宣告自己的位置时，通过发Interest来，这就相当于hello包。</li>
-</ol>
+<p>实验结果还有loadsharing、parallel<br>
+static策略只有在链路故障时才会改变</p>
+<p>4.案例一说明需要设计特定producer的命名，防止重名<br>
+5. 记录下这两个场景</p>
+<h2 id="进一步研究思路"><a class="markdownIt-Anchor" href="#进一步研究思路"></a> 进一步研究思路</h2>
+<p>向别人宣告自己的位置时，通过发Interest来，这就相当于hello包。</p>
 
           
         
@@ -1520,7 +1756,7 @@
 <p>在一个共享信道的情况下，当网络上的节点在发生冲突时，每个节点节点等待一定的时间后重新发送。在二进制指数退避算法中，等待时间随着以二为底的指数增长。如果重试失败，那么下次的等待时间将会是上次的等待时间二倍。如果重试次数大于最大重试次数，那么包将从包队列中去除。</p>
 <p>BestRoute Strategy：把Interest发给具有最小cost的下一跳，没收到要重传时选择次小cost的下一跳</p>
 <p>This strategy forwards a new Interest to the lowest-cost nexthop (except downstream). After that, if consumer retransmits the Interest (and is not suppressed according to exponential backoff algorithm), the strategy forwards the Interest again to the lowest-cost nexthop (except downstream) that is not previously used. If all nexthops have been used, the strategy starts over with the first nexthop.</p>
-<p>This strategy returns Nack to all downstreams with reason NoRoute if there is no usable nexthop, which may be caused by: (a) the FIB entry contains no nexthop; (b) the FIB nexthop happens to be the sole downstream; (c) the FIB nexthops violate scope.</p>
+<p>This strategy returns Nack to all downstreams with reason NoRoute if there is no usable nexthop, which may be caused by: (a) the FIB entry contains no nexthop; (b) the FIB nexthop happens to be the sole downstream; © the FIB nexthops violate scope.</p>
 <p>This strategy returns Nack to all downstreams if all upstreams have returned Nacks. The reason of the sent Nack equals the least severe reason among received Nacks.</p>
 
           
@@ -1669,203 +1905,45 @@
 <li><strong>注意的地方</strong></li>
 </ul>
 <hr>
-<h2 id="本地项目上传方法"><a href="#本地项目上传方法" class="headerlink" title="本地项目上传方法"></a>本地项目上传方法</h2><p>如果本地写好了程序，想把这个文件夹全部上传到Github上，可以按如下步骤操作：<br><strong>1. 进入到你本地项目的根目录下，执行<code>git init</code> </strong><br><img src="//img-blog.csdn.net/20180317181050979?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="执行结果"><br><strong>2.  <code>git add .</code></strong><br>把项目所有文件加入到仓库<br><img src="//img-blog.csdn.net/2018031718143248?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="2"><br><strong>3. <code>git commit -m &quot;你的注释&quot;</code></strong><br>为项目文件添加注释<br><img src="//img-blog.csdn.net/20180317181619327?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="3"><br><strong>4.  进去Github网站新建项目</strong><br>写上仓库名、描述，其他保持默认<br><img src="//img-blog.csdn.net/20180317191009188?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>底下的Add.gitgnore 是排除不希望上传对的文件格式<br><strong>5. <code>git remote add origin https://github.com/TronYY/OR1.git</code></strong><br>把本地项目关联到Github，可在如图中复制<br><img src="//img-blog.csdn.net/20180317191306734?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
-<p><strong>6. <code>git push -u origin master</code></strong><br>上传代码到github远程仓库.</p>
-<p>##注意的地方<br><strong>1. git push -u origin master 出错</strong><br>网站上新建仓库时，若同时也建了README.md,但本地没有改文件，直接<code>git push -u origin master</code>会提示上传出错，此时改为强制上传参数-f可以上传且不报错。但是建议 :</p>
-<p>①先把本地更新成与网站项目一致（即 <code>git clone https://github.com/TronYY/OR1.git</code>）<br>或者可以通过以下命令使得网站上的与本地的合并git pull –rebase origin master，<br>注pull=fetch+merge<br>②修改<br>③<code>git add .</code>并评论<code>git commit -m &quot;你的注释&quot;</code><br>④推送<code>git push -u origin master</code></p>
+<h2 id="本地项目上传方法"><a class="markdownIt-Anchor" href="#本地项目上传方法"></a> 本地项目上传方法</h2>
+<p>如果本地写好了程序，想把这个文件夹全部上传到Github上，可以按如下步骤操作：<br>
+**1. 进入到你本地项目的根目录下，执行<code>git init</code> **<br>
+<img src="//img-blog.csdn.net/20180317181050979?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="执行结果"><br>
+<strong>2.  <code>git add .</code></strong><br>
+把项目所有文件加入到仓库<br>
+<img src="//img-blog.csdn.net/2018031718143248?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="2"><br>
+<strong>3. <code>git commit -m &quot;你的注释&quot;</code></strong><br>
+为项目文件添加注释<br>
+<img src="//img-blog.csdn.net/20180317181619327?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="3"><br>
+<strong>4.  进去Github网站新建项目</strong><br>
+写上仓库名、描述，其他保持默认<br>
+<img src="//img-blog.csdn.net/20180317191009188?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>
+底下的Add.gitgnore 是排除不希望上传对的文件格式<br>
+<strong>5. <code>git remote add origin https://github.com/TronYY/OR1.git</code></strong><br>
+把本地项目关联到Github，可在如图中复制<br>
+<img src="//img-blog.csdn.net/20180317191306734?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p><strong>6. <code>git push -u origin master</code></strong><br>
+上传代码到github远程仓库.</p>
+<p>##注意的地方<br>
+<strong>1. git push -u origin master 出错</strong><br>
+网站上新建仓库时，<a href="http://xn--README-957imkw25bqt0a57qrl3f.md" target="_blank" rel="noopener">若同时也建了README.md</a>,但本地没有改文件，直接<code>git push -u origin master</code>会提示上传出错，此时改为强制上传参数-f可以上传且不报错。但是建议 :</p>
+<p>①先把本地更新成与网站项目一致（即 <code>git clone https://github.com/TronYY/OR1.git</code>）<br>
+或者可以通过以下命令使得网站上的与本地的合并git pull --rebase origin master，<br>
+注pull=fetch+merge<br>
+②修改	<br>
+③<code>git add .</code>并评论<code>git commit -m &quot;你的注释&quot;</code><br>
+④推送<code>git push -u origin master</code></p>
 <p>这也是项目更新的方法。</p>
-<p><strong>2. 默认语言不一致</strong><br>github默认项目中出现最多次数的后缀为默认语言，可以在网站的仓库下新增 .gitattributes文件，在里面增加<br><code>*.js linguist-language=c
-*.cpp linguist-language=c
-*.htm linguist-language=c</code><br>以上命令相当于把js cpp htm后缀名的统计次数算在c上</p>
+<p><strong>2. 默认语言不一致</strong><br>
+github默认项目中出现最多次数的后缀为默认语言，可以在网站的仓库下新增 .gitattributes文件，在里面增加<br>
+<code>*.js linguist-language=c *.cpp linguist-language=c *.htm linguist-language=c</code><br>
+以上命令相当于把js cpp htm后缀名的统计次数算在c上</p>
 <p>##hexo上传文章</p>
-<pre><code>cd Desktop/NDN/hexo/blog
+<pre class="highlight"><code class="">cd Desktop/NDN/hexo/blog
 hexo new &quot;新文章标题&quot;
 hexo g
 hexo d
 </code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/10/15/阅读报告-B-2004-IEEE-Wireless-Communications-Routing-techniques-in-wireless-sensor-networks-a-survey-jinyang-20181015/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="天洋行空">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天洋行空">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/15/阅读报告-B-2004-IEEE-Wireless-Communications-Routing-techniques-in-wireless-sensor-networks-a-survey-jinyang-20181015/" itemprop="url">阅读报告_B_[2004][IEEE Wireless Communications ]Routing techniques in wireless sensor networks a survey_jinyang_20181015</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-15T22:45:00+08:00">
-                2018-10-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Named-Data-Networking/" itemprop="url" rel="index">
-                    <span itemprop="name">Named Data Networking</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h4 id="分类three-categories-based-on-the-underlying-network-structure"><a href="#分类three-categories-based-on-the-underlying-network-structure" class="headerlink" title="分类three categories based on the underlying network structure:"></a>分类three categories based on the underlying network structure:</h4><ul>
-<li>flit</li>
-<li>hierarchical</li>
-<li>location-based routing  </li>
-</ul>
-<p>these protocols can be classified </p>
-<ul>
-<li>multipath-based</li>
-<li>query-based</li>
-<li>negotiation-based</li>
-<li>QoS-based</li>
-<li>coherent-based depending on the protocol operation.  </li>
-</ul>
-<p>Each of these scattered sensor<br>nodes has the capability to collect and route<br>data either to other sensors or back to an external<br>BS(s).1</p>
-<h4 id="与MANET、蜂窝网络的不同与难点"><a href="#与MANET、蜂窝网络的不同与难点" class="headerlink" title="与MANET、蜂窝网络的不同与难点"></a>与MANET、蜂窝网络的不同与难点</h4><ol>
-<li>数量多，全局地址机制负担大——基于IP的协议不能用。得到数据比知道是谁发的更重要</li>
-<li>需要多个源的数据汇聚</li>
-<li>能量限制</li>
-<li>低移动性</li>
-<li>位置感知很重要</li>
-<li>数据有冗余</li>
-</ol>
-<p>本文对网络层的专门研究，描述和分类不同的数据路由方法</p>
-<h2 id="WSNs中的路由挑战和设计问题"><a href="#WSNs中的路由挑战和设计问题" class="headerlink" title="WSNs中的路由挑战和设计问题"></a>WSNs中的路由挑战和设计问题</h2><h2 id="WSNs中的路由协议"><a href="#WSNs中的路由协议" class="headerlink" title="WSNs中的路由协议"></a>WSNs中的路由协议</h2><p><img src="https://ieeexplore.ieee.org/mediastore_new/IEEE/content/media/7742/29957/1368893/1368893-fig-2-source-large.gif" alt="image"></p>
-<h3 id="扁平路由"><a href="#扁平路由" class="headerlink" title="扁平路由"></a>扁平路由</h3><ul>
-<li><h4 id="SPIN"><a href="#SPIN" class="headerlink" title="SPIN"></a>SPIN</h4><p>  ADV用于通告新数据，REQ用于请求数据，DATA是实际消息本身。当SPIN节点获得它愿意共享的新数据时，协议开始。它通过广播包含元数据的ADV消息来实现。如果邻居对数据感兴趣，则它发送DATA的REQ消息，并将DATA发送到该邻居节点。然后，邻居传感器节点与其邻居重复该过程。结果，整个传感器区域将接收数据的副本。</p>
-</li>
-<li><h4 id="定向扩散"><a href="#定向扩散" class="headerlink" title="定向扩散"></a>定向扩散</h4><p>  DC范例的主要思想是通过消除冗余，最小化传输次数来组合来自不同来源的数据（网络内聚合）；DC路由可以找到从多个源到单个目的地的路由<br>  <img src="https://ieeexplore.ieee.org/mediastore_new/IEEE/content/media/7742/29957/1368893/1368893-fig-3-source-large.gif" alt="image"></p>
-</li>
-<li><h4 id="Rumor-routing"><a href="#Rumor-routing" class="headerlink" title="Rumor routing"></a>Rumor routing</h4>  flood the events+route the queries (if the number of events is small, and the number of queries is large)<br>   <strong><em>agents:</em></strong> long-lived packets<br>  adds the event to its <strong><em>events table</em></strong> and 产生agent<br>  agent在全网传递，将本地事件的信息传播到远程节点</li>
-<li><h4 id="最小成本转发算法"><a href="#最小成本转发算法" class="headerlink" title="最小成本转发算法"></a>最小成本转发算法</h4>  假设路由方向已知<br>  传感器节点不需要具有唯一ID也不需要维护路由表。相反，每个节点保持从其自身到BS的最低成本估计。由传感器节点转发的每个消息被广播到其邻居。当节点接收到该消息时，它检查它是否在源传感器节点和BS之间的最低成本路径上。如果是这种情况，它会将消息重新广播给其邻居。重复该过程直到到达BS。</li>
-<li><h4 id="基于梯度的路由"><a href="#基于梯度的路由" class="headerlink" title="基于梯度的路由"></a>基于梯度的路由</h4><p>  当兴趣通过整个网络传播时记住跳数。这样，每个节点可以计算称为节点高度的参数，该参数是到达BS的最小跳数。节点高度与其邻居之间的差异被视为该链路上的梯度。<strong>在具有最大梯度的链路上转发分组</strong></p>
-</li>
-<li><h4 id="信息驱动传感器查询（IDSQ）和约束各向异性扩散路由-（CADR）"><a href="#信息驱动传感器查询（IDSQ）和约束各向异性扩散路由-（CADR）" class="headerlink" title="信息驱动传感器查询（IDSQ）和约束各向异性扩散路由 （CADR）"></a>信息驱动传感器查询（IDSQ）和约束各向异性扩散路由 （CADR）</h4><p>  关键思想是查询传感器并在网络中路由数据，以便最大化信息增益，同时最小化延迟和带宽。<br>  在CADR中，每个节点评估信息/成本目标，并根据本地信息/成本梯度和最终用户要求路由数据；<br>  IDSQ没有具体定义</p>
-</li>
-<li><h4 id="ACQUIRE"><a href="#ACQUIRE" class="headerlink" title="ACQUIRE"></a>ACQUIRE</h4><p>If the precached information is not up-to-date, the nodes gather information from their neighbors within a<br>lookahead of d hops.</p>
-</li>
-<li><h4 id="能量感知路由"><a href="#能量感知路由" class="headerlink" title="能量感知路由"></a>能量感知路由</h4><p>  该方法需要收集位置信息并为节点设置寻址机制，它保持一组路径而不是以更高的速率维持或实施一条最佳路径。通过一定的概率维护和选择这些路径。该概率的值取决于每条路径可以实现的能耗有多低。</p>
-<p>  该泛洪用于发现源/目标对之间的所有路由及其成本，从而构建路由表。丢弃高成本路径，并通过以与其成本成比例的方式选择相邻节点来构建转发表。然后，转发表用于以与节点成本成反比的概率将数据发送到目的地。</p>
-</li>
-<li><h4 id="随机游走路由协议"><a href="#随机游走路由协议" class="headerlink" title="随机游走路由协议"></a>随机游走路由协议</h4><p>  该技术仅考虑节点具有非常有限的移动性的大规模网络<br>  为了找到从源到其目的地的路线，通过使用众所周知的Bellman-Ford算法的分布式异步版本计算节点之间的距离来获得位置信息或点阵协调。中间节点将根据计算的概率选择更靠近目的地的相邻节点作为下一跳</p>
-</li>
-</ul>
 
           
         
@@ -1955,7 +2033,7 @@ hexo d
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
