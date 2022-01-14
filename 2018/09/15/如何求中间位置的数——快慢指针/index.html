@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="一个数组是有序数组，则mid=(start+end)/2即是中间位置。倘若是一个有序链表呢？转换为数组？——数组size怎么确定。暂时设大点吧第一次遍历记录size，第二次再到size/2位置   也许方法很多，但是今天可以通过快慢指针来完成： 概念快慢指针中的快慢指的是移动的步长，即每次向前移动速度的快慢。例如可以让快指针每次沿链表向前移动2，慢指针每次向前移动1次。 寻找中间位置的数该方法在">
+<meta name="description" content="一个数组是有序数组，则mid=(start+end)/2即是中间位置。 倘若是一个有序链表呢？ 转换为数组？——数组size怎么确定。暂时设大点吧 第一次遍历记录size，第二次再到size/2位置 也许方法很多，但是今天可以通过快慢指针来完成：  概念 快慢指针中的快慢指的是移动的步长，即每次向前移动速度的快慢。例如可以让快指针每次沿链表向前移动2，慢指针每次向前移动1次。  寻找中间位置的数">
 <meta name="keywords" content="Technology">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何求中间位置的数——快慢指针">
 <meta property="og:url" content="https://tronyy.github.io/archives/2018/09/15/如何求中间位置的数——快慢指针/index.html">
 <meta property="og:site_name" content="天洋行空">
-<meta property="og:description" content="一个数组是有序数组，则mid=(start+end)/2即是中间位置。倘若是一个有序链表呢？转换为数组？——数组size怎么确定。暂时设大点吧第一次遍历记录size，第二次再到size/2位置   也许方法很多，但是今天可以通过快慢指针来完成： 概念快慢指针中的快慢指的是移动的步长，即每次向前移动速度的快慢。例如可以让快指针每次沿链表向前移动2，慢指针每次向前移动1次。 寻找中间位置的数该方法在">
+<meta property="og:description" content="一个数组是有序数组，则mid=(start+end)/2即是中间位置。 倘若是一个有序链表呢？ 转换为数组？——数组size怎么确定。暂时设大点吧 第一次遍历记录size，第二次再到size/2位置 也许方法很多，但是今天可以通过快慢指针来完成：  概念 快慢指针中的快慢指的是移动的步长，即每次向前移动速度的快慢。例如可以让快指针每次沿链表向前移动2，慢指针每次向前移动1次。  寻找中间位置的数">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-10-15T15:49:34.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何求中间位置的数——快慢指针">
-<meta name="twitter:description" content="一个数组是有序数组，则mid=(start+end)/2即是中间位置。倘若是一个有序链表呢？转换为数组？——数组size怎么确定。暂时设大点吧第一次遍历记录size，第二次再到size/2位置   也许方法很多，但是今天可以通过快慢指针来完成： 概念快慢指针中的快慢指的是移动的步长，即每次向前移动速度的快慢。例如可以让快指针每次沿链表向前移动2，慢指针每次向前移动1次。 寻找中间位置的数该方法在">
+<meta name="twitter:description" content="一个数组是有序数组，则mid=(start+end)/2即是中间位置。 倘若是一个有序链表呢？ 转换为数组？——数组size怎么确定。暂时设大点吧 第一次遍历记录size，第二次再到size/2位置 也许方法很多，但是今天可以通过快慢指针来完成：  概念 快慢指针中的快慢指的是移动的步长，即每次向前移动速度的快慢。例如可以让快指针每次沿链表向前移动2，慢指针每次向前移动1次。  寻找中间位置的数">
 
 
 
@@ -342,13 +342,19 @@
       
 
       
-        <p> 一个数组是有序数组，则mid=(start+end)/2即是中间位置。<br>倘若是一个有序链表呢？<br>转换为数组？——数组size怎么确定。暂时设大点吧<br>第一次遍历记录size，第二次再到size/2位置  </p>
+        <p>一个数组是有序数组，则mid=(start+end)/2即是中间位置。<br>
+倘若是一个有序链表呢？<br>
+转换为数组？——数组size怎么确定。暂时设大点吧<br>
+第一次遍历记录size，第二次再到size/2位置</p>
 <p>也许方法很多，但是今天可以通过<strong>快慢指针</strong>来完成：</p>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>快慢指针中的快慢指的是移动的步长，即每次向前移动速度的快慢。例如可以让快指针每次沿链表向前移动2，慢指针每次向前移动1次。</p>
-<h2 id="寻找中间位置的数"><a href="#寻找中间位置的数" class="headerlink" title="寻找中间位置的数"></a>寻找中间位置的数</h2><p>该方法在不借助计数器变量实现寻找中位数的功能。原理是：快指针的移动速度是慢指针移动速度的2倍，因此当快指针到达链表尾时，慢指针到达中点。程序还要考虑链表结点个数的奇偶数因素，当快指针移动x次后到达表尾（1+2x），说明链表有奇数个结点，直接返回慢指针指向的数据即可。如果快指针是倒数第二个结点，说明链表结点个数是偶数，这时可以根据“规则”返回上中位数或下中位数或（上中位数+下中位数）的一半。</p>
+<h2 id="概念"><a class="markdownIt-Anchor" href="#概念"></a> 概念</h2>
+<p>快慢指针中的快慢指的是移动的步长，即每次向前移动速度的快慢。例如可以让快指针每次沿链表向前移动2，慢指针每次向前移动1次。</p>
+<h2 id="寻找中间位置的数"><a class="markdownIt-Anchor" href="#寻找中间位置的数"></a> 寻找中间位置的数</h2>
+<p>该方法在不借助计数器变量实现寻找中位数的功能。原理是：快指针的移动速度是慢指针移动速度的2倍，因此当快指针到达链表尾时，慢指针到达中点。程序还要考虑链表结点个数的奇偶数因素，当快指针移动x次后到达表尾（1+2x），说明链表有奇数个结点，直接返回慢指针指向的数据即可。如果快指针是倒数第二个结点，说明链表结点个数是偶数，这时可以根据“规则”返回上中位数或下中位数或（上中位数+下中位数）的一半。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (fast&amp;&amp;slow)</span><br><span class="line">&#123;</span><br><span class="line">　　<span class="keyword">if</span> (fast-&gt;next==NULL)</span><br><span class="line">　　    <span class="keyword">return</span> slow -&gt;data;</span><br><span class="line">　　<span class="keyword">else</span> <span class="keyword">if</span> (fast-&gt;next!= NULL &amp;&amp; fast-&gt;next-&gt;next== NULL)</span><br><span class="line">　　    <span class="keyword">return</span> (slow -&gt;data + slow -&gt;next-&gt;data)/<span class="number">2</span>;</span><br><span class="line">　　<span class="keyword">else</span></span><br><span class="line">　　&#123;</span><br><span class="line">　　    fast= fast-&gt;next;</span><br><span class="line">　    　fast= fast-&gt;next;</span><br><span class="line">　　    slow = slow -&gt;next;</span><br><span class="line">　　&#125;</span><br><span class="line">　&#125;</span><br></pre></td></tr></table></figure>
 <p>具体地，可以拿leetcode <a href="https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/description/" target="_blank" rel="noopener">109题</a> 练手。</p>
-<h2 id="其他用途"><a href="#其他用途" class="headerlink" title="其他用途"></a>其他用途</h2><ul>
+<h2 id="其他用途"><a class="markdownIt-Anchor" href="#其他用途"></a> 其他用途</h2>
+<ul>
 <li>判断单链表是否为循环链表</li>
 <li>如果链表为存在环，如果找到环的入口点？</li>
 </ul>
@@ -377,8 +383,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/15/ArrayList的初始化陷阱/" rel="next" title="ArrayList的初始化陷阱">
-                <i class="fa fa-chevron-left"></i> ArrayList的初始化陷阱
+              <a href="/2018/09/15/关于Java中String的传递问题/" rel="next" title="关于Java中String的传递问题">
+                <i class="fa fa-chevron-left"></i> 关于Java中String的传递问题
               </a>
             
           </div>
@@ -387,8 +393,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/15/C++命名规范/" rel="prev" title="C++命名规范">
-                C++命名规范 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/15/ArrayList的初始化陷阱/" rel="prev" title="ArrayList的初始化陷阱">
+                ArrayList的初始化陷阱 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -553,7 +559,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寻找中间位置的数"><span class="nav-number">2.</span> <span class="nav-text">寻找中间位置的数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他用途"><span class="nav-number">3.</span> <span class="nav-text">其他用途</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text"> 概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寻找中间位置的数"><span class="nav-number">2.</span> <span class="nav-text"> 寻找中间位置的数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他用途"><span class="nav-number">3.</span> <span class="nav-text"> 其他用途</span></a></li></ol></div>
             
 
           </div>
