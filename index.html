@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2022/01/14/形象理解线性代数的本质（三） 矩阵的升维和降维/">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2022/01/14/矩阵的升维和降维/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="天洋行空">
@@ -272,7 +272,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2022/01/14/形象理解线性代数的本质（三） 矩阵的升维和降维/" itemprop="url">形象理解线性代数的本质（三） 矩阵的升维和降维</a></h1>
+                <a class="post-title-link" href="/2022/01/14/矩阵的升维和降维/" itemprop="url">矩阵的升维和降维</a></h1>
         
 
         <div class="post-meta">
@@ -346,13 +346,10 @@
       
         
           
-            <h1 id="形象理解线性代数的本质三-矩阵的升维和降维"><a class="markdownIt-Anchor" href="#形象理解线性代数的本质三-矩阵的升维和降维"></a> 形象理解线性代数的本质（三） 矩阵的升维和降维</h1>
-<p>引子：降维打击 科幻小说《三体》里一种很魔幻的攻击方法——降维打击，以其神奇的作用方式和巨大的威力刷新了我们的三观。</p>
-<h3 id="引子降维打击"><a class="markdownIt-Anchor" href="#引子降维打击"></a> 引子：降维打击</h3>
-<p><img src="https://s2.loli.net/2022/01/14/f6gToiUdEsyzw9J.png" alt="img"></p>
-<p>科幻小说《三体》里一种很魔幻的攻击方法——降维打击，以其神奇的作用方式和巨大的威力刷新了我们的三观。而在矩阵乘法计算中，这种降维打击时刻存在着。本节讲解一下矩阵乘法中造成的升维和降维。</p>
-<h3 id="一-矩阵的降维"><a class="markdownIt-Anchor" href="#一-矩阵的降维"></a> 一、矩阵的降维</h3>
-<p>还用游戏的例子，有 4 个角色，每个人都有不同的能力，将其用矩阵表示出来</p>
+            <h1 id="形象理解线性代数的本质（三）-矩阵的升维和降维"><a href="#形象理解线性代数的本质（三）-矩阵的升维和降维" class="headerlink" title="形象理解线性代数的本质（三） 矩阵的升维和降维"></a>形象理解线性代数的本质（三） 矩阵的升维和降维</h1><p>引子：降维打击 科幻小说《三体》里一种很魔幻的攻击方法——降维打击，以其神奇的作用方式和巨大的威力刷新了我们的三观。</p>
+<h3 id="引子：降维打击"><a href="#引子：降维打击" class="headerlink" title="引子：降维打击"></a>引子：降维打击</h3><p><img src="https://s2.loli.net/2022/01/14/f6gToiUdEsyzw9J.png" alt="img"></p>
+<p> 科幻小说《三体》里一种很魔幻的攻击方法——降维打击，以其神奇的作用方式和巨大的威力刷新了我们的三观。而在矩阵乘法计算中，这种降维打击时刻存在着。本节讲解一下矩阵乘法中造成的升维和降维。</p>
+<h3 id="一、矩阵的降维"><a href="#一、矩阵的降维" class="headerlink" title="一、矩阵的降维"></a>一、矩阵的降维</h3><p>还用游戏的例子，有 4 个角色，每个人都有不同的能力，将其用矩阵表示出来</p>
 <p><img src="https://s2.loli.net/2022/01/14/HWTVjB5Qo41IRia.png" alt="img"></p>
 <p>现在我们要评估他们的两种能力：领兵打仗的能力和协同将领的能力</p>
 <p><img src="https://s2.loli.net/2022/01/14/J1j2DqU3KpNhOVW.png" alt="img"></p>
@@ -363,8 +360,7 @@
 <p>我们生活中常见到的物体比如苹果，它是一个三维的物体，而当它被灯光照亮投影到地面上，它就形成了一个二维的影子。虽然通过影子我们也能看出来它大概的样子猜出它是一个苹果，但是它具体的颜色、红晕、斑纹的信息都消失了。</p>
 <p><img src="https://s2.loli.net/2022/01/14/ypM8mKJrXdqSeLt.png" alt="img"></p>
 <p>也可以用上一节中讲的空间变换来解释，将四维的对象在二维空间中展开了，得到的是二维空间中一个新的表现形式。</p>
-<h3 id="二-矩阵的升维"><a class="markdownIt-Anchor" href="#二-矩阵的升维"></a> 二、矩阵的升维</h3>
-<p>同样是这几个角色</p>
+<h3 id="二、矩阵的升维"><a href="#二、矩阵的升维" class="headerlink" title="二、矩阵的升维"></a>二、矩阵的升维</h3><p>同样是这几个角色</p>
 <p><img src="https://s2.loli.net/2022/01/14/HWTVjB5Qo41IRia.png" alt="img"></p>
 <p>我们多考察几种能力</p>
 <p><img src="https://s2.loli.net/2022/01/14/fRxoeuVbmXj4DCJ.png" alt="img"></p>
@@ -373,31 +369,27 @@
 <p><img src="https://s2.loli.net/2022/01/14/6mtJls8PjVCbEdu.png" alt="img"></p>
 <p><img src="https://s2.loli.net/2022/01/14/f9jeg1uCTDXxqh2.png" alt="img"></p>
 <p>也可以用上一节中讲的空间变换来解释，将四维的对象在五维空间中展开了，并且通过添加其他信息扩展到了五维，得到的是五维空间中一个新的表现形式。</p>
-<h3 id="三-空间的坍塌降维打击"><a class="markdownIt-Anchor" href="#三-空间的坍塌降维打击"></a> 三、空间的坍塌（降维打击）</h3>
-<p>来看一个简单的矩阵乘法：</p>
+<h3 id="三、空间的坍塌（降维打击）"><a href="#三、空间的坍塌（降维打击）" class="headerlink" title="三、空间的坍塌（降维打击）"></a>三、空间的坍塌（降维打击）</h3><p>来看一个简单的矩阵乘法：</p>
 <p><img src="https://s2.loli.net/2022/01/14/QJ4LM2jawY8TPig.png" alt="img"></p>
 <p>本来矩阵 A 可以张成一个二维空间， 但是经过左乘矩阵 B 之后，矩阵 C 却只能张成一个一维空间，也就是空间坍塌了！</p>
 <p>原因是什么呢？是因为</p>
 <p><img src="https://s2.loli.net/2022/01/14/83rx7pJnHN2wELQ.png" alt="img"></p>
 <p>它用来组成空间的两个<strong>基重叠了</strong>！导致二维空间坍塌成了一维空间。</p>
-<h3 id="四-矩阵的秩"><a class="markdownIt-Anchor" href="#四-矩阵的秩"></a> 四、矩阵的秩</h3>
-<p>我们来看一下上面的 A、B 两个矩阵，它们的秩有什么问题</p>
+<h3 id="四、矩阵的秩"><a href="#四、矩阵的秩" class="headerlink" title="四、矩阵的秩"></a>四、矩阵的秩</h3><p>  我们来看一下上面的 A、B 两个矩阵，它们的秩有什么问题</p>
 <p><img src="https://s2.loli.net/2022/01/14/MJ5LsA2W68ZpfKN.png" alt="img"></p>
 <p><img src="https://s2.loli.net/2022/01/14/W9SQYyNxU8sGDJP.png" alt="img"></p>
 <p>因为 A 中的两个向量它们<strong>线性无关</strong>， 它们的秩 R(A)=2； B 中的两个向量<strong>线性相关</strong>，它们的秩 R(B)=1。</p>
-<h3 id="秩"><a class="markdownIt-Anchor" href="#秩"></a> 秩</h3>
-<p>矩阵的<strong>秩</strong>，就是矩阵的列向量（或行向量）所能<strong>张成的空间的最大维度</strong></p>
+<h3 id="秩"><a href="#秩" class="headerlink" title="秩"></a>秩</h3><p>矩阵的<strong>秩</strong>，就是矩阵的列向量（或行向量）所能<strong>张成的空间的最大维度</strong></p>
 <p><strong>（1） 若 N 个 N 维列向量线性无关，则它们可以张成 N 维空间，它们的秩就是满秩。</strong></p>
-<p>举个例子： 组成矩阵 D 的 a、b、c 三个列向量线性无关，可以张成一个三维的空间。</p>
+<p>   举个例子： 组成矩阵 D 的 a、b、c 三个列向量线性无关，可以张成一个三维的空间。 </p>
 <p><img src="https://s2.loli.net/2022/01/14/RAQTGzbdanXiYuV.png" alt="img"></p>
 <p>（2）若向量之间<strong>线性相关</strong> (则其中的一些向量可以用另一些向量表示出来，基有重叠），它们就无法张成一个满秩的空间。</p>
-<p>举个例子： 组成矩阵 F 的 3 个列向量 <strong>a1</strong>、<strong>a2</strong>、<strong>a3</strong> 线性相关，虽然有 3 个向量，但是秩 <strong>r(A)</strong>=2，只能张成二维空间。</p>
+<p>举个例子： 组成矩阵 F 的 3 个列向量 <strong>a1</strong>、<strong>a2</strong>、<strong>a3</strong> 线性相关，虽然有 3 个向量，但是秩 <strong>r(A)</strong>=2，只能张成二维空间。 </p>
 <p><img src="https://s2.loli.net/2022/01/14/Jh2ElurUiZtfzRn.png" alt="img"></p>
-<p>更进一步地，如果这些向量之间<strong>两两正交</strong>，则这些向量可以组成这个空间的一组<strong>基</strong>；如果再对这些基进行标准化，则这些基称为标准正交基。</p>
-<h3 id="五-行列式"><a class="markdownIt-Anchor" href="#五-行列式"></a> 五、行列式</h3>
-<p>行列式的本质意义是什么呢？</p>
+<p>更进一步地，如果这些向量之间<strong>两两正交</strong>，则这些向量可以组成这个空间的一组<strong>基</strong>；如果再对这些基进行标准化，则这些基称为标准正交基。 </p>
+<h3 id="五、行列式"><a href="#五、行列式" class="headerlink" title="五、行列式"></a>五、行列式</h3><p>行列式的本质意义是什么呢？</p>
 <p>从空间的伸缩性应该更容易理解一点。</p>
-<p>单位矩 E 的行列式等于 1， 它的行列式的几何意义可以看做是一个边长为 1 的超正方体的体积。</p>
+<p>单位矩 E 的行列式等于 1， 它的行列式的几何意义可以看做是一个边长为 1 的超正方体的体积。 </p>
 <p><img src="https://s2.loli.net/2022/01/14/qnaGFvTdbED61HA.png" alt="img"></p>
 <p>对单位矩阵 E 的各个向量进行伸缩、平移、旋转之后，组成了一个超平行多面体，</p>
 <p><strong>行列式的几何意义就是行列式中的各列向量（或行向量）所构成的超平行多面体的有向体积（小于 3 维时为有向面积 ）。</strong></p>
@@ -405,7 +397,7 @@
 <p>从伸缩的角度来看，行列式可以看成是对单位矩阵的行列式各向量的伸缩，因此行列式的几何意义也可以看作</p>
 <p><strong>对单位矩阵的行列式体积的伸缩率</strong>。</p>
 <p>那么，为什么不是满秩的矩阵它的行列式为 0 呢？</p>
-<p>因为行列式就是体积的伸缩率，它遭到了降维打击，有的维度被踩扁了，在该方向上伸缩率变成了 0，对所有的伸缩率进行<strong>叉乘</strong>的时候，不管有多少个伸缩率，|a|·|b|·|c|· |d|·<strong>0</strong>· cosα·cosβ·cosγ = 0 一定成立。</p>
+<p>因为行列式就是体积的伸缩率，它遭到了降维打击，有的维度被踩扁了，在该方向上伸缩率变成了 0，对所有的伸缩率进行<strong>叉乘</strong>的时候，不管有多少个伸缩率，|a|·|b|·|c|· |d|·<strong>0</strong>· cosα·cosβ·cosγ = 0 一定成立。 </p>
 <p>你都把它踩扁了还指望它有能有体积吗？</p>
 <p>本文链接：<a href="https://blog.csdn.net/gongxing12/article/details/91189665" target="_blank" rel="noopener">https://blog.csdn.net/gongxing12/article/details/91189665</a></p>
 
@@ -549,12 +541,9 @@
       
         
           
-            <h1 id="高德地图算法工程师任乾的报告分享"><a class="markdownIt-Anchor" href="#高德地图算法工程师任乾的报告分享"></a> 高德地图算法工程师任乾的报告分享</h1>
-<p>今天在深蓝学院组织的求职群听了高德地图算法工程师任乾的报告分享，简要说了下现在自动驾驶的一些情况，以及说了较多求职上的注意点，稍微总结了下</p>
-<h2 id="关于自动驾驶方面"><a class="markdownIt-Anchor" href="#关于自动驾驶方面"></a> 关于自动驾驶方面</h2>
-<ol>
-<li>
-<p>趋势：自动驾驶（AD）寒冬以后真实的复苏，已经/即将实现盈利。背后有支撑，不是泡沫化</p>
+            <h1 id="高德地图算法工程师任乾的报告分享"><a href="#高德地图算法工程师任乾的报告分享" class="headerlink" title="高德地图算法工程师任乾的报告分享"></a>高德地图算法工程师任乾的报告分享</h1><p>  今天在深蓝学院组织的求职群听了高德地图算法工程师任乾的报告分享，简要说了下现在自动驾驶的一些情况，以及说了较多求职上的注意点，稍微总结了下                </p>
+<h2 id="关于自动驾驶方面"><a href="#关于自动驾驶方面" class="headerlink" title="关于自动驾驶方面"></a>关于自动驾驶方面</h2><ol>
+<li><p>趋势：自动驾驶（AD）寒冬以后真实的复苏，已经/即将实现盈利。背后有支撑，不是泡沫化</p>
 <ol>
 <li>物流方面：高速卡车，低速物流；高速卡车落地成熟一些公司如图森、极智嘉、主线？、四年？ 这种与robotaxi落地更容易</li>
 <li>矿山：大平地，拿个GPS定位就好了</li>
@@ -562,35 +551,25 @@
 <li>新势力造车，达到L2、L3，小鹏、蔚来、特斯拉</li>
 </ol>
 </li>
-<li>
-<p>高精度地图：它是AD里可以单独去做，独立的，商业化的特殊一个环节，技术需要长期积累，投入大，高德四维百度三分天下</p>
+<li><p>高精度地图：它是AD里可以单独去做，独立的，商业化的特殊一个环节，技术需要长期积累，投入大，高德四维百度三分天下</p>
 </li>
-<li>
-<p>机器人：扫地机、服务机器人、agv，成熟</p>
+<li><p>机器人：扫地机、服务机器人、agv，成熟</p>
 <ol>
-<li>
-<p>扫地机器人非常成熟</p>
+<li><p>扫地机器人非常成熟</p>
 </li>
-<li>
-<p>服务机器人场景固定，餐厅屋顶有奇怪的灯泡形状，类似形成二维码，辅助定位。虽然看着low但是商业上低成本可靠</p>
+<li><p>服务机器人场景固定，餐厅屋顶有奇怪的灯泡形状，类似形成二维码，辅助定位。虽然看着low但是商业上低成本可靠</p>
 </li>
-<li>
-<p>agv也在常态化运营，但是离低成本还有距离，思路上把激光改成视觉，已经落地但是有更高的要求</p>
+<li><p>agv也在常态化运营，但是离低成本还有距离，思路上把激光改成视觉，已经落地但是有更高的要求</p>
 </li>
 </ol>
 </li>
 </ol>
-<h2 id="关于求职"><a class="markdownIt-Anchor" href="#关于求职"></a> 关于求职</h2>
-<ol start="4">
-<li>
-<p>招聘现状：难找人，企业需求和技术人员技术不匹配：做个demo还不行，现在还要看能落地。新入局的人里水平中等和差的，供过于求，很难找到工作，进入公司后没有组长带</p>
-</li>
-<li>
-<p>企业需要什么人才：<strong>成过事</strong>(成功是成功之母),或<strong>具备成事素质</strong>，整个求职中围绕这个展现自己（考察你的思考深不深入，思路广不广，代码能力，实践能力强不强）</p>
+<h2 id="关于求职"><a href="#关于求职" class="headerlink" title="关于求职"></a>关于求职</h2><ol start="4">
+<li>招聘现状：难找人，企业需求和技术人员技术不匹配：做个demo还不行，现在还要看能落地。新入局的人里水平中等和差的，供过于求，很难找到工作，进入公司后没有组长带</li>
+<li><p>企业需要什么人才：<strong>成过事</strong>(成功是成功之母),或<strong>具备成事素质</strong>，整个求职中围绕这个展现自己（考察你的思考深不深入，思路广不广，代码能力，实践能力强不强）</p>
 <ol>
 <li>企业做的是工程任务，不是照着算法原理实现就行，是要落地，考虑很多琐碎的东西。一个人理论强实践弱，另一个理论弱实践强，公司一定会要后者</li>
-<li>企业需要成过事(成功是成功之母),或具备成事素质，具体来说
-<ol>
+<li>企业需要成过事(成功是成功之母),或具备成事素质，具体来说<ol>
 <li>相比于项目多,更看重项目精(一件事做到90分,胜于三件事做到60分)</li>
 <li>相比于理论基础,更看重工程实践(落实方案、提高性能)</li>
 <li>相比于知识多少,更看重思维能力(主动探索、独立思考)，看重你成事的能力</li>
@@ -598,20 +577,15 @@
 </li>
 </ol>
 </li>
-<li>
-<p>求职注意事项</p>
+<li><p>求职注意事项</p>
 <ol>
-<li>
-<p>简历重点能成事，不是干的事多。写明核心、你在里面的作用。别写少参与的事情、无关、未使用的方法。写了答不出很扣分</p>
+<li><p>简历重点能成事，不是干的事多。写明核心、你在里面的作用。别写少参与的事情、无关、未使用的方法。写了答不出很扣分</p>
 </li>
-<li>
-<p>面试时回答一个技术方案怎么做之后，扩展下，比如你这么做的理由、不选择其他方案的理由、技术细节上的一些思考。围绕能成事展示自己</p>
+<li><p>面试时回答一个技术方案怎么做之后，扩展下，比如你这么做的理由、不选择其他方案的理由、技术细节上的一些思考。围绕能成事展示自己</p>
 </li>
-<li>
-<p>代码考察刷题就是了，写不出给思路，别放弃，展现自己能思考，喜欢解决问题</p>
+<li><p>代码考察刷题就是了，写不出给思路，别放弃，展现自己能思考，喜欢解决问题</p>
 </li>
-<li>
-<p>反过来你也是在考察面试官、看出背后的团队。不卑不亢。</p>
+<li><p>反过来你也是在考察面试官、看出背后的团队。不卑不亢。</p>
 <p>总结如下吧：</p>
 <p><img src="https://i.loli.net/2021/03/19/jozR4xaKAvncH1w.png" alt=""></p>
 </li>
@@ -759,61 +733,26 @@
       
         
           
-            <p>今天下午在微信群听了个三一重工工程师的汇报，老师做slam算法，读书期间到今天陆续做过3D、AR、无人机、机器人等行业，目前研究方向为AGV、无人叉车等工业机器人的视觉和激光SLAM定位。<br>
-<img src="https://i.loli.net/2021/03/17/1UCRcSJf93Apv7b.jpg" alt=""><br>
-当时第一感觉是这个老师换的方向也太多了，能做精吗？听完后，才意识到现在科技行业的变化之快，就像老师最开始做的3D裸眼（在这之前这个老师待在央企，意识到钢铁产能过剩去商业界做技术了），还是我高中时候特别热门（2012左右的东西），AR/VR也是在我读研后实验室同门做了一阵……科技热门名词接连不断地出现，有些持续地被做深、落地，有些可能受限于底层的网络支持，发展受阻，行且艰难。一批批的年轻人扑在这上面，热门词可以换，但是技术人的生活还得过，唯有顺应趋势，保持学习，提高自己的核心竞争力。<br>
-第二就是目前老师所在的工业物流、AGV、无人叉车这些，还是属于自动驾驶好落地的方向。包括阿里达摩院也是着重把自动驾驶放到物流场景去落地。<br>
-把这位老师的汇报和后面的Q&amp;A做了个总结,供分享，(没有听太清楚的用“(?)”标识，注意核实).</p>
+            <p>今天下午在微信群听了个三一重工工程师的汇报，老师做slam算法，读书期间到今天陆续做过3D、AR、无人机、机器人等行业，目前研究方向为AGV、无人叉车等工业机器人的视觉和激光SLAM定位。<br><img src="https://i.loli.net/2021/03/17/1UCRcSJf93Apv7b.jpg" alt=""><br>当时第一感觉是这个老师换的方向也太多了，能做精吗？听完后，才意识到现在科技行业的变化之快，就像老师最开始做的3D裸眼（在这之前这个老师待在央企，意识到钢铁产能过剩去商业界做技术了），还是我高中时候特别热门（2012左右的东西），AR/VR也是在我读研后实验室同门做了一阵……科技热门名词接连不断地出现，有些持续地被做深、落地，有些可能受限于底层的网络支持，发展受阻，行且艰难。一批批的年轻人扑在这上面，热门词可以换，但是技术人的生活还得过，唯有顺应趋势，保持学习，提高自己的核心竞争力。<br>第二就是目前老师所在的工业物流、AGV、无人叉车这些，还是属于自动驾驶好落地的方向。包括阿里达摩院也是着重把自动驾驶放到物流场景去落地。<br>把这位老师的汇报和后面的Q&amp;A做了个总结,供分享，(没有听太清楚的用“(?)”标识，注意核实).  </p>
 <ol>
 <li>科技行业变化快，要保持对行业敏感度（参加展会、多认识行内人）， 快速学习，和上学不同没有那么多时间</li>
 <li>工作意义三个阶段。养家糊口什么挣钱做什么——兴趣——事业，有兴趣才能支持你快速成长、抵消疲劳感</li>
-<li></li>
-</ol>
-<p><img src="https://i.loli.net/2021/03/17/lgvPxOTtI6HAEpY.jpg" alt=""><br>
-3.	机器人、slam行业</p>
-<blockquote>
-<p>a)	slam没有很成熟，扫地机器人2D比较成熟<br>
-b)	仓储机器人 AGV 叉车，2D激光为主，比扫地机器人进度要求高、建图速度要快<br>
-c)	低速小车，物流小车，室内  泊车（视觉为主，激光成本高）<br>
-d)	自动驾驶 3D激光为主 + 视觉<br>
-e)	高进地图 激光为主，众包方案</p>
+<li><img src="https://i.loli.net/2021/03/17/lgvPxOTtI6HAEpY.jpg" alt=""></li>
+<li>机器人、slam行业<blockquote>
+<p>a)    slam没有很成熟，扫地机器人2D比较成熟<br>b)    仓储机器人 AGV 叉车，2D激光为主，比扫地机器人进度要求高、建图速度要快<br>c)    低速小车，物流小车，室内  泊车（视觉为主，激光成本高）<br>d)    自动驾驶 3D激光为主 + 视觉<br>e)    高进地图 激光为主，众包方案  </p>
 </blockquote>
-<ol start="4">
+</li>
 <li>AR VR 无人机：视觉方案为主</li>
 <li>除了以上，还有上下游的产业</li>
-<li>面试注重：理论基础，C++，实际工程经验，以前做的项目细节。评分：</li>
-</ol>
-<blockquote>
-<p>a)	Slam的理论功底要扎实，比如说。数字图像处理的基础，概率论啊矩阵论或者最小二乘啊这些基础理论<br>
-b)	工程经验<br>
-c)	是不是掌握了大部分的开源的视觉Slam的框架或者说激光slam的框架，然后并且能够在实际项目中运行过；<br>
-d)	落地经验，年限 具体水平<br>
-e)	接触过DSP、效率优化<br>
-f)	论文，对深度学习的了解；竞赛</p>
+<li>面试注重：理论基础，C++，实际工程经验，以前做的项目细节。评分：<blockquote>
+<p>a)    Slam的理论功底要扎实，比如说。数字图像处理的基础，概率论啊矩阵论或者最小二乘啊这些基础理论<br>b)    工程经验<br>c)    是不是掌握了大部分的开源的视觉Slam的框架或者说激光slam的框架，然后并且能够在实际项目中运行过；<br>d)    落地经验，年限 具体水平<br>e)    接触过DSP、效率优化<br>f)    论文，对深度学习的了解；竞赛</p>
 </blockquote>
-<ol start="7">
-<li>问题</li>
-</ol>
-<blockquote>
-<p>a)	怎么学习slam、深度：跟着项目学习。在学校找个机器人，把做的算法在上面去实现，即使很简单；把别人算法去实现（很加分）。问题为导引去解决，如初始化；上来就整个学习很容易失去兴趣<br>
-b)	对求职者在意什么：能力；忌讳频繁换工作；学历算法岗985211硕士；喜欢详细的简历，看到细节<br>
-c)	刷题？ 刷题好习惯，大部分题目工作中用不上，但是面试要求<br>
-d)	视觉slam要求？和激光slam要求一样。对开源框架了解，如dso，mskf(?)等，对他们论文、代码要熟悉，选一个落地，编程基础C++要扎实<br>
-e)	想办法先进到自动驾驶大行业，哪怕去里面先做开发、控制，先进去再慢慢转<br>
-f)	因为没有相关工作经验。第一，简历上能写的相关内容不多。第二，空口无凭，自学的结果未必能令人信服。所以是否有较大难度？基本理论，代码ok即可，<br>
-g)	AR,无人驾驶,无人配送车，这几个行业会不会想裸眼3D那样慢慢没落，或者哪一个行业最有可能没落？预测太难，BAT之前也搞过很多。可以看投资人对什么感兴趣<br>
-h)	三一集团哪？最大的部分在北京，各地分布<br>
-i)	职业发展：顺应大势，在里面坚持自己喜欢的。不要随波逐流，因为变化很快。35岁的大部分企业不愿意招，很现实。提高核心竞争力，可替换性高的话后面压力越来越大（残忍的现实）<br>
-j)	开源框架：公司也不会重新造轮子，基于框架写，后面改<br>
-k)	路径规划：无人机。仓储机器人的路径规划还是用着传统的方法，学习的方法计算代价高，传统的方法能用，对于企业来说已经足够了<br>
-l)	AGV、扫地机器人谁前景大：后者技术已经很成熟，自动驾驶落地难。分析完后觉得工业领域的落地可能会更成熟一些，因为在工业领域，比如说像AGV，他对于Slam的需求，或无人叉车，这种slam需求是个刚需，那只要是技术能实现，那么他就会用产品就会卖出去。SLAM应该会先在工业领域或者说那种特定的场景下先落地，先有这么几个突破点，然后慢慢的往这种普世的，比如说像自动驾驶啊，慢慢的再去扩展。<br>
-m)	研究生论文一般有什么优势：公司里两类，一个偏算法岗，一个是偏开发岗，然后公司里面其实偏算法岗的人员很少（CTO、博士来），大部分开发岗，编程能力，工程能力要求更大<br>
-n)	读博？slam企业在做落地，难点不在于科研水平，在于落地。博士在公司会受重视，自己选择吧<br>
-o)	通讯框架：ROS先跑，大概率没啥问题。要到ARM(？)系统上跑，ros不合适，有一些开源框架<br>
-p)	技术竞争方向：一般就是往上转管理岗，也是做技术的管理<br>
-q)	项目都是激光slam方向的，但也有视觉slam的基础，读过几个开源代码。想找视觉slam的工作或者视觉融合激光的有什么建议吗：   可以考虑AR、无人机、扫地机器人、自主泊车、仓储机器人、低速小车这几个行业<br>
-r)	三一slam的竞争企业：旷世、极智嘉？、海康。做矿山、港口的公司也有</p>
+</li>
+<li>问题<blockquote>
+<p>a)    怎么学习slam、深度：跟着项目学习。在学校找个机器人，把做的算法在上面去实现，即使很简单；把别人算法去实现（很加分）。问题为导引去解决，如初始化；上来就整个学习很容易失去兴趣<br>b)    对求职者在意什么：能力；忌讳频繁换工作；学历算法岗985211硕士；喜欢详细的简历，看到细节<br>c)    刷题？ 刷题好习惯，大部分题目工作中用不上，但是面试要求<br>d)    视觉slam要求？和激光slam要求一样。对开源框架了解，如dso，mskf(?)等，对他们论文、代码要熟悉，选一个落地，编程基础C++要扎实<br>e)    想办法先进到自动驾驶大行业，哪怕去里面先做开发、控制，先进去再慢慢转<br>f)    因为没有相关工作经验。第一，简历上能写的相关内容不多。第二，空口无凭，自学的结果未必能令人信服。所以是否有较大难度？基本理论，代码ok即可，<br>g)    AR,无人驾驶,无人配送车，这几个行业会不会想裸眼3D那样慢慢没落，或者哪一个行业最有可能没落？预测太难，BAT之前也搞过很多。可以看投资人对什么感兴趣<br>h)    三一集团哪？最大的部分在北京，各地分布<br>i)    职业发展：顺应大势，在里面坚持自己喜欢的。不要随波逐流，因为变化很快。35岁的大部分企业不愿意招，很现实。提高核心竞争力，可替换性高的话后面压力越来越大（残忍的现实）<br>j)    开源框架：公司也不会重新造轮子，基于框架写，后面改<br>k)    路径规划：无人机。仓储机器人的路径规划还是用着传统的方法，学习的方法计算代价高，传统的方法能用，对于企业来说已经足够了<br>l)    AGV、扫地机器人谁前景大：后者技术已经很成熟，自动驾驶落地难。分析完后觉得工业领域的落地可能会更成熟一些，因为在工业领域，比如说像AGV，他对于Slam的需求，或无人叉车，这种slam需求是个刚需，那只要是技术能实现，那么他就会用产品就会卖出去。SLAM应该会先在工业领域或者说那种特定的场景下先落地，先有这么几个突破点，然后慢慢的往这种普世的，比如说像自动驾驶啊，慢慢的再去扩展。<br>m)    研究生论文一般有什么优势：公司里两类，一个偏算法岗，一个是偏开发岗，然后公司里面其实偏算法岗的人员很少（CTO、博士来），大部分开发岗，编程能力，工程能力要求更大<br>n)    读博？slam企业在做落地，难点不在于科研水平，在于落地。博士在公司会受重视，自己选择吧<br>o)    通讯框架：ROS先跑，大概率没啥问题。要到ARM(？)系统上跑，ros不合适，有一些开源框架<br>p)    技术竞争方向：一般就是往上转管理岗，也是做技术的管理<br>q)    项目都是激光slam方向的，但也有视觉slam的基础，读过几个开源代码。想找视觉slam的工作或者视觉融合激光的有什么建议吗：   可以考虑AR、无人机、扫地机器人、自主泊车、仓储机器人、低速小车这几个行业<br>r)    三一slam的竞争企业：旷世、极智嘉？、海康。做矿山、港口的公司也有</p>
 </blockquote>
+</li>
+</ol>
 
           
         
@@ -955,53 +894,35 @@ r)	三一slam的竞争企业：旷世、极智嘉？、海康。做矿山、港�
       
         
           
-            <h1 id="在vmware上跑apollo-60"><a class="markdownIt-Anchor" href="#在vmware上跑apollo-60"></a> 在vmware上跑apollo 6.0</h1>
-<p>主要是参考<a href="//github.com/ApolloAuto/apollo/blob/master/docs/quickstart/apollo_software_installation_guide.md">官网的教程</a>:， 但是我自己目前是在vmware上跑而且GPU不能直连，所以安装教程里的GPU部分都跳过</p>
-<h2 id="1-先装好ubuntu-1804和docker"><a class="markdownIt-Anchor" href="#1-先装好ubuntu-1804和docker"></a> 1. 先装好Ubuntu 18.04和Docker</h2>
-<p>虚拟机不支持GPU那就先别装nvidia相关的（否则出错，还需要卸载nvdia相关的）<br>
-<a href="https://github.com/ApolloAuto/apollo/blob/master/docs/specs/prerequisite_software_installation_guide.md" target="_blank" rel="noopener">https://github.com/ApolloAuto/apollo/blob/master/docs/specs/prerequisite_software_installation_guide.md</a></p>
-<p><strong>Ubuntu链接</strong> <a href="https://releases.ubuntu.com/18.04.5/" target="_blank" rel="noopener">https://releases.ubuntu.com/18.04.5/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+            <h1 id="在vmware上跑apollo-6-0"><a href="#在vmware上跑apollo-6-0" class="headerlink" title="在vmware上跑apollo 6.0"></a>在vmware上跑apollo 6.0</h1><p>主要是参考<a href="//github.com/ApolloAuto/apollo/blob/master/docs/quickstart/apollo_software_installation_guide.md">官网的教程</a>:， 但是我自己目前是在vmware上跑而且GPU不能直连，所以安装教程里的GPU部分都跳过</p>
+<h2 id="1-先装好Ubuntu-18-04和Docker"><a href="#1-先装好Ubuntu-18-04和Docker" class="headerlink" title="1. 先装好Ubuntu 18.04和Docker"></a>1. 先装好Ubuntu 18.04和Docker</h2><p>虚拟机不支持GPU那就先别装nvidia相关的（否则出错，还需要卸载nvdia相关的）<br><a href="https://github.com/ApolloAuto/apollo/blob/master/docs/specs/prerequisite_software_installation_guide.md" target="_blank" rel="noopener">https://github.com/ApolloAuto/apollo/blob/master/docs/specs/prerequisite_software_installation_guide.md</a></p>
+<p><strong>Ubuntu链接</strong> <a href="https://releases.ubuntu.com/18.04.5/" target="_blank" rel="noopener">https://releases.ubuntu.com/18.04.5/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p>
 <p><strong>使用bash来装 docker</strong></p>
 <blockquote>
 <p>There is also a dedicated bash script Apollo provides to ease Docker installation, which works both for X86_64 and AArch64 platforms.</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/ApolloAuto/apollo/blob/master/docker/setup_host/install_docker.sh</span><br></pre></td></tr></table></figure>
-<p><strong>运行保存的sh文件</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x install_docker.sh #给install_docker.sh可执行权限</span><br><span class="line">./install_docker.sh</span><br></pre></td></tr></table></figure>
+<p><strong>运行保存的sh文件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x install_docker.sh #给install_docker.sh可执行权限</span><br><span class="line">./install_docker.sh</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
-<h2 id="2-下载apollo-源"><a class="markdownIt-Anchor" href="#2-下载apollo-源"></a> 2. 下载Apollo 源</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/ApolloAuto/apollo.git</span><br><span class="line">cd apollo</span><br><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
-<h2 id="3-启动阿波罗开发docker容器"><a class="markdownIt-Anchor" href="#3-启动阿波罗开发docker容器"></a> 3. 启动阿波罗开发Docker容器</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash docker/scripts/dev_start.sh</span><br></pre></td></tr></table></figure>
+<h2 id="2-下载Apollo-源"><a href="#2-下载Apollo-源" class="headerlink" title="2. 下载Apollo 源"></a>2. 下载Apollo 源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/ApolloAuto/apollo.git</span><br><span class="line">cd apollo</span><br><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
+<h2 id="3-启动阿波罗开发Docker容器"><a href="#3-启动阿波罗开发Docker容器" class="headerlink" title="3. 启动阿波罗开发Docker容器"></a>3. 启动阿波罗开发Docker容器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash docker/scripts/dev_start.sh</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>（有些人可能前面无意中安装了NVIDIA相关的报错：[ERROR] Failed to start docker container “apollo_dev” based on image: apolloauto/apollo:dev-x86_64-20180906_2002。Error: Could not load UVM kernel module. Is nvidia-modprobe installed?，可以采用sudo apt purge nvidia*  卸载所有NVIDIA。然后重新bash docker/scripts/dev_start.sh）</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash docker/scripts/dev_into.sh</span><br><span class="line">./apollo.sh build</span><br></pre></td></tr></table></figure>
-<h2 id="4-构建apollo"><a class="markdownIt-Anchor" href="#4-构建apollo"></a> 4. 构建Apollo</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./apollo.sh clean</span><br><span class="line">./apollo.sh build_opt</span><br></pre></td></tr></table></figure>
+<h2 id="4-构建Apollo"><a href="#4-构建Apollo" class="headerlink" title="4. 构建Apollo"></a>4. 构建Apollo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./apollo.sh clean</span><br><span class="line">./apollo.sh build_opt</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>Note:<br>
-Please run ./apollo.sh build_fe before ./apollo.sh build_opt if you made any modifications to the Dreamview frontend.</p>
+<p>Note:<br>Please run ./apollo.sh build_fe before ./apollo.sh build_opt if you made any modifications to the Dreamview frontend.</p>
 </blockquote>
-<h2 id="5-运行"><a class="markdownIt-Anchor" href="#5-运行"></a> 5. 运行</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./scripts/bootstrap.sh</span><br></pre></td></tr></table></figure>
-<p>打开浏览器 输入  <a href="http://localhost:8888" target="_blank" rel="noopener">http://localhost:8888</a><br>
-选择驾驶模式和地图：From the dropdown box of Mode Setup, select “Mkz Standard Debug” mode. From the dropdown box of Map, select “Sunnyvale with Two Offices”.</p>
-<p>重放demo记录：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd docs/demo_guide/</span><br><span class="line">python3 record_helper.py demo_3.5.record</span><br><span class="line">cyber_recorder play -f demo_3.5.record -l</span><br></pre></td></tr></table></figure>
+<h2 id="5-运行"><a href="#5-运行" class="headerlink" title="5. 运行"></a>5. 运行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./scripts/bootstrap.sh</span><br></pre></td></tr></table></figure>
+<p>打开浏览器 输入  <a href="http://localhost:8888" target="_blank" rel="noopener">http://localhost:8888</a><br>选择驾驶模式和地图：From the dropdown box of Mode Setup, select “Mkz Standard Debug” mode. From the dropdown box of Map, select “Sunnyvale with Two Offices”.</p>
+<p>重放demo记录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd docs/demo_guide/</span><br><span class="line">python3 record_helper.py demo_3.5.record</span><br><span class="line">cyber_recorder play -f demo_3.5.record -l</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>（这个可能遇到cyber_record<br>
-命令无法找到， 需要到apollo/cyber目录下运行 . setup.bash， 然后&gt;&gt;echo $PATH<br>
-路径应包含/ apollo / bazel-bin / cyber / tools / cyber_recorder /   再回到docs/demo_guide/下去）<br>
-就可以看到运行的了：</p>
+<p>（这个可能遇到cyber_record<br>命令无法找到， 需要到apollo/cyber目录下运行 . setup.bash， 然后&gt;&gt;echo $PATH<br>路径应包含/ apollo / bazel-bin / cyber / tools / cyber_recorder /   再回到docs/demo_guide/下去）<br>就可以看到运行的了：</p>
 </blockquote>
 <p><img src="https://i.loli.net/2021/03/14/NLAIG5xXYmw6vyr.png" alt=""></p>
-<h2 id="结束deamview"><a class="markdownIt-Anchor" href="#结束deamview"></a> 结束deamview</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ../..</span><br><span class="line">root@in-dev-docker:/apollo# ./scripts/bootstrap.sh stop</span><br></pre></td></tr></table></figure>
-<h2 id="退出docker-ctrl-d"><a class="markdownIt-Anchor" href="#退出docker-ctrl-d"></a> 退出docker Ctrl-D</h2>
-<h2 id="要重新进的话"><a class="markdownIt-Anchor" href="#要重新进的话"></a> 要重新进的话</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd apollo</span><br><span class="line">bash docker/scripts/dev_start.sh</span><br><span class="line">bash docker/scripts/dev_into.sh</span><br><span class="line">运行：  ./scripts/bootstrap.sh</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<h2 id="结束deamview"><a href="#结束deamview" class="headerlink" title="结束deamview"></a>结束deamview</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ../..</span><br><span class="line">root@in-dev-docker:/apollo# ./scripts/bootstrap.sh stop</span><br></pre></td></tr></table></figure>
+<h2 id="退出docker-Ctrl-D"><a href="#退出docker-Ctrl-D" class="headerlink" title="退出docker Ctrl-D"></a>退出docker Ctrl-D</h2><h2 id="要重新进的话"><a href="#要重新进的话" class="headerlink" title="要重新进的话"></a>要重新进的话</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd apollo</span><br><span class="line">bash docker/scripts/dev_start.sh</span><br><span class="line">bash docker/scripts/dev_into.sh</span><br><span class="line">运行：  ./scripts/bootstrap.sh</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1591,22 +1512,16 @@ Please run ./apollo.sh build_fe before ./apollo.sh build_opt if you made any mod
 <p><img src="https://i.loli.net/2020/10/04/2NCybKAJdgrUpL3.png" alt="存在qq空间的图片无法显示"></p>
 <p>最近尝试了几个在线的markdown编辑平台：</p>
 <ul>
-<li>
-<p>简书：网站的的文章杂七杂八，但是markdown支持直接粘贴图片，且自动上传至简书服务器产生图片链接。体验不错，后面打算国内版文章可以在此发布。</p>
+<li><p>简书：网站的的文章杂七杂八，但是markdown支持直接粘贴图片，且自动上传至简书服务器产生图片链接。体验不错，后面打算国内版文章可以在此发布。</p>
 </li>
-<li>
-<p>有道，普通版只支持网络图片链接</p>
+<li><p>有道，普通版只支持网络图片链接</p>
 </li>
-<li>
-<p>知乎，不支持在线编辑markdown，只支持md文件导入。简书的图片链接可以显示。打算同时在此发布文章。</p>
-</li>
-<li>
-<p>语雀，可以导入，没发现怎么导出markdown</p>
-</li>
+<li>知乎，不支持在线编辑markdown，只支持md文件导入。简书的图片链接可以显示。打算同时在此发布文章。</li>
+<li>语雀，可以导入，没发现怎么导出markdown</li>
 </ul>
 <p>后面了解到针对图片的问题，更多的人如果想将文章发布在自己的博客，选择是建一个图床，例如七牛云、腾讯云、阿里云、Github……</p>
-<p>前三者都是收费，github虽然免费，但是我按照他人提供的方法(<a href="https://zhuanlan.zhihu.com/p/168729465" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/168729465</a>)尝试了一下，在Typora中图片没有上传成功。</p>
-<p>针对自己的github.io博客，打算采用Typora+PicGo+SM.MS图床加以实现，操作方法类似https://zhuanlan.zhihu.com/p/137310314，在Typora中选择上传服务时可能没有PicGo-Core可以直接选择PicGo.app之后在PicGo.app的“图床设置”里面选择SM.MS图床，并填入申请的token即可。</p>
+<p>前三者都是收费，github虽然免费，但是我按照他人提供的方法(<a href="https://zhuanlan.zhihu.com/p/168729465)尝试了一下，在Typora中图片没有上传成功。" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/168729465)尝试了一下，在Typora中图片没有上传成功。</a></p>
+<p>针对自己的github.io博客，打算采用Typora+PicGo+SM.MS图床加以实现，操作方法类似<a href="https://zhuanlan.zhihu.com/p/137310314，在Typora中选择上传服务时可能没有PicGo-Core可以直接选择PicGo.app之后在PicGo.app的“图床设置”里面选择SM.MS图床，并填入申请的token即可。" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/137310314，在Typora中选择上传服务时可能没有PicGo-Core可以直接选择PicGo.app之后在PicGo.app的“图床设置”里面选择SM.MS图床，并填入申请的token即可。</a></p>
 
           
         
@@ -1750,13 +1665,12 @@ Please run ./apollo.sh build_fe before ./apollo.sh build_opt if you made any mod
           
             <p>今天读文献读到一个计算出租车距离计算，</p>
 <blockquote>
-<p>Driving distances are approximated by multiplying the Euclidean distance between origin and destination by a factor of α = 1.4, to reflect the “taxicab geometry” of typical driving grids; since the greatest possible upscale is α = √2 —which would reflect the diagonal of a square with available roads only on a right-angled grid pattern—the proportionality factor of 1.4 represents an upper bound.</p>
+<p>Driving distances are approximated by multiplying the Euclidean distance between origin and destination by a factor of α = 1.4, to reflect the “taxicab geometry” of typical driving grids; since the greatest possible upscale is α = √2 —which would reflect the diagonal of a square with available roads only on a right-angled grid pattern—the proportionality factor of 1.4 represents an upper bound. </p>
 </blockquote>
 <p>曼哈顿距离 (Manhattan Distance) 也叫做计程车几何(Taxicab geometry)，也就是欧几里得空间的固定直角坐标系上两点所形成的线段对轴产生的投影的距离总和。下图A到B直线就是欧式距离，紫色线就是曼哈顿距离。如下图所示：</p>
 <p><img src="https://i.loli.net/2020/10/04/GJ9PBVdjQFtSNTM.png" alt="img"></p>
-<p>但是实际道路可能并不如上图都是直角转弯，也可能有弯曲的地方，那样子路线长度就比曼哈顿距离短，所以存在上文引用中所写的：<strong>the proportionality factor of 1.4 represents an upper bound.</strong></p>
-<h2 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h2>
-<blockquote>
+<p>但是实际道路可能并不如上图都是直角转弯，也可能有弯曲的地方，那样子路线长度就比曼哈顿距离短，所以存在上文引用中所写的：<strong>the proportionality factor of 1.4 represents an upper bound.</strong> </p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><blockquote>
 <p>Kang N, Feinberg F M, Papalambros P Y. Autonomous electric vehicle sharing system design[J]. Journal of Mechanical Design, 2017, 139(1).</p>
 </blockquote>
 
@@ -1901,165 +1815,95 @@ Please run ./apollo.sh build_fe before ./apollo.sh build_opt if you made any mod
         
           
             <p>[toc]</p>
-<h1 id="course-introduction"><a class="markdownIt-Anchor" href="#course-introduction"></a> Course Introduction</h1>
-<h2 id="welcome-to-the-course-3-min"><a class="markdownIt-Anchor" href="#welcome-to-the-course-3-min"></a> Welcome to the Course - 3 min</h2>
-<h4 id="1-what-is-motion-planning"><a class="markdownIt-Anchor" href="#1-what-is-motion-planning"></a> 1. What is motion planning?</h4>
-<p>the motion planning problem is the task of generating the path and velocities required to get the autonomous car from point A to point B.</p>
-<h4 id="2-decompose-the-motion-planning-into-smaller-sub-problems"><a class="markdownIt-Anchor" href="#2-decompose-the-motion-planning-into-smaller-sub-problems"></a> 2. decompose the motion planning into smaller sub-problems</h4>
-<p><img src="https://i.loli.net/2020/10/04/9szQX4N8x3I6mOk.png" alt="image"></p>
+<h1 id="Course-Introduction"><a href="#Course-Introduction" class="headerlink" title="Course Introduction"></a>Course Introduction</h1><h2 id="Welcome-to-the-Course-3-min"><a href="#Welcome-to-the-Course-3-min" class="headerlink" title="Welcome to the Course - 3 min"></a>Welcome to the Course - 3 min</h2><h4 id="1-What-is-motion-planning"><a href="#1-What-is-motion-planning" class="headerlink" title="1. What is motion planning?"></a>1. What is motion planning?</h4><p>the motion planning problem is the task of generating the path and velocities required to get the autonomous car from point A to point B.</p>
+<h4 id="2-decompose-the-motion-planning-into-smaller-sub-problems"><a href="#2-decompose-the-motion-planning-into-smaller-sub-problems" class="headerlink" title="2. decompose the motion planning into smaller sub-problems"></a>2. decompose the motion planning into smaller sub-problems</h4><p><img src="https://i.loli.net/2020/10/04/9szQX4N8x3I6mOk.png" alt="image"></p>
 <hr>
-<h1 id="module-1-the-planning-problem"><a class="markdownIt-Anchor" href="#module-1-the-planning-problem"></a> Module 1: The Planning Problem</h1>
-<h2 id="lesson-1-driving-missions-scenarios-and-behaviour"><a class="markdownIt-Anchor" href="#lesson-1-driving-missions-scenarios-and-behaviour"></a> Lesson 1: Driving Missions, Scenarios, and Behaviour</h2>
-<h4 id="关键概念"><a class="markdownIt-Anchor" href="#关键概念"></a> 关键概念</h4>
-<ul>
-<li><strong>Explain what the autonomous driving high-level mission entails.</strong><br>
-navigate from current position to a destination.</li>
-<li><strong>Recall the set of important basic driving scenarios.</strong><br>
-road structure (turns, lane changes) , obstacles</li>
-<li><strong>Develop a set of driving behaviours to handle most basic driving scenarios.</strong><br>
-Speed Tracking, Decelerate to Stop,  Stay Stopped, Yield, Emergency Stop</li>
+<h1 id="Module-1-The-Planning-Problem"><a href="#Module-1-The-Planning-Problem" class="headerlink" title="Module 1: The Planning Problem"></a>Module 1: The Planning Problem</h1><h2 id="Lesson-1-Driving-Missions-Scenarios-and-Behaviour"><a href="#Lesson-1-Driving-Missions-Scenarios-and-Behaviour" class="headerlink" title="Lesson 1: Driving Missions, Scenarios, and Behaviour"></a>Lesson 1: Driving Missions, Scenarios, and Behaviour</h2><h4 id="关键概念"><a href="#关键概念" class="headerlink" title="关键概念"></a>关键概念</h4><ul>
+<li><strong>Explain what the autonomous driving high-level mission entails.</strong><br>navigate from current position to a destination.</li>
+<li><strong>Recall the set of important basic driving scenarios.</strong><br>road structure (turns, lane changes) , obstacles </li>
+<li><strong>Develop a set of driving behaviours to handle most basic driving scenarios.</strong><br>Speed Tracking, Decelerate to Stop,  Stay Stopped, Yield, Emergency Stop</li>
 <li>Recognize important constraints for autonomous driving motion planning.</li>
 <li>Explain the functionality of each step in a hierarchical motion planner.</li>
 <li>List some variants of each step of a hierarchical motion planner.</li>
 <li></li>
 </ul>
 <ul>
-<li>The motion planning problem is the task of navigating the ego vehicle to its destination in a safe and comfortable manner while following the rules of the road.</li>
-</ul>
-<h4 id="autonomous-driving-mission目标找出最高效的路"><a class="markdownIt-Anchor" href="#autonomous-driving-mission目标找出最高效的路"></a> Autonomous Driving Mission：目标找出最高效的路</h4>
-<p>为了更高效，抽象了许多底层的变量，但是这些底层的很重要定义了不同的驾驶场景</p>
-<h4 id="road-structure-scenario"><a class="markdownIt-Anchor" href="#road-structure-scenario"></a> Road Structure Scenario:</h4>
-<ul>
+<li>The motion planning problem is the task of navigating the ego vehicle to its destination in a safe and comfortable manner while following the rules of the road. <h4 id="Autonomous-Driving-Mission：目标找出最高效的路"><a href="#Autonomous-Driving-Mission：目标找出最高效的路" class="headerlink" title="Autonomous Driving Mission：目标找出最高效的路"></a>Autonomous Driving Mission：目标找出最高效的路</h4>为了更高效，抽象了许多底层的变量，但是这些底层的很重要定义了不同的驾驶场景<h4 id="Road-Structure-Scenario"><a href="#Road-Structure-Scenario" class="headerlink" title="Road Structure Scenario:"></a>Road Structure Scenario:</h4><ul>
 <li>保持车道lane maintenance，目标偏离中心线最小 但要保证速度</li>
 <li>变道lane change</li>
 <li>转弯</li>
-<li>掉头U-turn</li>
-</ul>
-<h4 id="obstacle-scenarios"><a class="markdownIt-Anchor" href="#obstacle-scenarios"></a> Obstacle Scenarios</h4>
-<ul>
+<li>掉头U-turn <h4 id="Obstacle-Scenarios"><a href="#Obstacle-Scenarios" class="headerlink" title="Obstacle Scenarios"></a>Obstacle Scenarios</h4></li>
 <li>static</li>
 <li><strong>dynamic</strong>:Different dynamic obstacles in the scenario have different characteristics and behaviours</li>
 </ul>
-<h4 id="behavior"><a class="markdownIt-Anchor" href="#behavior"></a> Behavior</h4>
-<ul>
+</li>
+</ul>
+<h4 id="Behavior"><a href="#Behavior" class="headerlink" title="Behavior"></a>Behavior</h4><ul>
 <li>Speed Tracking</li>
 <li>Decelerate to Stop</li>
 <li>Stay Stopped</li>
 <li>Yield</li>
-<li>Emergency Stop<br>
-(Not an exhaustive list)</li>
+<li>Emergency Stop<br>(Not an exhaustive list)</li>
 </ul>
-<h4 id="challenges"><a class="markdownIt-Anchor" href="#challenges"></a> Challenges</h4>
-<ul>
+<h4 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h4><ul>
 <li>许多违反交规的行为难以预测</li>
 </ul>
-<h4 id="hierarchical-planning-introduction"><a class="markdownIt-Anchor" href="#hierarchical-planning-introduction"></a> Hierarchical Planning Introduction</h4>
-<ul>
-<li>motion planning是一个复杂问题，将其分层优化，如下图<br>
-<img src="https://i.loli.net/2020/10/04/cDKWxphSAt2PBfH.png" alt="分层优化"><br>
-每一个子优化问题有自己的目标和限制</li>
+<h4 id="Hierarchical-Planning-Introduction"><a href="#Hierarchical-Planning-Introduction" class="headerlink" title="Hierarchical Planning Introduction"></a>Hierarchical Planning Introduction</h4><ul>
+<li>motion planning是一个复杂问题，将其分层优化，如下图<br><img src="https://i.loli.net/2020/10/04/cDKWxphSAt2PBfH.png" alt="分层优化"><br>每一个子优化问题有自己的目标和限制</li>
 </ul>
 <hr>
-<h2 id="lesson-2-motion-planning-constraint"><a class="markdownIt-Anchor" href="#lesson-2-motion-planning-constraint"></a> Lesson 2: Motion Planning Constraint</h2>
-<p><img src="https://upload-images.jianshu.io/upload_images/23805370-c3d1ff97b1642d23.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="bicycle-model"><a class="markdownIt-Anchor" href="#bicycle-model"></a> Bicycle Model</h4>
-<ul>
-<li>
-<p>路径上的曲率要注意最大曲率限制</p>
-</li>
-<li>
-<p>是一个non-holonomic约束（不仅取决于当前状态，也取决于如何到达该状态）</p>
+<h2 id="Lesson-2-Motion-Planning-Constraint"><a href="#Lesson-2-Motion-Planning-Constraint" class="headerlink" title="Lesson 2: Motion Planning Constraint"></a>Lesson 2: Motion Planning Constraint</h2><p><img src="https://upload-images.jianshu.io/upload_images/23805370-c3d1ff97b1642d23.png?imageMogr2/auto-orient/strip|imageView2/2/w/1240" alt="image.png"></p>
+<h4 id="Bicycle-Model"><a href="#Bicycle-Model" class="headerlink" title="Bicycle Model"></a>Bicycle Model</h4><ul>
+<li>路径上的曲率要注意最大曲率限制</li>
+<li><p>是一个non-holonomic约束（不仅取决于当前状态，也取决于如何到达该状态）</p>
 <blockquote>
 <p>通俗地讲, holonomic constraint是configuration space上的约束,它告诉你哪里不能走, nonholonomic constraint是速度(广义坐标的微分)上的约束,它告诉你哪些方向不能走,但是你依然能想去哪里去哪里。</p>
 </blockquote>
 </li>
-<li>
-<p>曲率计算：<br>
-<img src="https://i.loli.net/2020/10/04/yn6xLi5eT9mbVWN.png" alt="image.png"></p>
-</li>
+<li>曲率计算：<br><img src="https://i.loli.net/2020/10/04/yn6xLi5eT9mbVWN.png" alt="image.png"></li>
 </ul>
-<h4 id="vehicle-dynamics"><a class="markdownIt-Anchor" href="#vehicle-dynamics"></a> Vehicle Dynamics</h4>
-<ul>
+<h4 id="Vehicle-Dynamics"><a href="#Vehicle-Dynamics" class="headerlink" title="Vehicle Dynamics"></a>Vehicle Dynamics</h4><ul>
 <li>横向和纵向的加速限制（摩擦力椭圆）</li>
-<li>在非紧急情况下，更有用的限制是乘客对加速度的容忍度（下图矩形所示）<br>
-<img src="https://i.loli.net/2020/10/04/kabmJL2gZYU3XRp.png" alt="image.png"><br>
-因此速度受限于加速度和曲率<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>v</mi><mn>2</mn></msup><mo>≤</mo><mfrac><mrow><mi>a</mi></mrow><mrow><mi>κ</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">v^{2}\leq \frac{a}{\kappa }</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.1591079999999998em;vertical-align:-0.345em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">κ</span></span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewbox="0 0 400000 200" preserveaspectratio="xMinYMin slice"><path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"/></svg></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">a</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+<li>在非紧急情况下，更有用的限制是乘客对加速度的容忍度（下图矩形所示）<br><img src="https://i.loli.net/2020/10/04/kabmJL2gZYU3XRp.png" alt="image.png"><br>因此速度受限于加速度和曲率$v^{2}\leq \frac{a}{\kappa }$</li>
 </ul>
-<h4 id="static-obstacles"><a class="markdownIt-Anchor" href="#static-obstacles"></a> Static obstacles</h4>
-<ul>
-<li>使用线束或一系列近似车身的圆去做碰撞检测</li>
-</ul>
-<h4 id="dynamic-obstacles"><a class="markdownIt-Anchor" href="#dynamic-obstacles"></a> Dynamic Obstacles</h4>
-<ul>
+<h4 id="Static-obstacles"><a href="#Static-obstacles" class="headerlink" title="Static obstacles"></a>Static obstacles</h4><ul>
+<li>使用线束或一系列近似车身的圆去做碰撞检测<h4 id="Dynamic-Obstacles"><a href="#Dynamic-Obstacles" class="headerlink" title="Dynamic Obstacles"></a>Dynamic Obstacles</h4></li>
 <li>涉及到障碍物行为的预测。如果预测所有，就太过保守无意义，<strong>做aggressive和conservative之前的tradeoff</strong>——热点研究</li>
 </ul>
-<h4 id="rules-of-the-road-and-regulatory-elements"><a class="markdownIt-Anchor" href="#rules-of-the-road-and-regulatory-elements"></a> Rules of the road and regulatory elements</h4>
-<ul>
-<li>
-<p>车道线和一些标识</p>
-</li>
-<li>
-<p>time gap</p>
+<h4 id="Rules-of-the-road-and-regulatory-elements"><a href="#Rules-of-the-road-and-regulatory-elements" class="headerlink" title="Rules of the road and regulatory elements"></a>Rules of the road and regulatory elements</h4><ul>
+<li>车道线和一些标识</li>
+<li><p>time gap </p>
 <blockquote>
 <p>the amount of time that it would take for the ego vehicle to reach the leading vehicles current position while traveling at the ego vehicle’s current speed</p>
 </blockquote>
 </li>
 </ul>
 <hr>
-<h2 id="lesson-3-objective-functions-for-autonomous-driving"><a class="markdownIt-Anchor" href="#lesson-3-objective-functions-for-autonomous-driving"></a> Lesson 3: Objective Functions for Autonomous Driving</h2>
-<p><img src="https://i.loli.net/2020/10/04/wmJAOoFi5rq2SMH.png" alt="image.png"><br>
-<img src="https://i.loli.net/2020/10/04/uWMGDIxspRPn2bg.png" alt="image.png"><br>
-<img src="https://i.loli.net/2020/10/04/Ve3jiYzDZhAk2GS.png" alt="相当于加速度"></p>
+<h2 id="Lesson-3-Objective-Functions-for-Autonomous-Driving"><a href="#Lesson-3-Objective-Functions-for-Autonomous-Driving" class="headerlink" title="Lesson 3: Objective Functions for Autonomous Driving"></a>Lesson 3: Objective Functions for Autonomous Driving</h2><p><img src="https://i.loli.net/2020/10/04/wmJAOoFi5rq2SMH.png" alt="image.png"><br><img src="https://i.loli.net/2020/10/04/uWMGDIxspRPn2bg.png" alt="image.png"><br><img src="https://i.loli.net/2020/10/04/Ve3jiYzDZhAk2GS.png" alt="相当于加速度"></p>
 <ul>
-<li>曲率</li>
+<li>曲率<br>$$<br>\int_{0}^{s_{f}}|\kappa(s)|^{2} d s<br>$$<br>既要保持速度，又让乘客舒适</li>
 </ul>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><msub><mi>s</mi><mi>f</mi></msub></msubsup><mi mathvariant="normal">∥</mi><mi>κ</mi><mo>(</mo><mi>s</mi><mo>)</mo><msup><mi mathvariant="normal">∥</mi><mn>2</mn></msup><mi>d</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">\int_{0}^{s_{f}}\|\kappa(s)\|^{2} d s
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.414292em;"></span><span class="strut bottom" style="height:2.326242em;vertical-align:-0.9119499999999999em;"></span><span class="base"><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.414292em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span><span style="top:-3.8129000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.10764em;">f</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29011428571428566em;"></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119499999999999em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">∥</span><span class="mord mathit">κ</span><span class="mopen">(</span><span class="mord mathit">s</span><span class="mclose">)</span><span class="mord"><span class="mord">∥</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mord mathit">d</span><span class="mord mathit">s</span></span></span></span></span></p>
-<h2 id="既要保持速度又让乘客舒适"><a class="markdownIt-Anchor" href="#既要保持速度又让乘客舒适"></a> 既要保持速度，又让乘客舒适</h2>
-<h2 id="lesson-4-hierarchical-motion-planning"><a class="markdownIt-Anchor" href="#lesson-4-hierarchical-motion-planning"></a> Lesson 4: Hierarchical Motion Planning</h2>
-<p>分层以后每一层计算会快，但同时每一层会损失其他层的信息。和不分层比存在一个trade off</p>
-<h4 id="mission-planner"><a class="markdownIt-Anchor" href="#mission-planner"></a> Mission Planner</h4>
-<p>地图级别的导航，最短路Dijkstra，A*</p>
-<h4 id="behavioural-planner"><a class="markdownIt-Anchor" href="#behavioural-planner"></a> Behavioural Planner</h4>
-<ul>
+<hr>
+<h2 id="Lesson-4-Hierarchical-Motion-Planning"><a href="#Lesson-4-Hierarchical-Motion-Planning" class="headerlink" title="Lesson 4: Hierarchical Motion Planning"></a>Lesson 4: Hierarchical Motion Planning</h2><p>分层以后每一层计算会快，但同时每一层会损失其他层的信息。和不分层比存在一个trade off</p>
+<h4 id="Mission-Planner"><a href="#Mission-Planner" class="headerlink" title="Mission Planner"></a>Mission Planner</h4><p>地图级别的导航，最短路Dijkstra，A*</p>
+<h4 id="Behavioural-Planner"><a href="#Behavioural-Planner" class="headerlink" title="Behavioural Planner"></a>Behavioural Planner</h4><ul>
 <li>如何考虑周围并产生行为</li>
-<li>
-<h5 id="有限状态机无记忆转换只和输入和当前状态有关"><a class="markdownIt-Anchor" href="#有限状态机无记忆转换只和输入和当前状态有关"></a> 有限状态机，无记忆——转换只和输入和当前状态有关</h5>
-</li>
-</ul>
-<p><img src="https://i.loli.net/2020/10/04/WDy6oYUe3Tr5tMq.png" alt="image.png"></p>
-<ul>
-<li>
-<h5 id="rule-based"><a class="markdownIt-Anchor" href="#rule-based"></a> Rule-based</h5>
-<ul>
+<li><h5 id="有限状态机，无记忆——转换只和输入和当前状态有关"><a href="#有限状态机，无记忆——转换只和输入和当前状态有关" class="headerlink" title="有限状态机，无记忆——转换只和输入和当前状态有关"></a>有限状态机，无记忆——转换只和输入和当前状态有关</h5><img src="https://i.loli.net/2020/10/04/WDy6oYUe3Tr5tMq.png" alt="image.png"></li>
+<li><h5 id="Rule-based"><a href="#Rule-based" class="headerlink" title="Rule-based"></a>Rule-based</h5><ul>
 <li>多个规则同时符合的话，高优先级的规则先应用</li>
 </ul>
 </li>
-<li>
-<h5 id="基于机器学习"><a class="markdownIt-Anchor" href="#基于机器学习"></a> 基于机器学习</h5>
-</li>
-</ul>
-<h4 id="local-planner"><a class="markdownIt-Anchor" href="#local-planner"></a> Local Planner</h4>
-<p>产生避免碰撞的路线和舒适的velocity profile，分两部分</p>
-<ul>
-<li>
-<h5 id="路线方面"><a class="markdownIt-Anchor" href="#路线方面"></a> 路线方面：</h5>
-</li>
+<li><h5 id="基于机器学习"><a href="#基于机器学习" class="headerlink" title="基于机器学习"></a>基于机器学习</h5><h4 id="Local-Planner"><a href="#Local-Planner" class="headerlink" title="Local Planner"></a>Local Planner</h4>产生避免碰撞的路线和舒适的velocity profile，分两部分</li>
+<li><h5 id="路线方面："><a href="#路线方面：" class="headerlink" title="路线方面："></a>路线方面：</h5></li>
 </ul>
 <ol>
-<li>sampling based planner<br>
-<img src="https://i.loli.net/2020/10/04/MJ5ikpZsnEBzVuQ.png" alt="image.png"></li>
-<li>Variation Planner 将路径和速度产生合并在一起 chomp Algorithm<br>
-<img src="https://i.loli.net/2020/10/04/VtagndkNGy8xZXq.png" alt="image.png"></li>
-<li>lattice planner<br>
-<img src="https://i.loli.net/2020/10/04/oVYDjPWAn65buQ4.png" alt="image.png"></li>
+<li>sampling based planner<br> <img src="https://i.loli.net/2020/10/04/MJ5ikpZsnEBzVuQ.png" alt="image.png"></li>
+<li>Variation Planner 将路径和速度产生合并在一起 chomp Algorithm<br> <img src="https://i.loli.net/2020/10/04/VtagndkNGy8xZXq.png" alt="image.png"></li>
+<li>lattice planner<br> <img src="https://i.loli.net/2020/10/04/oVYDjPWAn65buQ4.png" alt="image.png"></li>
 </ol>
 <ul>
-<li>
-<h5 id="速度产生"><a class="markdownIt-Anchor" href="#速度产生"></a> 速度产生：</h5>
-</li>
+<li><h5 id="速度产生："><a href="#速度产生：" class="headerlink" title="速度产生："></a>速度产生：</h5>Lesson 3中对速度的一些优化作为目标限制，凸优化</li>
 </ul>
-<p>Lesson 3中对速度的一些优化作为目标限制，凸优化</p>
 
           
         
