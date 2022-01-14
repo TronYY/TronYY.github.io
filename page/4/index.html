@@ -347,43 +347,25 @@
         
           
             <hr>
-<h2 id="论文题目"><a class="markdownIt-Anchor" href="#论文题目"></a> 论文题目</h2>
-<p>Forwarding Strategies for Applications in Named Data Networking</p>
-<h2 id="论文作者-单位"><a class="markdownIt-Anchor" href="#论文作者-单位"></a> 论文作者、单位</h2>
-<p>Hila Ben Abraham and Patrick Crowley——Washington University</p>
-<h2 id="发表的会议或者期刊"><a class="markdownIt-Anchor" href="#发表的会议或者期刊"></a> 发表的会议或者期刊</h2>
-<p>ANCS ’16 March 17-18, 2016, Santa Clara, CA, USA<br>
-C类</p>
-<h2 id="论文关键字"><a class="markdownIt-Anchor" href="#论文关键字"></a> 论文关键字</h2>
-<p>无</p>
-<h2 id="论文摘要原文"><a class="markdownIt-Anchor" href="#论文摘要原文"></a> 论文摘要原文</h2>
-<p>Named Data Networking (NDN), an information-centric Internet architecture, introduces a new forwarding model, in which the forwarding plane can choose between multiple interfaces when forwarding a packet. While the forwarding<br>
-module brings new opportunities it also introduces challenges when the application’s performance or correctness is affected by a conflict between the application design and the assigned forwarding strategy. In this paper we demonstrate the impact of the forwarding strategy decision on the performance and correctness of NDN applications.</p>
-<h2 id="论文摘要中文"><a class="markdownIt-Anchor" href="#论文摘要中文"></a> 论文摘要中文</h2>
-<p>作为一个信息中心网络体系，NDN引入了一个全新的转发模型，在转发包时其转发平面可以在多个接口中做出选择。虽然转发模块带来了有点，但也带来了挑战，应用程序的性能或正确性   受到 应用程序设计和分配的转发策略之间冲突的影响。在本文中，我们展示了转发策略决策对NDN应用性能和正确性的影响。</p>
-<h2 id="研究问题"><a class="markdownIt-Anchor" href="#研究问题"></a> 研究问题</h2>
-<p>不同的转发策略对应用性能和正确性的影响。</p>
-<h2 id="研究意义"><a class="markdownIt-Anchor" href="#研究意义"></a> 研究意义</h2>
-<ol>
+<h2 id="论文题目"><a href="#论文题目" class="headerlink" title="论文题目"></a>论文题目</h2><p>Forwarding Strategies for Applications in Named Data Networking</p>
+<h2 id="论文作者、单位"><a href="#论文作者、单位" class="headerlink" title="论文作者、单位"></a>论文作者、单位</h2><p>Hila Ben Abraham and Patrick Crowley——Washington University</p>
+<h2 id="发表的会议或者期刊"><a href="#发表的会议或者期刊" class="headerlink" title="发表的会议或者期刊"></a>发表的会议或者期刊</h2><p>ANCS ’16 March 17-18, 2016, Santa Clara, CA, USA<br>C类</p>
+<h2 id="论文关键字"><a href="#论文关键字" class="headerlink" title="论文关键字"></a>论文关键字</h2><p>无</p>
+<h2 id="论文摘要原文"><a href="#论文摘要原文" class="headerlink" title="论文摘要原文"></a>论文摘要原文</h2><p>Named Data Networking (NDN), an information-centric Internet architecture, introduces a new forwarding model, in which the forwarding plane can choose between multiple interfaces when forwarding a packet. While the forwarding<br>module brings new opportunities it also introduces challenges when the application’s performance or correctness is affected by a conflict between the application design and the assigned forwarding strategy. In this paper we demonstrate the impact of the forwarding strategy decision on the performance and correctness of NDN applications.</p>
+<h2 id="论文摘要中文"><a href="#论文摘要中文" class="headerlink" title="论文摘要中文"></a>论文摘要中文</h2><p>作为一个信息中心网络体系，NDN引入了一个全新的转发模型，在转发包时其转发平面可以在多个接口中做出选择。虽然转发模块带来了有点，但也带来了挑战，应用程序的性能或正确性   受到 应用程序设计和分配的转发策略之间冲突的影响。在本文中，我们展示了转发策略决策对NDN应用性能和正确性的影响。</p>
+<h2 id="研究问题"><a href="#研究问题" class="headerlink" title="研究问题"></a>研究问题</h2><p>不同的转发策略对应用性能和正确性的影响。</p>
+<h2 id="研究意义"><a href="#研究意义" class="headerlink" title="研究意义"></a>研究意义</h2><ol>
 <li>在网络不同位置要使用不同的转发策略</li>
 <li>如果存在一歌性能足够出色的转发策略，他就可以作为NDN默认的转发策略</li>
 </ol>
-<h2 id="研究内容算法-方法-技术-模型"><a class="markdownIt-Anchor" href="#研究内容算法-方法-技术-模型"></a> 研究内容（算法、方法、技术、模型）</h2>
-<p>构建了两个场景<br>
-case1：不同的producer不同内容，但是发布的name都相同。此时FIB这个prefix会有两个出口，best route只选择其一 ，To solve this, the developer should design the appliction to use producer-specific namespaces instead of a general one.</p>
+<h2 id="研究内容（算法、方法、技术、模型）"><a href="#研究内容（算法、方法、技术、模型）" class="headerlink" title="研究内容（算法、方法、技术、模型）"></a>研究内容（算法、方法、技术、模型）</h2><p>构建了两个场景<br>case1：不同的producer不同内容，但是发布的name都相同。此时FIB这个prefix会有两个出口，best route只选择其一 ，To solve this, the developer should design the appliction to use producer-specific namespaces instead of a general one.</p>
 <p>case2：通知场景</p>
-<h2 id="研究结论-主要贡献"><a class="markdownIt-Anchor" href="#研究结论-主要贡献"></a> 研究结论、主要贡献</h2>
-<p>命名空间的设计、转发策略、场景都会对应用的性能有影响。</p>
-<h2 id="创新点"><a class="markdownIt-Anchor" href="#创新点"></a> 创新点</h2>
-<p>通知型服务 “同步”案例二  本地有更新，发布Interest<br>
-CCNx里重传必须走不同的端口，在CCN同步协议里，参与者不回复这个“通知IPkt”，所以IPkt会重传，但又不能走一个路口，走下一个可行的路口这样就都通知到了。</p>
-<h2 id="技术难点"><a class="markdownIt-Anchor" href="#技术难点"></a> 技术难点</h2>
-<p>怎么找到一个足够好的forwarding strategy，我们应该针对场景来设计策略吧</p>
-<h2 id="对本人工作的启发"><a class="markdownIt-Anchor" href="#对本人工作的启发"></a> 对本人工作的启发</h2>
-<ol>
+<h2 id="研究结论、主要贡献"><a href="#研究结论、主要贡献" class="headerlink" title="研究结论、主要贡献"></a>研究结论、主要贡献</h2><p>命名空间的设计、转发策略、场景都会对应用的性能有影响。</p>
+<h2 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h2><p>通知型服务 “同步”案例二  本地有更新，发布Interest<br>CCNx里重传必须走不同的端口，在CCN同步协议里，参与者不回复这个“通知IPkt”，所以IPkt会重传，但又不能走一个路口，走下一个可行的路口这样就都通知到了。</p>
+<h2 id="技术难点"><a href="#技术难点" class="headerlink" title="技术难点"></a>技术难点</h2><p>怎么找到一个足够好的forwarding strategy，我们应该针对场景来设计策略吧</p>
+<h2 id="对本人工作的启发"><a href="#对本人工作的启发" class="headerlink" title="对本人工作的启发"></a>对本人工作的启发</h2><ol>
 <li>转发决策由 转发策略、请求的名字共同决定</li>
-<li>转发策略需要做
-<ol>
+<li>转发策略需要做 <ol>
 <li>哪个face转发出去(最好的一个、一些、全部)。</li>
 <li>如何处理不能按时收到data的Interest(Drop、重传、回复NACK包)。</li>
 <li>要记录下游节点工作状态。</li>
@@ -412,12 +394,11 @@ CCNx里重传必须走不同的端口，在CCN同步协议里，参与者不回�
 </tr>
 </tbody>
 </table>
-<p>实验结果还有loadsharing、parallel<br>
-static策略只有在链路故障时才会改变</p>
-<p>4.案例一说明需要设计特定producer的命名，防止重名<br>
-5. 记录下这两个场景</p>
-<h2 id="进一步研究思路"><a class="markdownIt-Anchor" href="#进一步研究思路"></a> 进一步研究思路</h2>
-<p>向别人宣告自己的位置时，通过发Interest来，这就相当于hello包。</p>
+<p>实验结果还有loadsharing、parallel<br>static策略只有在链路故障时才会改变</p>
+<p>4.案例一说明需要设计特定producer的命名，防止重名</p>
+<ol start="5">
+<li>记录下这两个场景<h2 id="进一步研究思路"><a href="#进一步研究思路" class="headerlink" title="进一步研究思路"></a>进一步研究思路</h2>向别人宣告自己的位置时，通过发Interest来，这就相当于hello包。</li>
+</ol>
 
           
         
@@ -563,7 +544,7 @@ static策略只有在链路故障时才会改变</p>
 <p>在一个共享信道的情况下，当网络上的节点在发生冲突时，每个节点节点等待一定的时间后重新发送。在二进制指数退避算法中，等待时间随着以二为底的指数增长。如果重试失败，那么下次的等待时间将会是上次的等待时间二倍。如果重试次数大于最大重试次数，那么包将从包队列中去除。</p>
 <p>BestRoute Strategy：把Interest发给具有最小cost的下一跳，没收到要重传时选择次小cost的下一跳</p>
 <p>This strategy forwards a new Interest to the lowest-cost nexthop (except downstream). After that, if consumer retransmits the Interest (and is not suppressed according to exponential backoff algorithm), the strategy forwards the Interest again to the lowest-cost nexthop (except downstream) that is not previously used. If all nexthops have been used, the strategy starts over with the first nexthop.</p>
-<p>This strategy returns Nack to all downstreams with reason NoRoute if there is no usable nexthop, which may be caused by: (a) the FIB entry contains no nexthop; (b) the FIB nexthop happens to be the sole downstream; © the FIB nexthops violate scope.</p>
+<p>This strategy returns Nack to all downstreams with reason NoRoute if there is no usable nexthop, which may be caused by: (a) the FIB entry contains no nexthop; (b) the FIB nexthop happens to be the sole downstream; (c) the FIB nexthops violate scope.</p>
 <p>This strategy returns Nack to all downstreams if all upstreams have returned Nacks. The reason of the sent Nack equals the least severe reason among received Nacks.</p>
 
           
@@ -712,46 +693,20 @@ static策略只有在链路故障时才会改变</p>
 <li><strong>注意的地方</strong></li>
 </ul>
 <hr>
-<h2 id="本地项目上传方法"><a class="markdownIt-Anchor" href="#本地项目上传方法"></a> 本地项目上传方法</h2>
-<p>如果本地写好了程序，想把这个文件夹全部上传到Github上，可以按如下步骤操作：<br>
-**1. 进入到你本地项目的根目录下，执行<code>git init</code> **<br>
-<img src="//img-blog.csdn.net/20180317181050979?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="执行结果"><br>
-<strong>2.  <code>git add .</code></strong><br>
-把项目所有文件加入到仓库<br>
-<img src="//img-blog.csdn.net/2018031718143248?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="2"><br>
-<strong>3. <code>git commit -m &quot;你的注释&quot;</code></strong><br>
-为项目文件添加注释<br>
-<img src="//img-blog.csdn.net/20180317181619327?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="3"><br>
-<strong>4.  进去Github网站新建项目</strong><br>
-写上仓库名、描述，其他保持默认<br>
-<img src="//img-blog.csdn.net/20180317191009188?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>
-底下的Add.gitgnore 是排除不希望上传对的文件格式<br>
-<strong>5. <code>git remote add origin https://github.com/TronYY/OR1.git</code></strong><br>
-把本地项目关联到Github，可在如图中复制<br>
-<img src="//img-blog.csdn.net/20180317191306734?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
-<p><strong>6. <code>git push -u origin master</code></strong><br>
-上传代码到github远程仓库.</p>
-<p>##注意的地方<br>
-<strong>1. git push -u origin master 出错</strong><br>
-网站上新建仓库时，<a href="http://xn--README-957imkw25bqt0a57qrl3f.md" target="_blank" rel="noopener">若同时也建了README.md</a>,但本地没有改文件，直接<code>git push -u origin master</code>会提示上传出错，此时改为强制上传参数-f可以上传且不报错。但是建议 :</p>
-<p>①先把本地更新成与网站项目一致（即 <code>git clone https://github.com/TronYY/OR1.git</code>）<br>
-或者可以通过以下命令使得网站上的与本地的合并git pull --rebase origin master，<br>
-注pull=fetch+merge<br>
-②修改	<br>
-③<code>git add .</code>并评论<code>git commit -m &quot;你的注释&quot;</code><br>
-④推送<code>git push -u origin master</code></p>
+<h2 id="本地项目上传方法"><a href="#本地项目上传方法" class="headerlink" title="本地项目上传方法"></a>本地项目上传方法</h2><p>如果本地写好了程序，想把这个文件夹全部上传到Github上，可以按如下步骤操作：<br><strong>1. 进入到你本地项目的根目录下，执行<code>git init</code> </strong><br><img src="//img-blog.csdn.net/20180317181050979?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="执行结果"><br><strong>2.  <code>git add .</code></strong><br>把项目所有文件加入到仓库<br><img src="//img-blog.csdn.net/2018031718143248?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="2"><br><strong>3. <code>git commit -m &quot;你的注释&quot;</code></strong><br>为项目文件添加注释<br><img src="//img-blog.csdn.net/20180317181619327?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="3"><br><strong>4.  进去Github网站新建项目</strong><br>写上仓库名、描述，其他保持默认<br><img src="//img-blog.csdn.net/20180317191009188?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>底下的Add.gitgnore 是排除不希望上传对的文件格式<br><strong>5. <code>git remote add origin https://github.com/TronYY/OR1.git</code></strong><br>把本地项目关联到Github，可在如图中复制<br><img src="//img-blog.csdn.net/20180317191306734?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p><strong>6. <code>git push -u origin master</code></strong><br>上传代码到github远程仓库.</p>
+<p>##注意的地方<br><strong>1. git push -u origin master 出错</strong><br>网站上新建仓库时，若同时也建了README.md,但本地没有改文件，直接<code>git push -u origin master</code>会提示上传出错，此时改为强制上传参数-f可以上传且不报错。但是建议 :</p>
+<p>①先把本地更新成与网站项目一致（即 <code>git clone https://github.com/TronYY/OR1.git</code>）<br>或者可以通过以下命令使得网站上的与本地的合并git pull –rebase origin master，<br>注pull=fetch+merge<br>②修改<br>③<code>git add .</code>并评论<code>git commit -m &quot;你的注释&quot;</code><br>④推送<code>git push -u origin master</code></p>
 <p>这也是项目更新的方法。</p>
-<p><strong>2. 默认语言不一致</strong><br>
-github默认项目中出现最多次数的后缀为默认语言，可以在网站的仓库下新增 .gitattributes文件，在里面增加<br>
-<code>*.js linguist-language=c *.cpp linguist-language=c *.htm linguist-language=c</code><br>
-以上命令相当于把js cpp htm后缀名的统计次数算在c上</p>
+<p><strong>2. 默认语言不一致</strong><br>github默认项目中出现最多次数的后缀为默认语言，可以在网站的仓库下新增 .gitattributes文件，在里面增加<br><code>*.js linguist-language=c
+*.cpp linguist-language=c
+*.htm linguist-language=c</code><br>以上命令相当于把js cpp htm后缀名的统计次数算在c上</p>
 <p>##hexo上传文章</p>
-<pre class="highlight"><code class="">cd Desktop/NDN/hexo/blog
+<pre><code>cd Desktop/NDN/hexo/blog
 hexo new &quot;新文章标题&quot;
 hexo g
 hexo d
 </code></pre>
-
           
         
       
@@ -892,27 +847,21 @@ hexo d
       
         
           
-            <h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
-<h4 id="分类three-categories-based-on-the-underlying-network-structure"><a class="markdownIt-Anchor" href="#分类three-categories-based-on-the-underlying-network-structure"></a> 分类three categories based on the underlying network structure:</h4>
-<ul>
+            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h4 id="分类three-categories-based-on-the-underlying-network-structure"><a href="#分类three-categories-based-on-the-underlying-network-structure" class="headerlink" title="分类three categories based on the underlying network structure:"></a>分类three categories based on the underlying network structure:</h4><ul>
 <li>flit</li>
 <li>hierarchical</li>
-<li>location-based routing</li>
+<li>location-based routing  </li>
 </ul>
-<p>these protocols can be classified</p>
+<p>these protocols can be classified </p>
 <ul>
 <li>multipath-based</li>
 <li>query-based</li>
 <li>negotiation-based</li>
 <li>QoS-based</li>
-<li>coherent-based depending on the protocol operation.</li>
+<li>coherent-based depending on the protocol operation.  </li>
 </ul>
-<p>Each of these scattered sensor<br>
-nodes has the capability to collect and route<br>
-data either to other sensors or back to an external<br>
-BS(s).1</p>
-<h4 id="与manet-蜂窝网络的不同与难点"><a class="markdownIt-Anchor" href="#与manet-蜂窝网络的不同与难点"></a> 与MANET、蜂窝网络的不同与难点</h4>
-<ol>
+<p>Each of these scattered sensor<br>nodes has the capability to collect and route<br>data either to other sensors or back to an external<br>BS(s).1</p>
+<h4 id="与MANET、蜂窝网络的不同与难点"><a href="#与MANET、蜂窝网络的不同与难点" class="headerlink" title="与MANET、蜂窝网络的不同与难点"></a>与MANET、蜂窝网络的不同与难点</h4><ol>
 <li>数量多，全局地址机制负担大——基于IP的协议不能用。得到数据比知道是谁发的更重要</li>
 <li>需要多个源的数据汇聚</li>
 <li>能量限制</li>
@@ -921,58 +870,24 @@ BS(s).1</p>
 <li>数据有冗余</li>
 </ol>
 <p>本文对网络层的专门研究，描述和分类不同的数据路由方法</p>
-<h2 id="wsns中的路由挑战和设计问题"><a class="markdownIt-Anchor" href="#wsns中的路由挑战和设计问题"></a> WSNs中的路由挑战和设计问题</h2>
-<h2 id="wsns中的路由协议"><a class="markdownIt-Anchor" href="#wsns中的路由协议"></a> WSNs中的路由协议</h2>
-<p><img src="https://ieeexplore.ieee.org/mediastore_new/IEEE/content/media/7742/29957/1368893/1368893-fig-2-source-large.gif" alt="image"></p>
-<h3 id="扁平路由"><a class="markdownIt-Anchor" href="#扁平路由"></a> 扁平路由</h3>
-<ul>
-<li>
-<h4 id="spin"><a class="markdownIt-Anchor" href="#spin"></a> SPIN</h4>
-<p>ADV用于通告新数据，REQ用于请求数据，DATA是实际消息本身。当SPIN节点获得它愿意共享的新数据时，协议开始。它通过广播包含元数据的ADV消息来实现。如果邻居对数据感兴趣，则它发送DATA的REQ消息，并将DATA发送到该邻居节点。然后，邻居传感器节点与其邻居重复该过程。结果，整个传感器区域将接收数据的副本。</p>
+<h2 id="WSNs中的路由挑战和设计问题"><a href="#WSNs中的路由挑战和设计问题" class="headerlink" title="WSNs中的路由挑战和设计问题"></a>WSNs中的路由挑战和设计问题</h2><h2 id="WSNs中的路由协议"><a href="#WSNs中的路由协议" class="headerlink" title="WSNs中的路由协议"></a>WSNs中的路由协议</h2><p><img src="https://ieeexplore.ieee.org/mediastore_new/IEEE/content/media/7742/29957/1368893/1368893-fig-2-source-large.gif" alt="image"></p>
+<h3 id="扁平路由"><a href="#扁平路由" class="headerlink" title="扁平路由"></a>扁平路由</h3><ul>
+<li><h4 id="SPIN"><a href="#SPIN" class="headerlink" title="SPIN"></a>SPIN</h4><p>  ADV用于通告新数据，REQ用于请求数据，DATA是实际消息本身。当SPIN节点获得它愿意共享的新数据时，协议开始。它通过广播包含元数据的ADV消息来实现。如果邻居对数据感兴趣，则它发送DATA的REQ消息，并将DATA发送到该邻居节点。然后，邻居传感器节点与其邻居重复该过程。结果，整个传感器区域将接收数据的副本。</p>
 </li>
-<li>
-<h4 id="定向扩散"><a class="markdownIt-Anchor" href="#定向扩散"></a> 定向扩散</h4>
-<p>DC范例的主要思想是通过消除冗余，最小化传输次数来组合来自不同来源的数据（网络内聚合）；DC路由可以找到从多个源到单个目的地的路由<br>
-<img src="https://ieeexplore.ieee.org/mediastore_new/IEEE/content/media/7742/29957/1368893/1368893-fig-3-source-large.gif" alt="image"></p>
+<li><h4 id="定向扩散"><a href="#定向扩散" class="headerlink" title="定向扩散"></a>定向扩散</h4><p>  DC范例的主要思想是通过消除冗余，最小化传输次数来组合来自不同来源的数据（网络内聚合）；DC路由可以找到从多个源到单个目的地的路由<br>  <img src="https://ieeexplore.ieee.org/mediastore_new/IEEE/content/media/7742/29957/1368893/1368893-fig-3-source-large.gif" alt="image"></p>
 </li>
-<li>
-<h4 id="rumor-routing"><a class="markdownIt-Anchor" href="#rumor-routing"></a> Rumor routing</h4>
-<p>flood the events+route the queries (if the number of events is small, and the number of queries is large)<br>
-<em><strong>agents:</strong></em> long-lived packets<br>
-adds the event to its <em><strong>events table</strong></em> and 产生agent<br>
-agent在全网传递，将本地事件的信息传播到远程节点</p>
+<li><h4 id="Rumor-routing"><a href="#Rumor-routing" class="headerlink" title="Rumor routing"></a>Rumor routing</h4>  flood the events+route the queries (if the number of events is small, and the number of queries is large)<br>   <strong><em>agents:</em></strong> long-lived packets<br>  adds the event to its <strong><em>events table</em></strong> and 产生agent<br>  agent在全网传递，将本地事件的信息传播到远程节点</li>
+<li><h4 id="最小成本转发算法"><a href="#最小成本转发算法" class="headerlink" title="最小成本转发算法"></a>最小成本转发算法</h4>  假设路由方向已知<br>  传感器节点不需要具有唯一ID也不需要维护路由表。相反，每个节点保持从其自身到BS的最低成本估计。由传感器节点转发的每个消息被广播到其邻居。当节点接收到该消息时，它检查它是否在源传感器节点和BS之间的最低成本路径上。如果是这种情况，它会将消息重新广播给其邻居。重复该过程直到到达BS。</li>
+<li><h4 id="基于梯度的路由"><a href="#基于梯度的路由" class="headerlink" title="基于梯度的路由"></a>基于梯度的路由</h4><p>  当兴趣通过整个网络传播时记住跳数。这样，每个节点可以计算称为节点高度的参数，该参数是到达BS的最小跳数。节点高度与其邻居之间的差异被视为该链路上的梯度。<strong>在具有最大梯度的链路上转发分组</strong></p>
 </li>
-<li>
-<h4 id="最小成本转发算法"><a class="markdownIt-Anchor" href="#最小成本转发算法"></a> 最小成本转发算法</h4>
-<p>假设路由方向已知<br>
-传感器节点不需要具有唯一ID也不需要维护路由表。相反，每个节点保持从其自身到BS的最低成本估计。由传感器节点转发的每个消息被广播到其邻居。当节点接收到该消息时，它检查它是否在源传感器节点和BS之间的最低成本路径上。如果是这种情况，它会将消息重新广播给其邻居。重复该过程直到到达BS。</p>
+<li><h4 id="信息驱动传感器查询（IDSQ）和约束各向异性扩散路由-（CADR）"><a href="#信息驱动传感器查询（IDSQ）和约束各向异性扩散路由-（CADR）" class="headerlink" title="信息驱动传感器查询（IDSQ）和约束各向异性扩散路由 （CADR）"></a>信息驱动传感器查询（IDSQ）和约束各向异性扩散路由 （CADR）</h4><p>  关键思想是查询传感器并在网络中路由数据，以便最大化信息增益，同时最小化延迟和带宽。<br>  在CADR中，每个节点评估信息/成本目标，并根据本地信息/成本梯度和最终用户要求路由数据；<br>  IDSQ没有具体定义</p>
 </li>
-<li>
-<h4 id="基于梯度的路由"><a class="markdownIt-Anchor" href="#基于梯度的路由"></a> 基于梯度的路由</h4>
-<p>当兴趣通过整个网络传播时记住跳数。这样，每个节点可以计算称为节点高度的参数，该参数是到达BS的最小跳数。节点高度与其邻居之间的差异被视为该链路上的梯度。<strong>在具有最大梯度的链路上转发分组</strong></p>
+<li><h4 id="ACQUIRE"><a href="#ACQUIRE" class="headerlink" title="ACQUIRE"></a>ACQUIRE</h4><p>If the precached information is not up-to-date, the nodes gather information from their neighbors within a<br>lookahead of d hops.</p>
 </li>
-<li>
-<h4 id="信息驱动传感器查询idsq和约束各向异性扩散路由-cadr"><a class="markdownIt-Anchor" href="#信息驱动传感器查询idsq和约束各向异性扩散路由-cadr"></a> 信息驱动传感器查询（IDSQ）和约束各向异性扩散路由 （CADR）</h4>
-<p>关键思想是查询传感器并在网络中路由数据，以便最大化信息增益，同时最小化延迟和带宽。<br>
-在CADR中，每个节点评估信息/成本目标，并根据本地信息/成本梯度和最终用户要求路由数据；<br>
-IDSQ没有具体定义</p>
+<li><h4 id="能量感知路由"><a href="#能量感知路由" class="headerlink" title="能量感知路由"></a>能量感知路由</h4><p>  该方法需要收集位置信息并为节点设置寻址机制，它保持一组路径而不是以更高的速率维持或实施一条最佳路径。通过一定的概率维护和选择这些路径。该概率的值取决于每条路径可以实现的能耗有多低。</p>
+<p>  该泛洪用于发现源/目标对之间的所有路由及其成本，从而构建路由表。丢弃高成本路径，并通过以与其成本成比例的方式选择相邻节点来构建转发表。然后，转发表用于以与节点成本成反比的概率将数据发送到目的地。</p>
 </li>
-<li>
-<h4 id="acquire"><a class="markdownIt-Anchor" href="#acquire"></a> ACQUIRE</h4>
-</li>
-</ul>
-<p>If the precached information is not up-to-date, the nodes gather information from their neighbors within a<br>
-lookahead of d hops.</p>
-<ul>
-<li>
-<h4 id="能量感知路由"><a class="markdownIt-Anchor" href="#能量感知路由"></a> 能量感知路由</h4>
-<p>该方法需要收集位置信息并为节点设置寻址机制，它保持一组路径而不是以更高的速率维持或实施一条最佳路径。通过一定的概率维护和选择这些路径。该概率的值取决于每条路径可以实现的能耗有多低。</p>
-<p>该泛洪用于发现源/目标对之间的所有路由及其成本，从而构建路由表。丢弃高成本路径，并通过以与其成本成比例的方式选择相邻节点来构建转发表。然后，转发表用于以与节点成本成反比的概率将数据发送到目的地。</p>
-</li>
-<li>
-<h4 id="随机游走路由协议"><a class="markdownIt-Anchor" href="#随机游走路由协议"></a> 随机游走路由协议</h4>
-<p>该技术仅考虑节点具有非常有限的移动性的大规模网络<br>
-为了找到从源到其目的地的路线，通过使用众所周知的Bellman-Ford算法的分布式异步版本计算节点之间的距离来获得位置信息或点阵协调。中间节点将根据计算的概率选择更靠近目的地的相邻节点作为下一跳</p>
+<li><h4 id="随机游走路由协议"><a href="#随机游走路由协议" class="headerlink" title="随机游走路由协议"></a>随机游走路由协议</h4><p>  该技术仅考虑节点具有非常有限的移动性的大规模网络<br>  为了找到从源到其目的地的路线，通过使用众所周知的Bellman-Ford算法的分布式异步版本计算节点之间的距离来获得位置信息或点阵协调。中间节点将根据计算的概率选择更靠近目的地的相邻节点作为下一跳</p>
 </li>
 </ul>
 
@@ -1118,500 +1033,27 @@ lookahead of d hops.</p>
           
             <p>阅读报告_A [2017][MedHocNet]A Multihop and Multipath Routing Protocol Using NDN for VANETs_20180412</p>
 <hr>
-<h2 id="论文题目"><a class="markdownIt-Anchor" href="#论文题目"></a> 论文题目</h2>
-<p>A Multihop and Multipath Routing Protocol Using NDN for VANETs</p>
-<h2 id="论文作者-单位"><a class="markdownIt-Anchor" href="#论文作者-单位"></a> 论文作者、单位</h2>
-<p>Eirini Kalogeiton, Thomas Kolonko and Torsten Braun——Institute of Computer Science, University of Bern, Bern, Switzerland</p>
-<h2 id="发表的会议或者期刊"><a class="markdownIt-Anchor" href="#发表的会议或者期刊"></a> 发表的会议或者期刊</h2>
-<p>16th Annual Mediterranean Ad Hoc Networking Workshop</p>
-<h2 id="论文关键字"><a class="markdownIt-Anchor" href="#论文关键字"></a> 论文关键字</h2>
-<p>NDN, VANETs, Multi-Hop Routing, Multipath Routing</p>
-<h2 id="论文摘要原文"><a class="markdownIt-Anchor" href="#论文摘要原文"></a> 论文摘要原文</h2>
-<p>One main characteristic of Vehicular Ad Hoc Networks (VANETs) is the intermittent connectivity, which leads to failures of end to end paths between end nodes. Named Data Networking (NDN) is a network paradigm that deals with such problems, since information is forwarded based on content and not on the location of the hosts. Hence, NDN has been proposed in VANET scenarios. In this paper, we propose a multihop and multipath VANET routing algorithm that exploits several paths to achieve faster content retrieval. We create a new routing approach for NDN in VANETs, by introducing new fields to messages and to data structures. Simulation results show that our approach does not only guarantee faster data delivery, but also saves network resources, due to the lack of message retransmissions.</p>
-<h2 id="论文摘要中文"><a class="markdownIt-Anchor" href="#论文摘要中文"></a> 论文摘要中文</h2>
-<p>车辆自组织网络的一个主要特征是间歇性连通，这导致了端节点之间的点到点路径中断。NDN是解决这类问题的网络范式，因为信息依据内容被转发而不是耕路主机位置。因此，NDN已经在车联网场景下被提出。在本文中，我们提出了一种多跳多路径的车辆网路由算法，其能够探索多条路径以便更快取回内容。通过在消息、数据结构中引入新的字段，我们提出了一种在车联网中的NDN路由方法。仿真结果表明我们的方法不仅确保了更快取回内容，也由于不做消息重传能做到节省网络资源。</p>
-<h2 id="研究问题"><a class="markdownIt-Anchor" href="#研究问题"></a> 研究问题</h2>
-<p>设计了一种车辆网中的NDN路由算法。</p>
-<h2 id="研究意义"><a class="markdownIt-Anchor" href="#研究意义"></a> 研究意义</h2>
-<ol>
+<h2 id="论文题目"><a href="#论文题目" class="headerlink" title="论文题目"></a>论文题目</h2><p>A Multihop and Multipath Routing Protocol Using NDN for VANETs</p>
+<h2 id="论文作者、单位"><a href="#论文作者、单位" class="headerlink" title="论文作者、单位"></a>论文作者、单位</h2><p>Eirini Kalogeiton, Thomas Kolonko and Torsten Braun——Institute of Computer Science, University of Bern, Bern, Switzerland</p>
+<h2 id="发表的会议或者期刊"><a href="#发表的会议或者期刊" class="headerlink" title="发表的会议或者期刊"></a>发表的会议或者期刊</h2><p>16th Annual Mediterranean Ad Hoc Networking Workshop</p>
+<h2 id="论文关键字"><a href="#论文关键字" class="headerlink" title="论文关键字"></a>论文关键字</h2><p>NDN, VANETs, Multi-Hop Routing, Multipath Routing</p>
+<h2 id="论文摘要原文"><a href="#论文摘要原文" class="headerlink" title="论文摘要原文"></a>论文摘要原文</h2><p>One main characteristic of Vehicular Ad Hoc Networks (VANETs) is the intermittent connectivity, which leads to failures of end to end paths between end nodes. Named Data Networking (NDN) is a network paradigm that deals with such problems, since information is forwarded based on content and not on the location of the hosts. Hence, NDN has been proposed in VANET scenarios. In this paper, we propose a multihop and multipath VANET routing algorithm that exploits several paths to achieve faster content retrieval. We create a new routing approach for NDN in VANETs, by introducing new fields to messages and to data structures. Simulation results show that our approach does not only guarantee faster data delivery, but also saves network resources, due to the lack of message retransmissions.</p>
+<h2 id="论文摘要中文"><a href="#论文摘要中文" class="headerlink" title="论文摘要中文"></a>论文摘要中文</h2><p>车辆自组织网络的一个主要特征是间歇性连通，这导致了端节点之间的点到点路径中断。NDN是解决这类问题的网络范式，因为信息依据内容被转发而不是耕路主机位置。因此，NDN已经在车联网场景下被提出。在本文中，我们提出了一种多跳多路径的车辆网路由算法，其能够探索多条路径以便更快取回内容。通过在消息、数据结构中引入新的字段，我们提出了一种在车联网中的NDN路由方法。仿真结果表明我们的方法不仅确保了更快取回内容，也由于不做消息重传能做到节省网络资源。</p>
+<h2 id="研究问题"><a href="#研究问题" class="headerlink" title="研究问题"></a>研究问题</h2><p>设计了一种车辆网中的NDN路由算法。</p>
+<h2 id="研究意义"><a href="#研究意义" class="headerlink" title="研究意义"></a>研究意义</h2><ol>
 <li>由于考虑车辆，这些连接不稳定，因为车辆的位置可能会在高速行驶时发生不可预测的变化。此外，即使建立了端到端连接，天气条件也可能会干扰用户的信号丢失和/或服务质量和服务质量(冻结视频、延迟安全通知)。</li>
 </ol>
-<h2 id="研究内容算法-方法-技术-模型"><a class="markdownIt-Anchor" href="#研究内容算法-方法-技术-模型"></a> 研究内容（算法、方法、技术、模型）</h2>
-<p><img src="https://nim.nosdn.127.net/NDEwNzQyNw==/bmltYV8yMzY1NzE1OTAwXzE1MzI1OTUzOTU4NTVfMzRlYjRjZDMtOWE5NC00YTQ3LWEzOGItMWYyYWI2YTA0N2Qx?imageView&amp;thumbnail=1500x850" alt="这里写图片描述"></p>
+<h2 id="研究内容（算法、方法、技术、模型）"><a href="#研究内容（算法、方法、技术、模型）" class="headerlink" title="研究内容（算法、方法、技术、模型）"></a>研究内容（算法、方法、技术、模型）</h2><p><img src="https://nim.nosdn.127.net/NDEwNzQyNw==/bmltYV8yMzY1NzE1OTAwXzE1MzI1OTUzOTU4NTVfMzRlYjRjZDMtOWE5NC00YTQ3LWEzOGItMWYyYWI2YTA0N2Qx?imageView&amp;thumbnail=1500x850" alt="这里写图片描述"></p>
 <p><img src="https://nim.nosdn.127.net/NDEwNzQyNw==/bmltYV8yMzY1NzE1OTAwXzE1MzI1OTU0NDAyMjJfMmM3YWFkMmUtM2NhMi00MTBlLTg2YTQtMjNlMzZkYjVjZjA0?imageView&amp;thumbnail=1500x850" alt="这里写图片描述"></p>
-<h2 id="研究结论-主要贡献"><a class="markdownIt-Anchor" href="#研究结论-主要贡献"></a> 研究结论、主要贡献</h2>
-<ol>
+<h2 id="研究结论、主要贡献"><a href="#研究结论、主要贡献" class="headerlink" title="研究结论、主要贡献"></a>研究结论、主要贡献</h2><ol>
 <li>文章提出了一个路由协议：——先Interest广播，回来时FIB填好，下次传Interest可以根据FIB来；</li>
-<li>FIB可能有多个nexthop，根据最低的counter、最低的时延nexthop。。</li>
+<li>FIB可能有多个nexthop，根据最低的counter、最低的时延nexthop。。<h2 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h2></li>
 </ol>
-<h2 id="创新点"><a class="markdownIt-Anchor" href="#创新点"></a> 创新点</h2>
-<h2 id="技术难点"><a class="markdownIt-Anchor" href="#技术难点"></a> 技术难点</h2>
-<p>没有提到怎么解决初始时洪泛。<br>
-车子是在移动的，这里FIB也会由于车辆移动而失效，文章其实没有解决移动性问题。</p>
-<h2 id="对本人工作的启发"><a class="markdownIt-Anchor" href="#对本人工作的启发"></a> 对本人工作的启发</h2>
-<ol>
-<li>交通流量产生 network traffic simulation we used SUMO：<br>
-<em>M. Behrisch, L. Bieker, J. Erdmann, and D. Krajzewicz, “Sumo–<br>
-simulation of urban mobility: an overview,” in Proceedings of SIMUL<br>
-2011, The Third International Conference on Advances in System<br>
-Simulation. ThinkMind, 2011.</em></li>
-<li>文章提到用ndnSIM模拟了无线802.11a，802.11p说在ndnSIM v2.0里不支持，每辆车子的interface也可以定，车辆数目也能够定</li>
+<h2 id="技术难点"><a href="#技术难点" class="headerlink" title="技术难点"></a>技术难点</h2><p>没有提到怎么解决初始时洪泛。<br>车子是在移动的，这里FIB也会由于车辆移动而失效，文章其实没有解决移动性问题。</p>
+<h2 id="对本人工作的启发"><a href="#对本人工作的启发" class="headerlink" title="对本人工作的启发"></a>对本人工作的启发</h2><ol>
+<li>交通流量产生 network traffic simulation we used SUMO：<br> <em>M. Behrisch, L. Bieker, J. Erdmann, and D. Krajzewicz, “Sumo–<br>simulation of urban mobility: an overview,” in Proceedings of SIMUL<br>2011, The Third International Conference on Advances in System<br>Simulation. ThinkMind, 2011.</em></li>
+<li>文章提到用ndnSIM模拟了无线802.11a，802.11p说在ndnSIM v2.0里不支持，每辆车子的interface也可以定，车辆数目也能够定<h2 id="进一步研究思路"><a href="#进一步研究思路" class="headerlink" title="进一步研究思路"></a>进一步研究思路</h2>查阅实验部分ndnSIM的做法</li>
 </ol>
-<h2 id="进一步研究思路"><a class="markdownIt-Anchor" href="#进一步研究思路"></a> 进一步研究思路</h2>
-<p>查阅实验部分ndnSIM的做法</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/C++命名规范/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="天洋行空">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天洋行空">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/15/C++命名规范/" itemprop="url">C++命名规范</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T20:56:33+08:00">
-                2018-09-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="规范"><a class="markdownIt-Anchor" href="#规范"></a> 规范</h2>
-<ul>
-<li>文件名    <code>全小写</code></li>
-<li>函数、类、结构体、枚举     <code>每个单词首字母大写</code></li>
-<li>变量     <code>全小写</code></li>
-<li>类成员变量     <code>全小写 ，末尾加_</code></li>
-<li>命名空间 <code>全小写</code></li>
-<li>宏     <code>全大写 加下划线</code></li>
-<li>具体参考 [<a href="http://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/naming/" target="_blank" rel="noopener">http://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/naming/</a>]</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/增强For循环/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="天洋行空">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天洋行空">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/15/增强For循环/" itemprop="url">增强For循环</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T20:56:33+08:00">
-                2018-09-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天读程序遇到有for循环里有冒号，去查了下，属于增强for循环</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(元素变量:元素集合)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">	程序块；</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForeachTest</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"----------旧方式遍历------------"</span>);</span><br><span class="line">        <span class="comment">//旧式方式        </span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;arr.length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"---------新方式遍历-------------"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//新式写法,增强的for循环</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> element:arr)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(element);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"---------遍历二维数组-------------"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//遍历二维数组</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[][] arr2 = &#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, &#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;&#125; ;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>[] row : arr2)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> element : row)</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(element);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//以三种方式遍历集合List</span></span><br><span class="line">        </span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        </span><br><span class="line">        list.add(<span class="string">"a"</span>);</span><br><span class="line">        list.add(<span class="string">"b"</span>);</span><br><span class="line">        list.add(<span class="string">"c"</span>);</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"----------方式1-----------"</span>);</span><br><span class="line">        <span class="comment">//第一种方式，普通for循环</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(list.get(i));</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"----------方式2-----------"</span>);</span><br><span class="line">        <span class="comment">//第二种方式，使用迭代器</span></span><br><span class="line">        <span class="keyword">for</span>(Iterator&lt;String&gt; iter = list.iterator(); iter.hasNext();)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(iter.next());</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"----------方式3-----------"</span>);</span><br><span class="line">        <span class="comment">//第三种方式，使用增强型的for循环</span></span><br><span class="line">        <span class="keyword">for</span>(String str: list)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(str);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/如何求中间位置的数——快慢指针/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="天洋行空">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天洋行空">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/15/如何求中间位置的数——快慢指针/" itemprop="url">如何求中间位置的数——快慢指针</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T20:56:33+08:00">
-                2018-09-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Data-Structures-and-Algorithms/" itemprop="url" rel="index">
-                    <span itemprop="name">Data Structures and Algorithms</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>一个数组是有序数组，则mid=(start+end)/2即是中间位置。<br>
-倘若是一个有序链表呢？<br>
-转换为数组？——数组size怎么确定。暂时设大点吧<br>
-第一次遍历记录size，第二次再到size/2位置</p>
-<p>也许方法很多，但是今天可以通过<strong>快慢指针</strong>来完成：</p>
-<h2 id="概念"><a class="markdownIt-Anchor" href="#概念"></a> 概念</h2>
-<p>快慢指针中的快慢指的是移动的步长，即每次向前移动速度的快慢。例如可以让快指针每次沿链表向前移动2，慢指针每次向前移动1次。</p>
-<h2 id="寻找中间位置的数"><a class="markdownIt-Anchor" href="#寻找中间位置的数"></a> 寻找中间位置的数</h2>
-<p>该方法在不借助计数器变量实现寻找中位数的功能。原理是：快指针的移动速度是慢指针移动速度的2倍，因此当快指针到达链表尾时，慢指针到达中点。程序还要考虑链表结点个数的奇偶数因素，当快指针移动x次后到达表尾（1+2x），说明链表有奇数个结点，直接返回慢指针指向的数据即可。如果快指针是倒数第二个结点，说明链表结点个数是偶数，这时可以根据“规则”返回上中位数或下中位数或（上中位数+下中位数）的一半。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (fast&amp;&amp;slow)</span><br><span class="line">&#123;</span><br><span class="line">　　<span class="keyword">if</span> (fast-&gt;next==NULL)</span><br><span class="line">　　    <span class="keyword">return</span> slow -&gt;data;</span><br><span class="line">　　<span class="keyword">else</span> <span class="keyword">if</span> (fast-&gt;next!= NULL &amp;&amp; fast-&gt;next-&gt;next== NULL)</span><br><span class="line">　　    <span class="keyword">return</span> (slow -&gt;data + slow -&gt;next-&gt;data)/<span class="number">2</span>;</span><br><span class="line">　　<span class="keyword">else</span></span><br><span class="line">　　&#123;</span><br><span class="line">　　    fast= fast-&gt;next;</span><br><span class="line">　    　fast= fast-&gt;next;</span><br><span class="line">　　    slow = slow -&gt;next;</span><br><span class="line">　　&#125;</span><br><span class="line">　&#125;</span><br></pre></td></tr></table></figure>
-<p>具体地，可以拿leetcode <a href="https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/description/" target="_blank" rel="noopener">109题</a> 练手。</p>
-<h2 id="其他用途"><a class="markdownIt-Anchor" href="#其他用途"></a> 其他用途</h2>
-<ul>
-<li>判断单链表是否为循环链表</li>
-<li>如果链表为存在环，如果找到环的入口点？</li>
-</ul>
-<p>具体可以参考下<a href="http://www.cnblogs.com/hxsyl/p/4395794.html" target="_blank" rel="noopener">关于快慢指针的若干应用详解</a>.</p>
 
           
         
@@ -1754,15 +1196,8 @@ Simulation. ThinkMind, 2011.</em></li>
         
           
             <ol>
-<li><code>List&lt;String&gt; list = new ArrayList&lt;&gt;(2);</code><br>
-这个乍一看，还以为像数组一样，你初始化了个长度为2的数组，然后你就可以随意修改下标为0，1的内容。当然0，1是肯定不会下标越界的。<br>
-我当时也是这么想的。然而不是的。<br>
-源码里面的构造函数的注释说明：这个真的是在底层新建了个长度为2的数组Object[]，但是他又不是我们经常看到的一般数组。这个是空的。<br>
-当前list集合仍然是一个带有初始容量的empty list。</li>
-<li><code>list.size()</code><br>
-我上来也是想当然的以为，这个size()不就是上面的那个2吗！但是我错了。<br>
-源码中ArrayList的size属性对应的注释是：The size of the ArrayList (the number of elements it contains).<br>
-这个size是表示这个集合包含的元素的个数，而不是底层数组的大小。</li>
+<li><code>List&lt;String&gt; list = new ArrayList&lt;&gt;(2);</code><br>这个乍一看，还以为像数组一样，你初始化了个长度为2的数组，然后你就可以随意修改下标为0，1的内容。当然0，1是肯定不会下标越界的。<br>我当时也是这么想的。然而不是的。<br>源码里面的构造函数的注释说明：这个真的是在底层新建了个长度为2的数组Object[]，但是他又不是我们经常看到的一般数组。这个是空的。<br>当前list集合仍然是一个带有初始容量的empty list。</li>
+<li><code>list.size()</code><br>我上来也是想当然的以为，这个size()不就是上面的那个2吗！但是我错了。<br>源码中ArrayList的size属性对应的注释是：The size of the ArrayList (the number of elements it contains).<br>这个size是表示这个集合包含的元素的个数，而不是底层数组的大小。</li>
 </ol>
 
           
@@ -1812,7 +1247,7 @@ Simulation. ThinkMind, 2011.</em></li>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/增强For循环/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="天洋行空">
@@ -1831,7 +1266,7 @@ Simulation. ThinkMind, 2011.</em></li>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/15/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2018/09/15/增强For循环/" itemprop="url">增强For循环</a></h1>
         
 
         <div class="post-meta">
@@ -1866,8 +1301,8 @@ Simulation. ThinkMind, 2011.</em></li>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -1905,20 +1340,468 @@ Simulation. ThinkMind, 2011.</em></li>
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2>
-<h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <p>今天读程序遇到有for循环里有冒号，去查了下，属于增强for循环<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(元素变量:元素集合)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">	程序块；</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForeachTest</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"----------旧方式遍历------------"</span>);</span><br><span class="line">        <span class="comment">//旧式方式        </span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;arr.length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"---------新方式遍历-------------"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//新式写法,增强的for循环</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> element:arr)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(element);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"---------遍历二维数组-------------"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//遍历二维数组</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[][] arr2 = &#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, &#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;&#125; ;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>[] row : arr2)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> element : row)</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(element);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//以三种方式遍历集合List</span></span><br><span class="line">        </span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        </span><br><span class="line">        list.add(<span class="string">"a"</span>);</span><br><span class="line">        list.add(<span class="string">"b"</span>);</span><br><span class="line">        list.add(<span class="string">"c"</span>);</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"----------方式1-----------"</span>);</span><br><span class="line">        <span class="comment">//第一种方式，普通for循环</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(list.get(i));</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"----------方式2-----------"</span>);</span><br><span class="line">        <span class="comment">//第二种方式，使用迭代器</span></span><br><span class="line">        <span class="keyword">for</span>(Iterator&lt;String&gt; iter = list.iterator(); iter.hasNext();)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(iter.next());</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"----------方式3-----------"</span>);</span><br><span class="line">        <span class="comment">//第三种方式，使用增强型的for循环</span></span><br><span class="line">        <span class="keyword">for</span>(String str: list)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(str);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/如何求中间位置的数——快慢指针/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="天洋行空">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天洋行空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/15/如何求中间位置的数——快慢指针/" itemprop="url">如何求中间位置的数——快慢指针</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T20:56:33+08:00">
+                2018-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Data-Structures-and-Algorithms/" itemprop="url" rel="index">
+                    <span itemprop="name">Data Structures and Algorithms</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p> 一个数组是有序数组，则mid=(start+end)/2即是中间位置。<br>倘若是一个有序链表呢？<br>转换为数组？——数组size怎么确定。暂时设大点吧<br>第一次遍历记录size，第二次再到size/2位置  </p>
+<p>也许方法很多，但是今天可以通过<strong>快慢指针</strong>来完成：</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>快慢指针中的快慢指的是移动的步长，即每次向前移动速度的快慢。例如可以让快指针每次沿链表向前移动2，慢指针每次向前移动1次。</p>
+<h2 id="寻找中间位置的数"><a href="#寻找中间位置的数" class="headerlink" title="寻找中间位置的数"></a>寻找中间位置的数</h2><p>该方法在不借助计数器变量实现寻找中位数的功能。原理是：快指针的移动速度是慢指针移动速度的2倍，因此当快指针到达链表尾时，慢指针到达中点。程序还要考虑链表结点个数的奇偶数因素，当快指针移动x次后到达表尾（1+2x），说明链表有奇数个结点，直接返回慢指针指向的数据即可。如果快指针是倒数第二个结点，说明链表结点个数是偶数，这时可以根据“规则”返回上中位数或下中位数或（上中位数+下中位数）的一半。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (fast&amp;&amp;slow)</span><br><span class="line">&#123;</span><br><span class="line">　　<span class="keyword">if</span> (fast-&gt;next==NULL)</span><br><span class="line">　　    <span class="keyword">return</span> slow -&gt;data;</span><br><span class="line">　　<span class="keyword">else</span> <span class="keyword">if</span> (fast-&gt;next!= NULL &amp;&amp; fast-&gt;next-&gt;next== NULL)</span><br><span class="line">　　    <span class="keyword">return</span> (slow -&gt;data + slow -&gt;next-&gt;data)/<span class="number">2</span>;</span><br><span class="line">　　<span class="keyword">else</span></span><br><span class="line">　　&#123;</span><br><span class="line">　　    fast= fast-&gt;next;</span><br><span class="line">　    　fast= fast-&gt;next;</span><br><span class="line">　　    slow = slow -&gt;next;</span><br><span class="line">　　&#125;</span><br><span class="line">　&#125;</span><br></pre></td></tr></table></figure>
+<p>具体地，可以拿leetcode <a href="https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/description/" target="_blank" rel="noopener">109题</a> 练手。</p>
+<h2 id="其他用途"><a href="#其他用途" class="headerlink" title="其他用途"></a>其他用途</h2><ul>
+<li>判断单链表是否为循环链表</li>
+<li>如果链表为存在环，如果找到环的入口点？</li>
+</ul>
+<p>具体可以参考下<a href="http://www.cnblogs.com/hxsyl/p/4395794.html" target="_blank" rel="noopener">关于快慢指针的若干应用详解</a>.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/C++命名规范/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="天洋行空">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天洋行空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/15/C++命名规范/" itemprop="url">C++命名规范</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T20:56:33+08:00">
+                2018-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><ul>
+<li>文件名    <code>全小写</code> </li>
+<li>函数、类、结构体、枚举     <code>每个单词首字母大写</code> </li>
+<li>变量     <code>全小写</code> </li>
+<li>类成员变量     <code>全小写 ，末尾加_</code> </li>
+<li>命名空间 <code>全小写</code> </li>
+<li>宏     <code>全大写 加下划线</code></li>
+<li>具体参考 [<a href="http://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/naming/]" target="_blank" rel="noopener">http://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/naming/]</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2018/09/15/关于Java中String的传递问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="天洋行空">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天洋行空">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/15/关于Java中String的传递问题/" itemprop="url">关于Java中String的传递问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-15T20:56:33+08:00">
+                2018-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>今天在写java时想写一个方法<code>public void Helper(TreeNode root,List&lt;String&gt; list, String path)</code> 前面两者不必说，传递的是地址，叫  emm 叫值传递——java中只存在值传递，只存在值传递！！！  （然而我们经常看到对于对象（数组，类，接口）的传递似乎有点像引用传递，可以改变对象中某个属性的值。但是不要被这个假象所蒙蔽，实际上这个传入函数的值是对象引用的拷贝，即传递的是引用的地址值，所以还是按值传递。） 再来看一看String的问题，String是对象，但是表现出像基本数据类型一样的值传递表现，比较一下下面两者：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test3</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> []a)</span></span>&#123;</span><br><span class="line">        a[<span class="number">0</span>]=<span class="number">50</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> []a=&#123;<span class="number">10</span>,<span class="number">20</span>&#125;;</span><br><span class="line">        System.out.println(a[<span class="number">0</span>]);</span><br><span class="line">        change(a);</span><br><span class="line">        System.out.println(a[<span class="number">0</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>输出10，50</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(String s)</span></span>&#123;</span><br><span class="line">        s=<span class="string">"zhangsan"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String s=<span class="keyword">new</span> String(<span class="string">"lisi"</span>);</span><br><span class="line">        System.out.println(s);</span><br><span class="line">        change(s);</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出lisi lisi<br>照理说String是对象，应该输出lisi zhangsan才对啊，怎么change方法里没把String改掉呢？这是因为String具有不变性，看下图   <a href="https://www.zhihu.com/question/20618891" target="_blank" rel="noopener">来源</a>   <img src="https://img-blog.csdn.net/2018041121424842?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br><strong>String具有不可变性，String被重新赋值为abcdel时，是在堆内重新开辟空间放入abcdel，并且String指向它，相当于新建了一个String对象，但是原先的String s=abcd仍然存在。</strong><br>同理对于上面change方法里重新建立了一个String zhangsan对象，回到main里，zhangsan对象地址由于是值传递，在main里当然就消失了，此时的s仍然是lisi这个对象.  </p>
+<ol start="2">
+<li>再从根本上来看下为什么String具有这种不变性<br>翻开JDK源码，java.lang.String类起手前三行，是这样写的：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** String本质是个char数组. 而且用final关键字修饰.*/</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span> value[];</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>首先String类是用final关键字修饰，这说明String不可继承。<br>再看下面，String类的主力成员字段value是个char[ ]数组，而且是用final修饰的。final修饰的字段创建以后就不可改变。</p>
+<p>有的人以为故事就这样完了，其实没有。因为虽然value是不可变，也只是value这个引用地址不可变。挡不住Array数组是可变的事实。Array的数据结构看下图，</p>
+<p><img src="https://img-blog.csdn.net/2018041122062774?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1Ryb25ZWQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>也就是说Array变量只是stack上的一个引用，数组的本体结构在heap堆。String类里的value用final修饰，只是说stack里的这个叫value的引用地址不可变。没有说堆里array本身数据不可变。看下面这个例子，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">int</span>[] value=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line"><span class="keyword">int</span>[] another=&#123;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line">value=another;    <span class="comment">//编译器报错，final不可变</span></span><br><span class="line">value用<span class="keyword">final</span>修饰，编译器不允许我把value指向堆区另一个地址。但如果我直接对数组元素动手，分分钟搞定。</span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span> <span class="keyword">int</span>[] value=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">value[<span class="number">2</span>]=<span class="number">100</span>;  <span class="comment">//这时候数组里已经是&#123;1,2,100&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>所以String是不可变，关键是因为SUN公司的工程师，在后面所有String的方法里很小心的没有去动Array里的元素，没有暴露内部成员字段。private final char value[]这一句里，private的私有访问权限的作用都比final大。而且设计师还很小心地把整个String设成final禁止继承，避免被其他人继承后破坏。<strong>所以String是不可变的关键都在底层的实现，而不是一个final</strong>。考验的是工程师构造数据类型，封装数据的功力。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] 胖胖. 如何理解 String 类型值的不可变[EB/OL]. <a href="https://www.zhihu.com/question/20618891" target="_blank" rel="noopener">https://www.zhihu.com/question/20618891</a>.</p>
 
           
         
