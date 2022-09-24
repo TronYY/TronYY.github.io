@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="在vmware上跑apollo 6.0主要是参考官网的教程:， 但是我自己目前是在vmware上跑而且GPU不能直连，所以安装教程里的GPU部分都跳过 1. 先装好Ubuntu 18.04和Docker虚拟机不支持GPU那就先别装nvidia相关的（否则出错，还需要卸载nvdia相关的）https://github.com/ApolloAuto/apollo/blob/master/docs/sp">
+<meta name="description" content="在vmware上跑apollo 6.0 主要是参考官网的教程:， 但是我自己目前是在vmware上跑而且GPU不能直连，所以安装教程里的GPU部分都跳过  1. 先装好Ubuntu 18.04和Docker 虚拟机不支持GPU那就先别装nvidia相关的（否则出错，还需要卸载nvdia相关的） https://github.com/ApolloAuto/apollo/blob/master/do">
 <meta name="keywords" content="Technology">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在vmware跑Apollo6.0">
 <meta property="og:url" content="https://tronyy.github.io/archives/2021/03/14/在vmware跑Apollo6-0/index.html">
 <meta property="og:site_name" content="天洋行空">
-<meta property="og:description" content="在vmware上跑apollo 6.0主要是参考官网的教程:， 但是我自己目前是在vmware上跑而且GPU不能直连，所以安装教程里的GPU部分都跳过 1. 先装好Ubuntu 18.04和Docker虚拟机不支持GPU那就先别装nvidia相关的（否则出错，还需要卸载nvdia相关的）https://github.com/ApolloAuto/apollo/blob/master/docs/sp">
+<meta property="og:description" content="在vmware上跑apollo 6.0 主要是参考官网的教程:， 但是我自己目前是在vmware上跑而且GPU不能直连，所以安装教程里的GPU部分都跳过  1. 先装好Ubuntu 18.04和Docker 虚拟机不支持GPU那就先别装nvidia相关的（否则出错，还需要卸载nvdia相关的） https://github.com/ApolloAuto/apollo/blob/master/do">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2021/03/14/NLAIG5xXYmw6vyr.png">
 <meta property="og:updated_time" content="2021-03-14T08:48:23.078Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在vmware跑Apollo6.0">
-<meta name="twitter:description" content="在vmware上跑apollo 6.0主要是参考官网的教程:， 但是我自己目前是在vmware上跑而且GPU不能直连，所以安装教程里的GPU部分都跳过 1. 先装好Ubuntu 18.04和Docker虚拟机不支持GPU那就先别装nvidia相关的（否则出错，还需要卸载nvdia相关的）https://github.com/ApolloAuto/apollo/blob/master/docs/sp">
+<meta name="twitter:description" content="在vmware上跑apollo 6.0 主要是参考官网的教程:， 但是我自己目前是在vmware上跑而且GPU不能直连，所以安装教程里的GPU部分都跳过  1. 先装好Ubuntu 18.04和Docker 虚拟机不支持GPU那就先别装nvidia相关的（否则出错，还需要卸载nvdia相关的） https://github.com/ApolloAuto/apollo/blob/master/do">
 <meta name="twitter:image" content="https://i.loli.net/2021/03/14/NLAIG5xXYmw6vyr.png">
 
 
@@ -344,35 +344,53 @@
       
 
       
-        <h1 id="在vmware上跑apollo-6-0"><a href="#在vmware上跑apollo-6-0" class="headerlink" title="在vmware上跑apollo 6.0"></a>在vmware上跑apollo 6.0</h1><p>主要是参考<a href="//github.com/ApolloAuto/apollo/blob/master/docs/quickstart/apollo_software_installation_guide.md">官网的教程</a>:， 但是我自己目前是在vmware上跑而且GPU不能直连，所以安装教程里的GPU部分都跳过</p>
-<h2 id="1-先装好Ubuntu-18-04和Docker"><a href="#1-先装好Ubuntu-18-04和Docker" class="headerlink" title="1. 先装好Ubuntu 18.04和Docker"></a>1. 先装好Ubuntu 18.04和Docker</h2><p>虚拟机不支持GPU那就先别装nvidia相关的（否则出错，还需要卸载nvdia相关的）<br><a href="https://github.com/ApolloAuto/apollo/blob/master/docs/specs/prerequisite_software_installation_guide.md" target="_blank" rel="noopener">https://github.com/ApolloAuto/apollo/blob/master/docs/specs/prerequisite_software_installation_guide.md</a></p>
-<p><strong>Ubuntu链接</strong> <a href="https://releases.ubuntu.com/18.04.5/" target="_blank" rel="noopener">https://releases.ubuntu.com/18.04.5/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure></p>
+        <h1 id="在vmware上跑apollo-60"><a class="markdownIt-Anchor" href="#在vmware上跑apollo-60"></a> 在vmware上跑apollo 6.0</h1>
+<p>主要是参考<a href="//github.com/ApolloAuto/apollo/blob/master/docs/quickstart/apollo_software_installation_guide.md">官网的教程</a>:， 但是我自己目前是在vmware上跑而且GPU不能直连，所以安装教程里的GPU部分都跳过</p>
+<h2 id="1-先装好ubuntu-1804和docker"><a class="markdownIt-Anchor" href="#1-先装好ubuntu-1804和docker"></a> 1. 先装好Ubuntu 18.04和Docker</h2>
+<p>虚拟机不支持GPU那就先别装nvidia相关的（否则出错，还需要卸载nvdia相关的）<br>
+<a href="https://github.com/ApolloAuto/apollo/blob/master/docs/specs/prerequisite_software_installation_guide.md" target="_blank" rel="noopener">https://github.com/ApolloAuto/apollo/blob/master/docs/specs/prerequisite_software_installation_guide.md</a></p>
+<p><strong>Ubuntu链接</strong> <a href="https://releases.ubuntu.com/18.04.5/" target="_blank" rel="noopener">https://releases.ubuntu.com/18.04.5/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
 <p><strong>使用bash来装 docker</strong></p>
 <blockquote>
 <p>There is also a dedicated bash script Apollo provides to ease Docker installation, which works both for X86_64 and AArch64 platforms.</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/ApolloAuto/apollo/blob/master/docker/setup_host/install_docker.sh</span><br></pre></td></tr></table></figure>
-<p><strong>运行保存的sh文件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x install_docker.sh #给install_docker.sh可执行权限</span><br><span class="line">./install_docker.sh</span><br></pre></td></tr></table></figure></p>
+<p><strong>运行保存的sh文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x install_docker.sh #给install_docker.sh可执行权限</span><br><span class="line">./install_docker.sh</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
-<h2 id="2-下载Apollo-源"><a href="#2-下载Apollo-源" class="headerlink" title="2. 下载Apollo 源"></a>2. 下载Apollo 源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/ApolloAuto/apollo.git</span><br><span class="line">cd apollo</span><br><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
-<h2 id="3-启动阿波罗开发Docker容器"><a href="#3-启动阿波罗开发Docker容器" class="headerlink" title="3. 启动阿波罗开发Docker容器"></a>3. 启动阿波罗开发Docker容器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash docker/scripts/dev_start.sh</span><br></pre></td></tr></table></figure>
+<h2 id="2-下载apollo-源"><a class="markdownIt-Anchor" href="#2-下载apollo-源"></a> 2. 下载Apollo 源</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/ApolloAuto/apollo.git</span><br><span class="line">cd apollo</span><br><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
+<h2 id="3-启动阿波罗开发docker容器"><a class="markdownIt-Anchor" href="#3-启动阿波罗开发docker容器"></a> 3. 启动阿波罗开发Docker容器</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash docker/scripts/dev_start.sh</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>（有些人可能前面无意中安装了NVIDIA相关的报错：[ERROR] Failed to start docker container “apollo_dev” based on image: apolloauto/apollo:dev-x86_64-20180906_2002。Error: Could not load UVM kernel module. Is nvidia-modprobe installed?，可以采用sudo apt purge nvidia*  卸载所有NVIDIA。然后重新bash docker/scripts/dev_start.sh）</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash docker/scripts/dev_into.sh</span><br><span class="line">./apollo.sh build</span><br></pre></td></tr></table></figure>
-<h2 id="4-构建Apollo"><a href="#4-构建Apollo" class="headerlink" title="4. 构建Apollo"></a>4. 构建Apollo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./apollo.sh clean</span><br><span class="line">./apollo.sh build_opt</span><br></pre></td></tr></table></figure>
+<h2 id="4-构建apollo"><a class="markdownIt-Anchor" href="#4-构建apollo"></a> 4. 构建Apollo</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./apollo.sh clean</span><br><span class="line">./apollo.sh build_opt</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>Note:<br>Please run ./apollo.sh build_fe before ./apollo.sh build_opt if you made any modifications to the Dreamview frontend.</p>
+<p>Note:<br>
+Please run ./apollo.sh build_fe before ./apollo.sh build_opt if you made any modifications to the Dreamview frontend.</p>
 </blockquote>
-<h2 id="5-运行"><a href="#5-运行" class="headerlink" title="5. 运行"></a>5. 运行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./scripts/bootstrap.sh</span><br></pre></td></tr></table></figure>
-<p>打开浏览器 输入  <a href="http://localhost:8888" target="_blank" rel="noopener">http://localhost:8888</a><br>选择驾驶模式和地图：From the dropdown box of Mode Setup, select “Mkz Standard Debug” mode. From the dropdown box of Map, select “Sunnyvale with Two Offices”.</p>
-<p>重放demo记录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd docs/demo_guide/</span><br><span class="line">python3 record_helper.py demo_3.5.record</span><br><span class="line">cyber_recorder play -f demo_3.5.record -l</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-运行"><a class="markdownIt-Anchor" href="#5-运行"></a> 5. 运行</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./scripts/bootstrap.sh</span><br></pre></td></tr></table></figure>
+<p>打开浏览器 输入  <a href="http://localhost:8888" target="_blank" rel="noopener">http://localhost:8888</a><br>
+选择驾驶模式和地图：From the dropdown box of Mode Setup, select “Mkz Standard Debug” mode. From the dropdown box of Map, select “Sunnyvale with Two Offices”.</p>
+<p>重放demo记录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd docs/demo_guide/</span><br><span class="line">python3 record_helper.py demo_3.5.record</span><br><span class="line">cyber_recorder play -f demo_3.5.record -l</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>（这个可能遇到cyber_record<br>命令无法找到， 需要到apollo/cyber目录下运行 . setup.bash， 然后&gt;&gt;echo $PATH<br>路径应包含/ apollo / bazel-bin / cyber / tools / cyber_recorder /   再回到docs/demo_guide/下去）<br>就可以看到运行的了：</p>
+<p>（这个可能遇到cyber_record<br>
+命令无法找到， 需要到apollo/cyber目录下运行 . setup.bash， 然后&gt;&gt;echo $PATH<br>
+路径应包含/ apollo / bazel-bin / cyber / tools / cyber_recorder /   再回到docs/demo_guide/下去）<br>
+就可以看到运行的了：</p>
 </blockquote>
 <p><img src="https://i.loli.net/2021/03/14/NLAIG5xXYmw6vyr.png" alt=""></p>
-<h2 id="结束deamview"><a href="#结束deamview" class="headerlink" title="结束deamview"></a>结束deamview</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ../..</span><br><span class="line">root@in-dev-docker:/apollo# ./scripts/bootstrap.sh stop</span><br></pre></td></tr></table></figure>
-<h2 id="退出docker-Ctrl-D"><a href="#退出docker-Ctrl-D" class="headerlink" title="退出docker Ctrl-D"></a>退出docker Ctrl-D</h2><h2 id="要重新进的话"><a href="#要重新进的话" class="headerlink" title="要重新进的话"></a>要重新进的话</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd apollo</span><br><span class="line">bash docker/scripts/dev_start.sh</span><br><span class="line">bash docker/scripts/dev_into.sh</span><br><span class="line">运行：  ./scripts/bootstrap.sh</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<h2 id="结束deamview"><a class="markdownIt-Anchor" href="#结束deamview"></a> 结束deamview</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ../..</span><br><span class="line">root@in-dev-docker:/apollo# ./scripts/bootstrap.sh stop</span><br></pre></td></tr></table></figure>
+<h2 id="退出docker-ctrl-d"><a class="markdownIt-Anchor" href="#退出docker-ctrl-d"></a> 退出docker Ctrl-D</h2>
+<h2 id="要重新进的话"><a class="markdownIt-Anchor" href="#要重新进的话"></a> 要重新进的话</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd apollo</span><br><span class="line">bash docker/scripts/dev_start.sh</span><br><span class="line">bash docker/scripts/dev_into.sh</span><br><span class="line">运行：  ./scripts/bootstrap.sh</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -490,7 +508,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -573,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在vmware上跑apollo-6-0"><span class="nav-number">1.</span> <span class="nav-text">在vmware上跑apollo 6.0</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-先装好Ubuntu-18-04和Docker"><span class="nav-number">1.1.</span> <span class="nav-text">1. 先装好Ubuntu 18.04和Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-下载Apollo-源"><span class="nav-number">1.2.</span> <span class="nav-text">2. 下载Apollo 源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-启动阿波罗开发Docker容器"><span class="nav-number">1.3.</span> <span class="nav-text">3. 启动阿波罗开发Docker容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-构建Apollo"><span class="nav-number">1.4.</span> <span class="nav-text">4. 构建Apollo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-运行"><span class="nav-number">1.5.</span> <span class="nav-text">5. 运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束deamview"><span class="nav-number">1.6.</span> <span class="nav-text">结束deamview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#退出docker-Ctrl-D"><span class="nav-number">1.7.</span> <span class="nav-text">退出docker Ctrl-D</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#要重新进的话"><span class="nav-number">1.8.</span> <span class="nav-text">要重新进的话</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在vmware上跑apollo-60"><span class="nav-number">1.</span> <span class="nav-text"> 在vmware上跑apollo 6.0</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-先装好ubuntu-1804和docker"><span class="nav-number">1.1.</span> <span class="nav-text"> 1. 先装好Ubuntu 18.04和Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-下载apollo-源"><span class="nav-number">1.2.</span> <span class="nav-text"> 2. 下载Apollo 源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-启动阿波罗开发docker容器"><span class="nav-number">1.3.</span> <span class="nav-text"> 3. 启动阿波罗开发Docker容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-构建apollo"><span class="nav-number">1.4.</span> <span class="nav-text"> 4. 构建Apollo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-运行"><span class="nav-number">1.5.</span> <span class="nav-text"> 5. 运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束deamview"><span class="nav-number">1.6.</span> <span class="nav-text"> 结束deamview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#退出docker-ctrl-d"><span class="nav-number">1.7.</span> <span class="nav-text"> 退出docker Ctrl-D</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#要重新进的话"><span class="nav-number">1.8.</span> <span class="nav-text"> 要重新进的话</span></a></li></ol></li></ol></div>
             
 
           </div>

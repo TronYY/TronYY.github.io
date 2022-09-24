@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="自动驾驶," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="戒骄戒躁">
-<meta name="keywords" content="Technology">
-<meta property="og:type" content="website">
-<meta property="og:title" content="天洋行空">
-<meta property="og:url" content="https://tronyy.github.io/archives/archives/page/2/index.html">
+<meta name="description" content="最近在看14讲ch3，高博对于pangolin一句“自己编译”一笔带过，但是自己在安装时出现很多问题。 总之pangolin需下载的是0.5版本，可以参照十四讲各种软件安装 和另一个链接里的来安装，记住git clone的时候git clone --recursive GitHub - gaoxiang12/slambook2  可以先把3rdparty的目录都下下来，然后把Pangolin删掉选">
+<meta name="keywords" content="自动驾驶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译pangolin中存在的问题及slam14讲中的其他库安装">
+<meta property="og:url" content="https://tronyy.github.io/archives/2022/09/24/编译pangolin中存在的问题及slam14讲中的其他库安装/index.html">
 <meta property="og:site_name" content="天洋行空">
-<meta property="og:description" content="戒骄戒躁">
+<meta property="og:description" content="最近在看14讲ch3，高博对于pangolin一句“自己编译”一笔带过，但是自己在安装时出现很多问题。 总之pangolin需下载的是0.5版本，可以参照十四讲各种软件安装 和另一个链接里的来安装，记住git clone的时候git clone --recursive GitHub - gaoxiang12/slambook2  可以先把3rdparty的目录都下下来，然后把Pangolin删掉选">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-09-24T07:00:21.517Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="天洋行空">
-<meta name="twitter:description" content="戒骄戒躁">
+<meta name="twitter:title" content="编译pangolin中存在的问题及slam14讲中的其他库安装">
+<meta name="twitter:description" content="最近在看14讲ch3，高博对于pangolin一句“自己编译”一笔带过，但是自己在安装时出现很多问题。 总之pangolin需下载的是0.5版本，可以参照十四讲各种软件安装 和另一个链接里的来安装，记住git clone的时候git clone --recursive GitHub - gaoxiang12/slambook2  可以先把3rdparty的目录都下下来，然后把Pangolin删掉选">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://tronyy.github.io/archives/archives/page/2/"/>
+  <link rel="canonical" href="https://tronyy.github.io/archives/2022/09/24/编译pangolin中存在的问题及slam14讲中的其他库安装/"/>
 
 
 
 
 
-  <title>Archive | 天洋行空</title>
+  <title>编译pangolin中存在的问题及slam14讲中的其他库安装 | 天洋行空</title>
   
 
 
@@ -144,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -238,415 +239,177 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 44 posts in total. Keep on posting.
-      </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tronyy.github.io/archives/2022/09/24/编译pangolin中存在的问题及slam14讲中的其他库安装/">
 
-      
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="天洋行空">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天洋行空">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h1 class="post-title" itemprop="name headline">编译pangolin中存在的问题及slam14讲中的其他库安装</h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-09-24T14:59:50+08:00">
+                2022-09-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2020">2020</h1>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/10/04/曼哈顿距离/" itemprop="url">
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="name">曼哈顿距离</span>
+                <span class="post-meta-item-text">In</span>
               
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-10-04T12:11:30+08:00"
-              content="2020-10-04" >
-          10-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/09/27/Motion Planning for Self-Driving Cars——Module 1 The Planning Problem/" itemprop="url">
               
-                <span itemprop="name">Motion Planning for Self-Driving Cars——Module 1 The Planning Problem</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Driving/" itemprop="url" rel="index">
+                    <span itemprop="name">Driving</span>
+                  </a>
+                </span>
+
+                
+                
               
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-09-27T14:43:03+08:00"
-              content="2020-09-27" >
-          09-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/09/23/深蓝学院看的小鹏汽车的公开课/" itemprop="url">
-              
-                <span itemprop="name">深蓝学院看的小鹏汽车的公开课</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-09-23T22:43:03+08:00"
-              content="2020-09-23" >
-          09-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/07/07/delete指针/" itemprop="url">
-              
-                <span itemprop="name">delete指针</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-07-07T12:19:32+08:00"
-              content="2020-07-07" >
-          07-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/22/阅读tinyhttpd前准备的知识/" itemprop="url">
-              
-                <span itemprop="name">阅读tinyhttpd前准备的知识</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-22T00:27:20+08:00"
-              content="2020-06-22" >
-          06-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/19/TinyHttp运行配置/" itemprop="url">
-              
-                <span itemprop="name">TinyHttp运行配置</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-19T15:04:01+08:00"
-              content="2020-06-19" >
-          06-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/06/06/C-Primer-读书笔记/" itemprop="url">
-              
-                <span itemprop="name">C++ Primer 读书笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-06T11:34:26+08:00"
-              content="2020-06-06" >
-          06-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/27/Apollo×baidu公开课笔记/" itemprop="url">
-              
-                <span itemprop="name">Apollo×baidu公开课笔记</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-09-27T10:43:13+08:00"
-              content="2019-09-27" >
-          09-27
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/28/EWAHCompressedBitmap数据结构及原理/" itemprop="url">
-              
-                <span itemprop="name">EWAHCompressedBitmap数据结构及原理(转)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-28T00:55:46+08:00"
-              content="2019-02-28" >
-          02-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/26/排序算法稳定性/" itemprop="url">
-              
-                <span itemprop="name">排序算法稳定性</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-26T18:15:41+08:00"
-              content="2019-02-26" >
-          02-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>最近在看14讲ch3，高博对于pangolin一句“自己编译”一笔带过，但是自己在安装时出现很多问题。</p>
+<p>总之pangolin需下载的是0.5版本，可以参照<a href="https://blog.csdn.net/m0_60355964/article/details/124018672?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-124018672-blog-122244849.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-124018672-blog-122244849.pc_relevant_default&amp;utm_relevant_index=1" target="_blank" rel="noopener">十四讲各种软件安装</a> 和<a href="https://blog.csdn.net/weixin_44120025/article/details/122244849?spm=1001.2014.3001.5506" target="_blank" rel="noopener">另一个链接</a>里的来安装，记住git clone的时候git clone --recursive GitHub - gaoxiang12/slambook2  可以先把3rdparty的目录都下下来，然后把Pangolin删掉选择0.5版的重新下载解压。（源码下载的 pangolin 版本为0.6，而调试 ORB-SLAM2 pangolin 版本要求为0.5）</p>
+<p>其他问题：<br>
+slambook2/ch3/examples/plotTrajectory.cpp:10:28: error: ‘Isometry3d’ was not declared in this scope  void DrawTrajectory(vector&lt;Isometry3d, Eigen::aligned_allocator<isometry3d>&gt;);</isometry3d></p>
+<p>解决办法<br>
+添加Eigen几何模块<br>
+<code>#include &lt;Eigen/Geometry&gt;</code><br>
+2.  plotTrajectory的txt路径需要选择绝对目录，因为cmake编译是在build里面<br>
+3. 其他就基本没有问题。之前自己有使用高博百度云那个包，也有使用pangolin直接git clone下载，编译器来Pangolin问题太多了，花了三天时间去解决各种bug，还以为正常，殊不知最开始版本那方向就弄错。找对0.5版本下载就很快解决，有点人生哲理那味了。可惜之前没人提示这个，后来在第三天傍晚才找到几个帖子，大意是是c++版本、后面的 ORB-SLAM2都有关，建议0.5版最合适。</p>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/自动驾驶/" rel="tag"># 自动驾驶</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/01/26/python之parser-add-argument-用法——命令行选项、参数和子命令解析器/" rel="next" title="python之parser.add_argument()用法——命令行选项、参数和子命令解析器">
+                <i class="fa fa-chevron-left"></i> python之parser.add_argument()用法——命令行选项、参数和子命令解析器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/3/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -654,6 +417,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -909,6 +676,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="论文摘要翻译在本文中，我们重新思考了对于高度动态性无线网络的多跳转发的基本方法。思考的结果是：一种极简的转发协议——“先听后广播”（LFBL）。LFBL是拓扑无关的，也就是说，它没有邻居、路径、下一跳的信息。不靠发送者，LFBL由接收者来做转发决策，为了做到这一点，它只为每个活跃通信断点保留小的、固定量的状态。这样做的结果是，几乎没有什么状态会变得陈旧，也没有预定的路径被打破。频繁的拓扑变化不会削">
+<meta name="description" content="论文摘要翻译 在本文中，我们重新思考了对于高度动态性无线网络的多跳转发的基本方法。思考的结果是：一种极简的转发协议——“先听后广播”（LFBL）。LFBL是拓扑无关的，也就是说，它没有邻居、路径、下一跳的信息。不靠发送者，LFBL由接收者来做转发决策，为了做到这一点，它只为每个活跃通信断点保留小的、固定量的状态。这样做的结果是，几乎没有什么状态会变得陈旧，也没有预定的路径被打破。频繁的拓扑变化不">
 <meta name="keywords" content="Technology">
 <meta property="og:type" content="article">
 <meta property="og:title" content="阅读报告A_2010_IJ_Listen First, Broadcast Later Topology Agnostic Forwarding under High Dynamics_jinyang_20170729——LFBL详细">
 <meta property="og:url" content="https://tronyy.github.io/archives/2018/09/15/阅读报告A_2010_IJ_Listen First, Broadcast Later Topology Agnostic Forwarding under High Dynamics_jinyang_20170729——LFBL详细/index.html">
 <meta property="og:site_name" content="天洋行空">
-<meta property="og:description" content="论文摘要翻译在本文中，我们重新思考了对于高度动态性无线网络的多跳转发的基本方法。思考的结果是：一种极简的转发协议——“先听后广播”（LFBL）。LFBL是拓扑无关的，也就是说，它没有邻居、路径、下一跳的信息。不靠发送者，LFBL由接收者来做转发决策，为了做到这一点，它只为每个活跃通信断点保留小的、固定量的状态。这样做的结果是，几乎没有什么状态会变得陈旧，也没有预定的路径被打破。频繁的拓扑变化不会削">
+<meta property="og:description" content="论文摘要翻译 在本文中，我们重新思考了对于高度动态性无线网络的多跳转发的基本方法。思考的结果是：一种极简的转发协议——“先听后广播”（LFBL）。LFBL是拓扑无关的，也就是说，它没有邻居、路径、下一跳的信息。不靠发送者，LFBL由接收者来做转发决策，为了做到这一点，它只为每个活跃通信断点保留小的、固定量的状态。这样做的结果是，几乎没有什么状态会变得陈旧，也没有预定的路径被打破。频繁的拓扑变化不">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-10-15T15:41:44.188Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阅读报告A_2010_IJ_Listen First, Broadcast Later Topology Agnostic Forwarding under High Dynamics_jinyang_20170729——LFBL详细">
-<meta name="twitter:description" content="论文摘要翻译在本文中，我们重新思考了对于高度动态性无线网络的多跳转发的基本方法。思考的结果是：一种极简的转发协议——“先听后广播”（LFBL）。LFBL是拓扑无关的，也就是说，它没有邻居、路径、下一跳的信息。不靠发送者，LFBL由接收者来做转发决策，为了做到这一点，它只为每个活跃通信断点保留小的、固定量的状态。这样做的结果是，几乎没有什么状态会变得陈旧，也没有预定的路径被打破。频繁的拓扑变化不会削">
+<meta name="twitter:description" content="论文摘要翻译 在本文中，我们重新思考了对于高度动态性无线网络的多跳转发的基本方法。思考的结果是：一种极简的转发协议——“先听后广播”（LFBL）。LFBL是拓扑无关的，也就是说，它没有邻居、路径、下一跳的信息。不靠发送者，LFBL由接收者来做转发决策，为了做到这一点，它只为每个活跃通信断点保留小的、固定量的状态。这样做的结果是，几乎没有什么状态会变得陈旧，也没有预定的路径被打破。频繁的拓扑变化不">
 
 
 
@@ -342,7 +342,8 @@
       
 
       
-        <h2 id="论文摘要翻译"><a href="#论文摘要翻译" class="headerlink" title="论文摘要翻译"></a>论文摘要翻译</h2><p>在本文中，我们重新思考了对于高度动态性无线网络的多跳转发的基本方法。思考的结果是：一种极简的转发协议——“先听后广播”（LFBL）。LFBL是拓扑无关的，也就是说，它没有邻居、路径、下一跳的信息。不靠发送者，LFBL由接收者来做转发决策，为了做到这一点，它只为每个活跃通信断点保留小的、固定量的状态。这样做的结果是，几乎没有什么状态会变得陈旧，也没有预定的路径被打破。频繁的拓扑变化不会削弱性能。LFBL为所有的包使用了专门的广播通信，使得它更契合无线介质、允许更灵活地选择MAC层协议。除了节点的物理移动，LFBL也支持应用层数据的逻辑移动。仿真时，LFBL比AODV表现更好。</p>
+        <h2 id="论文摘要翻译"><a class="markdownIt-Anchor" href="#论文摘要翻译"></a> 论文摘要翻译</h2>
+<p>在本文中，我们重新思考了对于高度动态性无线网络的多跳转发的基本方法。思考的结果是：一种极简的转发协议——“先听后广播”（LFBL）。LFBL是拓扑无关的，也就是说，它没有邻居、路径、下一跳的信息。不靠发送者，LFBL由接收者来做转发决策，为了做到这一点，它只为每个活跃通信断点保留小的、固定量的状态。这样做的结果是，几乎没有什么状态会变得陈旧，也没有预定的路径被打破。频繁的拓扑变化不会削弱性能。LFBL为所有的包使用了专门的广播通信，使得它更契合无线介质、允许更灵活地选择MAC层协议。除了节点的物理移动，LFBL也支持应用层数据的逻辑移动。仿真时，LFBL比AODV表现更好。</p>
 
       
     </div>
@@ -367,8 +368,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/15/C++命名规范/" rel="next" title="C++命名规范">
-                <i class="fa fa-chevron-left"></i> C++命名规范
+              <a href="/2018/09/15/关于Java中String的传递问题/" rel="next" title="关于Java中String的传递问题">
+                <i class="fa fa-chevron-left"></i> 关于Java中String的传递问题
               </a>
             
           </div>
@@ -377,8 +378,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/15/ArrayList的初始化陷阱/" rel="prev" title="ArrayList的初始化陷阱">
-                ArrayList的初始化陷阱 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/17/阅读报告-A-2017-MedHocNet-A-Multihop-and-Multipath-Routing-Protocol-Using-NDN-for-VANETs-20180412/" rel="prev" title="阅读报告_A [2017][MedHocNet]A Multihop and Multipath Routing Protocol Using NDN for VANETs_20180412">
+                阅读报告_A [2017][MedHocNet]A Multihop and Multipath Routing Protocol Using NDN for VANETs_20180412 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -460,7 +461,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -543,7 +544,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#论文摘要翻译"><span class="nav-number">1.</span> <span class="nav-text">论文摘要翻译</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#论文摘要翻译"><span class="nav-number">1.</span> <span class="nav-text"> 论文摘要翻译</span></a></li></ol></div>
             
 
           </div>
