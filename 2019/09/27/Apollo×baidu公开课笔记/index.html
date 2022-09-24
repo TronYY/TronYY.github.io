@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="第二课：高精度地图高精度地图 厘米级进度。交通灯、限速、路标等信息 搜集的信息与高精度题图匹配——预处理、坐标转换、数据融合——以便知道自己处于什么位置 高精度地图作用，传感器有距离限制，这种情况下由高精度地图提供位置。另一个好处减小传感器检测范围——集中检查感兴趣区域ROI，提高速度进度 减小计算资源。规划软件也需要 靠近中心线，帮助减少决策空间 Apollo高精度地图采用了OpenDRIVE格">
+<meta name="description" content="第二课：高精度地图  高精度地图  厘米级进度。交通灯、限速、路标等信息 搜集的信息与高精度题图匹配——预处理、坐标转换、数据融合——以便知道自己处于什么位置 高精度地图作用，传感器有距离限制，这种情况下由高精度地图提供位置。另一个好处减小传感器检测范围——集中检查感兴趣区域ROI，提高速度进度 减小计算资源。规划软件也需要 靠近中心线，帮助减少决策空间 Apollo高精度地图采用了OpenDR">
 <meta name="keywords" content="Technology">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apollo×baidu公开课笔记">
 <meta property="og:url" content="https://tronyy.github.io/archives/2019/09/27/Apollo×baidu公开课笔记/index.html">
 <meta property="og:site_name" content="天洋行空">
-<meta property="og:description" content="第二课：高精度地图高精度地图 厘米级进度。交通灯、限速、路标等信息 搜集的信息与高精度题图匹配——预处理、坐标转换、数据融合——以便知道自己处于什么位置 高精度地图作用，传感器有距离限制，这种情况下由高精度地图提供位置。另一个好处减小传感器检测范围——集中检查感兴趣区域ROI，提高速度进度 减小计算资源。规划软件也需要 靠近中心线，帮助减少决策空间 Apollo高精度地图采用了OpenDRIVE格">
+<meta property="og:description" content="第二课：高精度地图  高精度地图  厘米级进度。交通灯、限速、路标等信息 搜集的信息与高精度题图匹配——预处理、坐标转换、数据融合——以便知道自己处于什么位置 高精度地图作用，传感器有距离限制，这种情况下由高精度地图提供位置。另一个好处减小传感器检测范围——集中检查感兴趣区域ROI，提高速度进度 减小计算资源。规划软件也需要 靠近中心线，帮助减少决策空间 Apollo高精度地图采用了OpenDR">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://uploadfiles.nowcoder.com/compress/mw1000/images/20190925/5783209_1569396196472_CF4CCFB89DAD844675ED709E79CE8248">
 <meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20190925/5783209_1569406507222_509648A7500E06F1669E22FE4398CECD">
@@ -105,7 +105,7 @@
 <meta property="og:updated_time" content="2019-09-27T02:44:57.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apollo×baidu公开课笔记">
-<meta name="twitter:description" content="第二课：高精度地图高精度地图 厘米级进度。交通灯、限速、路标等信息 搜集的信息与高精度题图匹配——预处理、坐标转换、数据融合——以便知道自己处于什么位置 高精度地图作用，传感器有距离限制，这种情况下由高精度地图提供位置。另一个好处减小传感器检测范围——集中检查感兴趣区域ROI，提高速度进度 减小计算资源。规划软件也需要 靠近中心线，帮助减少决策空间 Apollo高精度地图采用了OpenDRIVE格">
+<meta name="twitter:description" content="第二课：高精度地图  高精度地图  厘米级进度。交通灯、限速、路标等信息 搜集的信息与高精度题图匹配——预处理、坐标转换、数据融合——以便知道自己处于什么位置 高精度地图作用，传感器有距离限制，这种情况下由高精度地图提供位置。另一个好处减小传感器检测范围——集中检查感兴趣区域ROI，提高速度进度 减小计算资源。规划软件也需要 靠近中心线，帮助减少决策空间 Apollo高精度地图采用了OpenDR">
 <meta name="twitter:image" content="https://uploadfiles.nowcoder.com/compress/mw1000/images/20190925/5783209_1569396196472_CF4CCFB89DAD844675ED709E79CE8248">
 
 
@@ -358,37 +358,58 @@
       
 
       
-        <h1 id="第二课：高精度地图"><a href="#第二课：高精度地图" class="headerlink" title="第二课：高精度地图"></a>第二课：高精度地图</h1><h2 id="高精度地图"><a href="#高精度地图" class="headerlink" title="高精度地图"></a>高精度地图</h2><ul>
+        <h1 id="第二课高精度地图"><a class="markdownIt-Anchor" href="#第二课高精度地图"></a> 第二课：高精度地图</h1>
+<h2 id="高精度地图"><a class="markdownIt-Anchor" href="#高精度地图"></a> 高精度地图</h2>
+<ul>
 <li>厘米级进度。交通灯、限速、路标等信息</li>
 <li>搜集的信息与高精度题图匹配——预处理、坐标转换、数据融合——以便知道自己处于什么位置</li>
 <li>高精度地图作用，传感器有距离限制，这种情况下由高精度地图提供位置。另一个好处减小传感器检测范围——集中检查感兴趣区域ROI，提高速度进度 减小计算资源。规划软件也需要 靠近中心线，帮助减少决策空间</li>
 <li>Apollo高精度地图采用了OpenDRIVE格式，行业制图标准</li>
 <li>高精度地图5个过程：数据采集（众包采集）、数据处理、目标检测、手动验证、地图发布</li>
 </ul>
-<h1 id="第三课-定位"><a href="#第三课-定位" class="headerlink" title="第三课 定位"></a>第三课 定位</h1><ul>
-<li>GPS进度在1-3米，在信号不好的地方，可以达到数十米。转换坐标系、由传感器得到的标示与 在全局地图上的位置进行匹配<h3 id="GPS（GNSS）"><a href="#GPS（GNSS）" class="headerlink" title="GPS（GNSS）"></a>GPS（GNSS）</h3></li>
+<h1 id="第三课-定位"><a class="markdownIt-Anchor" href="#第三课-定位"></a> 第三课 定位</h1>
+<ul>
+<li>GPS进度在1-3米，在信号不好的地方，可以达到数十米。转换坐标系、由传感器得到的标示与 在全局地图上的位置进行匹配</li>
+</ul>
+<h3 id="gpsgnss"><a class="markdownIt-Anchor" href="#gpsgnss"></a> GPS（GNSS）</h3>
+<ul>
 <li>三角定位（三个圆交点），GPS传送距离</li>
-<li>gps 卫星、地面的控制站 监视和控制卫星、GPS接收器（手机上、汽车上）。每次至少接收4颗。时间乘以光速（原子钟）。  RTK纠错发给gps接收器。 gps缺点受遮挡物干扰、更新频率低<h3 id="惯性导航"><a href="#惯性导航" class="headerlink" title="惯性导航"></a>惯性导航</h3></li>
-<li>三轴传感器测加速度。 螺旋仪。 IMU短时间内定位，频率高，短时间定位。要与gps结合。但是仍旧不精确 因为gps有些地形下失效<h3 id="激光雷达定位"><a href="#激光雷达定位" class="headerlink" title="激光雷达定位"></a>激光雷达定位</h3></li>
+<li>gps 卫星、地面的控制站 监视和控制卫星、GPS接收器（手机上、汽车上）。每次至少接收4颗。时间乘以光速（原子钟）。  RTK纠错发给gps接收器。 gps缺点受遮挡物干扰、更新频率低</li>
+</ul>
+<h3 id="惯性导航"><a class="markdownIt-Anchor" href="#惯性导航"></a> 惯性导航</h3>
+<ul>
+<li>三轴传感器测加速度。 螺旋仪。 IMU短时间内定位，频率高，短时间定位。要与gps结合。但是仍旧不精确 因为gps有些地形下失效</li>
+</ul>
+<h3 id="激光雷达定位"><a class="markdownIt-Anchor" href="#激光雷达定位"></a> 激光雷达定位</h3>
+<ul>
 <li>点云匹配——迭代最近点法，点云旋转 减小误差，匹配，传感器得到的位置转化为全局</li>
-<li>LiDAR：滤波算法；消除冗余，最小平方误差。 卡尔曼滤波，预测新位置，用传感器测量新位置纠正。优点稳健性，只要有高精度地图+传感器更正。难点 地图不可能保持最新<h3 id="图像定位"><a href="#图像定位" class="headerlink" title="图像定位"></a>图像定位</h3></li>
+<li>LiDAR：滤波算法；消除冗余，最小平方误差。 卡尔曼滤波，预测新位置，用传感器测量新位置纠正。优点稳健性，只要有高精度地图+传感器更正。难点 地图不可能保持最新</li>
+</ul>
+<h3 id="图像定位"><a class="markdownIt-Anchor" href="#图像定位"></a> 图像定位</h3>
+<ul>
 <li>粒子滤波（概率）。对车道线拍照。优点 图像数据容易得到。缺点：缺乏三维信息和对三维地图的依赖</li>
-<li><h1 id="第四课-感知"><a href="#第四课-感知" class="headerlink" title="第四课 感知"></a>第四课 感知</h1></li>
+<li></li>
+</ul>
+<h1 id="第四课-感知"><a class="markdownIt-Anchor" href="#第四课-感知"></a> 第四课 感知</h1>
+<ul>
 <li>4个核心人物检测：找出位置，分类、跟踪、语义分割</li>
 <li>分类器：接收输入，预处理（标准化，调大小、旋转）、提取特征</li>
-<li>摄像头图像：RGB图像 </li>
-<li>LiDAR图像：雷达发射，点云<br><img src="https://uploadfiles.nowcoder.com/compress/mw1000/images/20190925/5783209_1569396196472_CF4CCFB89DAD844675ED709E79CE8248" alt="image"></li>
+<li>摄像头图像：RGB图像</li>
+<li>LiDAR图像：雷达发射，点云<br>
+<img src="https://uploadfiles.nowcoder.com/compress/mw1000/images/20190925/5783209_1569396196472_CF4CCFB89DAD844675ED709E79CE8248" alt="image"></li>
 <li>机器学习：使用数据。监督式学习、半监督、无监督。强化学习</li>
 <li>神经网络：调整某些特征的权重，得到最终结果</li>
 <li>反向传播</li>
-<li>CNN：接收多维输入。标准神经网络的弄成一维，打破了图像中嵌入的空间信息。在整个图像上对一个过滤器进行卷积操作&gt; <blockquote>
+<li>CNN：接收多维输入。标准神经网络的弄成一维，打破了图像中嵌入的空间信息。在整个图像上对一个过滤器进行卷积操作&gt;
+<blockquote>
 <p>（什么是卷积：图像中不同数据窗口的数据和卷积核（一个滤波矩阵）作内积的操作叫做卷积。其计算过程又称为滤波（filter)，本质是提取图像不同频段的特征。）</p>
 </blockquote>
 </li>
 <li>检测与分类：CNN中找出图像中对象的位置、定位，发给另一个CNN进行分类，或者直接一个CNN完成。R FastRCNN FasterRCNN ，YOLO SSD</li>
 <li>跟踪：解决遮挡物、追踪可以保留身份。前后两帧中对象匹配。计算机视觉可以计算出复杂的图像特征，如局部二值模式和方向梯度直方图。连续帧中，两个障碍物之间的位置和速度</li>
-<li>分割：确定汽车可行驶的位置。FCN，每一层都是卷积层。CNN最后输出比原图像小得多。为了分割图像，输出尺寸必须与原始图像的尺寸相匹配，中间输出进行上采用处理。  前半部分encoder对输入图像的特征进行了提取和编码。后半部分解码器对特征进行解码 用于输出。<blockquote>
-<p>上采样可以用来进行图像放大，多采用内插方法，即在原有图像像素的基础上在像素点之间采用合适的插值算法插入新的元素  </p>
+<li>分割：确定汽车可行驶的位置。FCN，每一层都是卷积层。CNN最后输出比原图像小得多。为了分割图像，输出尺寸必须与原始图像的尺寸相匹配，中间输出进行上采用处理。  前半部分encoder对输入图像的特征进行了提取和编码。后半部分解码器对特征进行解码 用于输出。
+<blockquote>
+<p>上采样可以用来进行图像放大，多采用内插方法，即在原有图像像素的基础上在像素点之间采用合适的插值算法插入新的元素</p>
 </blockquote>
 </li>
 </ul>
@@ -404,44 +425,93 @@
 <li>预测状态</li>
 <li>更新测量结果（同步异步）</li>
 </ol>
-<h1 id="第五课：预测（移动路径）"><a href="#第五课：预测（移动路径）" class="headerlink" title="第五课：预测（移动路径）"></a>第五课：预测（移动路径）</h1><ul>
-<li>实时性、准确性。5m内没东西。用多源的数据预测</li>
-<li>两种类型：基于模型的（直观，结合了人的物理知识、交通法规）、数据驱动的（数据越多 越准确）</li>
-<li>基于车道序列的预测：将道路分成多个区域，车辆如何在这些车道间变换，将车辆的运动描述为一组序列<br><img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569460796824_0ED36AD1812804284E5AFE094119ED3B" alt="image"></li>
-<li>障碍物状态：车道段内情况 到车道线的横向纵向距离、之前时间间隔的状态信息</li>
-<li>预测目标车道：预测问题转为选择问题。通过计算每个车道的概率来选择<img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569464486105_176B58D049332C8014AB15AF9076FB9C" alt="image"></li>
-<li><p>递归神经网络RNN：利用时间序列特征。传统神经网络 多层感知网络MLP。RNN中每个MLP单元将序列的一个元素作为输入，并预测序列的下一个元素作为输出。为了对元素之间的顺序关系建立模型，在每个单元之间建立一个额外的连接——意味着每个单元根据原始输入 和 前一个单元的输出进行预测<br><img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569465574589_4AE920DA348DF7179B1EDCDA61010490" alt="image"></p>
+<h1 id="第五课预测移动路径"><a class="markdownIt-Anchor" href="#第五课预测移动路径"></a> 第五课：预测（移动路径）</h1>
+<ul>
+<li>
+<p>实时性、准确性。5m内没东西。用多源的数据预测</p>
 </li>
-<li><p>为车道序列提供一个RNN模型，为相关对象状态提供了一个RNN模型。Apollo连接这两个RNN的输出并将他们馈送到另一个神经网络，该神经网络估计每个车道序列的概率，具有最高概率的车道序列就是最终预测<img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569471265772_C019611A2768F80A13059D804894CC5E" alt="image"></p>
+<li>
+<p>两种类型：基于模型的（直观，结合了人的物理知识、交通法规）、数据驱动的（数据越多 越准确）</p>
 </li>
-<li>轨迹生成：设置约束条件，去除大多数预选轨迹，考虑速度、加速度进一步去除。注意车辆在原始、结束状态的位置和速度，用这两个条件拟合多项式模型</li>
+<li>
+<p>基于车道序列的预测：将道路分成多个区域，车辆如何在这些车道间变换，将车辆的运动描述为一组序列<br>
+<img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569460796824_0ED36AD1812804284E5AFE094119ED3B" alt="image"></p>
+</li>
+<li>
+<p>障碍物状态：车道段内情况 到车道线的横向纵向距离、之前时间间隔的状态信息</p>
+</li>
+<li>
+<p>预测目标车道：预测问题转为选择问题。通过计算每个车道的概率来选择<img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569464486105_176B58D049332C8014AB15AF9076FB9C" alt="image"></p>
+</li>
+<li>
+<p>递归神经网络RNN：利用时间序列特征。传统神经网络 多层感知网络MLP。RNN中每个MLP单元将序列的一个元素作为输入，并预测序列的下一个元素作为输出。为了对元素之间的顺序关系建立模型，在每个单元之间建立一个额外的连接——意味着每个单元根据原始输入 和 前一个单元的输出进行预测<br>
+<img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569465574589_4AE920DA348DF7179B1EDCDA61010490" alt="image"></p>
+</li>
+<li>
+<p>为车道序列提供一个RNN模型，为相关对象状态提供了一个RNN模型。Apollo连接这两个RNN的输出并将他们馈送到另一个神经网络，该神经网络估计每个车道序列的概率，具有最高概率的车道序列就是最终预测<img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569471265772_C019611A2768F80A13059D804894CC5E" alt="image"></p>
+</li>
+<li>
+<p>轨迹生成：设置约束条件，去除大多数预选轨迹，考虑速度、加速度进一步去除。注意车辆在原始、结束状态的位置和速度，用这两个条件拟合多项式模型</p>
+</li>
 </ul>
-<h1 id="第六课：规划"><a href="#第六课：规划" class="headerlink" title="第六课：规划"></a>第六课：规划</h1><ul>
+<h1 id="第六课规划"><a class="markdownIt-Anchor" href="#第六课规划"></a> 第六课：规划</h1>
+<ul>
 <li>规划：路线导航。轨迹由一系列点组成，点还包括速度、何时抵达</li>
-<li>通络搜索查找路线：将地图转化为图<br><img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569485371670_632B1AB9CA965B0E4B8D50BE86264E31" alt="image"></li>
-<li>A*算法，起始节点-候选节点 + 候选节点-目的节点<h2 id="轨迹"><a href="#轨迹" class="headerlink" title="轨迹"></a>轨迹</h2></li>
+<li>通络搜索查找路线：将地图转化为图<br>
+<img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569485371670_632B1AB9CA965B0E4B8D50BE86264E31" alt="image"></li>
+<li>A*算法，起始节点-候选节点 + 候选节点-目的节点</li>
+</ul>
+<h2 id="轨迹"><a class="markdownIt-Anchor" href="#轨迹"></a> 轨迹</h2>
+<ul>
 <li>从路由到轨迹：从出发点-目的地——高等级地图（路由）。一条路段上行驶，需要低等级（轨迹）</li>
-<li>轨迹生成：生成一系列路径点定义的轨迹，让一条曲线去和路径点拟合，生成轨迹的几何表征<br><img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569489728135_5301365E7F4C17FCDE5E09ADA2642DBF" alt="image"><br>这些时间戳创建了一个三维轨迹2D position + time，每个点还有速度 </li>
+<li>轨迹生成：生成一系列路径点定义的轨迹，让一条曲线去和路径点拟合，生成轨迹的几何表征<br>
+<img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569489728135_5301365E7F4C17FCDE5E09ADA2642DBF" alt="image"><br>
+这些时间戳创建了一个三维轨迹2D position + time，每个点还有速度</li>
 <li>轨迹的约束：防止碰撞、变化平滑、不能违法</li>
 <li>评估轨迹：成本最低的轨迹，成本有惩罚组成（deviation、collisions、speed limit、comfort），不同场景成本函数不同</li>
-<li>Frenet坐标：笛卡尔坐标系的替代方案<br><img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569491864160_EBF8AE7A393EA9D7F4E34D66FDAE281F" alt="image"></li>
+<li>Frenet坐标：笛卡尔坐标系的替代方案<br>
+<img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569491864160_EBF8AE7A393EA9D7F4E34D66FDAE281F" alt="image"></li>
 <li>路径 - 速度解耦规划：路径规划 成本函数 选出成本最低的路径；下一步 确定速度速度规划 与路径点相关点一系列速度——速度曲线。合起来就是行驶轨迹</li>
-<li>在路径-速度解耦规划中生成候选路径：将路段分割成单元格，对单元格中的点随机采样。创多条候选路径，用成本函数选路。成本函数可以考虑的因素<br><img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569493269177_E89B38E5E55D28CBB5224BA84BAE7519" alt="image"></li>
+<li>在路径-速度解耦规划中生成候选路径：将路段分割成单元格，对单元格中的点随机采样。创多条候选路径，用成本函数选路。成本函数可以考虑的因素<br>
+<img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569493269177_E89B38E5E55D28CBB5224BA84BAE7519" alt="image"></li>
 </ul>
-<h2 id="速度"><a href="#速度" class="headerlink" title="速度"></a>速度</h2><ul>
-<li>ST图：选择好路径的下一步，是选择与该路径关联的速度曲线。S纵向位移，T时间，斜率速度<br><img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569502598412_4E6B3D80077647DE34F1F3DC81C45180" alt="image"></li>
-<li>速度规划（有障碍物怎么处理、或其他限制）：为了构建最佳速度曲线，把ST离散为多个单元格，每个单元格内速度不变，可以简化。可以将障碍物绘制为在特点时间段内，阻挡道路的某些部分的矩阵<br><img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569506543037_0DDFA7C67CADC00232CCB946DBC1DBD4" alt="image"><br>使得速度曲线不与矩形相交即可<h2 id="–"><a href="#–" class="headerlink" title="–"></a>–</h2></li>
-<li>到目前为止因为路径选择是将道路划分为单 元格、速度曲线是把ST图划分为单元格，都是离散的。为了使曲线平滑，可以用二次规划将平滑的非线性曲线与这些分段式线性段拟合——生成路径-速度曲线</li>
-<li>Lattice规划的轨迹生成方法：三维的规划问题变化为两个二维的优化问题，S-T、L-S图，通过对预选模式中的++多个候选最终状态进行采样，生成多组轨迹，来选择最终车辆状态？？是在检测是否到达终止状态吗？？++，使用成本函数来对这些轨迹进行评估选择最好的轨迹</li>
-<li>ST轨迹的终止状态：巡航、跟随和停止。<br>巡航：完成规划步骤后定速行驶，在对地图上的++点进行抽样？？？++，所有最终状态的加速符为0.<br>跟随模式：对位置和时间状态进行采样，尝试在时间t出现在某辆车后面跟随车辆时，保持安全距离，速度和加速度取决于前车<br>停车：对汽车何时何地停止进行抽样，速度加速度都为0</li>
-<li><p>SL曲线的终止状态：最终要与车道中心线一致。采样的是道路上相邻车道中心线周围的位置<br>车的朝向和位置的一阶二阶导数都为0——既不是横向移动的也不是横向加速的<br><img src="https://uploadfiles.nowcoder.com/images/20190927/5783209_1569517608596_94D93D303800A3BAA8ECEFC5D080715A" alt="image"></p>
+<h2 id="速度"><a class="markdownIt-Anchor" href="#速度"></a> 速度</h2>
+<ul>
+<li>ST图：选择好路径的下一步，是选择与该路径关联的速度曲线。S纵向位移，T时间，斜率速度<br>
+<img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569502598412_4E6B3D80077647DE34F1F3DC81C45180" alt="image"></li>
+<li>速度规划（有障碍物怎么处理、或其他限制）：为了构建最佳速度曲线，把ST离散为多个单元格，每个单元格内速度不变，可以简化。可以将障碍物绘制为在特点时间段内，阻挡道路的某些部分的矩阵<br>
+<img src="https://uploadfiles.nowcoder.com/images/20190926/5783209_1569506543037_0DDFA7C67CADC00232CCB946DBC1DBD4" alt="image"><br>
+使得速度曲线不与矩形相交即可</li>
+</ul>
+<h2 id=""><a class="markdownIt-Anchor" href="#"></a> –</h2>
+<ul>
+<li>
+<p>到目前为止因为路径选择是将道路划分为单 元格、速度曲线是把ST图划分为单元格，都是离散的。为了使曲线平滑，可以用二次规划将平滑的非线性曲线与这些分段式线性段拟合——生成路径-速度曲线</p>
 </li>
-<li><p>Lattice规划的轨迹生成：转为笛卡尔<br><img src="https://uploadfiles.nowcoder.com/images/20190927/5783209_1569517992401_FF25B422D4790C4440EACFBD76B32956" alt="image"></p>
+<li>
+<p>Lattice规划的轨迹生成方法：三维的规划问题变化为两个二维的优化问题，S-T、L-S图，通过对预选模式中的<ins>多个候选最终状态进行采样，生成多组轨迹，来选择最终车辆状态？？是在检测是否到达终止状态吗？？</ins>，使用成本函数来对这些轨迹进行评估选择最好的轨迹</p>
+</li>
+<li>
+<p>ST轨迹的终止状态：巡航、跟随和停止。<br>
+巡航：完成规划步骤后定速行驶，在对地图上的<ins>点进行抽样？？？</ins>，所有最终状态的加速符为0.<br>
+跟随模式：对位置和时间状态进行采样，尝试在时间t出现在某辆车后面跟随车辆时，保持安全距离，速度和加速度取决于前车<br>
+停车：对汽车何时何地停止进行抽样，速度加速度都为0</p>
+</li>
+<li>
+<p>SL曲线的终止状态：最终要与车道中心线一致。采样的是道路上相邻车道中心线周围的位置<br>
+车的朝向和位置的一阶二阶导数都为0——既不是横向移动的也不是横向加速的<br>
+<img src="https://uploadfiles.nowcoder.com/images/20190927/5783209_1569517608596_94D93D303800A3BAA8ECEFC5D080715A" alt="image"></p>
+</li>
+<li>
+<p>Lattice规划的轨迹生成：转为笛卡尔<br>
+<img src="https://uploadfiles.nowcoder.com/images/20190927/5783209_1569517992401_FF25B422D4790C4440EACFBD76B32956" alt="image"></p>
 </li>
 </ul>
-<h1 id="第七课：控制"><a href="#第七课：控制" class="headerlink" title="第七课：控制"></a>第七课：控制</h1><ul>
+<h1 id="第七课控制"><a class="markdownIt-Anchor" href="#第七课控制"></a> 第七课：控制</h1>
+<ul>
 <li>不要偏离预定轨道、可行性、舒适性、控制要连续性不要突然制动或加速或转向</li>
-<li>输入：由规划模块给出的目标轨迹，<br>每个轨迹点有一个位置和参考速度，每个时间步都对轨迹进行更新。要通过自身传感器了解自身状态，来计算实际与目标的偏差</li>
+<li>输入：由规划模块给出的目标轨迹，<br>
+每个轨迹点有一个位置和参考速度，每个时间步都对轨迹进行更新。要通过自身传感器了解自身状态，来计算实际与目标的偏差</li>
 <li>输出：转向、加速度、制动</li>
 <li>PID依赖于实时误差测量</li>
 </ul>
@@ -645,7 +715,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第二课：高精度地图"><span class="nav-number">1.</span> <span class="nav-text">第二课：高精度地图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#高精度地图"><span class="nav-number">1.1.</span> <span class="nav-text">高精度地图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三课-定位"><span class="nav-number">2.</span> <span class="nav-text">第三课 定位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GPS（GNSS）"><span class="nav-number">2.0.1.</span> <span class="nav-text">GPS（GNSS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#惯性导航"><span class="nav-number">2.0.2.</span> <span class="nav-text">惯性导航</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#激光雷达定位"><span class="nav-number">2.0.3.</span> <span class="nav-text">激光雷达定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像定位"><span class="nav-number">2.0.4.</span> <span class="nav-text">图像定位</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四课-感知"><span class="nav-number">3.</span> <span class="nav-text">第四课 感知</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五课：预测（移动路径）"><span class="nav-number">4.</span> <span class="nav-text">第五课：预测（移动路径）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第六课：规划"><span class="nav-number">5.</span> <span class="nav-text">第六课：规划</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#轨迹"><span class="nav-number">5.1.</span> <span class="nav-text">轨迹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#速度"><span class="nav-number">5.2.</span> <span class="nav-text">速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–"><span class="nav-number">5.3.</span> <span class="nav-text">–</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第七课：控制"><span class="nav-number">6.</span> <span class="nav-text">第七课：控制</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第二课高精度地图"><span class="nav-number">1.</span> <span class="nav-text"> 第二课：高精度地图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#高精度地图"><span class="nav-number">1.1.</span> <span class="nav-text"> 高精度地图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三课-定位"><span class="nav-number">2.</span> <span class="nav-text"> 第三课 定位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gpsgnss"><span class="nav-number">2.0.1.</span> <span class="nav-text"> GPS（GNSS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#惯性导航"><span class="nav-number">2.0.2.</span> <span class="nav-text"> 惯性导航</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#激光雷达定位"><span class="nav-number">2.0.3.</span> <span class="nav-text"> 激光雷达定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像定位"><span class="nav-number">2.0.4.</span> <span class="nav-text"> 图像定位</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四课-感知"><span class="nav-number">3.</span> <span class="nav-text"> 第四课 感知</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五课预测移动路径"><span class="nav-number">4.</span> <span class="nav-text"> 第五课：预测（移动路径）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第六课规划"><span class="nav-number">5.</span> <span class="nav-text"> 第六课：规划</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#轨迹"><span class="nav-number">5.1.</span> <span class="nav-text"> 轨迹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#速度"><span class="nav-number">5.2.</span> <span class="nav-text"> 速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">5.3.</span> <span class="nav-text"> –</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第七课控制"><span class="nav-number">6.</span> <span class="nav-text"> 第七课：控制</span></a></li></ol></div>
             
 
           </div>
